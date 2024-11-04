@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    flatDir {
+        dirs("libs")
+    }
+}
+
+dependencies {
+    implementation(fileTree("libs") { include("*.jar") })
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+
