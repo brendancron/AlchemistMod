@@ -12,11 +12,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class AlchemistStrike extends CustomCard {
     public final static String ID = AlchemistMod.makeID("AlchemistStrike");
     public static final String NAME = "Alchemist Strike";
-    public static final String DESCRIPTION = "Deal 10 damage.";
+    public static final String DESCRIPTION = "Deal !D! damage.";
     public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
+    private static final int DAMAGE_UPGRADE = 5;
 
     public AlchemistStrike() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.COLORLESS, CardRarity.COMMON, CardTarget.ENEMY);
@@ -27,7 +28,7 @@ public class AlchemistStrike extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(5);  // Increase damage by 5 on upgrade, adjust as desired
+            this.upgradeDamage(DAMAGE_UPGRADE);  // Increase damage by 5 on upgrade, adjust as desired
         }
     }
 
