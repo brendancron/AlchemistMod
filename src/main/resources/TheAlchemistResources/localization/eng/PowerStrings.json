@@ -1,6 +1,10 @@
 {
   "TheAlchemist:FireElement": {
-    "NAME": "Placeholder Power",
+    "NAME": "Fire Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Fire based potion."]
+  },
+  "TheAlchemist:GenericPower": {
+    "NAME": "Generic Power",
     "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
   }
 }
