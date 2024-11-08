@@ -48,5 +48,13 @@
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "TheAlchemist:FireSkill": {
+    "NAME": "Fire Skill",
+    "DESCRIPTION": "Add !M! Fire."
+  },
+  "TheAlchemist:EarthSkill": {
+    "NAME": "Earth Skill",
+    "DESCRIPTION": "Add !M! Earth."
   }
 }
