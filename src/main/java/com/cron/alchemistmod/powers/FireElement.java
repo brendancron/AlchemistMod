@@ -5,15 +5,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.potions.ExplosivePotion;
+import com.megacrit.cardcrawl.potions.FirePotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class FireElement extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
@@ -68,8 +68,9 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
     public void brewPotion() {
         if (owner.hasPower(EarthElement.POWER_ID)) {
             // if there is earth already
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
-                    new ThornsPower(owner, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
+                    new ExplosivePotion()
+            ));
             AbstractPower element = owner.getPower(EarthElement.POWER_ID);
 
             element.amount -= 1;
@@ -81,8 +82,9 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
         }
 
         while (this.amount >= 2) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
-                    new StrengthPower(owner, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
+                    new FirePotion()
+            ));
             this.amount -= 2;
         }
 
