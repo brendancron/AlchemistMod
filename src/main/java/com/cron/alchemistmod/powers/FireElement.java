@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class FireElement extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
@@ -65,9 +66,18 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
     }
 
     public void brewPotion() {
-        if (false) {
-            // if there is another element already
+        if (owner.hasPower(EarthElement.POWER_ID)) {
+            // if there is earth already
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
+                    new ThornsPower(owner, 1), 1));
+            AbstractPower element = owner.getPower(EarthElement.POWER_ID);
+
+            element.amount -= 1;
             this.amount -= 1;
+
+            if (element.amount == 0) {
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, EarthElement.POWER_ID));
+            }
         }
 
         while (this.amount >= 2) {
