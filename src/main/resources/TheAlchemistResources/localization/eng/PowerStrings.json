@@ -3,6 +3,10 @@
     "NAME": "Fire Element",
     "DESCRIPTIONS": ["Mix with another Element to make a Fire based potion."]
   },
+  "TheAlchemist:EarthElement": {
+    "NAME": "Earth Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Earth based potion."]
+  },
   "TheAlchemist:GenericPower": {
     "NAME": "Generic Power",
     "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
