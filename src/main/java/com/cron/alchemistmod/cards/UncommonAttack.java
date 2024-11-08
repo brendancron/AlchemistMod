@@ -2,25 +2,31 @@ package com.cron.alchemistmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.util.InsertSpacesIntoString;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class AlchemistStrike extends CustomCard {
-    public final static String ID = AlchemistMod.makeID("AlchemistStrike");
-    public static final String NAME = "Alchemist Strike";
+public class UncommonAttack extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
+    public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
+
+    private static final int COST = 1;
+    private static final int DAMAGE = 6;
+    private static final int DAMAGE_UPGRADE = 3;
+
+    public final static String ID = AlchemistMod.makeID(UncommonAttack.class.getSimpleName());
+    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(UncommonAttack.class.getSimpleName());
     public static final String DESCRIPTION = "Deal !D! damage.";
     public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 10;
-    private static final int DAMAGE_UPGRADE = 5;
-
-    public AlchemistStrike() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.ATTACK, CardColor.COLORLESS, CardRarity.COMMON, CardTarget.ENEMY);
+    public UncommonAttack() {
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 
@@ -38,10 +44,5 @@ public class AlchemistStrike extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL))
         );
-    }
-
-    @Override
-    public AbstractCard makeCopy() {
-        return new AlchemistStrike();
     }
 }

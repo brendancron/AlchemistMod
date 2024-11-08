@@ -5,7 +5,8 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.AlchemistStrike;
+import com.cron.alchemistmod.cards.BasicDefend;
+import com.cron.alchemistmod.cards.BasicStrike;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -107,7 +108,11 @@ public class TheAlchemist extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(AlchemistStrike.ID);
+        for (int i = 0; i < 4; i++) {
+            retVal.add(BasicStrike.ID);
+            retVal.add(BasicDefend.ID);
+        }
+
         return retVal;
     }
 
@@ -143,7 +148,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new AlchemistStrike();
+        return new BasicStrike();
     }
 
     @Override
