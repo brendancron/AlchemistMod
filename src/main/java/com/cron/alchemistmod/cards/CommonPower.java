@@ -3,12 +3,12 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.FireElement;
 import com.cron.alchemistmod.util.InsertSpacesIntoString;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class CommonPower extends CustomCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -41,7 +41,7 @@ public class CommonPower extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new FireElement(p, p, magicNumber), magicNumber)
         );
     }
 }

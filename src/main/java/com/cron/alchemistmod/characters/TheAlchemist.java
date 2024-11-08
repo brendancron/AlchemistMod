@@ -49,7 +49,7 @@ public class TheAlchemist extends CustomPlayer {
     };
 
     public static final String MY_CHARACTER_SHOULDER_2 = "images/shoulder2.png"; // campfire pose
-    public static final String MY_CHARACTER_SHOULDER_1 = "images/shoulder1.png"; // another campfire pose
+    public static final String MY_CHARACTER_SHOULDER_1 = "images/shoulder.png"; // another campfire pose
     public static final String MY_CHARACTER_CORPSE = "images/corpse.png"; // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
