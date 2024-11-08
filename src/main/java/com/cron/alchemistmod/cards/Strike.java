@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class BasicStrike extends CustomCard {
+public class Strike extends CustomCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
@@ -20,12 +20,12 @@ public class BasicStrike extends CustomCard {
     private static final int DAMAGE = 6;
     private static final int DAMAGE_UPGRADE = 3;
 
-    public final static String ID = AlchemistMod.makeID(BasicStrike.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(BasicStrike.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Strike.class.getSimpleName());
+    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(Strike.class.getSimpleName());
     public static final String DESCRIPTION = "Deal !D! damage.";
     public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
 
-    public BasicStrike() {
+    public Strike() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.tags.add(CardTags.STARTER_STRIKE);

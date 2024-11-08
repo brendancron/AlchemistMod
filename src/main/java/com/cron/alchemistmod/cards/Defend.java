@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class BasicDefend extends CustomCard {
+public class Defend extends CustomCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -19,12 +19,12 @@ public class BasicDefend extends CustomCard {
     private static final int BLOCK = 5;
     private static final int BLOCK_UPGRADE = 3;
 
-    public final static String ID = AlchemistMod.makeID(BasicDefend.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(BasicDefend.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Defend.class.getSimpleName());
+    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(Defend.class.getSimpleName());
     public static final String DESCRIPTION = "Gain !B! Block.";
     public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
 
-    public BasicDefend() {
+    public Defend() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
 

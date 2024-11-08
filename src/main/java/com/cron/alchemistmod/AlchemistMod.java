@@ -6,7 +6,7 @@ import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.graphics.Color;
-import com.cron.alchemistmod.cards.BasicStrike;
+import com.cron.alchemistmod.cards.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -60,7 +60,7 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     public void receiveEditCards() {
         // Register the custom card
         new AutoAdd(MOD_ID) // ${project.artifactId}
-                .packageFilter(BasicStrike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
+                .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
                 .setDefaultSeen(true)
                 .cards();
     }

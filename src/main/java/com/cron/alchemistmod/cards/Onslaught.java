@@ -4,30 +4,33 @@ import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.util.InsertSpacesIntoString;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class CommonPower extends CustomCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+public class Onslaught extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int DAMAGE = 1;
+    private static final int MAGIC = 4;
     private static final int MAGIC_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(CommonPower.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(CommonPower.class.getSimpleName());
-    public static final String DESCRIPTION = "Gain !M! Strength.";
+    public final static String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
+    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(Onslaught.class.getSimpleName());
+    public static final String DESCRIPTION = "Deal !D! damage !M! times. NL Exhaust.";
     public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
 
-    public CommonPower() {
+    public Onslaught() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
@@ -40,8 +43,10 @@ public class CommonPower extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber)
-        );
+        for (int i = 0; i < this.magicNumber; i++) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL))
+            );
+        }
     }
 }

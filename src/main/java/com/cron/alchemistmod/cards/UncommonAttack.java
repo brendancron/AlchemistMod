@@ -34,13 +34,12 @@ public class UncommonAttack extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(DAMAGE_UPGRADE);  // Increase damage by 5 on upgrade, adjust as desired
+            this.upgradeDamage(DAMAGE_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Create a DamageAction to deal damage to the target monster
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL))
         );

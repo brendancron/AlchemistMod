@@ -27,7 +27,7 @@ public class RarePower extends CustomCard {
 
     public RarePower() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC;
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
