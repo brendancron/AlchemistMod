@@ -26,32 +26,32 @@ import java.nio.charset.StandardCharsets;
 @SpireInitializer
 public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber {
 
-    public static final Logger logger = LogManager.getLogger(AlchemistMod.class.getName());
+    public static final Logger logger = LogManager.getLogger("TheAlchemist");
     private static String modID;
 
-    private static final String BUTTON = "images/select/button.png";
-    private static final String PORTRAIT = "images/select/portrait.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "images/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "images/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "images/corpse.png";
+    private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
+    private static final String PORTRAIT = "TheAlchemistResources/images/select/portrait.png";
+    public static final String THE_DEFAULT_SHOULDER_1 = "TheAlchemistResources/images/shoulder.png";
+    public static final String THE_DEFAULT_SHOULDER_2 = "TheAlchemistResources/images/shoulder2.png";
+    public static final String THE_DEFAULT_CORPSE = "TheAlchemistResources/images/corpse.png";
 
     public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    private static final String ATTACK_DEFAULT_GRAY = "images/cardback/bg_attack.png";
-    private static final String SKILL_DEFAULT_GRAY = "images/cardback/bg_skill.png";
-    private static final String POWER_DEFAULT_GRAY = "images/cardback/bg_power.png";
+    private static final String ATTACK_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_attack.png";
+    private static final String SKILL_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_skill.png";
+    private static final String POWER_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_power.png";
 
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "images/cardback/energy_orb.png";
-    private static final String CARD_ENERGY_ORB = "images/cardback/small_orb.png";
+    private static final String ENERGY_ORB_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/energy_orb.png";
+    private static final String CARD_ENERGY_ORB = "TheAlchemistResources/images/cardback/small_orb.png";
 
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "images/cardback/bg_attack_p.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "images/cardback/bg_skill_p.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "images/cardback/bg_power_p.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "images/cardback/energy_orb_p.png";
+    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_attack_p.png";
+    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_skill_p.png";
+    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_power_p.png";
+    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/energy_orb_p.png";
 
 
     public AlchemistMod() {
         BaseMod.subscribe(this);
-        setModID("AlchemistMod");
+        setModID("TheAlchemist");
         BaseMod.addColor(TheAlchemist.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
@@ -66,15 +66,15 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     @Override
     public void receiveEditStrings() {
         // Load custom card strings
-        BaseMod.loadCustomStringsFile(CardStrings.class, "localization/eng/CardStrings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, getModID() + "Resources/localization/eng/CardStrings.json");
 
 //        // CardStrings
 //        BaseMod.loadCustomStringsFile(CardStrings.class,
-//                getModID() + "localization/eng/CardStrings.json");
+//                getModID() + "Resources/localization/eng/CardStrings.json");
 //
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                "localization/eng/PowerStrings.json");
+                getModID() + "Resources/localization/eng/PowerStrings.json");
 //
 //        // RelicStrings
 //        BaseMod.loadCustomStringsFile(RelicStrings.class,
@@ -100,7 +100,7 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     @Override
     public void receiveEditCards() {
         // Register the custom card
-        new AutoAdd(getModID()) // ${project.artifactId}
+        new AutoAdd(AlchemistMod.class.getSimpleName()) // ${project.artifactId}
                 .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
                 .setDefaultSeen(true)
                 .cards();
@@ -162,27 +162,39 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
 
     // paths
 
+    public static String makeGeneralPath(String resourcePath) {
+        return getModID() + "Resources/images/" + resourcePath;
+    }
+
+    public static String makeAnimationPath(String resourcePath) {
+        return getModID() + "Resources/images/animation/" + resourcePath;
+    }
+
     public static String makeCardPath(String resourcePath) {
-        return "images/cards/" + resourcePath;
+        return getModID() + "Resources/images/cards/" + resourcePath;
     }
 
     public static String makeRelicPath(String resourcePath) {
-        return "images/relics/" + resourcePath;
+        return getModID() + "Resources/images/relics/" + resourcePath;
     }
 
     public static String makeRelicOutlinePath(String resourcePath) {
-        return "images/relics/outline/" + resourcePath;
+        return getModID() + "Resources/images/relics/outline/" + resourcePath;
     }
 
     public static String makeOrbPath(String resourcePath) {
-        return "images/orbs/" + resourcePath;
+        return getModID() + "Resources/images/orbs/" + resourcePath;
+    }
+
+    public static String makeEnergyOrbPath(String resourcePath) {
+        return getModID() + "Resources/images/energyOrb/" + resourcePath;
     }
 
     public static String makePowerPath(String resourcePath) {
-        return "images/powers/" + resourcePath;
+        return getModID() + "Resources/images/powers/" + resourcePath;
     }
 
     public static String makeEventPath(String resourcePath) {
-        return "images/events/" + resourcePath;
+        return getModID() + "Resources/images/events/" + resourcePath;
     }
 }

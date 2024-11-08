@@ -4,9 +4,9 @@ import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.FireElement;
-import com.cron.alchemistmod.util.InsertSpacesIntoString;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -21,9 +21,9 @@ public class CommonPower extends CustomCard {
     private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(CommonPower.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(CommonPower.class.getSimpleName());
-    public static final String DESCRIPTION = "Gain !M! Strength.";
-    public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
+    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
+    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(CommonPower.class.getSimpleName() + ".png");
 
     public CommonPower() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

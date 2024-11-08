@@ -3,10 +3,10 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.util.InsertSpacesIntoString;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -22,9 +22,9 @@ public class Onslaught extends CustomCard {
     private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(Onslaught.class.getSimpleName());
-    public static final String DESCRIPTION = "Deal !D! damage !M! times. NL Exhaust.";
-    public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
+    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
+    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Onslaught.class.getSimpleName() + ".png");
 
     public Onslaught() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

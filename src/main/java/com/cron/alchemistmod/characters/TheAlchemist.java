@@ -48,28 +48,28 @@ public class TheAlchemist extends CustomPlayer {
             "Even more text yo"
     };
 
-    public static final String MY_CHARACTER_SHOULDER_2 = "images/shoulder2.png"; // campfire pose
-    public static final String MY_CHARACTER_SHOULDER_1 = "images/shoulder.png"; // another campfire pose
-    public static final String MY_CHARACTER_CORPSE = "images/corpse.png"; // dead corpse
+    public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeGeneralPath("shoulder2.png"); // campfire pose
+    public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeGeneralPath("shoulder.png"); // another campfire pose
+    public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeGeneralPath("corpse.png"); // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
     public static final String[] orbTextures = {
-            "images/energyorb/cover.png",
-            "images/energyorb/layer1.png",
-            "images/energyorb/layer2.png",
-            "images/energyorb/layer3.png",
-            "images/energyorb/layer4.png",
-            "images/energyorb/layer5.png",
-            "images/energyorb/layer1d.png",
-            "images/energyorb/layer2d.png",
-            "images/energyorb/layer3d.png",
-            "images/energyorb/layer4d.png",
-            "images/energyorb/layer5d.png"
+            AlchemistMod.makeEnergyOrbPath("cover.png"),
+            AlchemistMod.makeEnergyOrbPath("layer1.png"),
+            AlchemistMod.makeEnergyOrbPath("layer2.png"),
+            AlchemistMod.makeEnergyOrbPath("layer3.png"),
+            AlchemistMod.makeEnergyOrbPath("layer4.png"),
+            AlchemistMod.makeEnergyOrbPath("layer5.png"),
+            AlchemistMod.makeEnergyOrbPath("layer1d.png"),
+            AlchemistMod.makeEnergyOrbPath("layer2d.png"),
+            AlchemistMod.makeEnergyOrbPath("layer3d.png"),
+            AlchemistMod.makeEnergyOrbPath("layer4d.png"),
+            AlchemistMod.makeEnergyOrbPath("layer5d.png")
     };
 
     public TheAlchemist() {
-        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,"images/energyorb/vfx.png", null,
-                new SpriterAnimation("images/animation/default.scml"));
+        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,AlchemistMod.makeEnergyOrbPath("vfx.png"), null,
+                new SpriterAnimation(AlchemistMod.makeAnimationPath("default.scml")));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================

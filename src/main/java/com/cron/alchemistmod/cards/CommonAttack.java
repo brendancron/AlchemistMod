@@ -3,10 +3,10 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.util.InsertSpacesIntoString;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -21,9 +21,9 @@ public class CommonAttack extends CustomCard {
     private static final int DAMAGE_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(CommonAttack.class.getSimpleName());
-    public static final String NAME = InsertSpacesIntoString.insertSpacesIntoString(CommonAttack.class.getSimpleName());
-    public static final String DESCRIPTION = "Deal !D! damage.";
-    public static final String IMG_PATH = "images/cards/AlchemistStrike.png";
+    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
+    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(CommonAttack.class.getSimpleName() + ".png");
 
     public CommonAttack() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
