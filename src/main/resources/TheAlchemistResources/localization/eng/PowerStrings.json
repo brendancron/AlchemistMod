@@ -1,0 +1,6 @@
+{
+  "TheAlchemist:FireElement": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+  }
+}

@@ -10,38 +10,43 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class RareAttack extends CustomCard {
-    private static final CardRarity RARITY = CardRarity.RARE;
+public class Onslaught extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
-    private static final int DAMAGE_UPGRADE = 3;
+    private static final int DAMAGE = 1;
+    private static final int MAGIC = 4;
+    private static final int MAGIC_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(RareAttack.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
     public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(RareAttack.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Onslaught.class.getSimpleName() + ".png");
 
-    public RareAttack() {
+    public Onslaught() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
+        this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(DAMAGE_UPGRADE);
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL))
-        );
+        for (int i = 0; i < this.magicNumber; i++) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL))
+            );
+        }
     }
 }

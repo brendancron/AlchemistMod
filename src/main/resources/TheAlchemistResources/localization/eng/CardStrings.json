@@ -1,0 +1,52 @@
+{
+  "TheAlchemist:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "TheAlchemist:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+
+  "TheAlchemist:CommonAttack": {
+    "NAME": "Common Attack",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "TheAlchemist:UncommonAttack": {
+    "NAME": "Uncommon Attack",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "TheAlchemist:RareAttack": {
+    "NAME": "Rare Attack",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "TheAlchemist:CommonSkill": {
+    "NAME": "Common Skill",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "TheAlchemist:UncommonSkill": {
+    "NAME": "Uncommon Skill",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "TheAlchemist:RareSkill": {
+    "NAME": "Rare Skill",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "TheAlchemist:CommonPower": {
+    "NAME": "Common Power",
+    "DESCRIPTION": "Gain !M! Fire Element."
+  },
+  "TheAlchemist:UncommonPower": {
+    "NAME": "Uncommon Power",
+    "DESCRIPTION": "Gain !M! Strength."
+  },
+  "TheAlchemist:RarePower": {
+    "NAME": "Rare Power",
+    "DESCRIPTION": "Gain !M! Strength."
+  },
+
+  "TheAlchemist:Onslaught": {
+    "NAME": "Onslaught",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  }
+}
