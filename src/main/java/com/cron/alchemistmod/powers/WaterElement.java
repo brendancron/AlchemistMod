@@ -14,10 +14,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class FireElement extends AbstractPower implements CloneablePowerInterface {
+public class WaterElement extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(FireElement.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(WaterElement.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -25,7 +25,7 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public FireElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public WaterElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -70,28 +70,28 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
     public void testForPotions() {
         // if already have a different element
         if (owner.hasPower(AirElement.POWER_ID)) {
-            brewPotion(AirElement.POWER_ID, new FearPotion());
+            brewPotion(AirElement.POWER_ID, new ColorlessPotion());
         } else if (owner.hasPower(DarkElement.POWER_ID)) {
-            brewPotion(DarkElement.POWER_ID, new SteroidPotion());
+            brewPotion(DarkElement.POWER_ID, new PoisonPotion());
         } else if (owner.hasPower(EarthElement.POWER_ID)) {
-            brewPotion(EarthElement.POWER_ID, new ExplosivePotion());
+            brewPotion(EarthElement.POWER_ID, new EssenceOfSteel());
+        } else if (owner.hasPower(FireElement.POWER_ID)) {
+            brewPotion(FireElement.POWER_ID, new AttackPotion());
         } else if (owner.hasPower(LightElement.POWER_ID)) {
-            brewPotion(LightElement.POWER_ID, new StrengthPotion());
+            brewPotion(LightElement.POWER_ID, new PowerPotion());
         } else if (owner.hasPower(MagicElement.POWER_ID)) {
-            brewPotion(MagicElement.POWER_ID, new CultistPotion());
-        } else if (owner.hasPower(WaterElement.POWER_ID)) {
-            brewPotion(WaterElement.POWER_ID, new AttackPotion());
+            brewPotion(MagicElement.POWER_ID, new LiquidMemories());
         }
 
         while (this.amount >= 2) {
             AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
-                    new FirePotion()
+                    new SkillPotion()
             ));
             this.amount -= 2;
         }
 
         if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, FireElement.POWER_ID));
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, WaterElement.POWER_ID));
         }
     }
 
@@ -102,6 +102,6 @@ public class FireElement extends AbstractPower implements CloneablePowerInterfac
 
     @Override
     public AbstractPower makeCopy() {
-        return new FireElement(owner, source, amount);
+        return new WaterElement(owner, source, amount);
     }
 }

@@ -34,7 +34,7 @@
   },
   "TheAlchemist:CommonPower": {
     "NAME": "Common Power",
-    "DESCRIPTION": "Gain !M! Fire Element."
+    "DESCRIPTION": "Gain !M! Strength."
   },
   "TheAlchemist:UncommonPower": {
     "NAME": "Uncommon Power",
@@ -48,5 +48,35 @@
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+
+  "TheAlchemist:AirSkill": {
+    "NAME": "Air Skill",
+    "DESCRIPTION": "Add !M! Air."
+  },
+  "TheAlchemist:DarkSkill": {
+    "NAME": "Dark Skill",
+    "DESCRIPTION": "Add !M! Dark. NL Exhaust."
+  },
+  "TheAlchemist:EarthSkill": {
+    "NAME": "Earth Skill",
+    "DESCRIPTION": "Add !M! Earth."
+  },
+  "TheAlchemist:FireSkill": {
+    "NAME": "Fire Skill",
+    "DESCRIPTION": "Add !M! Fire."
+  },
+  "TheAlchemist:LightSkill": {
+    "NAME": "Light Skill",
+    "DESCRIPTION": "Add !M! Light. NL Exhaust."
+  },
+  "TheAlchemist:WaterSkill": {
+    "NAME": "Water Skill",
+    "DESCRIPTION": "Add !M! Water."
+  },
+
+  "TheAlchemist:MagicPower": {
+    "NAME": "Magic Power",
+    "DESCRIPTION": "Add !M! Magic."
   }
 }

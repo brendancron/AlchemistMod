@@ -3,31 +3,32 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.LightElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class CommonPower extends CustomCard {
+public class LightSkill extends CustomCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 1;
     private static final int MAGIC_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(CommonPower.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(LightSkill.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
     public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(CommonPower.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(LightSkill.class.getSimpleName() + ".png");
 
-    public CommonPower() {
+    public LightSkill() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
@@ -41,7 +42,7 @@ public class CommonPower extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new LightElement(p, p, magicNumber), magicNumber)
         );
     }
 }
