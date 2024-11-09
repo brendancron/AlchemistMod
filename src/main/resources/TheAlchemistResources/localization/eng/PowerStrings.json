@@ -1,11 +1,31 @@
 {
-  "TheAlchemist:FireElement": {
-    "NAME": "Fire Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Fire based potion."]
+  "TheAlchemist:AirElement": {
+    "NAME": "Air Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Air based potion."]
+  },
+  "TheAlchemist:DarkElement": {
+    "NAME": "Dark Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Dark based potion."]
   },
   "TheAlchemist:EarthElement": {
     "NAME": "Earth Element",
     "DESCRIPTIONS": ["Mix with another Element to make a Earth based potion."]
+  },
+  "TheAlchemist:FireElement": {
+  "NAME": "Fire Element",
+  "DESCRIPTIONS": ["Mix with another Element to make a Fire based potion."]
+  },
+  "TheAlchemist:LightElement": {
+    "NAME": "Light Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Light based potion."]
+  },
+  "TheAlchemist:MagicElement": {
+    "NAME": "Magic Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Magic based potion."]
+  },
+  "TheAlchemist:WaterElement": {
+    "NAME": "Water Element",
+    "DESCRIPTIONS": ["Mix with another Element to make a Water based potion."]
   },
   "TheAlchemist:GenericPower": {
     "NAME": "Generic Power",

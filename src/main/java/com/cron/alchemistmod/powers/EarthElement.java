@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.potions.BlockPotion;
-import com.megacrit.cardcrawl.potions.ExplosivePotion;
+import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class EarthElement extends AbstractPower implements CloneablePowerInterface {
@@ -23,8 +22,6 @@ public class EarthElement extends AbstractPower implements CloneablePowerInterfa
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    // We create 2 new textures *Using This Specific Texture Loader* - an 84x84 image and a 32x32 one.
-    // There's a fallback "missing texture" image, so the game shouldn't crash if you accidentally put a non-existent file.
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
@@ -39,46 +36,51 @@ public class EarthElement extends AbstractPower implements CloneablePowerInterfa
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        // We load those txtures here.
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
-    // Note: If you want to apply an effect when a power is being applied you have 3 options:
-    //onInitialApplication is "When THIS power is first applied for the very first time only."
-    //onApplyPower is "When the owner applies a power to something else (only used by Sadistic Nature)."
-    //onReceivePowerPower from StSlib is "When any (including this) power is applied to the owner."
-
-
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        brewPotion();
+        testForPotions();
     }
 
     @Override
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        brewPotion();
+        testForPotions();
     }
 
-    public void brewPotion() {
-        if (owner.hasPower(FireElement.POWER_ID)) {
-            // if there is fire already
-            AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
-                    new ExplosivePotion()
-            ));
-            AbstractPower element = owner.getPower(FireElement.POWER_ID);
+    public void brewPotion(String elementID, AbstractPotion potion) {
+        AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(potion));
+        AbstractPower element = owner.getPower(elementID);
 
-            element.amount -= 1;
-            this.amount -= 1;
+        element.amount -= 1;
+        this.amount -= 1;
 
-            if (element.amount == 0) {
-                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, FireElement.POWER_ID));
-            }
+        if (element.amount == 0) {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, elementID));
+        }
+    }
+
+    public void testForPotions() {
+        // if already have a different element
+        if (owner.hasPower(AirElement.POWER_ID)) {
+            brewPotion(AirElement.POWER_ID, new WeakenPotion());
+        } else if (owner.hasPower(DarkElement.POWER_ID)) {
+            brewPotion(DarkElement.POWER_ID, new SpeedPotion());
+        } else if (owner.hasPower(FireElement.POWER_ID)) {
+            brewPotion(FireElement.POWER_ID, new ExplosivePotion());
+        } else if (owner.hasPower(LightElement.POWER_ID)) {
+            brewPotion(LightElement.POWER_ID, new DexterityPotion());
+        } else if (owner.hasPower(MagicElement.POWER_ID)) {
+            brewPotion(MagicElement.POWER_ID, new AncientPotion());
+        } else if (owner.hasPower(WaterElement.POWER_ID)) {
+            brewPotion(WaterElement.POWER_ID, new EssenceOfSteel());
         }
 
         while (this.amount >= 2) {
@@ -93,7 +95,6 @@ public class EarthElement extends AbstractPower implements CloneablePowerInterfa
         }
     }
 
-    // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0];
