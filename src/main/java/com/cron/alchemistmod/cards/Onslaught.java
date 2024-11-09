@@ -46,9 +46,9 @@ public class Onslaught extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0; i < this.magicNumber - 1; i++) {
-            AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL)));
+            AbstractDungeon.actionManager.addToBottom(new PummelDamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         }
 
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.baseDamage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 }
