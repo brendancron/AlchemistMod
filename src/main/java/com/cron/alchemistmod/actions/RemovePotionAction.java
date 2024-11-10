@@ -27,8 +27,12 @@ public class RemovePotionAction extends AbstractGameAction {
         this.amount = amount;
     }
 
+    public RemovePotionAction(AbstractPlayer player, boolean first) {
+        this(player, first, 1);
+    }
+
     public RemovePotionAction(AbstractPlayer player) {
-        this(player, true, 1);
+        this(player, true);
     }
 
     public void update() {
