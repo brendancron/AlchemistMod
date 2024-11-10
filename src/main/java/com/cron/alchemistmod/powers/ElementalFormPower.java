@@ -45,35 +45,30 @@ public class ElementalFormPower extends AbstractPower implements CloneablePowerI
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        int amount = this.amount * power.amount;
 
-        if (power instanceof AirElement) {
+        if (power instanceof ElementPower) {
+
+            int amount = this.amount * power.amount;
+            AbstractPower newPower = power;
+
+            if (power instanceof AirElement) {
+                newPower = new DrawCardNextTurnPower(target, amount);
+            } else if (power instanceof DarkElement) {
+                newPower = new EnergizedPower(target, amount);
+            } else if (power instanceof EarthElement) {
+                newPower = new PlatedArmorPower(target, amount);
+            } else if (power instanceof FireElement) {
+                newPower = new VigorPower(target, amount);
+            } else if (power instanceof LightElement) {
+                newPower = new BlurPower(target, amount);
+            } else if (power instanceof MagicElement) {
+                newPower = new BufferPower(target, amount);
+            } else if (power instanceof WaterElement) {
+                newPower = new RagePower(target, amount);
+            }
+
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new DrawCardNextTurnPower(target, amount), amount)
-            );
-        } else if (power instanceof DarkElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new EnergizedPower(target, amount), amount)
-            );
-        } else if (power instanceof EarthElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new PlatedArmorPower(target, amount), amount)
-            );
-        } else if (power instanceof FireElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new VigorPower(target, amount), amount)
-            );
-        } else if (power instanceof LightElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new BlurPower(target, amount), amount)
-            );
-        } else if (power instanceof MagicElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new BufferPower(target, amount), amount)
-            );
-        } else if (power instanceof WaterElement) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(target, source, new RagePower(target, amount), amount)
+                    new ApplyPowerAction(target, source, newPower, amount)
             );
         }
     }
