@@ -28,6 +28,10 @@
     "DESCRIPTIONS": ["Mix with another Element to make a Water based potion."]
   },
 
+  "TheAlchemist:ElementalFormPower": {
+    "NAME": "Elemental Form",
+    "DESCRIPTIONS": ["Gain #b", " buff when you gain an element.", " buffs when you gain an element."]
+  },
   "TheAlchemist:GainEarth": {
     "NAME": "Gain Earth",
     "DESCRIPTIONS": ["Gain #b", " Earth at the start of your turn."]

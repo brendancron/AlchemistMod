@@ -71,8 +71,8 @@ public class EarthElement extends AbstractPower implements CloneablePowerInterfa
         // if already have a different element
         if (owner.hasPower(AirElement.POWER_ID)) {
             brewPotion(AirElement.POWER_ID, new WeakenPotion());
-        } else if (owner.hasPower(BlackHole.POWER_ID)) {
-            brewPotion(BlackHole.POWER_ID, new SpeedPotion());
+        } else if (owner.hasPower(DarkElement.POWER_ID)) {
+            brewPotion(DarkElement.POWER_ID, new SpeedPotion());
         } else if (owner.hasPower(FireElement.POWER_ID)) {
             brewPotion(FireElement.POWER_ID, new ExplosivePotion());
         } else if (owner.hasPower(LightElement.POWER_ID)) {
