@@ -30,6 +30,11 @@
     "NAME": "Cleansing Light",
     "DESCRIPTION": "Discard your last potion. NL Gain !M! Light."
   },
+  "TheAlchemist:ElementalBurst": {
+    "NAME": "Elemental Burst",
+    "DESCRIPTION": "Gain 1 random basic Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 random basic Element 2 times."
+  },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
     "DESCRIPTION": "Gain X Fire. NL Exhaust.",
