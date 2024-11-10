@@ -22,7 +22,6 @@ public class FireStrike extends CustomCard {
     private static final int COST = 1;
     private static final int DAMAGE = 6;
     private static final int DAMAGE_UPGRADE = 3;
-    private static final int MAGIC = 1;
 
 
     public final static String ID = AlchemistMod.makeID(FireStrike.class.getSimpleName());
@@ -32,7 +31,6 @@ public class FireStrike extends CustomCard {
     public FireStrike() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
         this.tags.add(CardTags.STRIKE);
     }
 
@@ -50,7 +48,7 @@ public class FireStrike extends CustomCard {
                 new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new FireElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
         );
     }
 }
