@@ -3,29 +3,28 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.LightElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class LightSkill extends CustomCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
+public class BlackHole extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int COST = 1;
+    private static final int COST_UPGRADE = 0;
+    private static final int MAGIC = 2;
 
-    public final static String ID = AlchemistMod.makeID(LightSkill.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(BlackHole.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
     public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(LightSkill.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(BlackHole.class.getSimpleName() + ".png");
 
-    public LightSkill() {
+    public BlackHole() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
@@ -35,14 +34,14 @@ public class LightSkill extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.upgradeBaseCost(COST_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LightElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new com.cron.alchemistmod.powers.BlackHole(p, p, magicNumber), magicNumber)
         );
     }
 }
