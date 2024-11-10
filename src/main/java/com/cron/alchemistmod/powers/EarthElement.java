@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
@@ -14,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EarthElement extends AbstractPower implements CloneablePowerInterface {
+public class EarthElement extends ElementPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(EarthElement.class.getSimpleName());
@@ -102,6 +101,11 @@ public class EarthElement extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public AbstractPower makeCopy() {
-        return new EarthElement(owner, source, amount);
+        return new EarthElement(this.owner, this.source, this.amount);
+    }
+
+    @Override
+    public ElementPower makeCopy(int amount) {
+        return new EarthElement(this.owner, this.source, amount);
     }
 }

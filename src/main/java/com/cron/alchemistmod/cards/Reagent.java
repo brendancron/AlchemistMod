@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import java.util.Objects;
+
 public class Reagent extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -39,33 +41,9 @@ public class Reagent extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(AirElement.POWER_ID)) {
+        if (ElementPower.hasElement(p)) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new AirElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(DarkElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new DarkElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(EarthElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new EarthElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(FireElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(LightElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(MagicElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new MagicElement(p, p, 1), 1)
-            );
-        } else if (p.hasPower(WaterElement.POWER_ID)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
+                    new ApplyPowerAction(p, p, Objects.requireNonNull(ElementPower.getElement(p)).makeCopy(1), 1)
             );
         }
     }
