@@ -40,6 +40,11 @@
     "DESCRIPTION": "Gain 2 Air.",
     "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw !M! card."
   },
+  "TheAlchemist:SearingLight": {
+    "NAME": "Searing Light",
+    "DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light. NL Gain 1 Fire."
+  },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
     "DESCRIPTION": "Apply !M! Poison. NL Gain 1 Water."
