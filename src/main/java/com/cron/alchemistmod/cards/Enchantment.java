@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class MagicPower extends CustomCard {
+public class Enchantment extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
@@ -20,12 +20,12 @@ public class MagicPower extends CustomCard {
     private static final int COST_UPGRADE = 1;
     private static final int MAGIC = 1;
 
-    public final static String ID = AlchemistMod.makeID(MagicPower.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Enchantment.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
     public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(MagicPower.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Enchantment.class.getSimpleName() + ".png");
 
-    public MagicPower() {
+    public Enchantment() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
