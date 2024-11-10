@@ -10,7 +10,7 @@
 
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Fire."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Fire."
   },
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
@@ -24,7 +24,7 @@
 
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "Gain !M! Dark. NL Exhaust."
+    "DESCRIPTION": "Gain 2 Dark. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
@@ -38,7 +38,7 @@
   "TheAlchemist:Gust": {
     "NAME": "Gust",
     "DESCRIPTION": "Gain 2 Air.",
-    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw !M! card."
+    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw 1 card."
   },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
@@ -55,20 +55,20 @@
   },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Earth."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Earth."
   },
 
   "TheAlchemist:ElementalForm": {
     "NAME": "Elemental Form",
-    "DESCRIPTION": "Ethereal NL Gain !M! buff when you gain an element.",
-    "UPGRADE_DESCRIPTION": "Gain !M! buff when you gain an element."
+    "DESCRIPTION": "Ethereal NL Gain 1 buff when you gain an element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 buff when you gain an element."
   },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
-    "DESCRIPTION": "Gain !M! Magic."
+    "DESCRIPTION": "Gain 1 Magic."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain !M! Earth."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 Earth."
   }
 }
