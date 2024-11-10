@@ -18,7 +18,7 @@
   },
   "TheAlchemist:Prohibition": {
     "NAME": "Prohibition",
-    "DESCRIPTION": "Can only be played if NL you don't have potions. NL Deal !D! damage to ALL NL enemies.",
+    "DESCRIPTION": "Can only be played if you don't have potions. NL Deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
   },
 
@@ -28,7 +28,7 @@
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
-    "DESCRIPTION": "Discard your last NL potion. NL Gain !M! Light."
+    "DESCRIPTION": "Discard your last potion. NL Gain !M! Light."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -60,8 +60,8 @@
 
   "TheAlchemist:ElementalForm": {
     "NAME": "Elemental Form",
-    "DESCRIPTION": "Ethereal NL Gain !M! buff when NL you gain an element.",
-    "UPGRADE_DESCRIPTION": "Gain !M! buff when NL you gain an element."
+    "DESCRIPTION": "Ethereal NL Gain !M! buff when you gain an element.",
+    "UPGRADE_DESCRIPTION": "Gain !M! buff when you gain an element."
   },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
@@ -69,6 +69,6 @@
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your NL turn, gain !M! Earth."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain !M! Earth."
   }
 }
