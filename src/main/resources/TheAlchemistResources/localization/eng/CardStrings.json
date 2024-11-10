@@ -9,7 +9,7 @@
   },
 
   "TheAlchemist:FireStrike": {
-    "NAME": "FireStrike",
+    "NAME": "Fire Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Fire."
   },
   "TheAlchemist:Onslaught": {
@@ -49,6 +49,11 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Earth."
   },
 
+  "TheAlchemist:ElementalForm": {
+    "NAME": "Elemental Form",
+    "DESCRIPTION": "Ethereal NL Gain !M! buff when NL you gain an element.",
+    "UPGRADE_DESCRIPTION": "Gain !M! buff when NL you gain an element."
+  },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain !M! Magic."
