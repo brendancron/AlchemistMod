@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Prohibition extends CustomCard {
@@ -23,13 +24,11 @@ public class Prohibition extends CustomCard {
     private static final boolean MULTI_DAMAGE = true;
 
     public final static String ID = AlchemistMod.makeID(Prohibition.class.getSimpleName());
-    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
-    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String EXTENDED_DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).EXTENDED_DESCRIPTION[0];
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeCardPath(Prohibition.class.getSimpleName() + ".png");
 
     public Prohibition() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = true;
     }
@@ -55,7 +54,7 @@ public class Prohibition extends CustomCard {
             return false;
         } else {
             if (p.hasAnyPotions()) {
-                this.cantUseMessage = EXTENDED_DESCRIPTION;
+                this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
                 return false;
             } else {
                 return true;
