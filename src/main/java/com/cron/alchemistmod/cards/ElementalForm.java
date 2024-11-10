@@ -1,6 +1,7 @@
 package com.cron.alchemistmod.cards;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.ElementalFormPower;
@@ -29,6 +30,7 @@ public class ElementalForm extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.isEthereal = true;
+        this.tags.add(BaseModCardTags.FORM);
     }
 
     @Override
