@@ -10,38 +10,44 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class FireSkill extends CustomCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
+public class Explosion extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int COST = -1;
 
-    public final static String ID = AlchemistMod.makeID(FireSkill.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Explosion.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
     public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(FireSkill.class.getSimpleName() + ".png");
+    public static final String UPGRADE_DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Explosion.class.getSimpleName() + ".png");
 
-    public FireSkill() {
+    public Explosion() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.rawDescription = UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new FireElement(p, p, magicNumber), magicNumber)
-        );
+        if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new FireElement(p, p, this.energyOnUse + 1), this.energyOnUse + 1)
+            );
+        } else {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new FireElement(p, p, this.energyOnUse), this.energyOnUse)
+            );
+        }
     }
 }
