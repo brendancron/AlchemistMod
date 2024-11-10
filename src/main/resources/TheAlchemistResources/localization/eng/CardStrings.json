@@ -40,6 +40,10 @@
     "DESCRIPTION": "Gain 2 Air.",
     "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw !M! card."
   },
+  "TheAlchemist:Reagent": {
+    "NAME": "Reagent",
+    "DESCRIPTION": "Gain an Element you already have. NL Exhaust."
+  },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",
     "DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light.",
