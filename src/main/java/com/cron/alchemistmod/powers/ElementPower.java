@@ -85,4 +85,29 @@ public abstract class ElementPower extends AbstractPower implements CloneablePow
 
         return null;
     }
+
+    public static ElementPower getRandomElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+        int elementNum = AbstractDungeon.cardRandomRng.random(0, 6);
+
+        switch (elementNum) {
+            case 0: return new AirElement(owner, source, amount);
+            case 1: return new DarkElement(owner, source, amount);
+            case 2: return new EarthElement(owner, source, amount);
+            case 3: return new FireElement(owner, source, amount);
+            case 4: return new LightElement(owner, source, amount);
+            case 5: return new MagicElement(owner, source, amount);
+            default: return new WaterElement(owner, source, amount);
+        }
+    }
+
+    public static ElementPower getRandomBasicElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+        int elementNum = AbstractDungeon.cardRandomRng.random(0, 3);
+
+        switch (elementNum) {
+            case 0: return new AirElement(owner, source, amount);
+            case 1: return new EarthElement(owner, source, amount);
+            case 2: return new FireElement(owner, source, amount);
+            default: return new WaterElement(owner, source, amount);
+        }
+    }
 }
