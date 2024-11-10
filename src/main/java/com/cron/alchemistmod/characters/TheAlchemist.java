@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.Defend;
+import com.cron.alchemistmod.cards.ElementalBurst;
 import com.cron.alchemistmod.cards.Strike;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -108,10 +109,17 @@ public class TheAlchemist extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Strike.ID);
-            retVal.add(Defend.ID);
-        }
+
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(ElementalBurst.ID);
 
         return retVal;
     }
