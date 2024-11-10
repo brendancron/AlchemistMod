@@ -8,75 +8,54 @@
     "DESCRIPTION": "Gain !B! Block."
   },
 
-  "TheAlchemist:CommonAttack": {
-    "NAME": "Common Attack",
-    "DESCRIPTION": "Deal !D! damage."
+  "TheAlchemist:FireStrike": {
+    "NAME": "FireStrike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Fire."
   },
-  "TheAlchemist:UncommonAttack": {
-    "NAME": "Uncommon Attack",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "TheAlchemist:RareAttack": {
-    "NAME": "Rare Attack",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "TheAlchemist:CommonSkill": {
-    "NAME": "Common Skill",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "TheAlchemist:UncommonSkill": {
-    "NAME": "Uncommon Skill",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "TheAlchemist:RareSkill": {
-    "NAME": "Rare Skill",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "TheAlchemist:CommonPower": {
-    "NAME": "Common Power",
-    "DESCRIPTION": "Gain !M! Strength."
-  },
-  "TheAlchemist:UncommonPower": {
-    "NAME": "Uncommon Power",
-    "DESCRIPTION": "Gain !M! Strength."
-  },
-  "TheAlchemist:RarePower": {
-    "NAME": "Rare Power",
-    "DESCRIPTION": "Gain !M! Strength."
-  },
-
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
   },
+  "TheAlchemist:Prohibition": {
+    "NAME": "Prohibition",
+    "DESCRIPTION": "Can only be played if NL you don't have potions. NL Deal !D! damage to ALL NL enemies.",
+    "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
+  },
 
-  "TheAlchemist:AirSkill": {
-    "NAME": "Air Skill",
-    "DESCRIPTION": "Add !M! Air."
+  "TheAlchemist:BlackHole": {
+    "NAME": "Black Hole",
+    "DESCRIPTION": "Gain !M! Dark. NL Exhaust."
   },
-  "TheAlchemist:DarkSkill": {
-    "NAME": "Dark Skill",
-    "DESCRIPTION": "Add !M! Dark. NL Exhaust."
+  "TheAlchemist:Explosion": {
+    "NAME": "Explosion",
+    "DESCRIPTION": "Gain X Fire. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain X+1 Fire. NL Exhaust."
   },
-  "TheAlchemist:EarthSkill": {
-    "NAME": "Earth Skill",
-    "DESCRIPTION": "Add !M! Earth."
+  "TheAlchemist:Gust": {
+    "NAME": "Gust",
+    "DESCRIPTION": "Gain 2 Air.",
+    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw !M! card."
   },
-  "TheAlchemist:FireSkill": {
-    "NAME": "Fire Skill",
-    "DESCRIPTION": "Add !M! Fire."
+  "TheAlchemist:ToxicBrew": {
+    "NAME": "Toxic Brew",
+    "DESCRIPTION": "Apply !M! Poison. NL Gain 1 Water."
   },
-  "TheAlchemist:LightSkill": {
-    "NAME": "Light Skill",
-    "DESCRIPTION": "Add !M! Light. NL Exhaust."
-  },
-  "TheAlchemist:WaterSkill": {
-    "NAME": "Water Skill",
-    "DESCRIPTION": "Add !M! Water."
+  "TheAlchemist:Trenches": {
+    "NAME": "Trenches",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Earth."
   },
 
   "TheAlchemist:MagicPower": {
     "NAME": "Magic Power",
-    "DESCRIPTION": "Add !M! Magic."
+    "DESCRIPTION": "Gain !M! Magic."
+  },
+  "TheAlchemist:HunkerDown": {
+    "NAME": "Hunker Down",
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your NL turn, gain !M! Earth."
+  },
+
+  "TheAlchemist:CleansingLight": {
+    "NAME": "Cleansing Light",
+    "DESCRIPTION": "Discard your last NL potion. NL Gain !M! Light."
   }
 }
