@@ -17,7 +17,7 @@ public class Prohibition extends CustomCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE = 26;
     private static final int DAMAGE_UPGRADE = 8;
     private static final boolean MULTI_DAMAGE = true;
