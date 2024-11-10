@@ -14,10 +14,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class DarkElement extends AbstractPower implements CloneablePowerInterface {
+public class BlackHole extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(DarkElement.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(BlackHole.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -25,7 +25,7 @@ public class DarkElement extends AbstractPower implements CloneablePowerInterfac
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public DarkElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public BlackHole(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -91,7 +91,7 @@ public class DarkElement extends AbstractPower implements CloneablePowerInterfac
         }
 
         if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, DarkElement.POWER_ID));
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, BlackHole.POWER_ID));
         }
     }
 
@@ -102,6 +102,6 @@ public class DarkElement extends AbstractPower implements CloneablePowerInterfac
 
     @Override
     public AbstractPower makeCopy() {
-        return new DarkElement(owner, source, amount);
+        return new BlackHole(owner, source, amount);
     }
 }
