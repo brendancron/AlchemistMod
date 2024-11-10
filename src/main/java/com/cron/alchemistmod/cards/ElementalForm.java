@@ -19,7 +19,6 @@ public class ElementalForm extends CustomCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 3;
-    private static final int MAGIC = 1;
 
     public final static String ID = AlchemistMod.makeID(ElementalForm.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,7 +26,6 @@ public class ElementalForm extends CustomCard {
 
     public ElementalForm() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
         this.isEthereal = true;
         this.tags.add(BaseModCardTags.FORM);
     }
@@ -45,7 +43,7 @@ public class ElementalForm extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new ElementalFormPower(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new ElementalFormPower(p, p, 1), 1)
         );
     }
 }

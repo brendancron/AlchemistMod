@@ -19,7 +19,6 @@ public class Enchantment extends CustomCard {
 
     private static final int COST = 2;
     private static final int COST_UPGRADE = 1;
-    private static final int MAGIC = 1;
 
     public final static String ID = AlchemistMod.makeID(Enchantment.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,7 +26,6 @@ public class Enchantment extends CustomCard {
 
     public Enchantment() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
@@ -41,7 +39,7 @@ public class Enchantment extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new MagicElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new MagicElement(p, p, 1), 1)
         );
     }
 }

@@ -20,7 +20,6 @@ public class HunkerDown extends CustomCard {
 
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;
-    private static final int MAGIC = 1;
 
     public final static String ID = AlchemistMod.makeID(HunkerDown.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,7 +27,6 @@ public class HunkerDown extends CustomCard {
 
     public HunkerDown() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
@@ -45,7 +43,7 @@ public class HunkerDown extends CustomCard {
                 new ApplyPowerAction(p, p, new NoBlockPower(p, 99, true), 99)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new GainEarth(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new GainEarth(p, p, 1), 1)
         );
     }
 }
