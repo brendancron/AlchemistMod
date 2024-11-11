@@ -75,5 +75,9 @@
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 Earth."
+  },
+  "TheAlchemist:Transmute": {
+    "NAME": "Transmute",
+    "DESCRIPTION": "Transform a card in your hand."
   }
 }
