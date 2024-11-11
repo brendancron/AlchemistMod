@@ -2,23 +2,24 @@ package com.cron.alchemistmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.cron.alchemistmod.cards.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +30,7 @@ import java.nio.charset.StandardCharsets;
 import static basemod.BaseMod.addRelicToCustomPool;
 
 @SpireInitializer
-public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
+public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostBattleSubscriber {
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
     private static String modID;
@@ -116,16 +117,24 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
         addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.COLOR_GRAY);
     }
 
-    public static String makeID(String idText) {
-        return getModID() + ":" + idText;
-    }
-
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheAlchemist(), BUTTON, PORTRAIT, TheAlchemist.Enums.THE_ALCHEMIST);
     }
 
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
+        for (AbstractPotion p : AbstractDungeon.player.potions) {
+            p.initializeData();
+        }
+    }
+
     // mod id
+
+    public static String makeID(String idText) {
+        return getModID() + ":" + idText;
+    }
 
     // ====== NO EDIT AREA ======
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
@@ -207,4 +216,6 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
+
+
 }
