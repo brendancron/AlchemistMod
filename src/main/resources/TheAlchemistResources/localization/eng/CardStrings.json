@@ -22,6 +22,11 @@
     "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
   },
 
+  "TheAlchemist:BagOfBricks": {
+    "NAME": "Bag Of Bricks",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
     "DESCRIPTION": "Gain 2 Dark. NL Exhaust."
