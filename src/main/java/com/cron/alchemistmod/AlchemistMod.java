@@ -4,18 +4,21 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.cron.alchemistmod.cards.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,8 +26,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
+import static basemod.BaseMod.addRelicToCustomPool;
+
 @SpireInitializer
-public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber {
+public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
     private static String modID;
@@ -75,10 +80,10 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
                 getModID() + "Resources/localization/eng/PowerStrings.json");
-//
-//        // RelicStrings
-//        BaseMod.loadCustomStringsFile(RelicStrings.class,
-//                getModID() + "Resources/localization/eng/RelicStrings.json");
+
+        // RelicStrings
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                getModID() + "Resources/localization/eng/RelicStrings.json");
 //
 //        // Event Strings
 //        BaseMod.loadCustomStringsFile(EventStrings.class,
@@ -104,6 +109,11 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
                 .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
                 .setDefaultSeen(true)
                 .cards();
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.COLOR_GRAY);
     }
 
     public static String makeID(String idText) {

@@ -8,6 +8,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.Defend;
 import com.cron.alchemistmod.cards.ElementalBurst;
 import com.cron.alchemistmod.cards.Strike;
+import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -127,8 +128,8 @@ public class TheAlchemist extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("Potion Belt");
-        UnlockTracker.markRelicAsSeen("Potion Belt");
+        retVal.add(PotionBag.ID);
+        UnlockTracker.markRelicAsSeen(PotionBag.ID);
         return retVal;
     }
 
