@@ -63,16 +63,15 @@
     "NAME": "Toxic Brew",
     "DESCRIPTION": "Apply !M! Poison. NL Gain 1 Water."
   },
+  "TheAlchemist:Transmute": {
+    "NAME": "Transmute",
+    "DESCRIPTION": "Transform a card in your hand. NL Exhaust."
+  },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 Earth."
   },
 
-  "TheAlchemist:ElementalForm": {
-    "NAME": "Elemental Form",
-    "DESCRIPTION": "Ethereal NL Gain 1 buff when you gain an element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 buff when you gain an element."
-  },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 Magic."
@@ -81,8 +80,8 @@
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 Earth."
   },
-  "TheAlchemist:Transmute": {
-    "NAME": "Transmute",
-    "DESCRIPTION": "Transform a card in your hand. NL Exhaust."
+  "TheAlchemist:SacredForm": {
+    "NAME": "Sacred Form",
+    "DESCRIPTION": "Double the effectiveness of potions."
   }
 }
