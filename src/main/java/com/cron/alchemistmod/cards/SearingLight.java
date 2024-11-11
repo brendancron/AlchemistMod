@@ -3,7 +3,8 @@ package com.cron.alchemistmod.cards;
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.MagicElement;
+import com.cron.alchemistmod.powers.AirElement;
+import com.cron.alchemistmod.powers.FireElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,20 +12,19 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Enchantment extends CustomCard {
-    private static final CardRarity RARITY = CardRarity.RARE;
+public class SearingLight extends CustomCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    private static final int COST_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(Enchantment.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(SearingLight.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(Enchantment.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(SearingLight.class.getSimpleName() + ".png");
 
-    public Enchantment() {
+    public SearingLight() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 
@@ -32,14 +32,23 @@ public class Enchantment extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new MagicElement(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
         );
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new AirElement(p, p, 1), 1)
+        );
+        if (this.upgraded) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
+            );
+        }
     }
 }

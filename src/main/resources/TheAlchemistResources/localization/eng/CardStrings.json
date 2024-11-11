@@ -10,7 +10,7 @@
 
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Fire."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Fire."
   },
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
@@ -18,17 +18,22 @@
   },
   "TheAlchemist:Prohibition": {
     "NAME": "Prohibition",
-    "DESCRIPTION": "Can only be played if NL you don't have potions. NL Deal !D! damage to ALL NL enemies.",
+    "DESCRIPTION": "Can only be played if you don't have potions. NL Deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
   },
 
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "Gain !M! Dark. NL Exhaust."
+    "DESCRIPTION": "Gain 2 Dark. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
-    "DESCRIPTION": "Discard your last NL potion. NL Gain !M! Light."
+    "DESCRIPTION": "Discard your last potion. NL Gain !M! Light."
+  },
+  "TheAlchemist:ElementalBurst": {
+    "NAME": "Elemental Burst",
+    "DESCRIPTION": "Gain 1 random basic Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 random basic Element 2 times."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -38,7 +43,16 @@
   "TheAlchemist:Gust": {
     "NAME": "Gust",
     "DESCRIPTION": "Gain 2 Air.",
-    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw !M! card."
+    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw 1 card."
+  },
+  "TheAlchemist:Reagent": {
+    "NAME": "Reagent",
+    "DESCRIPTION": "Gain an Element you already have. NL Exhaust."
+  },
+  "TheAlchemist:SearingLight": {
+    "NAME": "Searing Light",
+    "DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light. NL Gain 1 Fire."
   },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
@@ -46,21 +60,21 @@
   },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Earth."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Earth."
   },
 
   "TheAlchemist:ElementalForm": {
     "NAME": "Elemental Form",
-    "DESCRIPTION": "Ethereal NL Gain !M! buff when NL you gain an element.",
-    "UPGRADE_DESCRIPTION": "Gain !M! buff when NL you gain an element."
+    "DESCRIPTION": "Ethereal NL Gain 1 buff when you gain an element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 buff when you gain an element."
   },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
-    "DESCRIPTION": "Gain !M! Magic."
+    "DESCRIPTION": "Gain 1 Magic."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your NL turn, gain !M! Earth."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 Earth."
   },
   "TheAlchemist:Transmute": {
     "NAME": "Transmute",

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Trenches extends CustomCard {
@@ -18,19 +19,16 @@ public class Trenches extends CustomCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
     private static final int BLOCK = 5;
     private static final int BLOCK_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(Trenches.class.getSimpleName());
-    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
-    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeCardPath(Trenches.class.getSimpleName() + ".png");
 
     public Trenches() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
@@ -47,7 +45,7 @@ public class Trenches extends CustomCard {
                 new GainBlockAction(p, p, block)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new EarthElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new EarthElement(p, p, 1), 1)
         );
     }
 }
