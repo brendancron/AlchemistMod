@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BlackHole extends CustomCard {
@@ -18,16 +19,13 @@ public class BlackHole extends CustomCard {
 
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;
-    private static final int MAGIC = 2;
 
     public final static String ID = AlchemistMod.makeID(BlackHole.class.getSimpleName());
-    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
-    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeCardPath(BlackHole.class.getSimpleName() + ".png");
 
     public BlackHole() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }
 
@@ -42,7 +40,7 @@ public class BlackHole extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new DarkElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new DarkElement(p, p, 2), 2)
         );
     }
 }
