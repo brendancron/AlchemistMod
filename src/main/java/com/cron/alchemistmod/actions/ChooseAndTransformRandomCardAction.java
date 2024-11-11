@@ -15,12 +15,15 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
     public ChooseAndTransformRandomCardAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+        AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
         logger.info("ChooseAndTransformRandomCardAction initialized.");
     }
 
     @Override
     public void update() {
         logger.info("Update called. Action isDone: " + this.isDone);
+        logger.info("wereCardsRetrieved: " + AbstractDungeon.handCardSelectScreen.wereCardsRetrieved);
+        logger.info("Selected cards size: " + AbstractDungeon.handCardSelectScreen.selectedCards.size());
 
         // Check if the player's hand is empty; end the action if true
         if (AbstractDungeon.player.hand.isEmpty()) {
@@ -29,11 +32,10 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
             return;
         }
 
-        // If a card selection has not been retrieved, open the selection screen
+        // If selection retrieval hasn't occurred and no card is selected, open selection screen
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved && AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
             logger.info("Opening selection screen.");
             AbstractDungeon.handCardSelectScreen.open("Choose a card to transform", 1, false, false);
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true; // Ensure the selection only opens once
             this.tickDuration();
             return;
         }
@@ -57,6 +59,9 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
             // Mark the action as complete
             logger.info("Transformation complete. Setting isDone to true.");
             this.isDone = true;
+            return;
         }
+
+        logger.info("End of update method without any action taken.");
     }
 }

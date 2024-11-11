@@ -39,7 +39,7 @@ public class Transmute extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
+            this.upgradeBaseCost(0);
         }
     }
 

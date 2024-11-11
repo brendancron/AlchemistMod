@@ -78,6 +78,6 @@
   },
   "TheAlchemist:Transmute": {
     "NAME": "Transmute",
-    "DESCRIPTION": "Transform a card in your hand."
+    "DESCRIPTION": "Transform a card in your hand. NL Exhaust."
   }
 }
