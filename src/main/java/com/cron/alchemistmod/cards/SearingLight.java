@@ -2,8 +2,8 @@ package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.AirElement;
 import com.cron.alchemistmod.powers.FireElement;
+import com.cron.alchemistmod.powers.LightElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -42,7 +42,7 @@ public class SearingLight extends AbstractAlchemistCard {
                 new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new AirElement(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
         );
         if (this.upgraded) {
             AbstractDungeon.actionManager.addToBottom(
