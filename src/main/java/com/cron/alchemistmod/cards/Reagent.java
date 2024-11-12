@@ -1,9 +1,8 @@
 package com.cron.alchemistmod.cards;
 
-import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.*;
+import com.cron.alchemistmod.powers.AbstractElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Objects;
 
-public class Reagent extends CustomCard {
+public class Reagent extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -41,9 +40,9 @@ public class Reagent extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (ElementPower.hasElement(p)) {
+        if (AbstractElement.hasElement(p)) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, Objects.requireNonNull(ElementPower.getElement(p)).makeCopy(1), 1)
+                    new ApplyPowerAction(p, p, Objects.requireNonNull(AbstractElement.getElement(p)).makeCopy(1), 1)
             );
         }
     }

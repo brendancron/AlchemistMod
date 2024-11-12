@@ -1,18 +1,21 @@
 package com.cron.alchemistmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public abstract class ElementPower extends AbstractPower implements CloneablePowerInterface {
+public abstract class AbstractElement extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public ElementPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public AbstractElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         this.owner = owner;
         this.amount = amount;
         this.source = source;
@@ -20,12 +23,16 @@ public abstract class ElementPower extends AbstractPower implements CloneablePow
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
     }
-    public abstract ElementPower makeCopy(int amount);
+    public abstract AbstractElement makeCopy(int amount);
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
         testForPotions();
+        triggerOnGainElement(AbstractDungeon.player.drawPile);
+        triggerOnGainElement(AbstractDungeon.player.discardPile);
+        triggerOnGainElement(AbstractDungeon.player.hand);
+        triggerOnGainElement(AbstractDungeon.player.exhaustPile);
     }
     @Override
     public void stackPower(int stackAmount) {
@@ -46,6 +53,13 @@ public abstract class ElementPower extends AbstractPower implements CloneablePow
         }
     }
     public abstract void testForPotions();
+    public void triggerOnGainElement(CardGroup group) {
+        for (AbstractCard card: group.group) {
+            if (card instanceof AbstractAlchemistCard) {
+                ((AbstractAlchemistCard) card).triggerOnGainElement(this);
+            }
+        }
+    }
 
     public static boolean hasElement(AbstractPlayer player) {
         if (player.hasPower(AirElement.POWER_ID)) {
@@ -66,27 +80,27 @@ public abstract class ElementPower extends AbstractPower implements CloneablePow
             return false;
         }
     }
-    public static ElementPower getElement(AbstractPlayer player) {
+    public static AbstractElement getElement(AbstractPlayer player) {
         if (player.hasPower(AirElement.POWER_ID)) {
-            return (ElementPower) player.getPower(AirElement.POWER_ID);
+            return (AbstractElement) player.getPower(AirElement.POWER_ID);
         } else if (player.hasPower(DarkElement.POWER_ID)) {
-            return (ElementPower) player.getPower(DarkElement.POWER_ID);
+            return (AbstractElement) player.getPower(DarkElement.POWER_ID);
         } else if (player.hasPower(EarthElement.POWER_ID)) {
-            return (ElementPower) player.getPower(EarthElement.POWER_ID);
+            return (AbstractElement) player.getPower(EarthElement.POWER_ID);
         } else if (player.hasPower(FireElement.POWER_ID)) {
-            return (ElementPower) player.getPower(FireElement.POWER_ID);
+            return (AbstractElement) player.getPower(FireElement.POWER_ID);
         } else if (player.hasPower(LightElement.POWER_ID)) {
-            return (ElementPower) player.getPower(LightElement.POWER_ID);
+            return (AbstractElement) player.getPower(LightElement.POWER_ID);
         } else if (player.hasPower(MagicElement.POWER_ID)) {
-            return (ElementPower) player.getPower(MagicElement.POWER_ID);
+            return (AbstractElement) player.getPower(MagicElement.POWER_ID);
         } else if (player.hasPower(WaterElement.POWER_ID)) {
-            return (ElementPower) player.getPower(WaterElement.POWER_ID);
+            return (AbstractElement) player.getPower(WaterElement.POWER_ID);
         }
 
         return null;
     }
 
-    public static ElementPower getRandomElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public static AbstractElement getRandomElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         int elementNum = AbstractDungeon.cardRandomRng.random(0, 6);
 
         switch (elementNum) {
@@ -100,7 +114,7 @@ public abstract class ElementPower extends AbstractPower implements CloneablePow
         }
     }
 
-    public static ElementPower getRandomBasicElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public static AbstractElement getRandomBasicElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         int elementNum = AbstractDungeon.cardRandomRng.random(0, 3);
 
         switch (elementNum) {
