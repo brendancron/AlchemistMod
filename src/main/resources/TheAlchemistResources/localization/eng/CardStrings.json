@@ -75,6 +75,10 @@
     "NAME": "Trenches",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 Earth."
   },
+  "TheAlchemist:WaterBubble": {
+    "NAME": "Water Bubble",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Water."
+  },
 
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
