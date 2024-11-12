@@ -8,6 +8,10 @@
     "DESCRIPTION": "Gain !B! Block."
   },
 
+  "TheAlchemist:ChippedStone": {
+    "NAME": "Chipped Stone",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an Element, return this from your discard pile to your Hand."
+  },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 Fire."
