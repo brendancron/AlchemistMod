@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class WaterElement extends ElementPower {
+public class WaterElement extends AbstractElement {
     public static final String POWER_ID = AlchemistMod.makeID(WaterElement.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
@@ -71,7 +71,7 @@ public class WaterElement extends ElementPower {
     }
 
     @Override
-    public ElementPower makeCopy(int amount) {
+    public AbstractElement makeCopy(int amount) {
         return new WaterElement(this.owner, this.source, amount);
     }
 }

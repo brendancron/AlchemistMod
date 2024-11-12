@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.cards;
 
-import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class SacredForm extends CustomCard {
+public class SacredForm extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
