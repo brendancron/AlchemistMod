@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.cards;
 
-import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AirElement;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Gust extends CustomCard {
+public class Gust extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;

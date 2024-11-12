@@ -1,9 +1,8 @@
 package com.cron.alchemistmod.cards;
 
-import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.ElementPower;
+import com.cron.alchemistmod.powers.AbstractElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class ElementalBurst extends CustomCard {
+public class ElementalBurst extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -39,11 +38,11 @@ public class ElementalBurst extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, ElementPower.getRandomBasicElement(p, p, 1), 1)
+                new ApplyPowerAction(p, p, AbstractElement.getRandomBasicElement(p, p, 1), 1)
         );
         if (upgraded) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, ElementPower.getRandomBasicElement(p, p, 1), 1)
+                    new ApplyPowerAction(p, p, AbstractElement.getRandomBasicElement(p, p, 1), 1)
             );
         }
     }
