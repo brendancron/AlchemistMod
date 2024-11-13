@@ -1,31 +1,31 @@
 {
   "TheAlchemist:AirElement": {
     "NAME": "Air Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Air based potion."]
+    "DESCRIPTIONS": ["Air: Swift Potion NL Dark: Gambler's Brew NL Earth: Weak Potion NL Fire: Fear Potion NL Light: Snecko Oil NL Magic: Distilled Chaos NL Water: Colorless Potion"]
   },
   "TheAlchemist:DarkElement": {
     "NAME": "Dark Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Dark based potion."]
+    "DESCRIPTIONS": ["Air: Gambler's Brew NL Dark: Energy Potion NL Earth: Speed Potion NL Fire: Flex Potion NL Light: Liquid Bronze NL Magic: Duplication Potion NL Water: Poison Potion"]
   },
   "TheAlchemist:EarthElement": {
     "NAME": "Earth Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Earth based potion."]
+    "DESCRIPTIONS": ["Air: Weak Potion NL Dark: Speed Potion NL Earth: Block Potion NL Fire: Explosive Potion NL Light: Dexterity Potion NL Magic: Ancient Potion NL Water: Essence of Steel"]
   },
   "TheAlchemist:FireElement": {
-  "NAME": "Fire Element",
-  "DESCRIPTIONS": ["Mix with another Element to make a Fire based potion."]
+    "NAME": "Fire Element",
+    "DESCRIPTIONS": ["Air: Fear Potion NL Dark: Flex Potion NL Earth: Explosive Potion NL Fire: Fire Potion NL Light: Strength Potion NL Magic: Cultist Potion NL Water: Attack Potion"]
   },
   "TheAlchemist:LightElement": {
     "NAME": "Light Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Light based potion."]
+    "DESCRIPTIONS": ["Air: Snecko Oil NL Dark: Liquid Bronze NL Earth: Dexterity Potion NL Fire: Strength Potion NL Light: Blessing of the Forge NL Magic: Regen Potion NL Water: Power Potion"]
   },
   "TheAlchemist:MagicElement": {
     "NAME": "Magic Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Magic based potion."]
+    "DESCRIPTIONS": ["Air: Distilled Chaos NL Dark: Duplication Potion NL Earth: Ancient Potion NL Fire: Cultist Potion NL Light: Regen Potion NL Magic: Entropic Brew NL Water: Liquid Memories"]
   },
   "TheAlchemist:WaterElement": {
     "NAME": "Water Element",
-    "DESCRIPTIONS": ["Mix with another Element to make a Water based potion."]
+    "DESCRIPTIONS": ["Air: Colorless Potion NL Dark: Poison Potion NL Earth: Essence of Steel NL Fire: Attack Potion NL Light: Power Potion NL Magic: Liquid Memories NL Water: Skill Potion"]
   },
 
   "TheAlchemist:GainEarth": {
