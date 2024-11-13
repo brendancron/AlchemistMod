@@ -18,8 +18,8 @@ public class WaterBubble extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    private static final int BLOCK = 12;
-    private static final int BLOCK_UPGRADE = 3;
+    private static final int BLOCK = 8;
+    private static final int BLOCK_UPGRADE = 4;
 
     public final static String ID = AlchemistMod.makeID(WaterBubble.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

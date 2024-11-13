@@ -18,6 +18,8 @@ public class Gust extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Gust.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -25,12 +27,14 @@ public class Gust extends AbstractAlchemistCard {
 
     public Gust() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -39,12 +43,10 @@ public class Gust extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new AirElement(p, p, 2), 2)
+                new ApplyPowerAction(p, p, new AirElement(p, p, this.magicNumber), this.magicNumber)
         );
-        if (upgraded) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DrawCardAction(1)
-            );
-        }
+        AbstractDungeon.actionManager.addToBottom(
+                new DrawCardAction(1)
+        );
     }
 }

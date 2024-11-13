@@ -35,22 +35,22 @@ public class WaterElement extends AbstractElement {
     public void testForPotions() {
         // if already have a different element
         if (owner.hasPower(AirElement.POWER_ID)) {
-            brewPotion(AirElement.POWER_ID, new ColorlessPotion());
+            brewPotion(AirElement.POWER_ID, new LiquidMemories());
         } else if (owner.hasPower(DarkElement.POWER_ID)) {
             brewPotion(DarkElement.POWER_ID, new PoisonPotion());
         } else if (owner.hasPower(EarthElement.POWER_ID)) {
-            brewPotion(EarthElement.POWER_ID, new EssenceOfSteel());
+            brewPotion(EarthElement.POWER_ID, new SkillPotion());
         } else if (owner.hasPower(FireElement.POWER_ID)) {
             brewPotion(FireElement.POWER_ID, new AttackPotion());
         } else if (owner.hasPower(LightElement.POWER_ID)) {
             brewPotion(LightElement.POWER_ID, new PowerPotion());
         } else if (owner.hasPower(MagicElement.POWER_ID)) {
-            brewPotion(MagicElement.POWER_ID, new LiquidMemories());
+            brewPotion(MagicElement.POWER_ID, new AncientPotion());
         }
 
         while (this.amount >= 2) {
             AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
-                    new SkillPotion()
+                    new ColorlessPotion()
             ));
             this.amount -= 2;
         }
