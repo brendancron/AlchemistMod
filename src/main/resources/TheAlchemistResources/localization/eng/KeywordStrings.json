@@ -1,0 +1,61 @@
+[
+  {
+    "NAMES": [
+      "air"
+    ],
+    "DESCRIPTION": "A quick Element"
+  },
+  {
+    "NAMES": [
+      "dark"
+    ],
+    "DESCRIPTION": "An unstable Element"
+  },
+  {
+    "NAMES": [
+      "earth"
+    ],
+    "DESCRIPTION": "A protective Element"
+  },
+  {
+    "NAMES": [
+      "fire"
+    ],
+    "DESCRIPTION": "A dangerous Element"
+  },
+  {
+    "NAMES": [
+      "light"
+    ],
+    "DESCRIPTION": "A constant Element"
+  },
+  {
+    "NAMES": [
+      "magic"
+    ],
+    "DESCRIPTION": "A powerful Element"
+  },
+  {
+    "NAMES": [
+      "water"
+    ],
+    "DESCRIPTION": "A creative Element"
+  },
+
+  {
+    "NAMES": [
+      "element",
+      "elements"
+    ],
+    "DESCRIPTION": "Mix two Elements together to create a potion"
+  },
+  {
+    "PROPER_NAME": "Basic Element",
+    "NAMES": [
+      "Basic Element",
+      "basic_element",
+      "basic_elements"
+    ],
+    "DESCRIPTION": "The four most common Elements. NL Air, Earth, Fire, and Water"
+  }
+]
