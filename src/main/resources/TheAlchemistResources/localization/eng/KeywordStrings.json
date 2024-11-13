@@ -3,43 +3,43 @@
     "NAMES": [
       "air"
     ],
-    "DESCRIPTION": "A quick Element"
+    "DESCRIPTION": "Air: Swift Potion NL Dark: Gambler's Brew NL Earth: Weak Potion NL Fire: Fear Potion NL Light: Snecko Oil NL Magic: Distilled Chaos NL Water: Colorless Potion"
   },
   {
     "NAMES": [
       "dark"
     ],
-    "DESCRIPTION": "An unstable Element"
+    "DESCRIPTION": "Air: Gambler's Brew NL Dark: Energy Potion NL Earth: Speed Potion NL Fire: Flex Potion NL Light: Liquid Bronze NL Magic: Duplication Potion NL Water: Poison Potion"
   },
   {
     "NAMES": [
       "earth"
     ],
-    "DESCRIPTION": "A protective Element"
+    "DESCRIPTION": "Air: Weak Potion NL Dark: Speed Potion NL Earth: Block Potion NL Fire: Explosive Potion NL Light: Dexterity Potion NL Magic: Ancient Potion NL Water: Essence of Steel"
   },
   {
     "NAMES": [
       "fire"
     ],
-    "DESCRIPTION": "A dangerous Element"
+    "DESCRIPTION": "Air: Fear Potion NL Dark: Flex Potion NL Earth: Explosive Potion NL Fire: Fire Potion NL Light: Strength Potion NL Magic: Cultist Potion NL Water: Attack Potion"
   },
   {
     "NAMES": [
       "light"
     ],
-    "DESCRIPTION": "A constant Element"
+    "DESCRIPTION": "Air: Snecko Oil NL Dark: Liquid Bronze NL Earth: Dexterity Potion NL Fire: Strength Potion NL Light: Blessing of the Forge NL Magic: Regen Potion NL Water: Power Potion"
   },
   {
     "NAMES": [
       "magic"
     ],
-    "DESCRIPTION": "A powerful Element"
+    "DESCRIPTION": "Air: Distilled Chaos NL Dark: Duplication Potion NL Earth: Ancient Potion NL Fire: Cultist Potion NL Light: Regen Potion NL Magic: Entropic Brew NL Water: Liquid Memories"
   },
   {
     "NAMES": [
       "water"
     ],
-    "DESCRIPTION": "A creative Element"
+    "DESCRIPTION": "Air: Colorless Potion NL Dark: Poison Potion NL Earth: Essence of Steel NL Fire: Attack Potion NL Light: Power Potion NL Magic: Liquid Memories NL Water: Skill Potion"
   },
 
   {
