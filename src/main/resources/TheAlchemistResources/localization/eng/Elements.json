@@ -1,0 +1,44 @@
+{
+  "Air": {
+    "Air": "Swift Potion",
+    "Dark": "Gambler's Brew",
+    "Earth": "Weak Potion",
+    "Fire": "Fear Potion",
+    "Light": "Snecko Oil",
+    "Magic": "Distilled Chaos",
+    "Water": "Colorless Potion"
+  },
+  "Dark": {
+    "Dark": "Energy Potion",
+    "Earth": "Speed Potion",
+    "Fire": "Flex Potion",
+    "Light": "Liquid Bronze",
+    "Magic": "Duplication Potion",
+    "Water": "Poison Potion"
+  },
+  "Earth": {
+    "Earth": "Block Potion",
+    "Fire": "Explosive Potion",
+    "Light": "Dexterity Potion",
+    "Magic": "Ancient Potion",
+    "Water": "Essence of Steel"
+  },
+  "Fire": {
+    "Fire": "Fire Potion",
+    "Light": "Strength Potion",
+    "Magic": "Cultist Potion",
+    "Water": "Attack Potion"
+  },
+  "Light": {
+    "Light": "Blessing of the Forge",
+    "Magic": "Regen Potion",
+    "Water": "Power Potion"
+  },
+  "Magic": {
+    "Magic": "Entropic Brew",
+    "Water": "Liquid Memories"
+  },
+  "Water": {
+    "Water": "Skill Potion"
+  }
+}
