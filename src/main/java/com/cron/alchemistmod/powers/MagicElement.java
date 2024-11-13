@@ -39,13 +39,13 @@ public class MagicElement extends AbstractElement {
         } else if (owner.hasPower(DarkElement.POWER_ID)) {
             brewPotion(DarkElement.POWER_ID, new DuplicationPotion());
         } else if (owner.hasPower(EarthElement.POWER_ID)) {
-            brewPotion(EarthElement.POWER_ID, new AncientPotion());
+            brewPotion(EarthElement.POWER_ID, new EssenceOfSteel());
         } else if (owner.hasPower(FireElement.POWER_ID)) {
             brewPotion(FireElement.POWER_ID, new CultistPotion());
         } else if (owner.hasPower(LightElement.POWER_ID)) {
             brewPotion(LightElement.POWER_ID, new RegenPotion());
         } else if (owner.hasPower(WaterElement.POWER_ID)) {
-            brewPotion(WaterElement.POWER_ID, new LiquidMemories());
+            brewPotion(WaterElement.POWER_ID, new AncientPotion());
         }
 
         while (this.amount >= 2) {

@@ -52,8 +52,8 @@
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
-    "DESCRIPTION": "Gain 2 thealchemist:Air thealchemist:Elements.",
-    "UPGRADE_DESCRIPTION": "Gain 2 thealchemist:Air thealchemist:Elements. NL Draw 1 card."
+    "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
@@ -91,6 +91,7 @@
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
-    "DESCRIPTION": "Double the effectiveness of potions."
+    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions.",
+    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions."
   }
 }
