@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,7 +31,13 @@ import java.nio.charset.StandardCharsets;
 import static basemod.BaseMod.addRelicToCustomPool;
 
 @SpireInitializer
-public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber, PostBattleSubscriber {
+public class AlchemistMod implements
+        EditCardsSubscriber,
+        EditStringsSubscriber,
+        EditCharactersSubscriber,
+        EditRelicsSubscriber,
+        PostBattleSubscriber,
+        EditKeywordsSubscriber {
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
     private static String modID;
@@ -71,13 +78,10 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
 
     @Override
     public void receiveEditStrings() {
-        // Load custom card strings
-        BaseMod.loadCustomStringsFile(CardStrings.class, getModID() + "Resources/localization/eng/CardStrings.json");
+        // CardStrings
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                getModID() + "Resources/localization/eng/CardStrings.json");
 
-//        // CardStrings
-//        BaseMod.loadCustomStringsFile(CardStrings.class,
-//                getModID() + "Resources/localization/eng/CardStrings.json");
-//
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
                 getModID() + "Resources/localization/eng/PowerStrings.json");
@@ -120,6 +124,19 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheAlchemist(), BUTTON, PORTRAIT, TheAlchemist.Enums.THE_ALCHEMIST);
+    }
+
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
     }
 
     @Override
@@ -216,6 +233,4 @@ public class AlchemistMod implements EditCardsSubscriber, EditStringsSubscriber,
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
-
-
 }

@@ -10,11 +10,11 @@
 
   "TheAlchemist:ChippedStone": {
     "NAME": "Chipped Stone",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an Element, return this from your discard pile to your Hand."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an thealchemist:Element, return this from your discard pile to your Hand."
   },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 Fire."
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
@@ -33,39 +33,40 @@
   },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "Gain 2 Dark. NL Exhaust."
+    "DESCRIPTION": "Gain 2 thealchemist:Dark thealchemist:Elements. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
-    "DESCRIPTION": "Discard your last potion. NL Gain !M! Light."
+    "DESCRIPTION": "Discard your last potion. NL Gain 1 thealchemist:Light thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Discard your last potion. NL Gain 2 thealchemist:Light thealchemist:Elements."
   },
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",
-    "DESCRIPTION": "Gain 1 random basic Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random basic Element 2 times."
+    "DESCRIPTION": "Gain 1 random thealchemist:Basic_Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Basic_Element 2 times."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
-    "DESCRIPTION": "Gain X Fire. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain X+1 Fire. NL Exhaust."
+    "DESCRIPTION": "Gain X thealchemist:Fire thealchemist:Elements. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain X+1 thealchemist:Fire thealchemist:Elements. NL Exhaust."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
-    "DESCRIPTION": "Gain 2 Air.",
-    "UPGRADE_DESCRIPTION": "Gain 2 Air. NL Draw 1 card."
+    "DESCRIPTION": "Gain 2 thealchemist:Air thealchemist:Elements.",
+    "UPGRADE_DESCRIPTION": "Gain 2 thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
-    "DESCRIPTION": "Gain an Element you already have. NL Exhaust."
+    "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust."
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",
-    "DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Fire. NL Gain 1 Light. NL Gain 1 Fire."
+    "DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
-    "DESCRIPTION": "Apply !M! Poison. NL Gain 1 Water."
+    "DESCRIPTION": "Apply !M! Poison. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
   "TheAlchemist:Transmute": {
     "NAME": "Transmute",
@@ -73,20 +74,20 @@
   },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Earth."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Earth thealchemist:Element."
   },
   "TheAlchemist:WaterBubble": {
     "NAME": "Water Bubble",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 1 Water."
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
-    "DESCRIPTION": "Gain 1 Magic."
+    "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 Earth."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
