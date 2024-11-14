@@ -43,9 +43,9 @@ public class EarthElement extends AbstractElement {
         } else if (owner.hasPower(LightElement.POWER_ID)) {
             brewPotion(LightElement.POWER_ID, new DexterityPotion());
         } else if (owner.hasPower(MagicElement.POWER_ID)) {
-            brewPotion(MagicElement.POWER_ID, new AncientPotion());
+            brewPotion(MagicElement.POWER_ID, new EssenceOfSteel());
         } else if (owner.hasPower(WaterElement.POWER_ID)) {
-            brewPotion(WaterElement.POWER_ID, new EssenceOfSteel());
+            brewPotion(WaterElement.POWER_ID, new SkillPotion());
         }
 
         while (this.amount >= 2) {

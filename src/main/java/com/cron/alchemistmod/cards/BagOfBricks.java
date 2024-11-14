@@ -20,8 +20,8 @@ public class BagOfBricks extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 0;
-    private static final int MAGIC = 2;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_UPGRADE = 2;
 
 
     public final static String ID = AlchemistMod.makeID(BagOfBricks.class.getSimpleName());
