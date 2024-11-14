@@ -45,7 +45,7 @@ public class AirElement extends AbstractElement {
         } else if (owner.hasPower(MagicElement.POWER_ID)) {
             brewPotion(MagicElement.POWER_ID, new DistilledChaosPotion());
         } else if (owner.hasPower(WaterElement.POWER_ID)) {
-            brewPotion(WaterElement.POWER_ID, new ColorlessPotion());
+            brewPotion(WaterElement.POWER_ID, new LiquidMemories());
         }
 
         while (this.amount >= 2) {

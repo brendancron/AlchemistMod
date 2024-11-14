@@ -17,8 +17,7 @@ public class SacredForm extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    private static final int COST_UPGRADE = 1;
+    private static final int COST = 3;
 
     public final static String ID = AlchemistMod.makeID(SacredForm.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -26,6 +25,7 @@ public class SacredForm extends AbstractAlchemistCard {
 
     public SacredForm() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.isEthereal = true;
         this.tags.add(BaseModCardTags.FORM);
     }
 
@@ -33,7 +33,9 @@ public class SacredForm extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.isEthereal = false;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
