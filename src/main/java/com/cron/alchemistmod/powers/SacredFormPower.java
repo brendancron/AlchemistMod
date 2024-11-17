@@ -7,12 +7,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SacredFormPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
@@ -22,6 +23,7 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    public static final Logger logger = LogManager.getLogger("TheAlchemist");
 
     public SacredFormPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         this.name = POWER_STRINGS.NAME;
@@ -43,9 +45,14 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onInitialApplication() {
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            p.initializeData();
-        }
+        TrackPotions.updatePotions();
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        TrackPotions.updatePotions();
     }
 
     @Override
