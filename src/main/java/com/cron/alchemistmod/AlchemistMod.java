@@ -11,6 +11,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,9 +38,12 @@ public class AlchemistMod implements
         EditCharactersSubscriber,
         EditRelicsSubscriber,
         PostBattleSubscriber,
-        EditKeywordsSubscriber {
+        EditKeywordsSubscriber,
+        PostPotionUseSubscriber,
+        OnPlayerTurnStartSubscriber{
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
+
     private static String modID;
 
     private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
@@ -75,6 +79,8 @@ public class AlchemistMod implements
     public static void initialize() {
         new AlchemistMod();
     }
+
+    // subscribers ----------------------------
 
     @Override
     public void receiveEditStrings() {
@@ -142,10 +148,19 @@ public class AlchemistMod implements
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            p.initializeData();
-        }
+        TrackPotions.updatePotions();
     }
+    @Override
+    public void receivePostPotionUse(AbstractPotion abstractPotion) {
+        TrackPotions.onPotionUsed();
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        TrackPotions.atStartOfTurn();
+    }
+
+    // end subscribers ----------------------
 
     // mod id
 

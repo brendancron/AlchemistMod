@@ -34,7 +34,7 @@
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
-    "DESCRIPTIONS": ["Double the effectiveness of potions."]
+    "DESCRIPTIONS": ["Double the effectiveness of the first X potions you play each turn."]
   },
 
   "TheAlchemist:GenericPower": {
