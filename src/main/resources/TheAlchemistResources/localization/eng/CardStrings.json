@@ -60,6 +60,11 @@
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
+  "TheAlchemist:PackedEarth": {
+    "NAME": "Packed Earth",
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element and gain !M! Block."
+  },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
     "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust."
