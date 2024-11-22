@@ -57,7 +57,11 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void updateDescription() {
-        description = POWER_STRINGS.DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[0];
+        } else if (amount > 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[1] + amount + POWER_STRINGS.DESCRIPTIONS[2];
+        }
     }
 
     @Override
