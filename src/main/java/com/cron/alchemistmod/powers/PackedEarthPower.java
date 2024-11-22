@@ -59,11 +59,7 @@ public class PackedEarthPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
     }
 
     @Override
