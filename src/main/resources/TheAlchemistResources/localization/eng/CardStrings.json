@@ -30,6 +30,10 @@
     "DESCRIPTION": "Can only be played if you don't have potions. NL Deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
   },
+  "TheAlchemist:ShiftingSand": {
+    "NAME": "Shifting Sand",
+    "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
+  },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy in combat. NL Exhaust.",
