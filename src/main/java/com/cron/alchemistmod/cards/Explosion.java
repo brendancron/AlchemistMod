@@ -1,9 +1,8 @@
 package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.actions.ExplosionAction;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.FireElement;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,14 +37,8 @@ public class Explosion extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new FireElement(p, p, this.energyOnUse + 1), this.energyOnUse + 1)
-            );
-        } else {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new FireElement(p, p, this.energyOnUse), this.energyOnUse)
-            );
-        }
+        AbstractDungeon.actionManager.addToBottom(
+                new ExplosionAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse)
+        );
     }
 }
