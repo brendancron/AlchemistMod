@@ -29,16 +29,14 @@ public abstract class AbstractElement extends AbstractPower implements Cloneable
     public void onInitialApplication() {
         super.onInitialApplication();
         testForPotions();
-        triggerOnGainElement(AbstractDungeon.player.drawPile);
-        triggerOnGainElement(AbstractDungeon.player.discardPile);
-        triggerOnGainElement(AbstractDungeon.player.hand);
-        triggerOnGainElement(AbstractDungeon.player.exhaustPile);
+        triggerOnGainElement();
     }
     @Override
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
         testForPotions();
+        triggerOnGainElement();
     }
 
     public void brewPotion(String elementID, AbstractPotion potion) {
@@ -53,6 +51,12 @@ public abstract class AbstractElement extends AbstractPower implements Cloneable
         }
     }
     public abstract void testForPotions();
+    public void triggerOnGainElement() {
+        triggerOnGainElement(AbstractDungeon.player.drawPile);
+        triggerOnGainElement(AbstractDungeon.player.discardPile);
+        triggerOnGainElement(AbstractDungeon.player.hand);
+        triggerOnGainElement(AbstractDungeon.player.exhaustPile);
+    }
     public void triggerOnGainElement(CardGroup group) {
         for (AbstractCard card: group.group) {
             if (card instanceof AbstractAlchemistCard) {
