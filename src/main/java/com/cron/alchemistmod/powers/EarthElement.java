@@ -71,7 +71,7 @@ public class EarthElement extends AbstractElement {
     }
 
     @Override
-    public AbstractElement makeCopy(int amount) {
+    public AbstractAlchemistPower makeCopy(int amount) {
         return new EarthElement(this.owner, this.source, amount);
     }
 }

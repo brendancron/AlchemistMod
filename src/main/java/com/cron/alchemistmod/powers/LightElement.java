@@ -71,7 +71,7 @@ public class LightElement extends AbstractElement {
     }
 
     @Override
-    public AbstractElement makeCopy(int amount) {
+    public AbstractAlchemistPower makeCopy(int amount) {
         return new LightElement(this.owner, this.source, amount);
     }
 }

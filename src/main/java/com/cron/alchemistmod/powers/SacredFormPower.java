@@ -2,7 +2,6 @@ package com.cron.alchemistmod.powers;
 
 /* This does not update potion descriptions when removed */
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
@@ -15,7 +14,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SacredFormPower extends AbstractPower implements CloneablePowerInterface {
+public class SacredFormPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(SacredFormPower.class.getSimpleName());
@@ -66,6 +65,11 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public AbstractPower makeCopy() {
-        return new SacredFormPower(owner, source, amount);
+        return new SacredFormPower(this.owner, this.source, this.amount);
+    }
+
+    @Override
+    public AbstractAlchemistPower makeCopy(int amount) {
+        return new SacredFormPower(this.owner, this.source, amount);
     }
 }
