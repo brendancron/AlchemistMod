@@ -71,7 +71,7 @@ public class AirElement extends AbstractElement {
     }
 
     @Override
-    public AbstractElement makeCopy(int amount) {
+    public AbstractAlchemistPower makeCopy(int amount) {
         return new AirElement(this.owner, this.source, amount);
     }
 }

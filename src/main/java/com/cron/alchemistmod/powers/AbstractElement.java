@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -12,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public abstract class AbstractElement extends AbstractPower implements CloneablePowerInterface {
+public abstract class AbstractElement extends AbstractAlchemistPower {
     public AbstractCreature source;
 
     public AbstractElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
@@ -23,7 +22,6 @@ public abstract class AbstractElement extends AbstractPower implements Cloneable
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
     }
-    public abstract AbstractElement makeCopy(int amount);
 
     @Override
     public void onInitialApplication() {

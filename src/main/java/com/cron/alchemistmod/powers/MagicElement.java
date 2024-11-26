@@ -71,7 +71,7 @@ public class MagicElement extends AbstractElement {
     }
 
     @Override
-    public AbstractElement makeCopy(int amount) {
+    public AbstractAlchemistPower makeCopy(int amount) {
         return new MagicElement(this.owner, this.source, amount);
     }
 }

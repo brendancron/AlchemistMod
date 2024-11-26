@@ -108,6 +108,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
+  "TheAlchemist:Creation": {
+    "NAME": "Creation",
+    "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
+  },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."

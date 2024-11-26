@@ -5,25 +5,26 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class PackedEarthPower extends AbstractAlchemistPower {
+public class CreationPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(PackedEarthPower.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(CreationPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public PackedEarthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public CreationPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -41,18 +42,9 @@ public class PackedEarthPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, source,
-                    new EarthElement(owner, source, amount), amount)
-            );
-        }
-    }
-
-    @Override
-    public void atEndOfTurn(final boolean isPlayer) {
+    public void onCreateCard(final AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(owner, source, this.ID)
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL)
         );
     }
 
@@ -63,11 +55,11 @@ public class PackedEarthPower extends AbstractAlchemistPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new PackedEarthPower(this.owner, this.source, this.amount);
+        return new CreationPower(owner, source, amount);
     }
 
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new PackedEarthPower(this.owner, this.source, amount);
+        return new CreationPower(owner, source, amount);
     }
 }
