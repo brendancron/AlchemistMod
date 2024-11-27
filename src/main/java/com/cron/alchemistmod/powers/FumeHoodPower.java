@@ -5,26 +5,23 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 
-public class GenericPower extends AbstractAlchemistPower {
+public class FumeHoodPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(GenericPower.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(FumeHoodPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public GenericPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public FumeHoodPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -42,27 +39,23 @@ public class GenericPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void onUseCard(final AbstractCard card, final UseCardAction action) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
-                new DexterityPower(owner, amount), amount)
+    public void onGainElement() {
+        AbstractDungeon.actionManager.addToBottom(
+                new GainBlockAction(this.owner, this.amount)
         );
     }
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new GenericPower(this.owner, this.source, this.amount);
+        return new FumeHoodPower(this.owner, this.source, this.amount);
     }
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new GenericPower(this.owner, this.source, amount);
+        return new FumeHoodPower(this.owner, this.source, amount);
     }
 }

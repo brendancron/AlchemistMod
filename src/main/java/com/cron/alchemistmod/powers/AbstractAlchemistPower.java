@@ -8,4 +8,6 @@ public abstract class AbstractAlchemistPower extends AbstractPower implements Cl
     public abstract AbstractAlchemistPower makeCopy(int amount);
     public void onCreateCard(AbstractCard card) {
     }
+    public void onGainElement() {
+    }
 }

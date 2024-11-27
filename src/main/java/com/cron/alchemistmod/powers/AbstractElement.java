@@ -54,6 +54,12 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
         triggerOnGainElement(AbstractDungeon.player.discardPile);
         triggerOnGainElement(AbstractDungeon.player.hand);
         triggerOnGainElement(AbstractDungeon.player.exhaustPile);
+
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof AbstractAlchemistPower) {
+                ((AbstractAlchemistPower) power).onGainElement();
+            }
+        }
     }
     public void triggerOnGainElement(CardGroup group) {
         for (AbstractCard card: group.group) {
