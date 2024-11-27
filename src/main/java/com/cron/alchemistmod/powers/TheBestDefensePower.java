@@ -5,23 +5,24 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 
-public class FumeHoodPower extends AbstractAlchemistPower {
+public class TheBestDefensePower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(FumeHoodPower.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(TheBestDefensePower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public FumeHoodPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public TheBestDefensePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -40,22 +41,29 @@ public class FumeHoodPower extends AbstractAlchemistPower {
 
     @Override
     public void onGainElement(AbstractElement element) {
-        AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(this.owner, this.amount)
-        );
+        if (element instanceof EarthElement) {
+            int thorns = this.amount * element.amount;
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(this.owner ,this.source , new ThornsPower(this.owner, thorns), thorns)
+            );
+        }
     }
 
     @Override
     public void updateDescription() {
-        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
+        if (amount == 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
+        } else if (amount > 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
+        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new FumeHoodPower(this.owner, this.source, this.amount);
+        return new TheBestDefensePower(this.owner, this.source, this.amount);
     }
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new FumeHoodPower(this.owner, this.source, amount);
+        return new TheBestDefensePower(this.owner, this.source, amount);
     }
 }

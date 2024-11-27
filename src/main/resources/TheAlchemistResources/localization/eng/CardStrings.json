@@ -128,5 +128,10 @@
     "NAME": "Sacred Form",
     "DESCRIPTION": "Ethereal. NL Double the effectiveness of the first potion you play each turn.",
     "UPGRADE_DESCRIPTION": "Double the effectiveness of the first potion you play each turn."
+  },
+  "TheAlchemist:TheBestDefense": {
+    "NAME": "The Best Defense...",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element, gain !M! Thorn.",
+    "UPGRADE_DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element, gain !M! Thorns."
   }
 }
