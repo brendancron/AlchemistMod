@@ -116,6 +116,10 @@
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."
   },
+  "TheAlchemist:FumeHood": {
+    "NAME": "Fume Hood",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Element, gain !M! Block."
+  },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
