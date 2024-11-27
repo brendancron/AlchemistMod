@@ -48,6 +48,10 @@
     "NAME": "Sacred Form",
     "DESCRIPTIONS": ["Double the effectiveness of the first potion you play each turn.", "Double the effectiveness of the first #b", " potions you play each turn."]
   },
+  "TheAlchemist:TheBestDefensePower": {
+    "NAME": "The Best Defense...",
+    "DESCRIPTIONS": ["Whenever you gain an #yEarth, gain #b", " #yThorn.", " #yThorns."]
+  },
 
   "TheAlchemist:GenericPower": {
     "NAME": "Generic Power",
