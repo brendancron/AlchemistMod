@@ -14,16 +14,16 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
-public class TheBestDefensePower extends AbstractAlchemistPower {
+public class LoseThornsPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(TheBestDefensePower.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(LoseThornsPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
 
-    public TheBestDefensePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public LoseThornsPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -31,7 +31,7 @@ public class TheBestDefensePower extends AbstractAlchemistPower {
         this.amount = amount;
         this.source = source;
 
-        type = PowerType.BUFF;
+        type = PowerType.DEBUFF;
         isTurnBased = false;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -41,17 +41,11 @@ public class TheBestDefensePower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void onGainElement(AbstractElement element) {
-        if (element instanceof EarthElement) {
-            int thorns = this.amount * element.amount;
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(this.owner ,this.source , new ThornsPower(this.owner, thorns), thorns)
-            );
-        }
-    }
-
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
+        this.flash();
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(this.owner, this.owner, new ThornsPower(this.owner, -this.amount), -this.amount)
+        );
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(this.owner, this.owner, this.ID)
         );
@@ -59,19 +53,16 @@ public class TheBestDefensePower extends AbstractAlchemistPower {
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new TheBestDefensePower(this.owner, this.source, this.amount);
+        return new LoseThornsPower(owner, source, amount);
     }
+
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new TheBestDefensePower(this.owner, this.source, amount);
+        return new LoseThornsPower(owner, source, amount);
     }
 }
