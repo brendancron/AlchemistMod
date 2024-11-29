@@ -50,7 +50,7 @@
   },
   "TheAlchemist:TheBestDefensePower": {
     "NAME": "The Best Defense...",
-    "DESCRIPTIONS": ["Whenever you gain an #yEarth, gain #b", " #yThorn.", " #yThorns."]
+    "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
   },
 
   "TheAlchemist:GenericPower": {

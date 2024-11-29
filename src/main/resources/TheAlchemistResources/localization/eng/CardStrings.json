@@ -131,7 +131,7 @@
   },
   "TheAlchemist:TheBestDefense": {
     "NAME": "The Best Defense...",
-    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element, gain !M! Thorn.",
-    "UPGRADE_DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element, gain !M! Thorns."
+    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorns."
   }
 }
