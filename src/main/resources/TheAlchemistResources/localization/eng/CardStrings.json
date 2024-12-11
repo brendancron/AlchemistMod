@@ -100,6 +100,10 @@
     "NAME": "Splash",
     "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
   },
+  "TheAlchemist:Streamer": {
+    "NAME": "Streamer!",
+    "DESCRIPTION": "Costs 1 more [E] for each empty potion slot. NL Gain !B! Block."
+  },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
     "DESCRIPTION": "Apply !M! Poison. NL Gain 1 thealchemist:Water thealchemist:Element."
