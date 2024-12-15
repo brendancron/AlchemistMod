@@ -29,7 +29,7 @@ public class Prohibition extends AbstractAlchemistCard {
     public Prohibition() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
-        this.isMultiDamage = true;
+        this.isMultiDamage = MULTI_DAMAGE;
     }
 
     @Override

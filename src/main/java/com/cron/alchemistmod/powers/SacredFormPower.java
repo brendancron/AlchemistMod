@@ -2,19 +2,19 @@ package com.cron.alchemistmod.powers;
 
 /* This does not update potion descriptions when removed */
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class SacredFormPower extends AbstractPower implements CloneablePowerInterface {
+public class SacredFormPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(SacredFormPower.class.getSimpleName());
@@ -22,6 +22,7 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    public static final Logger logger = LogManager.getLogger("TheAlchemist");
 
     public SacredFormPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         this.name = POWER_STRINGS.NAME;
@@ -43,18 +44,32 @@ public class SacredFormPower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void onInitialApplication() {
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            p.initializeData();
-        }
+        TrackPotions.updatePotions();
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        TrackPotions.updatePotions();
     }
 
     @Override
     public void updateDescription() {
-        description = POWER_STRINGS.DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[0];
+        } else if (amount > 1) {
+            description = POWER_STRINGS.DESCRIPTIONS[1] + amount + POWER_STRINGS.DESCRIPTIONS[2];
+        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new SacredFormPower(owner, source, amount);
+        return new SacredFormPower(this.owner, this.source, this.amount);
+    }
+
+    @Override
+    public AbstractAlchemistPower makeCopy(int amount) {
+        return new SacredFormPower(this.owner, this.source, amount);
     }
 }

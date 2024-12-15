@@ -3,6 +3,7 @@ package com.cron.alchemistmod.cards;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
+import com.cron.alchemistmod.powers.FireElement;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class ChippedStone extends AbstractAlchemistCard {
+public class Sparks extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
@@ -22,11 +23,11 @@ public class ChippedStone extends AbstractAlchemistCard {
     private static final int DAMAGE = 2;
     private static final int DAMAGE_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(ChippedStone.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Sparks.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(ChippedStone.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Sparks.class.getSimpleName() + ".png");
 
-    public ChippedStone() {
+    public Sparks() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
@@ -48,8 +49,10 @@ public class ChippedStone extends AbstractAlchemistCard {
 
     @Override
     public void triggerOnGainElement(AbstractElement element) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DiscardToHandAction(this)
-        );
+        if (element instanceof FireElement) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DiscardToHandAction(this)
+            );
+        }
     }
 }

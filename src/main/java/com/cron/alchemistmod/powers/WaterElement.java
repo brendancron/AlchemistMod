@@ -71,7 +71,7 @@ public class WaterElement extends AbstractElement {
     }
 
     @Override
-    public AbstractElement makeCopy(int amount) {
+    public AbstractAlchemistPower makeCopy(int amount) {
         return new WaterElement(this.owner, this.source, amount);
     }
 }

@@ -44,7 +44,7 @@ public class CleansingLight extends AbstractAlchemistCard {
                 new RemovePotionAction(p, false)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LightElement(p, p, magicNumber), magicNumber)
+                new ApplyPowerAction(p, p, new LightElement(p, p, this.magicNumber), this.magicNumber)
         );
     }
 }
