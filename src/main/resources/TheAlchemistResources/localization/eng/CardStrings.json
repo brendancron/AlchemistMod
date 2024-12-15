@@ -21,6 +21,10 @@
     "NAME": "Fire Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
+  "TheAlchemist:Injection": {
+    "NAME": "Injection",
+    "DESCRIPTION": "Discard your last potion. NL Deal !D! damage. NL Apply !M! Poison."
+  },
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
