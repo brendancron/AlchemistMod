@@ -35,6 +35,10 @@
     "DESCRIPTION": "Deal damage for every !M! cards you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
+  "TheAlchemist:Reverberation": {
+    "NAME": "Reverberation",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! gold and heal !M! HP. NL Exhaust."
