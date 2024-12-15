@@ -82,6 +82,10 @@
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
+  "TheAlchemist:Mutagen": {
+    "NAME": "Mutagen",
+    "DESCRIPTION": "Gain !M! Strength and !thealchemist:M! Poison."
+  },
   "TheAlchemist:PackedEarth": {
     "NAME": "Packed Earth",
     "DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element.",
