@@ -150,11 +150,11 @@ public class AlchemistMod implements
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
-        TrackPotions.updatePotions();
+        TrackPotions.atCombatEnd();
     }
     @Override
     public void receivePostPotionUse(AbstractPotion abstractPotion) {
-        TrackPotions.onPotionUsed();
+        TrackPotions.onPotionUsed(abstractPotion);
     }
 
     @Override

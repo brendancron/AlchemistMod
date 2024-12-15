@@ -40,6 +40,10 @@
     "NAME": "Gain Earth",
     "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
   },
+  "TheAlchemist:LeftoversPower": {
+    "NAME": "Leftovers",
+    "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
+  },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]

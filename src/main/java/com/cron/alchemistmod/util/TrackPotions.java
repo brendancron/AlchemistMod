@@ -3,26 +3,34 @@ package com.cron.alchemistmod.util;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
+import java.util.ArrayList;
+
 public class TrackPotions {
-    private static int potionsUsed;
+    private static ArrayList<AbstractPotion> potionsUsedThisTurn = new ArrayList<>();
+    private static ArrayList<AbstractPotion> potionsUsedThisCombat = new ArrayList<>();
+    private static AbstractPotion lastPotionUsed;
 
     public static void atStartOfTurn() {
-        potionsUsed = 0;
+        potionsUsedThisTurn = new ArrayList<>();
         updatePotions();
     }
 
-    public static int getPotionsUsed() {
-        return potionsUsed;
-    }
-
-    public static int increasePotionsUsed() {
-        return increasePotionsUsed(1);
-    }
-
-    public static int increasePotionsUsed(int value) {
-        potionsUsed += value;
+    public static void atCombatEnd() {
+        potionsUsedThisTurn = new ArrayList<>();
+        potionsUsedThisCombat = new ArrayList<>();
         updatePotions();
-        return potionsUsed;
+    }
+
+    public static int getNumPotionsUsedThisTurn() {
+        return potionsUsedThisTurn.size();
+    }
+
+    public static AbstractPotion getLastPotionUsed() {
+        if (potionsUsedThisCombat.size() > 0) {
+            return potionsUsedThisCombat.get(potionsUsedThisCombat.size() - 1);
+        } else {
+            return null;
+        }
     }
 
     public static void updatePotions() {
@@ -31,7 +39,10 @@ public class TrackPotions {
         }
     }
 
-    public static void onPotionUsed() {
-        increasePotionsUsed();
+    public static void onPotionUsed(AbstractPotion abstractPotion) {
+        potionsUsedThisTurn.add(abstractPotion);
+        potionsUsedThisCombat.add(abstractPotion);
+
+        updatePotions();
     }
 }

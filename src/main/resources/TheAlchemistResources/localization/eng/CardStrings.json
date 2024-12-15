@@ -145,6 +145,10 @@
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
   },
+  "TheAlchemist:Leftovers": {
+    "NAME": "Leftovers",
+    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
+  },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
     "DESCRIPTION": "Ethereal. NL Double the effectiveness of the first potion you play each turn.",
