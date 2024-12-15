@@ -11,6 +11,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
+import com.cron.alchemistmod.util.MagicNumber2;
 import com.cron.alchemistmod.util.TrackPotions;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -115,6 +116,7 @@ public class AlchemistMod implements
 
     @Override
     public void receiveEditCards() {
+        BaseMod.addDynamicVariable(new MagicNumber2());
         // Register the custom card
         new AutoAdd(AlchemistMod.class.getSimpleName()) // ${project.artifactId}
                 .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
