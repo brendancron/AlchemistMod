@@ -63,8 +63,8 @@
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
-    "DESCRIPTION": "Exhaust 1 card. NL Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL Gain 1 thealchemist:Magic thealchemist:Elements."
+    "DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
   },
   "TheAlchemist:CautiousBrew": {
     "NAME": "Cautious Brew",
