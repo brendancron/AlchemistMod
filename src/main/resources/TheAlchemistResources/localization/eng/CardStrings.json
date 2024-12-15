@@ -98,6 +98,10 @@
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
+  "TheAlchemist:LiquidShield": {
+    "NAME": "Liquid Shield",
+    "DESCRIPTION": "Discard your last potion. NL Gain !B! Block."
+  },
   "TheAlchemist:Mutagen": {
     "NAME": "Mutagen",
     "DESCRIPTION": "Gain !M! Strength and !thealchemist:M! Poison."
