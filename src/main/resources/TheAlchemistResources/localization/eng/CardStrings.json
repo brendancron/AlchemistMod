@@ -8,9 +8,14 @@
     "DESCRIPTION": "Gain !B! Block."
   },
 
-  "TheAlchemist:ChippedStone": {
-    "NAME": "Chipped Stone",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an thealchemist:Element, return this from your discard pile to your Hand."
+  "TheAlchemist:BagOfBricks": {
+    "NAME": "Bag Of Bricks",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  },
+  "TheAlchemist:Sparks": {
+    "NAME": "Sparks",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
   },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
@@ -25,15 +30,45 @@
     "DESCRIPTION": "Can only be played if you don't have potions. NL Deal !D! damage to ALL enemies.",
     "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
   },
-
-  "TheAlchemist:BagOfBricks": {
-    "NAME": "Bag Of Bricks",
-    "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
+  "TheAlchemist:Recipes": {
+    "NAME": "Recipes",
+    "DESCRIPTION": "Deal damage for every !M! cards you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
+  "TheAlchemist:Reverberation": {
+    "NAME": "Reverberation",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "TheAlchemist:Splatter": {
+    "NAME": "Splatter",
+    "DESCRIPTION": "Discard your last potion. NL Deal !D! damage to ALL enemies."
+  },
+  "TheAlchemist:TheStone": {
+    "NAME": "The Stone",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! gold and heal !M! HP. NL Exhaust."
+  },
+  "TheAlchemist:ShiftingSand": {
+    "NAME": "Shifting Sand",
+    "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:Wildfire": {
+    "NAME": "Wildfire",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy in combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy in combat."
+  },
+
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
     "DESCRIPTION": "Exhaust 1 card. NL Gain 2 thealchemist:Dark thealchemist:Elements. NL Exhaust."
+  },
+  "TheAlchemist:BlackMagic": {
+    "NAME": "Black Magic",
+    "DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
+  },
+  "TheAlchemist:CautiousBrew": {
+    "NAME": "Cautious Brew",
+    "DESCRIPTION": "If the enemy intends to attack, gain !M! thealchemist:Earth thealchemist:Elements. NL Otherwise gain !M! thealchemist:Fire thealchemist:Elements."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
@@ -55,6 +90,15 @@
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
+  "TheAlchemist:Mutagen": {
+    "NAME": "Mutagen",
+    "DESCRIPTION": "Gain !M! Strength and !thealchemist:M! Poison."
+  },
+  "TheAlchemist:PackedEarth": {
+    "NAME": "Packed Earth",
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element and gain !M! Block."
+  },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
     "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust."
@@ -63,6 +107,14 @@
     "NAME": "Searing Light",
     "DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element.",
     "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element. NL Gain 1 thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:Splash": {
+    "NAME": "Splash",
+    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
+  },
+  "TheAlchemist:Streamer": {
+    "NAME": "Streamer!",
+    "DESCRIPTION": "Costs 1 more [E] for each empty potion slot. NL Gain !B! Block."
   },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
@@ -81,17 +133,34 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
+  "TheAlchemist:Creation": {
+    "NAME": "Creation",
+    "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
+  },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."
+  },
+  "TheAlchemist:FumeHood": {
+    "NAME": "Fume Hood",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Element, gain !M! Block."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
   },
+  "TheAlchemist:Leftovers": {
+    "NAME": "Leftovers",
+    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
+  },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
-    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions.",
-    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions."
+    "DESCRIPTION": "Ethereal. NL Double the effectiveness of the first potion you play each turn.",
+    "UPGRADE_DESCRIPTION": "Double the effectiveness of the first potion you play each turn."
+  },
+  "TheAlchemist:TheBestDefense": {
+    "NAME": "The Best Defense...",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorns."
   }
 }

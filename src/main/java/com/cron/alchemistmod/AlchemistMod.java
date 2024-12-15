@@ -11,6 +11,8 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
+import com.cron.alchemistmod.util.MagicNumber2;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,9 +39,12 @@ public class AlchemistMod implements
         EditCharactersSubscriber,
         EditRelicsSubscriber,
         PostBattleSubscriber,
-        EditKeywordsSubscriber {
+        EditKeywordsSubscriber,
+        PostPotionUseSubscriber,
+        OnPlayerTurnStartSubscriber{
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
+
     private static String modID;
 
     private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
@@ -76,6 +81,8 @@ public class AlchemistMod implements
         new AlchemistMod();
     }
 
+    // subscribers ----------------------------
+
     @Override
     public void receiveEditStrings() {
         // CardStrings
@@ -109,6 +116,7 @@ public class AlchemistMod implements
 
     @Override
     public void receiveEditCards() {
+        BaseMod.addDynamicVariable(new MagicNumber2());
         // Register the custom card
         new AutoAdd(AlchemistMod.class.getSimpleName()) // ${project.artifactId}
                 .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
@@ -142,10 +150,19 @@ public class AlchemistMod implements
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            p.initializeData();
-        }
+        TrackPotions.atCombatEnd();
     }
+    @Override
+    public void receivePostPotionUse(AbstractPotion abstractPotion) {
+        TrackPotions.onPotionUsed(abstractPotion);
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        TrackPotions.atStartOfTurn();
+    }
+
+    // end subscribers ----------------------
 
     // mod id
 

@@ -16,7 +16,7 @@ public class Transmute extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 1;
+    private static final int COST_UPGRADE = 0;
 
     public final static String ID = AlchemistMod.makeID(Transmute.class.getSimpleName());
     public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
@@ -25,7 +25,6 @@ public class Transmute extends AbstractAlchemistCard {
 
     public Transmute() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseDamage = DAMAGE;
         this.exhaust = true;
     }
 
@@ -38,7 +37,7 @@ public class Transmute extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeBaseCost(COST_UPGRADE);
         }
     }
 

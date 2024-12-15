@@ -28,13 +28,33 @@
     "DESCRIPTIONS": ["Air: Liquid Memories NL Dark: Poison Potion NL Earth: Skill Potion NL Fire: Attack Potion NL Light: Power Potion NL Magic: Ancient Potion NL Water: Colorless Potion"]
   },
 
+  "TheAlchemist:CreationPower": {
+    "NAME": "Creation",
+    "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
+  },
+  "TheAlchemist:FumeHoodPower": {
+    "NAME": "Fume Hood",
+    "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
+  },
   "TheAlchemist:GainEarth": {
     "NAME": "Gain Earth",
-    "DESCRIPTIONS": ["Gain #b", " Earth at the start of your turn."]
+    "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
+  },
+  "TheAlchemist:LeftoversPower": {
+    "NAME": "Leftovers",
+    "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
+  },
+  "TheAlchemist:PackedEarthPower": {
+    "NAME": "Packed Earth",
+    "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
-    "DESCRIPTIONS": ["Double the effectiveness of potions."]
+    "DESCRIPTIONS": ["Double the effectiveness of the first potion you play each turn.", "Double the effectiveness of the first #b", " potions you play each turn."]
+  },
+  "TheAlchemist:TheBestDefensePower": {
+    "NAME": "The Best Defense...",
+    "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
   },
 
   "TheAlchemist:GenericPower": {

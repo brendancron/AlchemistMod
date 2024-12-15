@@ -1,7 +1,6 @@
 package com.cron.alchemistmod.powers;
 
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class GainEarth extends AbstractPower implements CloneablePowerInterface {
+public class GainEarth extends AbstractAlchemistPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(GainEarth.class.getSimpleName());
@@ -56,6 +55,11 @@ public class GainEarth extends AbstractPower implements CloneablePowerInterface 
 
     @Override
     public AbstractPower makeCopy() {
-        return new GainEarth(owner, source, amount);
+        return new GainEarth(this.owner, this.source, this.amount);
+    }
+
+    @Override
+    public AbstractAlchemistPower makeCopy(int amount) {
+        return new GainEarth(this.owner, this.source, amount);
     }
 }
