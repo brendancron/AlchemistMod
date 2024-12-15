@@ -39,6 +39,10 @@
     "NAME": "Reverberation",
     "DESCRIPTION": "Deal !D! damage !M! times."
   },
+  "TheAlchemist:Splatter": {
+    "NAME": "Splatter",
+    "DESCRIPTION": "Discard your last potion. NL Deal !D! damage to ALL enemies."
+  },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! gold and heal !M! HP. NL Exhaust."
