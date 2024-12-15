@@ -8,6 +8,10 @@
     "DESCRIPTION": "Gain !B! Block."
   },
 
+  "TheAlchemist:Arsenic": {
+    "NAME": "Arsenic",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Poison."
+  },
   "TheAlchemist:BagOfBricks": {
     "NAME": "Bag Of Bricks",
     "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
