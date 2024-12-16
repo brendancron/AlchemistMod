@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Transmute extends AbstractAlchemistCard {
@@ -15,17 +16,17 @@ public class Transmute extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int COST_UPGRADE = 0;
+    private static final int COST = 0;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Transmute.class.getSimpleName());
-    public static final String NAME = CardCrawlGame.languagePack.getCardStrings(ID).NAME;
-    public static final String DESCRIPTION = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeCardPath(Transmute.class.getSimpleName() + ".png");
 
     public Transmute() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
@@ -37,12 +38,14 @@ public class Transmute extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ChooseAndTransformRandomCardAction());
+        AbstractDungeon.actionManager.addToBottom(new ChooseAndTransformRandomCardAction(this.magicNumber));
     }
 }

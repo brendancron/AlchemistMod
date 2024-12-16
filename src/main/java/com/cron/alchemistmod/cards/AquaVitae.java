@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Splash extends AbstractAlchemistCard {
+public class AquaVitae extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
@@ -19,11 +19,11 @@ public class Splash extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;
 
-    public final static String ID = AlchemistMod.makeID(Splash.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(AquaVitae.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(Splash.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(AquaVitae.class.getSimpleName() + ".png");
 
-    public Splash() {
+    public AquaVitae() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 
