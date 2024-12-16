@@ -19,7 +19,7 @@
   },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain an thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain a thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
   },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
@@ -41,6 +41,7 @@
   "TheAlchemist:Recipes": {
     "NAME": "Recipes",
     "DESCRIPTION": "Deal damage for every !M! cards you have.",
+    "UPGRADE_DESCRIPTION": "Deal damage for every card you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
   "TheAlchemist:Reverberation": {
@@ -90,8 +91,7 @@
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
-    "DESCRIPTION": "Gain X thealchemist:Fire thealchemist:Elements. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain X+1 thealchemist:Fire thealchemist:Elements. NL Exhaust."
+    "DESCRIPTION": "Gain !M!X thealchemist:Fire thealchemist:Elements. NL Exhaust."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
@@ -117,11 +117,10 @@
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",
-    "DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Fire thealchemist:Element. NL Gain 1 thealchemist:Light thealchemist:Element. NL Gain 1 thealchemist:Fire thealchemist:Element."
+    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Gain !M! thealchemist:Fire thealchemist:Element."
   },
-  "TheAlchemist:Splash": {
-    "NAME": "Splash",
+  "TheAlchemist:AquaVitae": {
+    "NAME": "AquaVitae",
     "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
   },
   "TheAlchemist:Streamer": {
@@ -134,7 +133,8 @@
   },
   "TheAlchemist:Transmute": {
     "NAME": "Transmute",
-    "DESCRIPTION": "Transform a card in your hand. NL Exhaust."
+    "DESCRIPTION": "Transform up to !M! card in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Transform up to !M! cards in your hand. NL Exhaust."
   },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
@@ -149,6 +149,10 @@
     "NAME": "Creation",
     "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
   },
+  "TheAlchemist:Dredges": {
+    "NAME": "Dredges",
+    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
+  },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."
@@ -159,11 +163,8 @@
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
-  },
-  "TheAlchemist:Leftovers": {
-    "NAME": "Leftovers",
-    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Innate NL Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",

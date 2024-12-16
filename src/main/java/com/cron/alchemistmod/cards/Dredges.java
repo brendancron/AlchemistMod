@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Leftovers extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.RARE;
+public class Dredges extends AbstractAlchemistCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
@@ -19,11 +19,11 @@ public class Leftovers extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;
 
-    public final static String ID = AlchemistMod.makeID(Leftovers.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Dredges.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(Leftovers.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(Dredges.class.getSimpleName() + ".png");
 
-    public Leftovers() {
+    public Dredges() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 

@@ -36,8 +36,8 @@
     "NAME": "Fume Hood",
     "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
   },
-  "TheAlchemist:GainEarth": {
-    "NAME": "Gain Earth",
+  "TheAlchemist:HunkerDownPower": {
+    "NAME": "Hunker Down",
     "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
   },
   "TheAlchemist:LeftoversPower": {

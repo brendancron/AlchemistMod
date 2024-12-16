@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Recipes extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
@@ -19,7 +19,7 @@ public class Recipes extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int DAMAGE = 0;
     private static final int MAGIC = 2;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int MAGIC_UPGRADE = -1;
 
     public final static String ID = AlchemistMod.makeID(Recipes.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -36,15 +36,9 @@ public class Recipes extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
-    }
-
-    @Override
-    protected void upgradeMagicNumber(int amount) {
-        this.baseMagicNumber -= amount;
-        this.magicNumber = this.baseMagicNumber;
-        this.upgradedMagicNumber = true;
     }
 
     @Override
@@ -57,12 +51,20 @@ public class Recipes extends AbstractAlchemistCard {
     public void applyPowers() {
         this.baseDamage = countCards();
         super.applyPowers();
-        this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        if (this.upgraded) {
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        } else {
+            this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        }
         this.initializeDescription();
     }
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        if (this.upgraded) {
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        } else {
+            this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        }
         this.initializeDescription();
     }
 
