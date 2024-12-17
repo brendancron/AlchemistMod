@@ -16,15 +16,13 @@ public class HunkerDownPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(HunkerDownPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(HunkerDownPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(HunkerDownPower.class.getSimpleName() + "32.png"));
 
     public HunkerDownPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
-        name = NAME;
+        name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
         this.owner = owner;
@@ -48,7 +46,7 @@ public class HunkerDownPower extends AbstractAlchemistPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
     }
 
     @Override

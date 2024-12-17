@@ -20,8 +20,8 @@ public class SacredFormPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(SacredFormPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(SacredFormPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(SacredFormPower.class.getSimpleName() + "32.png"));
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
 
     public SacredFormPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {

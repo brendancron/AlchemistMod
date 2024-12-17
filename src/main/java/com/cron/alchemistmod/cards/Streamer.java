@@ -28,17 +28,6 @@ public class Streamer extends AbstractAlchemistCard {
     public Streamer() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        if (CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null) {
-            this.configureCostsOnNewCard();
-        }
-    }
-
-    public void configureCostsOnNewCard() {
-        for (AbstractPotion potion : AbstractDungeon.player.potions) {
-            if (potion instanceof PotionSlot) {
-                this.updateCost(1);
-            }
-        }
     }
 
     @Override
@@ -49,19 +38,34 @@ public class Streamer extends AbstractAlchemistCard {
         }
     }
 
+    public void applyPowers() {
+        super.applyPowers();
+        updateCostPotions();
+    }
+
     @Override
     public void triggerOnObtainPotion(AbstractPotion potion) {
-        this.updateCost(-1);
+        updateCostPotions();
     }
 
     @Override
     public void triggerOnDestroyPotion() {
-        this.updateCost(1);
+        updateCostPotions();
     }
 
     @Override
     public void triggerOnRemovePotion(AbstractPotion potion) {
-        this.updateCost(1);
+        updateCostPotions();
+    }
+
+    public void updateCostPotions() {
+        int slots = 0;
+        for (AbstractPotion potion : AbstractDungeon.player.potions) {
+            if (potion instanceof PotionSlot) {
+                slots++;
+            }
+        }
+        setCostForTurn(this.cost + slots);
     }
 
     @Override

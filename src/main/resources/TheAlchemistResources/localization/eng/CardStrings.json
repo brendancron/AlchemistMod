@@ -133,8 +133,8 @@
   },
   "TheAlchemist:Transmute": {
     "NAME": "Transmute",
-    "DESCRIPTION": "Transform up to !M! card in your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Transform up to !M! cards in your hand. NL Exhaust."
+    "DESCRIPTION": "Transform up to !M! card in your hand.",
+    "UPGRADE_DESCRIPTION": "Transform up to !M! cards in your hand."
   },
   "TheAlchemist:Trenches": {
     "NAME": "Trenches",
