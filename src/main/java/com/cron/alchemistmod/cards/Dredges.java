@@ -2,7 +2,7 @@ package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.LeftoversPower;
+import com.cron.alchemistmod.powers.DredgesPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,7 +38,7 @@ public class Dredges extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LeftoversPower(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new DredgesPower(p, p, 1), 1)
         );
     }
 }

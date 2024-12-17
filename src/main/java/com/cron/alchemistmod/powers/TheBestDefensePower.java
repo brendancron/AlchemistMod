@@ -20,8 +20,8 @@ public class TheBestDefensePower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(TheBestDefensePower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(TheBestDefensePower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(TheBestDefensePower.class.getSimpleName() + "32.png"));
 
     public TheBestDefensePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
