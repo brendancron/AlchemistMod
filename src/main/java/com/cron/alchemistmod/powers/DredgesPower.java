@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 
 public class DredgesPower extends AbstractAlchemistPower {
     public AbstractCreature source;
@@ -47,7 +48,9 @@ public class DredgesPower extends AbstractAlchemistPower {
             } else {
                 AbstractPotion potion = TrackPotions.getLastPotionUsed();
                 if (potion != null) {
-                    AbstractDungeon.player.obtainPotion(TrackPotions.getLastPotionUsed());
+                    for(int i = 0; i < this.amount; i++) {
+                        AbstractDungeon.effectsQueue.add(new ObtainPotionEffect(potion.makeCopy()));
+                    }
                 }
             }
         }
