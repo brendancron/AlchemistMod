@@ -140,6 +140,11 @@
     "NAME": "Searing Light",
     "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Gain !M! thealchemist:Fire thealchemist:Element."
   },
+  "TheAlchemist:SpiritOfVitriol": {
+    "NAME": "Spirit Of Vitriol",
+    "DESCRIPTION": "Enemy takes poison damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Enemy takes poison damage twice. NL Exhaust."
+  },
   "TheAlchemist:Streamer": {
     "NAME": "Streamer!",
     "DESCRIPTION": "Costs 1 more [E] for each empty potion slot. NL Gain !B! Block."
