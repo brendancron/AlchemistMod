@@ -49,12 +49,12 @@ public class Streamer extends AbstractAlchemistCard {
     }
 
     @Override
-    public void triggerOnDestroyPotion() {
+    public void triggerOnUsePotion(AbstractPotion potion) {
         updateCostPotions();
     }
 
     @Override
-    public void triggerOnRemovePotion(AbstractPotion potion) {
+    public void triggerOnDiscardPotion(AbstractPotion potion) {
         updateCostPotions();
     }
 
