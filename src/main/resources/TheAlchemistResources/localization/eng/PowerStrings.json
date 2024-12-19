@@ -40,8 +40,8 @@
     "NAME": "Hunker Down",
     "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
   },
-  "TheAlchemist:LeftoversPower": {
-    "NAME": "Leftovers",
+  "TheAlchemist:DredgesPower": {
+    "NAME": "Dredges",
     "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
   },
   "TheAlchemist:PackedEarthPower": {
