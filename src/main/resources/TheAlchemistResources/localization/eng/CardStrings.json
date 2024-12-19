@@ -66,10 +66,23 @@
   },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy in combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy in combat."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged."
   },
 
+  "TheAlchemist:AlkalineAir": {
+    "NAME": "Alkaline Air",
+    "DESCRIPTION": "Reduce Weak by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Reduce Weak and Frail by 2. NL Gain 1 thealchemist:Air thealchemist:Element."
+  },
+  "TheAlchemist:AquaVitae": {
+    "NAME": "AquaVitae",
+    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
+  },
+  "TheAlchemist:Bezoar": {
+    "NAME": "Bezoar",
+    "DESCRIPTION": "Retain. NL Remove all of your Debuffs. NL Exhaust."
+  },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
     "DESCRIPTION": "Exhaust 1 card. NL Gain 2 thealchemist:Dark thealchemist:Elements. NL Exhaust."
@@ -97,6 +110,10 @@
     "NAME": "Explosion",
     "DESCRIPTION": "Gain !M!X thealchemist:Fire thealchemist:Elements. NL Exhaust."
   },
+  "TheAlchemist:Fog": {
+    "NAME": "Fog",
+    "DESCRIPTION": "Apply !M! Weak. NL Gain 1 thealchemist:Water and 1 thealchemist:Air thealchemist:Element."
+  },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
@@ -123,13 +140,13 @@
     "NAME": "Searing Light",
     "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Gain !M! thealchemist:Fire thealchemist:Element."
   },
-  "TheAlchemist:AquaVitae": {
-    "NAME": "AquaVitae",
-    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
-  },
   "TheAlchemist:Streamer": {
     "NAME": "Streamer!",
     "DESCRIPTION": "Costs 1 more [E] for each empty potion slot. NL Gain !B! Block."
+  },
+  "TheAlchemist:Tailwind": {
+    "NAME": "Tailwind",
+    "DESCRIPTION": "Next turn, draw !M! cards. NL Gain 2 thealchemist:Air thealchemist:Elements."
   },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
