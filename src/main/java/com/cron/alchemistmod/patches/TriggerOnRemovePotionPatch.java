@@ -1,11 +1,13 @@
 package com.cron.alchemistmod.patches;
 
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 
@@ -27,13 +29,18 @@ public class TriggerOnRemovePotionPatch {
             triggerRemovePotion(AbstractDungeon.player.drawPile.group, potionOption);
             triggerRemovePotion(AbstractDungeon.player.discardPile.group, potionOption);
             triggerRemovePotion(AbstractDungeon.player.exhaustPile.group, potionOption);
+            for (AbstractPower power : AbstractDungeon.player.powers) {
+                if (power instanceof AbstractAlchemistPower) {
+                    ((AbstractAlchemistPower)power).onDiscardPotion(potionOption);
+                }
+            }
         }
     }
 
     public static void triggerRemovePotion(ArrayList<AbstractCard> group, AbstractPotion potionOption) {
         for(AbstractCard card : group) {
             if (card instanceof AbstractAlchemistCard) {
-                ((AbstractAlchemistCard) card).triggerOnRemovePotion(potionOption);
+                ((AbstractAlchemistCard) card).triggerOnDiscardPotion(potionOption);
             }
         }
     }

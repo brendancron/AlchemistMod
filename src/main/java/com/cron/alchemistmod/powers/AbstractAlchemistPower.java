@@ -3,6 +3,7 @@ package com.cron.alchemistmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractAlchemistPower extends AbstractPower implements CloneablePowerInterface {
@@ -16,5 +17,14 @@ public abstract class AbstractAlchemistPower extends AbstractPower implements Cl
         if (power instanceof AbstractElement) {
             onGainElement((AbstractElement) power);
         }
+    }
+
+    public void onObtainPotion(AbstractPotion potion) {
+    }
+
+    public void onUsePotion(AbstractPotion potion) {
+    }
+
+    public void onDiscardPotion(AbstractPotion potion) {
     }
 }

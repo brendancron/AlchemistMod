@@ -175,6 +175,10 @@
     "DESCRIPTION": "Ethereal. NL Double the effectiveness of the first potion you play each turn.",
     "UPGRADE_DESCRIPTION": "Double the effectiveness of the first potion you play each turn."
   },
+  "TheAlchemist:Sublimation": {
+    "NAME": "Sublimation",
+    "DESCRIPTION": "When you discard a potion, gain !M! Strength"
+  },
   "TheAlchemist:TheBestDefense": {
     "NAME": "The Best Defense...",
     "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
