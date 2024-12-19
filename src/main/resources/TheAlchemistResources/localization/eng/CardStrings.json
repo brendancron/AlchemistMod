@@ -165,6 +165,10 @@
     "NAME": "Fume Hood",
     "DESCRIPTION": "Whenever you gain an thealchemist:Element, gain !M! Block."
   },
+  "TheAlchemist:Growth": {
+    "NAME": "Growth",
+    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice."
+  },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element.",

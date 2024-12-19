@@ -44,6 +44,10 @@
     "NAME": "Dredges",
     "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
   },
+  "TheAlchemist:GrowthPower": {
+    "NAME": "Growth",
+    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain #yFruit #yJuice.", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
+  },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]
