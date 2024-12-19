@@ -57,5 +57,13 @@
       "basic_elements"
     ],
     "DESCRIPTION": "The four most common Elements. NL Air, Earth, Fire, and Water"
+  },
+  {
+    "PROPER_NAME": "Fruit Juice",
+    "NAMES": [
+      "Fruit Juice",
+      "fruit_juice"
+    ],
+    "DESCRIPTION": "A potion that gives 5 Max HP."
   }
 ]
