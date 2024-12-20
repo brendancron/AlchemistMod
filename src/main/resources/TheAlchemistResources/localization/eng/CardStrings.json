@@ -176,6 +176,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
+  "TheAlchemist:ChemicalBuffer": {
+    "NAME": "Chemical Buffer",
+    "DESCRIPTION": "Gain !M! Artifact, !M! thealchemist:Buffer, and !M! thealchemist:Antifact."
+  },
   "TheAlchemist:Creation": {
     "NAME": "Creation",
     "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
