@@ -28,6 +28,10 @@
     "DESCRIPTIONS": ["Air: Liquid Memories NL Dark: Poison Potion NL Earth: Skill Potion NL Fire: Attack Potion NL Light: Power Potion NL Magic: Ancient Potion NL Water: Colorless Potion"]
   },
 
+  "TheAlchemist:BreezyPower": {
+    "NAME": "Breezy",
+    "DESCRIPTIONS": ["When you play a card, discard your leftmost card and draw #b1 card.", "When you play a card, discard your #b", " leftmost cards and draw #b", " cards."]
+  },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
