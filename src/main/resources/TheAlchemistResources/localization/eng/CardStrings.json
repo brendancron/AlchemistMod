@@ -92,6 +92,11 @@
     "DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
   },
+  "TheAlchemist:Breezy": {
+    "NAME": "Breezy",
+    "DESCRIPTION": "When you play a card, discard your leftmost card and draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Air. NL When you play a card, discard your leftmost card and draw 1 card."
+  },
   "TheAlchemist:CautiousBrew": {
     "NAME": "Cautious Brew",
     "DESCRIPTION": "If the enemy intends to attack, gain !M! thealchemist:Earth thealchemist:Elements. NL Otherwise gain !M! thealchemist:Fire thealchemist:Elements."
