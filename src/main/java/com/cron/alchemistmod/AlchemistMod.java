@@ -40,7 +40,7 @@ public class AlchemistMod implements
         EditRelicsSubscriber,
         PostBattleSubscriber,
         EditKeywordsSubscriber,
-        PostPotionUseSubscriber,
+        PrePotionUseSubscriber,
         OnPlayerTurnStartSubscriber{
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
@@ -153,7 +153,7 @@ public class AlchemistMod implements
         TrackPotions.atCombatEnd();
     }
     @Override
-    public void receivePostPotionUse(AbstractPotion abstractPotion) {
+    public void receivePrePotionUse(AbstractPotion abstractPotion) {
         TrackPotions.onPotionUsed(abstractPotion);
     }
 

@@ -7,10 +7,14 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.cron.alchemistmod.util.TrackPotions;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -45,6 +49,14 @@ public class SacredFormPower extends AbstractAlchemistPower {
     @Override
     public void onInitialApplication() {
         TrackPotions.updatePotions();
+    }
+
+    @Override
+    public void onUsePotion(AbstractPotion potion) {
+        int poisonAmount = 1;
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(this.owner, this.source, new PoisonPower(this.owner, this.source, poisonAmount), poisonAmount)
+        );
     }
 
     @Override

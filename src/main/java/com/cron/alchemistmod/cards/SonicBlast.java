@@ -18,7 +18,7 @@ public class SonicBlast extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE = 12;
     private static final int DAMAGE_UPGRADE = 6;
 
