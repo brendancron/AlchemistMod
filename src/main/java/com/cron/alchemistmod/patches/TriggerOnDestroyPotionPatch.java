@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 )
 public class TriggerOnDestroyPotionPatch {
     private static AbstractPotion destroyedPotion;
+    public static final Logger logger = LogManager.getLogger("TriggerOnDestroyPotionPatch");
+
     public static void Prefix(TopPanel __instance, int slot) {
         destroyedPotion = AbstractDungeon.player.potions.get(slot);
     }
@@ -31,12 +35,14 @@ public class TriggerOnDestroyPotionPatch {
         triggerOnDestroyPotion(AbstractDungeon.player.exhaustPile.group, potionWasUsed);
 
         if (potionWasUsed) {
+            logger.info("Potion used");
             for (AbstractPower power : AbstractDungeon.player.powers) {
                 if (power instanceof AbstractAlchemistPower) {
                     ((AbstractAlchemistPower)power).onUsePotion(destroyedPotion);
                 }
             }
         } else {
+            logger.info("Potion discarded");
             for (AbstractPower power : AbstractDungeon.player.powers) {
                 if (power instanceof AbstractAlchemistPower) {
                     ((AbstractAlchemistPower)power).onDiscardPotion(destroyedPotion);
