@@ -13,18 +13,19 @@ import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.cron.alchemistmod.util.MagicNumber2;
 import com.cron.alchemistmod.util.TrackPotions;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -105,9 +106,9 @@ public class AlchemistMod implements
 //        BaseMod.loadCustomStringsFile(PotionStrings.class,
 //                getModID() + "Resources/localization/eng/PotionStrings.json");
 //
-//        // CharacterStrings
-//        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-//                getModID() + "Resources/localization/eng/CharacterStrings.json");
+        // CharacterStrings
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                getModID() + "Resources/localization/eng/CharacterStrings.json");
 //
 //        // OrbStrings
 //        BaseMod.loadCustomStringsFile(OrbStrings.class,

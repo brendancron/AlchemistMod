@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -38,17 +39,11 @@ public class TheAlchemist extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int HAND_SIZE = 5;
     public static final int ORB_SLOTS = 0;
+    private static final String ID = AlchemistMod.makeID(TheAlchemist.class.getSimpleName());
 
-    private static final String[] NAMES = new String[] {
-            "The Alchemist",
-            "the Alchemist"
-    };
+    private static final String[] NAMES = CardCrawlGame.languagePack.getCharacterString(ID).NAMES;
 
-    private static final String[] TEXT = new String[] {
-            "This is text",
-            "More text",
-            "Even more text yo"
-    };
+    private static final String[] TEXT = CardCrawlGame.languagePack.getCharacterString(ID).TEXT;
 
     public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeGeneralPath("shoulder2.png"); // campfire pose
     public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeGeneralPath("shoulder.png"); // another campfire pose
