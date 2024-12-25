@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class ExplosionAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
-    private final boolean upgraded;
+    private final int mult;
     private final AbstractPlayer player;
     private final int energyOnUse;
 
-    public ExplosionAction(AbstractPlayer player, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
+    public ExplosionAction(AbstractPlayer player, int mult, boolean freeToPlayOnce, int energyOnUse) {
         this.player = player;
-        this.upgraded = upgraded;
+        this.mult = mult;
         this.freeToPlayOnce = freeToPlayOnce;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
@@ -34,9 +34,7 @@ public class ExplosionAction extends AbstractGameAction {
             this.player.getRelic("Chemical X").flash();
         }
 
-        if (this.upgraded) {
-            effect++;
-        }
+        effect *= this.mult;
 
         if (effect > 0) {
             this.addToBot(new ApplyPowerAction(this.player, this.player, new FireElement(this.player, this.player, effect), effect));

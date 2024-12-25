@@ -2,7 +2,7 @@
   "modid": "AlchemistMod",
   "name": "The Alchemist",
   "version": "1.0.0",
-  "author_list": ["AxeCop85"],
-  "description": "A mod for Slay the Spire.",
+  "author_list": ["IgpayAtenlay","AxeCop85"],
+  "description": "Adds a new potion-based character called The Alchemist.",
   "dependencies": ["basemod", "stslib"]
 }

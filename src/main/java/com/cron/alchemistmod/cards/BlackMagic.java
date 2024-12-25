@@ -32,6 +32,8 @@ public class BlackMagic extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.exhaust = false;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

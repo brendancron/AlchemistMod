@@ -11,12 +11,17 @@ import org.apache.logging.log4j.Logger;
 public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
 
     private static final Logger logger = LogManager.getLogger(ChooseAndTransformRandomCardAction.class.getName());
+    private final int numOfCards;
 
-    public ChooseAndTransformRandomCardAction() {
+    public ChooseAndTransformRandomCardAction(int numOfCards) {
+        this.numOfCards = numOfCards;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
         AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
         logger.info("ChooseAndTransformRandomCardAction initialized.");
+    }
+    public ChooseAndTransformRandomCardAction() {
+        this(1);
     }
 
     @Override
@@ -35,22 +40,23 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
         // If selection retrieval hasn't occurred and no card is selected, open selection screen
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved && AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
             logger.info("Opening selection screen.");
-            AbstractDungeon.handCardSelectScreen.open("Choose a card to transform", 1, false, false);
+            AbstractDungeon.handCardSelectScreen.open("Transform", numOfCards, false, true, true, false, true);
             this.tickDuration();
             return;
         }
 
         // After the player selects a card
         if (!AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
-            AbstractCard selectedCard = AbstractDungeon.handCardSelectScreen.selectedCards.getBottomCard();
-            logger.info("Card selected: " + selectedCard.name);
+            for (AbstractCard selectedCard : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+                logger.info("Card selected: " + selectedCard.name);
 
-            // Generate a random replacement card
-            AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity());
-            logger.info("Generated replacement card: " + randomReplacement.name);
+                // Generate a random replacement card
+                AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity());
+                logger.info("Generated replacement card: " + randomReplacement.name);
 
-            // Add the transformed card to the player's hand with a visual effect
-            AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(randomReplacement));
+                // Add the transformed card to the player's hand with a visual effect
+                AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(randomReplacement));
+            }
 
             // Clear selected cards and reset selection state for future uses
             AbstractDungeon.handCardSelectScreen.selectedCards.clear();

@@ -16,6 +16,8 @@ public class Explosion extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = -1;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Explosion.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -24,21 +26,21 @@ public class Explosion extends AbstractAlchemistCard {
     public Explosion() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ExplosionAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse)
+                new ExplosionAction(p, this.magicNumber, this.freeToPlayOnce, this.energyOnUse)
         );
     }
 }

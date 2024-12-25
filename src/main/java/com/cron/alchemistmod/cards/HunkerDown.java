@@ -2,7 +2,7 @@ package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.GainEarth;
+import com.cron.alchemistmod.powers.HunkerDownPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,8 +17,7 @@ public class HunkerDown extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int COST_UPGRADE = 0;
+    private static final int COST = 0;
 
     public final static String ID = AlchemistMod.makeID(HunkerDown.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -32,7 +31,9 @@ public class HunkerDown extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.isInnate = true;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -42,7 +43,7 @@ public class HunkerDown extends AbstractAlchemistCard {
                 new ApplyPowerAction(p, p, new NoBlockPower(p, 99, true), 99)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new GainEarth(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new HunkerDownPower(p, p, 1), 1)
         );
     }
 }
