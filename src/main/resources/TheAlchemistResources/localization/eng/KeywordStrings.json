@@ -44,10 +44,9 @@
 
   {
     "NAMES": [
-      "element",
-      "elements"
+      "antifact"
     ],
-    "DESCRIPTION": "Mix two Elements together to create a potion"
+    "DESCRIPTION": "Negates the next buff."
   },
   {
     "PROPER_NAME": "Basic Element",
@@ -56,6 +55,27 @@
       "basic_element",
       "basic_elements"
     ],
-    "DESCRIPTION": "The four most common Elements. NL Air, Earth, Fire, and Water"
+    "DESCRIPTION": "The four most common Elements. NL Air, Earth, Fire, and Water."
+  },
+  {
+    "NAMES": [
+      "buffer"
+    ],
+    "DESCRIPTION": "Prevent the next time you would lose HP."
+  },
+  {
+    "NAMES": [
+      "element",
+      "elements"
+    ],
+    "DESCRIPTION": "Mix two Elements together to create a potion."
+  },
+  {
+    "PROPER_NAME": "Fruit Juice",
+    "NAMES": [
+      "Fruit Juice",
+      "fruit_juice"
+    ],
+    "DESCRIPTION": "A potion that raises your Max HP by 5."
   }
 ]

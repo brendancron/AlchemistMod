@@ -24,9 +24,9 @@ public abstract class AbstractAlchemistCard extends CustomCard {
     public void triggerOnObtainPotion(AbstractPotion potion) {
     }
 
-    public void triggerOnDestroyPotion() {
+    public void triggerOnUsePotion(AbstractPotion potion) {
     }
 
-    public void triggerOnRemovePotion(AbstractPotion potion) {
+    public void triggerOnDiscardPotion(AbstractPotion potion) {
     }
 }

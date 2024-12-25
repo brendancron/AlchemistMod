@@ -20,8 +20,8 @@ public class PackedEarthPower extends AbstractAlchemistPower {
 
     public static final String POWER_ID = AlchemistMod.makeID(PackedEarthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "32.png"));
 
     public PackedEarthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;

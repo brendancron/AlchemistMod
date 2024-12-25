@@ -12,17 +12,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.ObtainPotionEffect;
 
-public class LeftoversPower extends AbstractAlchemistPower {
+public class DredgesPower extends AbstractAlchemistPower {
     public AbstractCreature source;
 
-    public static final String POWER_ID = AlchemistMod.makeID(LeftoversPower.class.getSimpleName());
+    public static final String POWER_ID = AlchemistMod.makeID(DredgesPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(DredgesPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(DredgesPower.class.getSimpleName() + "32.png"));
 
-    public LeftoversPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public DredgesPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -47,7 +48,9 @@ public class LeftoversPower extends AbstractAlchemistPower {
             } else {
                 AbstractPotion potion = TrackPotions.getLastPotionUsed();
                 if (potion != null) {
-                    AbstractDungeon.player.obtainPotion(TrackPotions.getLastPotionUsed());
+                    for(int i = 0; i < this.amount; i++) {
+                        AbstractDungeon.effectsQueue.add(new ObtainPotionEffect(potion.makeCopy()));
+                    }
                 }
             }
         }
@@ -64,10 +67,10 @@ public class LeftoversPower extends AbstractAlchemistPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new LeftoversPower(this.owner, this.source, this.amount);
+        return new DredgesPower(this.owner, this.source, this.amount);
     }
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new LeftoversPower(this.owner, this.source, amount);
+        return new DredgesPower(this.owner, this.source, amount);
     }
 }
