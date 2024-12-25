@@ -207,8 +207,8 @@
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
-    "DESCRIPTION": "Ethereal. NL Double the effectiveness of the first potion you play each turn.",
-    "UPGRADE_DESCRIPTION": "Double the effectiveness of the first potion you play each turn."
+    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions. NL When you use a potion gain 1 Poison.",
+    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions. NL When you use a potion gain 1 Poison."
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",
