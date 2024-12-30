@@ -2,7 +2,6 @@ package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.AirElement;
 import com.cron.alchemistmod.powers.BreezyPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,6 +17,8 @@ public class Breezy extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Breezy.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -25,12 +26,14 @@ public class Breezy extends AbstractAlchemistCard {
 
     public Breezy() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -38,14 +41,8 @@ public class Breezy extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new AirElement(p, p, 1), 1)
-            );
-        }
-
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new BreezyPower(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new BreezyPower(p, p, this.magicNumber), this.magicNumber)
         );
     }
 }

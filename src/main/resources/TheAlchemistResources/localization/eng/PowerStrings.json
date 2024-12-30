@@ -30,7 +30,7 @@
 
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
-    "DESCRIPTIONS": ["When you play a card, discard your leftmost card and draw #b1 card.", "When you play a card, discard your #b", " leftmost cards and draw #b", " cards."]
+    "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
   },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
