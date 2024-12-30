@@ -94,8 +94,8 @@
   },
   "TheAlchemist:Breezy": {
     "NAME": "Breezy",
-    "DESCRIPTION": "When you play a card, discard your leftmost card and draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Gain 1 Air. NL When you play a card, discard your leftmost card and draw 1 card."
+    "DESCRIPTION": "When you play a card, discard your !M! leftmost card, then draw that many cards.",
+    "UPGRADE_DESCRIPTION": "When you play a card, discard your !M! leftmost cards, then draw that many cards."
   },
   "TheAlchemist:CautiousBrew": {
     "NAME": "Cautious Brew",
