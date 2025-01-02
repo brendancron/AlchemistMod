@@ -17,9 +17,9 @@
     "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
-  "TheAlchemist:Sparks": {
-    "NAME": "Sparks",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain a thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
+  "TheAlchemist:Embers": {
+    "NAME": "Embers",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
@@ -32,6 +32,10 @@
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "TheAlchemist:PoisonShiv": {
+    "NAME": "Poison Shiv",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison."
   },
   "TheAlchemist:Prohibition": {
     "NAME": "Prohibition",
@@ -51,6 +55,10 @@
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
     "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:Sparks": {
+    "NAME": "Sparks",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain a thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
   },
   "TheAlchemist:Splatter": {
     "NAME": "Splatter",
