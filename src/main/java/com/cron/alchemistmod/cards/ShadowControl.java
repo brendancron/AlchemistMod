@@ -3,7 +3,9 @@ package com.cron.alchemistmod.cards;
 import com.badlogic.gdx.math.MathUtils;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.DarkElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -52,6 +54,9 @@ public class ShadowControl extends AbstractAlchemistCard {
         for(int i = 0; i < this.magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new DarkElement(p, p, 1), 1)
+        );
     }
 
     @Override

@@ -136,6 +136,11 @@
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
   },
+  "TheAlchemist:LeechStrength": {
+    "NAME": "Leech Strength",
+    "DESCRIPTION": "Whenever you gain Strength this turn, the enemy loses an equal amount. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "When you gain strength this turn, enemy loses an equal amount."
+  },
   "TheAlchemist:LiquidShield": {
     "NAME": "Liquid Shield",
     "DESCRIPTION": "Discard your last potion. NL Gain !B! Block."
