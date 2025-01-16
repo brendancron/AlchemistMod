@@ -72,6 +72,10 @@
     "NAME": "The Best Defense...",
     "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
   },
+  "TheAlchemist:UnstableElixirPower": {
+    "NAME": "Unstable Elixir",
+    "DESCRIPTIONS": ["Gain ", ", ", "and ", " this turn to deal ", " damage to ALL enemies.", "#yAir", "#yEarth", "#yFire", "#yWater"]
+  },
 
   "TheAlchemist:AntifactPower": {
     "NAME": "Antifact",

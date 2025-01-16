@@ -188,6 +188,10 @@
     "NAME": "Trenches",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Earth thealchemist:Element."
   },
+  "TheAlchemist:UnstableElixir": {
+    "NAME": "Unstable Elixir",
+    "DESCRIPTION": "If you play all thealchemist:Basic_Elements this turn, deal !M! damage to ALL enemies."
+  },
   "TheAlchemist:WaterBubble": {
     "NAME": "Water Bubble",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
@@ -229,7 +233,7 @@
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",
-    "DESCRIPTION": "When you discard a potion, gain !M! Strength"
+    "DESCRIPTION": "When you discard a potion, gain !M! Strength."
   },
   "TheAlchemist:TheBestDefense": {
     "NAME": "The Best Defense...",
