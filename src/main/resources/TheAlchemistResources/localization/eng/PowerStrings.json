@@ -52,6 +52,10 @@
     "NAME": "Growth",
     "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain #yFruit #yJuice.", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
   },
+  "TheAlchemist:LeechStrengthPower": {
+    "NAME": "Leech Strength",
+    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses ", " times that amount."]
+  },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]

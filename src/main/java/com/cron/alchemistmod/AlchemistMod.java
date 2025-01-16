@@ -8,6 +8,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.cron.alchemistmod.cards.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
@@ -16,13 +17,17 @@ import com.cron.alchemistmod.util.TrackPotions;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,7 +47,9 @@ public class AlchemistMod implements
         PostBattleSubscriber,
         EditKeywordsSubscriber,
         PrePotionUseSubscriber,
-        OnPlayerTurnStartSubscriber{
+        OnPlayerTurnStartSubscriber,
+        PostPowerApplySubscriber
+{
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
 
@@ -161,6 +168,24 @@ public class AlchemistMod implements
     @Override
     public void receiveOnPlayerTurnStart() {
         TrackPotions.atStartOfTurn();
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            for (AbstractPower power : monster.powers) {
+                if (power instanceof AbstractAlchemistPower) {
+                    ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+                }
+            }
+        }
+
+        AbstractPlayer player = AbstractDungeon.player;
+        for (AbstractPower power : player.powers) {
+            if (power instanceof AbstractAlchemistPower) {
+                ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+            }
+        }
     }
 
     // end subscribers ----------------------

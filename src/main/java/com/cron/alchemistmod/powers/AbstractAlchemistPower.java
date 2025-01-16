@@ -27,4 +27,8 @@ public abstract class AbstractAlchemistPower extends AbstractPower implements Cl
 
     public void onDiscardPotion(AbstractPotion potion) {
     }
+
+    public void onAnyPowerApplied(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+
+    }
 }
