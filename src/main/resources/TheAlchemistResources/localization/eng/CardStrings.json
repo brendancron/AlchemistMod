@@ -52,6 +52,10 @@
     "NAME": "Reverberation",
     "DESCRIPTION": "Deal !D! damage !M! times."
   },
+  "TheAlchemist:ShadowControl": {
+    "NAME": "Shadow Control",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Scales with enemy powers."
+  },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
     "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
