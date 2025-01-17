@@ -104,6 +104,10 @@
     "DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
   },
+  "TheAlchemist:BloodInfusion": {
+    "NAME": "Blood Infusion",
+    "DESCRIPTION": "Transfer your poison to the enemy."
+  },
   "TheAlchemist:Breezy": {
     "NAME": "Breezy",
     "DESCRIPTION": "When you play a card, discard your !M! leftmost card, then draw that many cards.",
