@@ -8,6 +8,10 @@
     "DESCRIPTION": "Gain !B! Block."
   },
 
+  "TheAlchemist:AirBurst": {
+    "NAME": "Air Burst",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Gain 1 thealchemist:Air thealchemist:Element."
+  },
   "TheAlchemist:Arsenic": {
     "NAME": "Arsenic",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Poison."
@@ -32,6 +36,11 @@
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+  },
+  "TheAlchemist:PainedStrike": {
+    "NAME": "Pained Strike",
+    "DESCRIPTION": "Deal damage equal to your missing HP. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
   "TheAlchemist:PoisonShiv": {
     "NAME": "Poison Shiv",
