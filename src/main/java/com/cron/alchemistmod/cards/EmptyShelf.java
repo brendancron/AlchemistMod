@@ -11,23 +11,23 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class BagOfBricks extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
+public class EmptyShelf extends AbstractAlchemistCard {
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE = 0;
-    private static final int MAGIC = 3;
-    private static final int MAGIC_UPGRADE = 2;
+    private static final int MAGIC = 10;
+    private static final int MAGIC_UPGRADE = 4;
 
 
-    public final static String ID = AlchemistMod.makeID(BagOfBricks.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(EmptyShelf.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeCardPath(BagOfBricks.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeCardPath(EmptyShelf.class.getSimpleName() + ".png");
 
-    public BagOfBricks() {
+    public EmptyShelf() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
@@ -52,12 +52,11 @@ public class BagOfBricks extends AbstractAlchemistCard {
     }
 
     public void applyPowers() {
-        this.baseDamage = TrackPotions.numOfPotions() * this.magicNumber;
+        this.baseDamage = TrackPotions.numOfEmptyPotionSlots() * this.magicNumber;
         super.applyPowers();
         this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
-
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
         this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];

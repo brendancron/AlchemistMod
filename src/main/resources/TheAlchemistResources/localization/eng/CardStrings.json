@@ -21,9 +21,18 @@
     "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
+  "TheAlchemist:CursedStrike": {
+    "NAME": "CursedStrike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
+  },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:EmptyShelf": {
+    "NAME": "Empty Shelf",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of empty potion slots you have.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
   },
   "TheAlchemist:FireStrike": {
     "NAME": "Fire Strike",
@@ -80,6 +89,10 @@
   "TheAlchemist:SonicBlast": {
     "NAME": "Sonic Blast",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Air thealchemist:Element."
+  },
+  "TheAlchemist:TargetNecrosis": {
+    "NAME": "Target Necrosis",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Poison, gain [E] and draw 1 card."
   },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",

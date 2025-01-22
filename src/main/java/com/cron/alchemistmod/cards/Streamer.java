@@ -2,6 +2,7 @@ package com.cron.alchemistmod.cards;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.PotionSlot;
 
 public class Streamer extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -20,14 +20,16 @@ public class Streamer extends AbstractAlchemistCard {
     private static final int COST = 0;
     private static final int BLOCK = 12;
     private static final int BLOCK_UPGRADE = 4;
+    private int emptyPotionSlots;
 
     public final static String ID = AlchemistMod.makeID(Streamer.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeCardPath(Streamer.class.getSimpleName() + ".png");
 
     public Streamer() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST + TrackPotions.numOfEmptyPotionSlots(), CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
+        this.emptyPotionSlots = TrackPotions.numOfEmptyPotionSlots();
     }
 
     @Override
@@ -59,13 +61,9 @@ public class Streamer extends AbstractAlchemistCard {
     }
 
     public void updateCostPotions() {
-        int slots = 0;
-        for (AbstractPotion potion : AbstractDungeon.player.potions) {
-            if (potion instanceof PotionSlot) {
-                slots++;
-            }
-        }
-        setCostForTurn(this.cost + slots);
+        int emptyPotionSlots = TrackPotions.numOfEmptyPotionSlots();
+        setCostForTurn(this.costForTurn + emptyPotionSlots - this.emptyPotionSlots);
+        this.emptyPotionSlots = emptyPotionSlots;
     }
 
     @Override
