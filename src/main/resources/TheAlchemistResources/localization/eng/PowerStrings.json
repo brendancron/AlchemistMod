@@ -32,6 +32,10 @@
     "NAME": "Breezy",
     "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
   },
+  "TheAlchemist:ChugPower": {
+    "NAME": "Chug",
+    "DESCRIPTIONS": ["Whenever you use a potion, draw ", " card.", " cards."]
+  },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]

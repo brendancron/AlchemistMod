@@ -48,23 +48,31 @@ public class TrackPotions {
     }
 
     public static int numOfEmptyPotionSlots() {
-        int numOfEmptySlots = 0;
-        for(AbstractPotion potion: AbstractDungeon.player.potions) {
-            if (potion instanceof PotionSlot) {
-                numOfEmptySlots++;
+        if (AbstractDungeon.player != null) {
+            int numOfEmptySlots = 0;
+            for(AbstractPotion potion: AbstractDungeon.player.potions) {
+                if (potion instanceof PotionSlot) {
+                    numOfEmptySlots++;
+                }
             }
-        }
 
-        return numOfEmptySlots;
+            return numOfEmptySlots;
+        } else {
+            return 0;
+        }
     }
     public static int numOfPotions() {
-        int numOfPotions = 0;
-        for(AbstractPotion potion: AbstractDungeon.player.potions) {
-            if (!(potion instanceof PotionSlot)) {
-                numOfPotions++;
+        if (AbstractDungeon.player != null) {
+            int numOfPotions = 0;
+            for(AbstractPotion potion: AbstractDungeon.player.potions) {
+                if (!(potion instanceof PotionSlot)) {
+                    numOfPotions++;
+                }
             }
-        }
 
-        return numOfPotions;
+            return numOfPotions;
+        } else {
+            return 0;
+        }
     }
 }

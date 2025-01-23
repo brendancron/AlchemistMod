@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GrowthPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(GrowthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static int IdOffset = 0;
