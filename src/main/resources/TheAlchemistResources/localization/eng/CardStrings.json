@@ -175,6 +175,10 @@
     "NAME": "Liquid Shield",
     "DESCRIPTION": "Discard your last potion. NL Gain !B! Block."
   },
+  "TheAlchemist:MetallicSkin": {
+    "NAME": "Metallic Skin",
+    "DESCRIPTION": "Gain !B! Plated Armor. NL Scales like Block. NL Exhaust."
+  },
   "TheAlchemist:Mutagen": {
     "NAME": "Mutagen",
     "DESCRIPTION": "Gain !M! Strength and !thealchemist:M! Poison."
@@ -183,6 +187,10 @@
     "NAME": "Packed Earth",
     "DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element.",
     "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element and gain !M! Block."
+  },
+  "TheAlchemist:ProtectionTonic": {
+    "NAME": "Protection Tonic",
+    "DESCRIPTION": "Gain !B! Block !M! times."
   },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
@@ -247,6 +255,11 @@
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
     "DESCRIPTION": "Gain 1 thealchemist:Magic thealchemist:Element."
+  },
+  "TheAlchemist:Entropy": {
+    "NAME": "Entropy",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Element other than thealchemist:Dark, gain 1 thealchemist:Dark thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain an thealchemist:Element other than thealchemist:Dark, gain 1 thealchemist:Dark thealchemist:Element."
   },
   "TheAlchemist:FumeHood": {
     "NAME": "Fume Hood",
