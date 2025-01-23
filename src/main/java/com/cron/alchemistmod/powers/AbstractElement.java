@@ -12,8 +12,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractElement extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public AbstractElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         this.owner = owner;
         this.amount = amount;

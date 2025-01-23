@@ -78,6 +78,10 @@
     "NAME": "Shifting Sand",
     "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
   },
+  "TheAlchemist:ShiningStrike": {
+    "NAME": "Shining Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Light thealchemist:Element."
+  },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
     "DESCRIPTION": "Deal !D! damage. NL Whenever you gain a thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
@@ -132,8 +136,8 @@
   },
   "TheAlchemist:Breezy": {
     "NAME": "Breezy",
-    "DESCRIPTION": "When you play a card, discard your !M! leftmost card, then draw that many cards.",
-    "UPGRADE_DESCRIPTION": "When you play a card, discard your !M! leftmost cards, then draw that many cards."
+    "DESCRIPTION": "Whenever you play a card this turn, discard your !M! leftmost card, then draw that many cards.",
+    "UPGRADE_DESCRIPTION": "Whenever you play a card this turn, discard your !M! leftmost cards, then draw that many cards."
   },
   "TheAlchemist:CautiousBrew": {
     "NAME": "Cautious Brew",
@@ -165,7 +169,7 @@
   "TheAlchemist:LeechStrength": {
     "NAME": "Leech Strength",
     "DESCRIPTION": "Whenever you gain Strength this turn, the enemy loses an equal amount. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "When you gain strength this turn, enemy loses an equal amount."
+    "UPGRADE_DESCRIPTION": "Whenever you gain strength this turn, enemy loses an equal amount."
   },
   "TheAlchemist:LiquidShield": {
     "NAME": "Liquid Shield",
@@ -227,6 +231,11 @@
     "NAME": "Chemical Buffer",
     "DESCRIPTION": "Gain !M! Artifact, !M! thealchemist:Buffer, and !M! thealchemist:Antifact."
   },
+  "TheAlchemist:Chug": {
+    "NAME": "Chug",
+    "DESCRIPTION": "Whenever you use a potion, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you use a potion, draw !M! cards."
+  },
   "TheAlchemist:Creation": {
     "NAME": "Creation",
     "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
@@ -254,12 +263,12 @@
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
-    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions. NL When you use a potion gain 1 Poison.",
-    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions. NL When you use a potion gain 1 Poison."
+    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions. NL Whenever you use a potion gain 1 Poison.",
+    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions. NL Whenever you use a potion gain 1 Poison."
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",
-    "DESCRIPTION": "When you discard a potion, gain !M! Strength."
+    "DESCRIPTION": "Whenever you discard a potion, gain !M! Strength."
   },
   "TheAlchemist:TheBestDefense": {
     "NAME": "The Best Defense...",

@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class LeechStrengthPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
     public int previousAmount;
 
     public static final String POWER_ID = AlchemistMod.makeID(LeechStrengthPower.class.getSimpleName());
