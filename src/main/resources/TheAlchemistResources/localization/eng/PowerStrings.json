@@ -40,6 +40,10 @@
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
   },
+  "TheAlchemist:EntropyPower": {
+    "NAME": "Entropy",
+    "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain ", " #yDark."]
+  },
   "TheAlchemist:FumeHoodPower": {
     "NAME": "Fume Hood",
     "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
