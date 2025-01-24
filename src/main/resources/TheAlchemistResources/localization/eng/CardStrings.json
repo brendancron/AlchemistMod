@@ -209,6 +209,11 @@
     "DESCRIPTION": "Enemy takes poison damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Enemy takes poison damage twice. NL Exhaust."
   },
+  "TheAlchemist:Splash": {
+    "NAME": "Splash",
+    "DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies."
+  },
   "TheAlchemist:Streamer": {
     "NAME": "Streamer!",
     "DESCRIPTION": "Costs 1 more [E] for each empty potion slot. NL Gain !B! Block."
