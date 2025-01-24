@@ -147,6 +147,10 @@
     "NAME": "Cautious Brew",
     "DESCRIPTION": "If the enemy intends to attack, gain !M! thealchemist:Earth thealchemist:Elements. NL Otherwise gain !M! thealchemist:Fire thealchemist:Elements."
   },
+  "TheAlchemist:Chrysopoeia": {
+    "NAME": "Chrysopoeia",
+    "DESCRIPTION": "Gain X Gold for every !M! Block. NL Exhaust."
+  },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
     "DESCRIPTION": "Discard your last potion. NL Gain 1 thealchemist:Light thealchemist:Element.",
