@@ -61,24 +61,13 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
         }
     }
 
-    public static boolean hasElement(AbstractPlayer player) {
-        if (player.hasPower(AirElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(DarkElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(EarthElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(FireElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(LightElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(MagicElement.POWER_ID)) {
-            return true;
-        } else if (player.hasPower(WaterElement.POWER_ID)) {
-            return true;
-        } else {
-            return false;
+    public static boolean hasElement() {
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof AbstractElement) {
+                return true;
+            }
         }
+        return false;
     }
     public static AbstractElement getElement(AbstractPlayer player) {
         if (player.hasPower(AirElement.POWER_ID)) {
