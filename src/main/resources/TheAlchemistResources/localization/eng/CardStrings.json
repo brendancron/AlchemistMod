@@ -25,6 +25,10 @@
     "NAME": "CursedStrike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
   },
+  "TheAlchemist:ElementalBlast": {
+    "NAME": "Elemental Blast",
+    "DESCRIPTION": "Deal !D! damage. NL Doubled if you have an thealchemist:Element"
+  },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
