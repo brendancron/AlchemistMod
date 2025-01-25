@@ -55,11 +55,9 @@ public class BreezyPower extends AbstractAlchemistPower {
             }
         }
 
-        for (int i = 0; i < numCardsDiscarded; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DrawCardAction(this.amount)
-            );
-        }
+        AbstractDungeon.actionManager.addToBottom(
+                new DrawCardAction(numCardsDiscarded)
+        );
     }
 
     @Override
