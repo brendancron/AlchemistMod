@@ -248,6 +248,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
+  "TheAlchemist:Caffeine": {
+    "NAME": "Caffeine",
+    "DESCRIPTION": "Whenever you draw a card, draw !M! more."
+  },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
     "DESCRIPTION": "Gain !M! Artifact, !M! thealchemist:Buffer, and !M! thealchemist:Antifact."

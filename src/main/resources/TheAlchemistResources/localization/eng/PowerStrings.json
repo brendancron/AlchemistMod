@@ -32,6 +32,10 @@
     "NAME": "Breezy",
     "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
   },
+  "TheAlchemist:CaffeinePower": {
+    "NAME": "Caffeine",
+    "DESCRIPTIONS": ["Whenever you draw a card, draw ", " more."]
+  },
   "TheAlchemist:ChugPower": {
     "NAME": "Chug",
     "DESCRIPTIONS": ["Whenever you use a potion, draw ", " card.", " cards."]
