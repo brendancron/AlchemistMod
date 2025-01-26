@@ -1,6 +1,6 @@
 package com.cron.alchemistmod.patches;
 
-import com.cron.alchemistmod.cards.PoisonShiv;
+import com.cron.alchemistmod.cards.alchemist.PoisonShiv;
 import com.cron.alchemistmod.util.CustomTags;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
