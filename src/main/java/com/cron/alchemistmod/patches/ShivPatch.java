@@ -1,5 +1,6 @@
 package com.cron.alchemistmod.patches;
 
+import com.cron.alchemistmod.cards.PoisonShiv;
 import com.cron.alchemistmod.util.CustomTags;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,6 +29,13 @@ public class ShivPatch {
                     card.baseDamage = 4 + __instance.amount;
                 } else {
                     card.baseDamage = 6 + __instance.amount;
+                }
+                if (card instanceof PoisonShiv) {
+                    if (!card.upgraded) {
+                        card.magicNumber = card.baseMagicNumber = PoisonShiv.MAGIC + __instance.amount;
+                    } else {
+                        card.magicNumber = card.baseMagicNumber = PoisonShiv.MAGIC + PoisonShiv.MAGIC_UPGRADE + __instance.amount;
+                    }
                 }
             }
         }

@@ -34,11 +34,11 @@
   },
   "TheAlchemist:CaffeinePower": {
     "NAME": "Caffeine",
-    "DESCRIPTIONS": ["Whenever you draw a card, draw ", " more."]
+    "DESCRIPTIONS": ["Whenever you draw a card, draw #b", " more."]
   },
   "TheAlchemist:ChugPower": {
     "NAME": "Chug",
-    "DESCRIPTIONS": ["Whenever you use a potion, draw ", " card.", " cards."]
+    "DESCRIPTIONS": ["Whenever you use a potion, draw #b", " card.", " cards."]
   },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
@@ -46,7 +46,7 @@
   },
   "TheAlchemist:EntropyPower": {
     "NAME": "Entropy",
-    "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain ", " #yDark."]
+    "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain #b", " #yDark."]
   },
   "TheAlchemist:FumeHoodPower": {
     "NAME": "Fume Hood",
@@ -66,11 +66,15 @@
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
-    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses ", " times that amount."]
+    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses #b", " times that amount."]
   },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]
+  },
+  "TheAlchemist:PoisonedSheathPower": {
+    "NAME": "Poisoned Sheath",
+    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv", " #yPoison #yShivs", " into your hand.", "+ into your hand."]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
