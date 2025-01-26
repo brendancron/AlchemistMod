@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.potions.PotionSlot;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
-import java.util.Objects;
 
 public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
     private final boolean first;
@@ -63,15 +62,17 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
             if (list != null) {
                 for (AbstractPotion potion : list) {
                     Element[] elements = PotionElements.getElements(potion);
-                    for (int i = 0; i < Objects.requireNonNull(elements).length; i++) {
-                        if (doubleCards) {
-                            AbstractDungeon.actionManager.addToBottom(
-                                    new MakeTempCardInHandAction(elements[i].getCard(), 2, false)
-                            );
-                        } else {
-                            AbstractDungeon.actionManager.addToBottom(
-                                    new MakeTempCardInHandAction(elements[i].getCard(), 1, false)
-                            );
+                    if (elements != null) {
+                        for (Element element : elements) {
+                            if (doubleCards) {
+                                AbstractDungeon.actionManager.addToBottom(
+                                        new MakeTempCardInHandAction(element.getCard(), 2, false)
+                                );
+                            } else {
+                                AbstractDungeon.actionManager.addToBottom(
+                                        new MakeTempCardInHandAction(element.getCard(), 1, false)
+                                );
+                            }
                         }
                     }
                 }
