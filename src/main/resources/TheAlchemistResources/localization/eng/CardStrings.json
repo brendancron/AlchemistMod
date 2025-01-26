@@ -25,6 +25,10 @@
     "NAME": "CursedStrike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
   },
+  "TheAlchemist:EarthStrike": {
+    "NAME": "Earth Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Earth thealchemist:Element."
+  },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
     "DESCRIPTION": "Deal !D! damage. NL Doubled if you have an thealchemist:Element"
@@ -42,6 +46,10 @@
     "NAME": "Fire Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
+  "TheAlchemist:HeavyWater": {
+    "NAME": "Heavy Water",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Water thealchemist:Element."
+  },
   "TheAlchemist:Injection": {
     "NAME": "Injection",
     "DESCRIPTION": "Discard your last potion. NL Deal !D! damage. NL Apply !M! Poison."
@@ -57,7 +65,7 @@
   },
   "TheAlchemist:PoisonShiv": {
     "NAME": "Poison Shiv",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison. NL Exhaust."
   },
   "TheAlchemist:Prohibition": {
     "NAME": "Prohibition",
@@ -290,6 +298,11 @@
     "NAME": "Hunker Down",
     "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element.",
     "UPGRADE_DESCRIPTION": "Innate NL Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
+  },
+  "TheAlchemist:PoisonedSheath": {
+    "NAME": "Poisoned Sheath",
+    "DESCRIPTION": "At the start of your turn, add a Poison Shiv into your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add a Poison Shiv+ into your hand."
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
