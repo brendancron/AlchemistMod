@@ -6,7 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.cron.alchemistmod.cards.Strike;
+import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
@@ -249,8 +249,12 @@ public class AlchemistMod implements
         return getModID() + "Resources/images/animation/" + resourcePath;
     }
 
-    public static String makeCardPath(String resourcePath) {
-        return getModID() + "Resources/images/cards/" + resourcePath;
+    public static String makeAlchemistCardPath(String resourcePath) {
+        return getModID() + "Resources/images/cards/alchemist/" + resourcePath;
+    }
+
+    public static String makeColorlessCardPath(String resourcePath) {
+        return getModID() + "Resources/images/cards/colorless/" + resourcePath;
     }
 
     public static String makeRelicPath(String resourcePath) {

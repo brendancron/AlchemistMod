@@ -120,6 +120,11 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged."
   },
 
+  "TheAlchemist:Alkahest": {
+    "NAME": "Alkahest",
+    "DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards.",
+    "UPGRADE_DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards twice."
+  },
   "TheAlchemist:AlkalineAir": {
     "NAME": "Alkaline Air",
     "DESCRIPTION": "Reduce Weak by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
@@ -317,5 +322,34 @@
     "NAME": "The Best Defense...",
     "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorns."
+  },
+
+  "TheAlchemist:AirElementCard": {
+    "NAME": "Air Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Air thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:DarkElementCard": {
+    "NAME": "Dark Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Dark thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:EarthElementCard": {
+    "NAME": "Earth Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Earth thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:FireElementCard": {
+    "NAME": "Fire Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Fire thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:LightElementCard": {
+    "NAME": "Light Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Light thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:MagicElementCard": {
+    "NAME": "Magic Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Magic thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:WaterElementCard": {
+    "NAME": "Water Element",
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
   }
 }
