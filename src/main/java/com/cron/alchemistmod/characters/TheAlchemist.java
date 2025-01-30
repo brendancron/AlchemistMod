@@ -44,10 +44,11 @@ public class TheAlchemist extends CustomPlayer {
     private static final String[] NAMES = CardCrawlGame.languagePack.getCharacterString(ID).NAMES;
 
     private static final String[] TEXT = CardCrawlGame.languagePack.getCharacterString(ID).TEXT;
+    public static final String MY_CHARACTER_IDLE = AlchemistMod.makeCharacterPath("idle.png");
 
-    public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeGeneralPath("shoulder2.png"); // campfire pose
-    public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeGeneralPath("shoulder.png"); // another campfire pose
-    public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeGeneralPath("corpse.png"); // dead corpse
+    public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeCharacterPath("shoulder.png"); // campfire pose
+    public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeCharacterPath("shoulder.png"); // another campfire pose
+    public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeCharacterPath("corpse.png"); // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
     public static final String[] orbTextures = {
@@ -71,9 +72,9 @@ public class TheAlchemist extends CustomPlayer {
 
         // =============== TEXTURES, ENERGY, LOADOUT =================
 
-        initializeClass(null, // required call to load textures and setup energy/loadout.
+        initializeClass(MY_CHARACTER_IDLE, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                MY_CHARACTER_SHOULDER_2, // campfire pose
+                MY_CHARACTER_SHOULDER_2, // campfire pose - not currently right size
                 MY_CHARACTER_SHOULDER_1, // another campfire pose
                 MY_CHARACTER_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
@@ -130,7 +131,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() { // the rest of the character loadout so includes your character select screen info plus hp and starting gold
-        return new CharSelectInfo(NAMES[0], "My character is a person from the outer worlds. He makes magic stuff happen.",
+        return new CharSelectInfo(NAMES[0], TEXT[0],
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, HAND_SIZE,
                 this, getStartingRelics(), getStartingDeck(), false);
     }

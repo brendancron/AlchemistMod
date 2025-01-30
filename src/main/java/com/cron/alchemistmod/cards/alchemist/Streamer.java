@@ -5,6 +5,7 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +22,6 @@ public class Streamer extends AbstractAlchemistCard {
     private static final int COST = 0;
     private static final int BLOCK = 12;
     private static final int BLOCK_UPGRADE = 4;
-    private int emptyPotionSlots;
 
     public final static String ID = AlchemistMod.makeID(Streamer.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -30,7 +30,6 @@ public class Streamer extends AbstractAlchemistCard {
     public Streamer() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST + TrackPotions.numOfEmptyPotionSlots(), CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        this.emptyPotionSlots = TrackPotions.numOfEmptyPotionSlots();
     }
 
     @Override
@@ -41,30 +40,19 @@ public class Streamer extends AbstractAlchemistCard {
         }
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        updateCostPotions();
-    }
-
     @Override
     public void triggerOnObtainPotion(AbstractPotion potion) {
-        updateCostPotions();
+        this.updateCost(-1);
     }
 
     @Override
     public void triggerOnUsePotion(AbstractPotion potion) {
-        updateCostPotions();
+        this.updateCost(1);
     }
 
     @Override
     public void triggerOnDiscardPotion(AbstractPotion potion) {
-        updateCostPotions();
-    }
-
-    public void updateCostPotions() {
-        int emptyPotionSlots = TrackPotions.numOfEmptyPotionSlots();
-        setCostForTurn(this.costForTurn + emptyPotionSlots - this.emptyPotionSlots);
-        this.emptyPotionSlots = emptyPotionSlots;
+        this.updateCost(1);
     }
 
     @Override
@@ -72,5 +60,16 @@ public class Streamer extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
                 new GainBlockAction(p, p, block)
         );
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        AbstractCard newCard = new Streamer();
+        if (AbstractDungeon.player != null) {
+            AlchemistMod.logger.info("num of empty slots is " + TrackPotions.numOfEmptyPotionSlots());
+            newCard.updateCost(TrackPotions.numOfEmptyPotionSlots());
+        }
+
+        return newCard;
     }
 }
