@@ -280,4 +280,8 @@ public class AlchemistMod implements
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
+
+    public static String makeCharacterPath(String resourcePath) {
+        return getModID() + "Resources/images/character/theAlchemist/" + resourcePath;
+    }
 }
