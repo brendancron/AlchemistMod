@@ -254,8 +254,8 @@ public class AlchemistMod implements
         return getModID() + "Resources/images/cards/colorless/" + resourcePath;
     }
 
-    public static String makeRelicPath(String resourcePath) {
-        return getModID() + "Resources/images/relics/" + resourcePath;
+    public static String makeRelicTexturePath(String resourcePath) {
+        return getModID() + "Resources/images/relics/texture/" + resourcePath;
     }
 
     public static String makeRelicOutlinePath(String resourcePath) {
