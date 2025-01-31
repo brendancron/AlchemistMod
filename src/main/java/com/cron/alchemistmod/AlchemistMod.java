@@ -57,32 +57,29 @@ public class AlchemistMod implements
 
     private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
     private static final String PORTRAIT = "TheAlchemistResources/images/select/portrait.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "TheAlchemistResources/images/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "TheAlchemistResources/images/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "TheAlchemistResources/images/corpse.png";
 
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    private static final String ATTACK_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_attack.png";
-    private static final String SKILL_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_skill.png";
-    private static final String POWER_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_power.png";
+    public static final Color ALCHEMIST_COLOR = CardHelper.getColor(255, 0, 0);
+    private static final String ATTACK_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_attack.png";
+    private static final String SKILL_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_skill.png";
+    private static final String POWER_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_power.png";
 
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/energy_orb.png";
-    private static final String CARD_ENERGY_ORB = "TheAlchemistResources/images/cardback/small_orb.png";
+    private static final String ENERGY_ORB_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/energy_orb.png";
+    private static final String CARD_ENERGY_ORB = "TheAlchemistResources/images/cardback/alchemist/small_orb.png";
 
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_attack_p.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_skill_p.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_power_p.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/energy_orb_p.png";
+    private static final String ATTACK_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_attack_p.png";
+    private static final String SKILL_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_skill_p.png";
+    private static final String POWER_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_power_p.png";
+    private static final String ENERGY_ORB_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/energy_orb_p.png";
 
 
     public AlchemistMod() {
         BaseMod.subscribe(this);
         setModID("TheAlchemist");
-        BaseMod.addColor(TheAlchemist.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
+        BaseMod.addColor(TheAlchemist.Enums.ALCHEMIST, ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR,
+                ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR,
+                ATTACK_ALCHEMIST, SKILL_ALCHEMIST, POWER_ALCHEMIST, ENERGY_ORB_ALCHEMIST,
+                ATTACK_ALCHEMIST_PORTRAIT, SKILL_ALCHEMIST_PORTRAIT, POWER_ALCHEMIST_PORTRAIT,
+                ENERGY_ORB_ALCHEMIST_PORTRAIT, CARD_ENERGY_ORB);
     }
 
     public static void initialize() {
@@ -134,7 +131,7 @@ public class AlchemistMod implements
 
     @Override
     public void receiveEditRelics() {
-        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.COLOR_GRAY);
+        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.ALCHEMIST);
     }
 
     @Override
@@ -283,5 +280,9 @@ public class AlchemistMod implements
 
     public static String makeCharacterPath(String resourcePath) {
         return getModID() + "Resources/images/character/theAlchemist/" + resourcePath;
+    }
+
+    public static String makeCardbackPath(String resourcePath) {
+        return getModID() + "Resources/images/cardback/alchemist/" + resourcePath;
     }
 }

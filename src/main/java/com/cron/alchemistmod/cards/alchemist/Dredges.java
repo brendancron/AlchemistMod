@@ -15,7 +15,7 @@ public class Dredges extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheAlchemist.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;

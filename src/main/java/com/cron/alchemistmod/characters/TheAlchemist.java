@@ -27,9 +27,9 @@ public class TheAlchemist extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_ALCHEMIST;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "ALCHEMIST") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor ALCHEMIST;
+        @SpireEnum(name = "ALCHEMIST") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
@@ -51,6 +51,7 @@ public class TheAlchemist extends CustomPlayer {
     public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeCharacterPath("corpse.png"); // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
+
     public static final String[] orbTextures = {
             AlchemistMod.makeEnergyOrbPath("cover.png"),
             AlchemistMod.makeEnergyOrbPath("layer1.png"),
@@ -143,12 +144,12 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return Enums.COLOR_GRAY;
+        return Enums.ALCHEMIST;
     }
 
     @Override
     public Color getCardRenderColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override
@@ -158,7 +159,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public Color getCardTrailColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override
@@ -198,7 +199,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public Color getSlashAttackColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override
