@@ -31,7 +31,7 @@ public class LeechStrengthPower extends AbstractAlchemistPower {
         this.amount = amount;
         this.source = source;
 
-        type = PowerType.BUFF;
+        type = PowerType.DEBUFF;
         isTurnBased = false;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
