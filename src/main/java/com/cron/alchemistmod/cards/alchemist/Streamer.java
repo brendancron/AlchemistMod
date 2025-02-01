@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class Streamer extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -28,7 +29,7 @@ public class Streamer extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Streamer.class.getSimpleName() + ".png");
 
     public Streamer() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST + TrackPotions.numOfEmptyPotionSlots(), CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
     }
 
@@ -41,18 +42,29 @@ public class Streamer extends AbstractAlchemistCard {
     }
 
     @Override
+    public void triggerOnBattleStart() {
+        this.updateCost(TrackPotions.numOfEmptyPotionSlots());
+    }
+
+    @Override
     public void triggerOnObtainPotion(AbstractPotion potion) {
-        this.updateCost(-1);
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.updateCost(-1);
+        }
     }
 
     @Override
     public void triggerOnUsePotion(AbstractPotion potion) {
-        this.updateCost(1);
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.updateCost(1);
+        }
     }
 
     @Override
     public void triggerOnDiscardPotion(AbstractPotion potion) {
-        this.updateCost(1);
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            this.updateCost(1);
+        }
     }
 
     @Override
@@ -65,7 +77,7 @@ public class Streamer extends AbstractAlchemistCard {
     @Override
     public AbstractCard makeCopy() {
         AbstractCard newCard = new Streamer();
-        if (AbstractDungeon.player != null) {
+        if (AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             AlchemistMod.logger.info("num of empty slots is " + TrackPotions.numOfEmptyPotionSlots());
             newCard.updateCost(TrackPotions.numOfEmptyPotionSlots());
         }

@@ -29,4 +29,7 @@ public abstract class AbstractAlchemistCard extends CustomCard {
 
     public void triggerOnDiscardPotion(AbstractPotion potion) {
     }
+
+    public void triggerOnBattleStart() {
+    }
 }
