@@ -31,7 +31,7 @@
   },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
-    "DESCRIPTION": "Deal !D! damage. NL Doubled if you have an thealchemist:Element"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Doubled if you have an thealchemist:Element"
   },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
