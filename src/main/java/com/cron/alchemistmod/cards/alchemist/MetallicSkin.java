@@ -19,7 +19,7 @@ public class MetallicSkin extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 3;
-    private static final int BLOCK_UPGRADE = 5;
+    private static final int BLOCK_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(MetallicSkin.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
