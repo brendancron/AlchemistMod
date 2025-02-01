@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 public class BagOfBricks extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -63,5 +64,17 @@ public class BagOfBricks extends AbstractAlchemistCard {
         super.calculateCardDamage(mo);
         this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
+    }
+
+    public void triggerOnObtainPotion(AbstractPotion potion) {
+        this.applyPowers();
+    }
+
+    public void triggerOnUsePotion(AbstractPotion potion) {
+        this.applyPowers();
+    }
+
+    public void triggerOnDiscardPotion(AbstractPotion potion) {
+        this.applyPowers();
     }
 }
