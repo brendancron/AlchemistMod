@@ -162,7 +162,8 @@
   },
   "TheAlchemist:Chrysopoeia": {
     "NAME": "Chrysopoeia",
-    "DESCRIPTION": "Gain X Gold for every !M! Block. NL Exhaust."
+    "DESCRIPTION": "Gain X Gold for every !M! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain X Gold for every Block. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",

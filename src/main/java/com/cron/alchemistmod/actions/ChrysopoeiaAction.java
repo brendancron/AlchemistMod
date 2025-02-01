@@ -2,6 +2,7 @@ package com.cron.alchemistmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -37,6 +38,9 @@ public class ChrysopoeiaAction extends AbstractGameAction {
         int effect  = AbstractDungeon.player.currentBlock / mult * energy;
 
         if (effect > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new RemoveAllBlockAction(player, player)
+            );
             AbstractDungeon.actionManager.addToBottom(
                     new GainGoldAction(effect)
             );
