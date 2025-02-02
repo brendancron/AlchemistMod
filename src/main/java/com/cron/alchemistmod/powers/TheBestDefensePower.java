@@ -15,8 +15,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 
 public class TheBestDefensePower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(TheBestDefensePower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 

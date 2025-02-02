@@ -16,8 +16,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class PackedEarthPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(PackedEarthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));

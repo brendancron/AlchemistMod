@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractAlchemistPower extends AbstractPower implements CloneablePowerInterface {
+    public AbstractCreature source;
     public abstract AbstractAlchemistPower makeCopy(int amount);
     public void onCreateCard(AbstractCard card) {
     }
@@ -26,5 +27,9 @@ public abstract class AbstractAlchemistPower extends AbstractPower implements Cl
     }
 
     public void onDiscardPotion(AbstractPotion potion) {
+    }
+
+    public void onAnyPowerApplied(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+
     }
 }

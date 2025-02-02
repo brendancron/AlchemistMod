@@ -7,6 +7,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,8 +16,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class BreezyPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(BreezyPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
@@ -42,14 +41,29 @@ public class BreezyPower extends AbstractAlchemistPower {
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        for (int i = 0; i < AbstractDungeon.player.hand.group.size() && i < this.amount; i++) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DiscardSpecificCardAction(AbstractDungeon.player.hand.group.get(i))
-            );
+        int numCardsDiscarded = 0;
+        for (int i = 0; i < AbstractDungeon.player.hand.group.size(); i++) {
+            AbstractCard discardedCard = AbstractDungeon.player.hand.group.get(i);
+            if (discardedCard != usedCard) {
+                AbstractDungeon.actionManager.addToBottom(
+                        new DiscardSpecificCardAction(AbstractDungeon.player.hand.group.get(i))
+                );
+                numCardsDiscarded++;
+            }
+            if (numCardsDiscarded == this.amount) {
+                break;
+            }
         }
 
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(this.amount)
+                new DrawCardAction(numCardsDiscarded)
+        );
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        AbstractDungeon.actionManager.addToBottom(
+                new RemoveSpecificPowerAction(this.owner, this.source, this)
         );
     }
 
@@ -58,7 +72,7 @@ public class BreezyPower extends AbstractAlchemistPower {
         if (this.amount == 1) {
             description = POWER_STRINGS.DESCRIPTIONS[0];
         } else {
-            description = POWER_STRINGS.DESCRIPTIONS[1] + amount + POWER_STRINGS.DESCRIPTIONS[2] + amount + POWER_STRINGS.DESCRIPTIONS[3];
+            description = POWER_STRINGS.DESCRIPTIONS[1] + amount + POWER_STRINGS.DESCRIPTIONS[2];
         }
     }
 

@@ -2,6 +2,7 @@ package com.cron.alchemistmod.util;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.potions.PotionSlot;
 
 import java.util.ArrayList;
 
@@ -44,5 +45,34 @@ public class TrackPotions {
         potionsUsedThisCombat.add(abstractPotion);
 
         updatePotions();
+    }
+
+    public static int numOfEmptyPotionSlots() {
+        if (AbstractDungeon.player != null) {
+            int numOfEmptySlots = 0;
+            for(AbstractPotion potion: AbstractDungeon.player.potions) {
+                if (potion instanceof PotionSlot) {
+                    numOfEmptySlots++;
+                }
+            }
+
+            return numOfEmptySlots;
+        } else {
+            return 0;
+        }
+    }
+    public static int numOfPotions() {
+        if (AbstractDungeon.player != null) {
+            int numOfPotions = 0;
+            for(AbstractPotion potion: AbstractDungeon.player.potions) {
+                if (!(potion instanceof PotionSlot)) {
+                    numOfPotions++;
+                }
+            }
+
+            return numOfPotions;
+        } else {
+            return 0;
+        }
     }
 }
