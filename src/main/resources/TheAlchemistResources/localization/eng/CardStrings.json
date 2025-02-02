@@ -84,7 +84,7 @@
   },
   "TheAlchemist:ShadowControl": {
     "NAME": "Shadow Control",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Scales with enemy powers."
+    "DESCRIPTION": "Deal !D! damage !M! times. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy powers."
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
