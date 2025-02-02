@@ -15,8 +15,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class SublimationPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(SublimationPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 

@@ -18,11 +18,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GrowthPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
-
     public static final String POWER_ID = AlchemistMod.makeID(GrowthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    private static int GrowthOffset = 0;
+    private static int IdOffset = 0;
     private final ArrayList<String> elementsLeft;
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "84.png"));
@@ -30,7 +28,7 @@ public class GrowthPower extends AbstractAlchemistPower {
 
     public GrowthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
-        ID = POWER_ID + GrowthOffset++;
+        ID = POWER_ID + IdOffset++;
 
         this.elementsLeft = new ArrayList<>();
         this.elementsLeft.add(AirElement.POWER_ID);

@@ -5,9 +5,9 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.Defend;
-import com.cron.alchemistmod.cards.ElementalBurst;
-import com.cron.alchemistmod.cards.Strike;
+import com.cron.alchemistmod.cards.alchemist.Defend;
+import com.cron.alchemistmod.cards.alchemist.ElementalBurst;
+import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -27,9 +27,9 @@ public class TheAlchemist extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_ALCHEMIST;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "ALCHEMIST") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor ALCHEMIST;
+        @SpireEnum(name = "ALCHEMIST") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
@@ -44,12 +44,14 @@ public class TheAlchemist extends CustomPlayer {
     private static final String[] NAMES = CardCrawlGame.languagePack.getCharacterString(ID).NAMES;
 
     private static final String[] TEXT = CardCrawlGame.languagePack.getCharacterString(ID).TEXT;
+    public static final String MY_CHARACTER_IDLE = AlchemistMod.makeCharacterPath("idle.png");
 
-    public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeGeneralPath("shoulder2.png"); // campfire pose
-    public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeGeneralPath("shoulder.png"); // another campfire pose
-    public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeGeneralPath("corpse.png"); // dead corpse
+    public static final String MY_CHARACTER_SHOULDER_2 = AlchemistMod.makeCharacterPath("shoulder.png"); // campfire pose
+    public static final String MY_CHARACTER_SHOULDER_1 = AlchemistMod.makeCharacterPath("shoulder.png"); // another campfire pose
+    public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeCharacterPath("corpse.png"); // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
+
     public static final String[] orbTextures = {
             AlchemistMod.makeEnergyOrbPath("cover.png"),
             AlchemistMod.makeEnergyOrbPath("layer1.png"),
@@ -71,9 +73,9 @@ public class TheAlchemist extends CustomPlayer {
 
         // =============== TEXTURES, ENERGY, LOADOUT =================
 
-        initializeClass(null, // required call to load textures and setup energy/loadout.
+        initializeClass(MY_CHARACTER_IDLE, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                MY_CHARACTER_SHOULDER_2, // campfire pose
+                MY_CHARACTER_SHOULDER_2, // campfire pose - not currently right size
                 MY_CHARACTER_SHOULDER_1, // another campfire pose
                 MY_CHARACTER_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
@@ -130,7 +132,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() { // the rest of the character loadout so includes your character select screen info plus hp and starting gold
-        return new CharSelectInfo(NAMES[0], "My character is a person from the outer worlds. He makes magic stuff happen.",
+        return new CharSelectInfo(NAMES[0], TEXT[0],
                 STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, HAND_SIZE,
                 this, getStartingRelics(), getStartingDeck(), false);
     }
@@ -142,12 +144,12 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return Enums.COLOR_GRAY;
+        return Enums.ALCHEMIST;
     }
 
     @Override
     public Color getCardRenderColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override
@@ -157,7 +159,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public Color getCardTrailColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override
@@ -197,7 +199,7 @@ public class TheAlchemist extends CustomPlayer {
 
     @Override
     public Color getSlashAttackColor() {
-        return AlchemistMod.DEFAULT_GRAY;
+        return AlchemistMod.ALCHEMIST_COLOR;
     }
 
     @Override

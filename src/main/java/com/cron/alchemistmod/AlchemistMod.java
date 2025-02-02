@@ -6,8 +6,10 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.cron.alchemistmod.cards.Strike;
+import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
@@ -16,13 +18,18 @@ import com.cron.alchemistmod.util.TrackPotions;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,6 +37,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import static basemod.BaseMod.addRelicToCustomPool;
 
@@ -42,7 +50,10 @@ public class AlchemistMod implements
         PostBattleSubscriber,
         EditKeywordsSubscriber,
         PrePotionUseSubscriber,
-        OnPlayerTurnStartSubscriber{
+        OnPlayerTurnStartSubscriber,
+        PostPowerApplySubscriber,
+        OnStartBattleSubscriber
+{
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
 
@@ -50,120 +61,34 @@ public class AlchemistMod implements
 
     private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
     private static final String PORTRAIT = "TheAlchemistResources/images/select/portrait.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "TheAlchemistResources/images/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "TheAlchemistResources/images/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "TheAlchemistResources/images/corpse.png";
 
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    private static final String ATTACK_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_attack.png";
-    private static final String SKILL_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_skill.png";
-    private static final String POWER_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/bg_power.png";
+    public static final Color ALCHEMIST_COLOR = CardHelper.getColor(255, 0, 0);
+    private static final String ATTACK_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_attack.png";
+    private static final String SKILL_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_skill.png";
+    private static final String POWER_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_power.png";
 
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "TheAlchemistResources/images/cardback/energy_orb.png";
-    private static final String CARD_ENERGY_ORB = "TheAlchemistResources/images/cardback/small_orb.png";
+    private static final String ENERGY_ORB_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/energy_orb.png";
+    private static final String CARD_ENERGY_ORB = "TheAlchemistResources/images/cardback/alchemist/small_orb.png";
 
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_attack_p.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_skill_p.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/bg_power_p.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "TheAlchemistResources/images/cardback/energy_orb_p.png";
+    private static final String ATTACK_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_attack_p.png";
+    private static final String SKILL_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_skill_p.png";
+    private static final String POWER_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_power_p.png";
+    private static final String ENERGY_ORB_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/energy_orb_p.png";
 
 
     public AlchemistMod() {
         BaseMod.subscribe(this);
         setModID("TheAlchemist");
-        BaseMod.addColor(TheAlchemist.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
+        BaseMod.addColor(TheAlchemist.Enums.ALCHEMIST, ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR,
+                ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR, ALCHEMIST_COLOR,
+                ATTACK_ALCHEMIST, SKILL_ALCHEMIST, POWER_ALCHEMIST, ENERGY_ORB_ALCHEMIST,
+                ATTACK_ALCHEMIST_PORTRAIT, SKILL_ALCHEMIST_PORTRAIT, POWER_ALCHEMIST_PORTRAIT,
+                ENERGY_ORB_ALCHEMIST_PORTRAIT, CARD_ENERGY_ORB);
     }
 
     public static void initialize() {
         new AlchemistMod();
     }
-
-    // subscribers ----------------------------
-
-    @Override
-    public void receiveEditStrings() {
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/CardStrings.json");
-
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/PowerStrings.json");
-
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/RelicStrings.json");
-//
-//        // Event Strings
-//        BaseMod.loadCustomStringsFile(EventStrings.class,
-//                getModID() + "Resources/localization/eng/EventStrings.json");
-//
-//        // PotionStrings
-//        BaseMod.loadCustomStringsFile(PotionStrings.class,
-//                getModID() + "Resources/localization/eng/PotionStrings.json");
-//
-        // CharacterStrings
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/CharacterStrings.json");
-//
-//        // OrbStrings
-//        BaseMod.loadCustomStringsFile(OrbStrings.class,
-//                getModID() + "Resources/localization/eng/OrbStrings.json");
-    }
-
-    @Override
-    public void receiveEditCards() {
-        BaseMod.addDynamicVariable(new MagicNumber2());
-        // Register the custom card
-        new AutoAdd(AlchemistMod.class.getSimpleName()) // ${project.artifactId}
-                .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
-                .setDefaultSeen(true)
-                .cards();
-    }
-
-    @Override
-    public void receiveEditRelics() {
-        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.COLOR_GRAY);
-    }
-
-    @Override
-    public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheAlchemist(), BUTTON, PORTRAIT, TheAlchemist.Enums.THE_ALCHEMIST);
-    }
-
-    @Override
-    public void receiveEditKeywords() {
-        Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
-
-        if (keywords != null) {
-            for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-            }
-        }
-    }
-
-    @Override
-    public void receivePostBattle(AbstractRoom abstractRoom) {
-        AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
-        TrackPotions.atCombatEnd();
-    }
-    @Override
-    public void receivePrePotionUse(AbstractPotion abstractPotion) {
-        TrackPotions.onPotionUsed(abstractPotion);
-    }
-
-    @Override
-    public void receiveOnPlayerTurnStart() {
-        TrackPotions.atStartOfTurn();
-    }
-
-    // end subscribers ----------------------
 
     // mod id
 
@@ -224,12 +149,16 @@ public class AlchemistMod implements
         return getModID() + "Resources/images/animation/" + resourcePath;
     }
 
-    public static String makeCardPath(String resourcePath) {
-        return getModID() + "Resources/images/cards/" + resourcePath;
+    public static String makeAlchemistCardPath(String resourcePath) {
+        return getModID() + "Resources/images/cards/alchemist/" + resourcePath;
     }
 
-    public static String makeRelicPath(String resourcePath) {
-        return getModID() + "Resources/images/relics/" + resourcePath;
+    public static String makeColorlessCardPath(String resourcePath) {
+        return getModID() + "Resources/images/cards/colorless/" + resourcePath;
+    }
+
+    public static String makeRelicTexturePath(String resourcePath) {
+        return getModID() + "Resources/images/relics/texture/" + resourcePath;
     }
 
     public static String makeRelicOutlinePath(String resourcePath) {
@@ -251,4 +180,129 @@ public class AlchemistMod implements
     public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
     }
+
+    public static String makeCharacterPath(String resourcePath) {
+        return getModID() + "Resources/images/character/theAlchemist/" + resourcePath;
+    }
+
+    public static String makeCardbackPath(String resourcePath) {
+        return getModID() + "Resources/images/cardback/alchemist/" + resourcePath;
+    }
+
+    // subscribers ----------------------------
+
+    @Override
+    public void receiveEditStrings() {
+        // CardStrings
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                getModID() + "Resources/localization/eng/CardStrings.json");
+
+        // PowerStrings
+        BaseMod.loadCustomStringsFile(PowerStrings.class,
+                getModID() + "Resources/localization/eng/PowerStrings.json");
+
+        // RelicStrings
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                getModID() + "Resources/localization/eng/RelicStrings.json");
+//
+//        // Event Strings
+//        BaseMod.loadCustomStringsFile(EventStrings.class,
+//                getModID() + "Resources/localization/eng/EventStrings.json");
+//
+//        // PotionStrings
+//        BaseMod.loadCustomStringsFile(PotionStrings.class,
+//                getModID() + "Resources/localization/eng/PotionStrings.json");
+//
+        // CharacterStrings
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                getModID() + "Resources/localization/eng/CharacterStrings.json");
+//
+//        // OrbStrings
+//        BaseMod.loadCustomStringsFile(OrbStrings.class,
+//                getModID() + "Resources/localization/eng/OrbStrings.json");
+    }
+
+    @Override
+    public void receiveEditCards() {
+        BaseMod.addDynamicVariable(new MagicNumber2());
+        // Register the custom card
+        new AutoAdd(AlchemistMod.class.getSimpleName()) // ${project.artifactId}
+                .packageFilter(Strike.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
+                .setDefaultSeen(true)
+                .cards();
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.ALCHEMIST);
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        BaseMod.addCharacter(new TheAlchemist(), BUTTON, PORTRAIT, TheAlchemist.Enums.THE_ALCHEMIST);
+    }
+
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        AbstractDungeon.player.powers.removeIf(power -> power instanceof SacredFormPower);
+        TrackPotions.atCombatEnd();
+    }
+    @Override
+    public void receivePrePotionUse(AbstractPotion abstractPotion) {
+        TrackPotions.onPotionUsed(abstractPotion);
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        TrackPotions.atStartOfTurn();
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+        for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            for (AbstractPower power : monster.powers) {
+                if (power instanceof AbstractAlchemistPower) {
+                    ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+                }
+            }
+        }
+
+        AbstractPlayer player = AbstractDungeon.player;
+        for (AbstractPower power : player.powers) {
+            if (power instanceof AbstractAlchemistPower) {
+                ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+            }
+        }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        triggerOnBattleStart(AbstractDungeon.player.hand.group);
+        triggerOnBattleStart(AbstractDungeon.player.drawPile.group);
+        triggerOnBattleStart(AbstractDungeon.player.discardPile.group);
+        triggerOnBattleStart(AbstractDungeon.player.exhaustPile.group);
+    }
+
+    public static void triggerOnBattleStart(ArrayList<AbstractCard> group) {
+        for(AbstractCard card : group) {
+            if (card instanceof AbstractAlchemistCard) {
+                ((AbstractAlchemistCard) card).triggerOnBattleStart();
+            }
+        }
+    }
+
+    // end subscribers ----------------------
 }

@@ -32,7 +32,7 @@ public class RemovePotionAction extends AbstractGameAction {
     }
 
     public RemovePotionAction(AbstractPlayer player) {
-        this(player, true);
+        this(player, false);
     }
 
     public void update() {

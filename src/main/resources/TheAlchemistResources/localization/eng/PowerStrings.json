@@ -30,11 +30,23 @@
 
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
-    "DESCRIPTIONS": ["When you play a card, discard your leftmost card and draw #b1 card.", "When you play a card, discard your #b", " leftmost cards and draw #b", " cards."]
+    "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
+  },
+  "TheAlchemist:CaffeinePower": {
+    "NAME": "Caffeine",
+    "DESCRIPTIONS": ["Whenever you draw a card, draw #b", " more."]
+  },
+  "TheAlchemist:ChugPower": {
+    "NAME": "Chug",
+    "DESCRIPTIONS": ["Whenever you use a potion, draw #b", " card.", " cards."]
   },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
+  },
+  "TheAlchemist:EntropyPower": {
+    "NAME": "Entropy",
+    "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain #b", " #yDark."]
   },
   "TheAlchemist:FumeHoodPower": {
     "NAME": "Fume Hood",
@@ -52,9 +64,17 @@
     "NAME": "Growth",
     "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain #yFruit #yJuice.", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
   },
+  "TheAlchemist:LeechStrengthPower": {
+    "NAME": "Leech Strength",
+    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses #b", " times that amount."]
+  },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]
+  },
+  "TheAlchemist:PoisonedSheathPower": {
+    "NAME": "Poisoned Sheath",
+    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv", " #yPoison #yShivs", " into your hand.", "+ into your hand."]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
@@ -67,6 +87,10 @@
   "TheAlchemist:TheBestDefensePower": {
     "NAME": "The Best Defense...",
     "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
+  },
+  "TheAlchemist:UnstableElixirPower": {
+    "NAME": "Unstable Elixir",
+    "DESCRIPTIONS": ["Gain ", ", ", "and ", " this turn to deal ", " damage to ALL enemies.", "#yAir", "#yEarth", "#yFire", "#yWater"]
   },
 
   "TheAlchemist:AntifactPower": {

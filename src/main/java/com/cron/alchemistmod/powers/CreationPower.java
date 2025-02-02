@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class CreationPower extends AbstractAlchemistPower {
-    public AbstractCreature source;
 
     public static final String POWER_ID = AlchemistMod.makeID(CreationPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -44,7 +43,7 @@ public class CreationPower extends AbstractAlchemistPower {
     @Override
     public void onCreateCard(final AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(AbstractDungeon.player, this.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL)
+                new DamageAllEnemiesAction(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL)
         );
     }
 
