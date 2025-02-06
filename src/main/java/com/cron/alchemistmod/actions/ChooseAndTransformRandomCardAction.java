@@ -16,8 +16,7 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
     public ChooseAndTransformRandomCardAction(int numOfCards) {
         this.numOfCards = numOfCards;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-        AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
+        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         logger.info("ChooseAndTransformRandomCardAction initialized.");
     }
     public ChooseAndTransformRandomCardAction() {
@@ -30,15 +29,16 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
         logger.info("wereCardsRetrieved: " + AbstractDungeon.handCardSelectScreen.wereCardsRetrieved);
         logger.info("Selected cards size: " + AbstractDungeon.handCardSelectScreen.selectedCards.size());
 
-        // Check if the player's hand is empty; end the action if true
-        if (AbstractDungeon.player.hand.isEmpty()) {
-            logger.info("Player's hand is empty. Ending action.");
-            this.isDone = true;
-            return;
-        }
+        // Do this only on first update
+        if (this.duration == this.startDuration) {
+            // Check if the player's hand is empty; end the action if true
+            if (AbstractDungeon.player.hand.isEmpty()) {
+                logger.info("Player's hand is empty. Ending action.");
+                this.isDone = true;
+                return;
+            }
 
-        // If selection retrieval hasn't occurred and no card is selected, open selection screen
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved && AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
+            // Open selection screen
             logger.info("Opening selection screen.");
             AbstractDungeon.handCardSelectScreen.open("Transform", numOfCards, false, true, true, false, true);
             this.tickDuration();
@@ -46,7 +46,7 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
         }
 
         // After the player selects a card
-        if (!AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
+        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard selectedCard : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 logger.info("Card selected: " + selectedCard.name);
 
@@ -58,16 +58,12 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
                 AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(randomReplacement));
             }
 
-            // Clear selected cards and reset selection state for future uses
-            AbstractDungeon.handCardSelectScreen.selectedCards.clear();
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
-
-            // Mark the action as complete
-            logger.info("Transformation complete. Setting isDone to true.");
+            // End action after transforming cards
+            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             this.isDone = true;
             return;
         }
 
-        logger.info("End of update method without any action taken.");
+        this.tickDuration();
     }
 }
