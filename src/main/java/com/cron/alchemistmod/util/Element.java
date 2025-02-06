@@ -26,6 +26,16 @@ public enum Element {
         return this.PowerID;
     }
 
+    public static Element getElement(String powerID) {
+        for(Element element: Element.values()) {
+            if (element.isElement(powerID)) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
     public AbstractAlchemistCard getCard() {
         return (AbstractAlchemistCard) this.card.makeCopy();
     }

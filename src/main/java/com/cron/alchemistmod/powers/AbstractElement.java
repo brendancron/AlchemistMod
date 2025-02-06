@@ -1,6 +1,8 @@
 package com.cron.alchemistmod.powers;
 
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.util.Element;
+import com.cron.alchemistmod.util.PotionElements;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,14 +10,15 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractElement extends AbstractAlchemistPower {
-    public AbstractElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public final Element element;
+    public AbstractElement(final AbstractCreature owner, final AbstractCreature source, final int amount, final Element element) {
         this.owner = owner;
         this.amount = amount;
         this.source = source;
+        this.element = element;
 
         this.type = PowerType.BUFF;
         this.isTurnBased = false;
@@ -35,18 +38,6 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
         triggerOnGainElement();
     }
 
-    public void brewPotion(String elementID, AbstractPotion potion) {
-        AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(potion));
-        AbstractPower element = owner.getPower(elementID);
-
-        element.amount -= 1;
-        this.amount -= 1;
-
-        if (element.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, elementID));
-        }
-    }
-    public abstract void testForPotions();
     public void triggerOnGainElement() {
         triggerOnGainElement(AbstractDungeon.player.drawPile);
         triggerOnGainElement(AbstractDungeon.player.discardPile);
@@ -111,6 +102,39 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
             case 1: return new EarthElement(owner, source, amount);
             case 2: return new FireElement(owner, source, amount);
             default: return new WaterElement(owner, source, amount);
+        }
+    }
+
+    public void testForPotions() {
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof AbstractElement && power != this) {
+                AbstractDungeon.actionManager.addToBottom(
+                        new ObtainPotionAction(PotionElements.getPotion(((AbstractElement) power).element, this.element))
+                );
+
+                power.amount -= 1;
+                this.amount -= 1;
+
+                if (power.amount == 0) {
+                    AbstractDungeon.actionManager.addToTop(
+                            new RemoveSpecificPowerAction(this.owner, this.owner, power)
+                    );
+                }
+                break;
+            }
+        }
+
+        while (this.amount >= 2) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ObtainPotionAction(PotionElements.getPotion(this.element, this.element))
+            );
+            this.amount -= 2;
+        }
+
+        if (this.amount == 0) {
+            AbstractDungeon.actionManager.addToTop(
+                    new RemoveSpecificPowerAction(this.owner, this.owner, this)
+            );
         }
     }
 }

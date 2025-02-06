@@ -3,14 +3,11 @@ package com.cron.alchemistmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.util.Element;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.potions.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class EarthElement extends AbstractElement {
@@ -21,7 +18,7 @@ public class EarthElement extends AbstractElement {
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(EarthElement.class.getSimpleName() + "32.png"));
 
     public EarthElement(final AbstractCreature owner, final AbstractCreature source, final int amount) {
-        super(owner, source, amount);
+        super(owner, source, amount, Element.EARTH);
 
         this.name = POWER_STRINGS.NAME;
         this.ID = POWER_ID;
@@ -30,34 +27,6 @@ public class EarthElement extends AbstractElement {
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
-    }
-
-    public void testForPotions() {
-        // if already have a different element
-        if (owner.hasPower(AirElement.POWER_ID)) {
-            brewPotion(AirElement.POWER_ID, new WeakenPotion());
-        } else if (owner.hasPower(DarkElement.POWER_ID)) {
-            brewPotion(DarkElement.POWER_ID, new SpeedPotion());
-        } else if (owner.hasPower(FireElement.POWER_ID)) {
-            brewPotion(FireElement.POWER_ID, new ExplosivePotion());
-        } else if (owner.hasPower(LightElement.POWER_ID)) {
-            brewPotion(LightElement.POWER_ID, new DexterityPotion());
-        } else if (owner.hasPower(MagicElement.POWER_ID)) {
-            brewPotion(MagicElement.POWER_ID, new EssenceOfSteel());
-        } else if (owner.hasPower(WaterElement.POWER_ID)) {
-            brewPotion(WaterElement.POWER_ID, new SkillPotion());
-        }
-
-        while (this.amount >= 2) {
-            AbstractDungeon.actionManager.addToBottom(new ObtainPotionAction(
-                    new BlockPotion()
-            ));
-            this.amount -= 2;
-        }
-
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, EarthElement.POWER_ID));
-        }
     }
 
     @Override
