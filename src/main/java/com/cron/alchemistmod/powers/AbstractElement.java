@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -60,23 +59,12 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
         }
         return false;
     }
-    public static AbstractElement getElement(AbstractPlayer player) {
-        if (player.hasPower(AirElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(AirElement.POWER_ID);
-        } else if (player.hasPower(DarkElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(DarkElement.POWER_ID);
-        } else if (player.hasPower(EarthElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(EarthElement.POWER_ID);
-        } else if (player.hasPower(FireElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(FireElement.POWER_ID);
-        } else if (player.hasPower(LightElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(LightElement.POWER_ID);
-        } else if (player.hasPower(MagicElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(MagicElement.POWER_ID);
-        } else if (player.hasPower(WaterElement.POWER_ID)) {
-            return (AbstractElement) player.getPower(WaterElement.POWER_ID);
+    public static AbstractElement getElement() {
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof AbstractElement) {
+                return (AbstractElement) power;
+            }
         }
-
         return null;
     }
 
