@@ -43,7 +43,7 @@ public class Reagent extends AbstractAlchemistCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractElement.hasElement()) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, Objects.requireNonNull(AbstractElement.getElement(p)).makeCopy(1), 1)
+                    new ApplyPowerAction(p, p, Objects.requireNonNull(AbstractElement.getElement()).makeCopy(1), 1)
             );
         }
     }

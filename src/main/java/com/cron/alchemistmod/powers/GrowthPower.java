@@ -4,6 +4,7 @@ package com.cron.alchemistmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.util.Element;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -15,13 +16,12 @@ import com.megacrit.cardcrawl.potions.FruitJuice;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class GrowthPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(GrowthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static int IdOffset = 0;
-    private final ArrayList<String> elementsLeft;
+    private final ArrayList<Element> elementsLeft;
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "32.png"));
@@ -31,13 +31,13 @@ public class GrowthPower extends AbstractAlchemistPower {
         ID = POWER_ID + IdOffset++;
 
         this.elementsLeft = new ArrayList<>();
-        this.elementsLeft.add(AirElement.POWER_ID);
-        this.elementsLeft.add(DarkElement.POWER_ID);
-        this.elementsLeft.add(EarthElement.POWER_ID);
-        this.elementsLeft.add(FireElement.POWER_ID);
-        this.elementsLeft.add(LightElement.POWER_ID);
-        this.elementsLeft.add(MagicElement.POWER_ID);
-        this.elementsLeft.add(WaterElement.POWER_ID);
+        this.elementsLeft.add(Element.AIR);
+        this.elementsLeft.add(Element.DARK);
+        this.elementsLeft.add(Element.EARTH);
+        this.elementsLeft.add(Element.FIRE);
+        this.elementsLeft.add(Element.LIGHT);
+        this.elementsLeft.add(Element.MAGIC);
+        this.elementsLeft.add(Element.WATER);
 
         this.owner = owner;
         this.amount = elementsLeft.size();
@@ -54,7 +54,7 @@ public class GrowthPower extends AbstractAlchemistPower {
 
     @Override
     public void onGainElement(AbstractElement element) {
-        this.elementsLeft.remove(element.ID);
+        this.elementsLeft.remove(element.element);
         this.amount = this.elementsLeft.size();
 
         if (this.amount == 0) {
@@ -72,41 +72,41 @@ public class GrowthPower extends AbstractAlchemistPower {
         description = POWER_STRINGS.DESCRIPTIONS[0];
 
         for (int i = 0; i < elementsLeft.size() - 1; i++) {
-            String elementID = elementsLeft.get(i);
-            description = description.concat(elementDescription(elementID));
+            Element element = elementsLeft.get(i);
+            description = description.concat(elementDescription(element));
             description = description.concat(POWER_STRINGS.DESCRIPTIONS[1]);
         }
 
         if (elementsLeft.size() >= 2) {
             description = description.concat(POWER_STRINGS.DESCRIPTIONS[2]);
-            String elementID = elementsLeft.get(elementsLeft.size() - 1);
-            description = description.concat(elementDescription(elementID));
+            Element element = elementsLeft.get(elementsLeft.size() - 1);
+            description = description.concat(elementDescription(element));
         } else if (elementsLeft.size() == 1) {
-            String elementID = elementsLeft.get(0);
-            description = description.concat(elementDescription(elementID));
+            Element element = elementsLeft.get(0);
+            description = description.concat(elementDescription(element));
         }
 
         description = description.concat(POWER_STRINGS.DESCRIPTIONS[3]);
     }
 
-    public String elementDescription(String elementID) {
-        if (Objects.equals(elementID, AirElement.POWER_ID)) {
+    public String elementDescription(Element element) {
+        if (element == Element.AIR) {
             return POWER_STRINGS.DESCRIPTIONS[4];
-        } else if (Objects.equals(elementID, DarkElement.POWER_ID)) {
+        } else if (element == Element.DARK) {
             return POWER_STRINGS.DESCRIPTIONS[5];
-        } else if (Objects.equals(elementID, EarthElement.POWER_ID)) {
+        } else if (element == Element.EARTH) {
             return POWER_STRINGS.DESCRIPTIONS[6];
-        } else if (Objects.equals(elementID, FireElement.POWER_ID)) {
+        } else if (element == Element.FIRE) {
             return POWER_STRINGS.DESCRIPTIONS[7];
-        } else if (Objects.equals(elementID, LightElement.POWER_ID)) {
+        } else if (element == Element.LIGHT) {
             return POWER_STRINGS.DESCRIPTIONS[8];
-        } else if (Objects.equals(elementID, MagicElement.POWER_ID)) {
+        } else if (element == Element.MAGIC) {
             return POWER_STRINGS.DESCRIPTIONS[9];
-        } else if (Objects.equals(elementID, WaterElement.POWER_ID)) {
+        } else if (element == Element.WATER) {
             return POWER_STRINGS.DESCRIPTIONS[10];
+        } else {
+            return null;
         }
-
-        return null;
     }
 
     @Override
