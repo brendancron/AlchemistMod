@@ -48,9 +48,9 @@ public enum PotionElements {
     public static AbstractPotion getPotion(Element elementOne, Element elementTwo) {
         for(PotionElements potion : PotionElements.values()) {
             if (potion.elementOne == elementOne && potion.elementTwo == elementTwo) {
-                return potion.potion;
+                return potion.potion.makeCopy();
             } else if (potion.elementTwo == elementOne && potion.elementOne == elementTwo) {
-                return potion.potion;
+                return potion.potion.makeCopy();
             }
         }
 
