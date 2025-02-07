@@ -42,11 +42,7 @@ public class CaffeinePower extends AbstractAlchemistPower {
 
     @Override
     public void updateDescription() {
-        if (this.amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
-        } else {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
     }
 
     @Override

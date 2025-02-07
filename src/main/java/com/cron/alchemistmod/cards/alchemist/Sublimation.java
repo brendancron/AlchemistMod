@@ -41,7 +41,7 @@ public class Sublimation extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new SublimationPower(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new SublimationPower(p, p, this.magicNumber), this.magicNumber)
         );
     }
 }

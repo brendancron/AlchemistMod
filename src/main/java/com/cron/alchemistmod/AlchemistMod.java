@@ -59,8 +59,8 @@ public class AlchemistMod implements
 
     private static String modID;
 
-    private static final String BUTTON = "TheAlchemistResources/images/select/button.png";
-    private static final String PORTRAIT = "TheAlchemistResources/images/select/portrait.png";
+    private static final String BUTTON = "TheAlchemistResources/images/select/alchemistButton.png";
+    private static final String PORTRAIT = "TheAlchemistResources/images/select/alchemistPortrait.png";
 
     public static final Color ALCHEMIST_COLOR = CardHelper.getColor(255, 0, 0);
     private static final String ATTACK_ALCHEMIST = "TheAlchemistResources/images/cardback/alchemist/bg_attack.png";
