@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class PotionBag extends AbstractAlchemistRelic {
     public static final String ID = AlchemistMod.makeID(PotionBag.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
+    public static final int SLOTS_GIVEN = 1;
     private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(PotionBag.class.getSimpleName() + ".png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(PotionBag.class.getSimpleName() + ".png"));
 
@@ -23,14 +24,15 @@ public class PotionBag extends AbstractAlchemistRelic {
     }
 
     public void onEquip() {
-        TrackPotions.addPotionSlot(1);
+        TrackPotions.addPotionSlot(SLOTS_GIVEN);
     }
 
     @Override
     public void onRemove() {
-        TrackPotions.removePotionSlot(1);
+        TrackPotions.removePotionSlot(SLOTS_GIVEN);
     }
 
+    @Override
     public boolean canSpawn() {
         return false;
     }

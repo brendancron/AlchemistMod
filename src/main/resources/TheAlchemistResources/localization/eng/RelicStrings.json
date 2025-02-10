@@ -1,6 +1,10 @@
 {
   "TheAlchemist:PotionBag": {
     "NAME": "Potion Bag",
-    "DESCRIPTIONS": ["Upon pick up, gain 1 potion slot. NL Upon removal, lose 1 potion slot."]
+    "DESCRIPTIONS": ["While held, gain 1 potion slot."]
+  },
+  "TheAlchemist:PotionBox": {
+    "NAME": "Potion Box",
+    "DESCRIPTIONS": ["Replaces [#ff0000]Potion [#ff0000]Bag NL While held, gain 3 potion slots."]
   }
 }
