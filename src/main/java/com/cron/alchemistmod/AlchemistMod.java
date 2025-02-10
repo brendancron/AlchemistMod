@@ -12,6 +12,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.PotionBag;
+import com.cron.alchemistmod.relics.PotionBox;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.cron.alchemistmod.util.MagicNumber2;
 import com.cron.alchemistmod.util.TrackPotions;
@@ -235,6 +236,7 @@ public class AlchemistMod implements
     @Override
     public void receiveEditRelics() {
         addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.ALCHEMIST);
+        addRelicToCustomPool(new PotionBox(), TheAlchemist.Enums.ALCHEMIST);
     }
 
     @Override
