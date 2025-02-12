@@ -53,21 +53,21 @@ public class TheAlchemist extends CustomPlayer {
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
 
     public static final String[] orbTextures = {
-            AlchemistMod.makeEnergyOrbPath("cover.png"),
-            AlchemistMod.makeEnergyOrbPath("layer1.png"),
-            AlchemistMod.makeEnergyOrbPath("layer2.png"),
-            AlchemistMod.makeEnergyOrbPath("layer3.png"),
-            AlchemistMod.makeEnergyOrbPath("layer4.png"),
-            AlchemistMod.makeEnergyOrbPath("layer5.png"),
-            AlchemistMod.makeEnergyOrbPath("layer1d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer2d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer3d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer4d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer5d.png")
+            AlchemistMod.makeEnergyOrbPath("alchemist/cover.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer1.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer2.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer3.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer4.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer5.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer1d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer2d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer3d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer4d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer5d.png")
     };
 
     public TheAlchemist() {
-        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,AlchemistMod.makeEnergyOrbPath("vfx.png"), null,
+        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,AlchemistMod.makeEnergyOrbPath("alchemist/vfx.png"), new float[]{0,0,0,0,0,0,0,0,0,0,0},
                 new SpriterAnimation(AlchemistMod.makeAnimationPath("default.scml")));
 
 
@@ -213,5 +213,10 @@ public class TheAlchemist extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
+    }
+
+    @Override
+    public void updateOrb(int energyCount) {
+        // Remove animation logic here
     }
 }
