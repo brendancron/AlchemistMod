@@ -16,12 +16,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TheAlchemist extends CustomPlayer {
     public static class Enums {
@@ -216,7 +218,11 @@ public class TheAlchemist extends CustomPlayer {
     }
 
     @Override
-    public void updateOrb(int energyCount) {
-        // Remove animation logic here
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist1.png"), "ATTACK_HEAVY"));
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist2.png")));
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist3.png")));
+        return panels;
     }
 }
