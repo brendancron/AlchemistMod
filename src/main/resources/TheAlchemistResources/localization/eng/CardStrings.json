@@ -168,7 +168,7 @@
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
     "DESCRIPTION": "Discard your last potion. NL Gain 1 thealchemist:Light thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Discard your last potion. NL Gain 2 thealchemist:Light thealchemist:Elements."
+    "UPGRADE_DESCRIPTION": "Discard your last potion. NL Gain !M! thealchemist:Light thealchemist:Elements."
   },
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",

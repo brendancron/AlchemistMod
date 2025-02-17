@@ -36,6 +36,8 @@ public class CleansingLight extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
