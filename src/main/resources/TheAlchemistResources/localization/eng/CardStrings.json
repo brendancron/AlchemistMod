@@ -268,7 +268,7 @@
   },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
-    "DESCRIPTION": "Gain !M! Artifact, !M! thealchemist:Buffer, and !M! thealchemist:Antifact."
+    "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and !M! thealchemist:Antifact."
   },
   "TheAlchemist:Chug": {
     "NAME": "Chug",
