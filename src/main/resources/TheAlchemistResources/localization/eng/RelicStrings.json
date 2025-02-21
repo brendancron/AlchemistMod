@@ -1,4 +1,8 @@
 {
+  "TheAlchemist:Garden": {
+    "NAME": "Garden",
+    "DESCRIPTIONS": ["At the start of your turn, gain a random #yCommon or #yUncommon #yElement #yCard"]
+  },
   "TheAlchemist:MagicBarrier": {
     "NAME": "Magic Barrier",
     "DESCRIPTIONS": ["Whenever you apply a buff or debuff, gain #b3 Block."]
