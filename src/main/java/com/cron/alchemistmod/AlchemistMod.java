@@ -11,8 +11,8 @@ import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
+import com.cron.alchemistmod.relics.AbstractAlchemistRelic;
 import com.cron.alchemistmod.relics.PotionBag;
-import com.cron.alchemistmod.relics.PotionBox;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.cron.alchemistmod.util.MagicNumber2;
 import com.cron.alchemistmod.util.TrackPotions;
@@ -31,6 +31,7 @@ import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,8 +40,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
-import static basemod.BaseMod.addRelicToCustomPool;
 
 @SpireInitializer
 public class AlchemistMod implements
@@ -235,8 +234,12 @@ public class AlchemistMod implements
 
     @Override
     public void receiveEditRelics() {
-        addRelicToCustomPool(new PotionBag(), TheAlchemist.Enums.ALCHEMIST);
-        addRelicToCustomPool(new PotionBox(), TheAlchemist.Enums.ALCHEMIST);
+        new AutoAdd(AlchemistMod.class.getSimpleName())
+                .packageFilter(PotionBag.class)
+                .setDefaultSeen(true)
+                .any(AbstractRelic.class, (info, card) -> {
+                    BaseMod.addRelicToCustomPool(card, TheAlchemist.Enums.ALCHEMIST);
+                });
     }
 
     @Override
@@ -273,11 +276,11 @@ public class AlchemistMod implements
     }
 
     @Override
-    public void receivePostPowerApplySubscriber(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+    public void receivePostPowerApplySubscriber(AbstractPower powerApplied, AbstractCreature target, AbstractCreature source) {
         for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             for (AbstractPower power : monster.powers) {
                 if (power instanceof AbstractAlchemistPower) {
-                    ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+                    ((AbstractAlchemistPower) power).onAnyPowerApplied(powerApplied, target, source);
                 }
             }
         }
@@ -285,7 +288,13 @@ public class AlchemistMod implements
         AbstractPlayer player = AbstractDungeon.player;
         for (AbstractPower power : player.powers) {
             if (power instanceof AbstractAlchemistPower) {
-                ((AbstractAlchemistPower) power).onAnyPowerApplied(abstractPower, abstractCreature, abstractCreature1);
+                ((AbstractAlchemistPower) power).onAnyPowerApplied(powerApplied, target, source);
+            }
+        }
+
+        for (AbstractRelic relic : player.relics) {
+            if (relic instanceof AbstractAlchemistRelic) {
+                ((AbstractAlchemistRelic) relic).onApplyPower(powerApplied, target, source);
             }
         }
     }
