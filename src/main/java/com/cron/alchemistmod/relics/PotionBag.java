@@ -7,6 +7,8 @@ import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PotionBag extends AbstractAlchemistRelic {
     private static final RelicTier RARITY = RelicTier.STARTER;
@@ -16,6 +18,7 @@ public class PotionBag extends AbstractAlchemistRelic {
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
     private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(PotionBag.class.getSimpleName() + ".png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(PotionBag.class.getSimpleName() + ".png"));
+    public static final Logger logger = LogManager.getLogger(PotionBag.class.getSimpleName());
 
     public PotionBag() {
         super(ID, IMG, OUTLINE, RARITY, LandingSound.FLAT);
