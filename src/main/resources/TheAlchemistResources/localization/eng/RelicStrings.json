@@ -19,6 +19,10 @@
     "NAME": "Potion Box",
     "DESCRIPTIONS": ["Replaces [#ff0000]Potion [#ff0000]Bag NL While held, gain 3 potion slots."]
   },
+  "TheAlchemist:Transmutor": {
+    "NAME": "Transmutor",
+    "DESCRIPTIONS": ["At the start of your turn, choose any number of cards to transform."]
+  },
   "TheAlchemist:VirulentPoison": {
     "NAME": "Virulent Poison",
     "DESCRIPTIONS": ["Poison damages enemies and is reduced twice each turn"]

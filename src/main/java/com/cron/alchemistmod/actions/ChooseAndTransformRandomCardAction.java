@@ -11,16 +11,26 @@ import org.apache.logging.log4j.Logger;
 public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
 
     private static final Logger logger = LogManager.getLogger(ChooseAndTransformRandomCardAction.class.getName());
-    private final int numOfCards;
+    private int numOfCards;
+    private final boolean wholeHand;
 
-    public ChooseAndTransformRandomCardAction(int numOfCards) {
+    public ChooseAndTransformRandomCardAction(int numOfCards, boolean wholeHand) {
         this.numOfCards = numOfCards;
+        this.wholeHand = wholeHand;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         logger.info("ChooseAndTransformRandomCardAction initialized.");
     }
     public ChooseAndTransformRandomCardAction() {
-        this(1);
+        this(1, false);
+    }
+
+    public ChooseAndTransformRandomCardAction(int numOfCards) {
+        this(numOfCards, false);
+    }
+
+    public ChooseAndTransformRandomCardAction(boolean wholeHand) {
+        this(-1, wholeHand);
     }
 
     @Override
@@ -36,6 +46,8 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
                 logger.info("Player's hand is empty. Ending action.");
                 this.isDone = true;
                 return;
+            } else if (wholeHand) {
+                numOfCards = AbstractDungeon.player.hand.size();
             }
 
             // Open selection screen
