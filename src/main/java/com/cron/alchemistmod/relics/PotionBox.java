@@ -12,6 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class PotionBox extends AbstractAlchemistRelic {
+    private static final RelicTier RARITY = RelicTier.BOSS;
+
     public static final String ID = AlchemistMod.makeID(PotionBox.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
     public int extraPotionSlot = 0;
@@ -21,7 +23,7 @@ public class PotionBox extends AbstractAlchemistRelic {
     public static final Logger logger = LogManager.getLogger(PotionBox.class.getSimpleName());
 
     public PotionBox() {
-        super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RARITY, LandingSound.FLAT);
     }
 
     public String getUpdatedDescription() {

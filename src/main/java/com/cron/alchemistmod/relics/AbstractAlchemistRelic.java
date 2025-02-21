@@ -2,6 +2,8 @@ package com.cron.alchemistmod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractAlchemistRelic extends CustomRelic {
 
@@ -18,5 +20,8 @@ public abstract class AbstractAlchemistRelic extends CustomRelic {
     }
 
     public void onRemove() {
+    }
+
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
     }
 }

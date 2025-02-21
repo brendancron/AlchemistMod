@@ -9,14 +9,16 @@ import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class PotionBag extends AbstractAlchemistRelic {
+    private static final RelicTier RARITY = RelicTier.STARTER;
+    public static final int SLOTS_GIVEN = 1;
+
     public static final String ID = AlchemistMod.makeID(PotionBag.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
-    public static final int SLOTS_GIVEN = 1;
     private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(PotionBag.class.getSimpleName() + ".png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(PotionBag.class.getSimpleName() + ".png"));
 
     public PotionBag() {
-        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RARITY, LandingSound.FLAT);
     }
 
     public String getUpdatedDescription() {
