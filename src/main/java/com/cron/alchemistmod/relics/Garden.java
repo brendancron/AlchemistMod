@@ -14,7 +14,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Garden extends AbstractAlchemistRelic {
-    private static final RelicTier RARITY = RelicTier.RARE;
+    private static final RelicTier RARITY = RelicTier.UNCOMMON;
     private static final CardGroup gardenPool = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
 
     public static final String ID = AlchemistMod.makeID(Garden.class.getSimpleName());
