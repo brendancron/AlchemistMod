@@ -51,7 +51,7 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
                 logger.info("Card selected: " + selectedCard.name);
 
                 // Generate a random replacement card
-                AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity());
+                AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
                 logger.info("Generated replacement card: " + randomReplacement.name);
 
                 // Add the transformed card to the player's hand with a visual effect
