@@ -1,4 +1,8 @@
 {
+  "TheAlchemist:BlindBrew": {
+    "NAME": "Blind Brew",
+    "DESCRIPTIONS": ["At the start of your turn, gain the effect of a random positive or negative potion."]
+  },
   "TheAlchemist:Garden": {
     "NAME": "Garden",
     "DESCRIPTIONS": ["At the start of your turn, gain a random #yCommon or #yUncommon #yElement #yCard"]
