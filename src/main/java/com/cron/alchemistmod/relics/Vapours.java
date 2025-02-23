@@ -2,7 +2,7 @@ package com.cron.alchemistmod.relics;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.util.CheckBossCombat;
+import com.cron.alchemistmod.util.CheckCombat;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -49,14 +49,9 @@ public class Vapours extends AbstractAlchemistRelic {
 
     @Override
     public void atBattleStart() {
-        logger.info("Battled started");
-        if (AbstractDungeon.getCurrRoom().eliteTrigger || CheckBossCombat.isBossCombat()) {
-
-            logger.info("elite or boss battle started");
+        if (CheckCombat.isEliteCombat() || CheckCombat.isBossCombat()) {
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 AbstractPotion potion = returnRandomPotion();
-
-                logger.info("potion: " + potion.ID);
 
                 switch (potion.ID) {
                     case AncientPotion.POTION_ID:

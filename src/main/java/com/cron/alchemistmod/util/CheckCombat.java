@@ -2,11 +2,15 @@ package com.cron.alchemistmod.util;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class CheckBossCombat {
+public class CheckCombat {
+    public static boolean isCombat() {
+        return AbstractDungeon.isPlayerInDungeon() && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+    }
     public static boolean isBossCombat() {
         // double check that this is correct
-        if (!AbstractDungeon.getCurrRoom().combatEvent) {
+        if (!isCombat()) {
             return false;
         }
 
@@ -18,5 +22,11 @@ public class CheckBossCombat {
 
         return false;
     }
+    public static boolean isEliteCombat() {
+            if (!isCombat()) {
+                return false;
+            }
 
+            return AbstractDungeon.getCurrRoom().eliteTrigger;
+    }
 }
