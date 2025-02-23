@@ -1,11 +1,27 @@
 {
-  "TheAlchemist:Strike": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+  "TheAlchemist:AirDefend": {
+    "NAME": "Air Defend",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Air thealchemist:Element."
   },
   "TheAlchemist:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
+  },
+  "TheAlchemist:EarthStrike": {
+    "NAME": "Earth Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Earth thealchemist:Element."
+  },
+  "TheAlchemist:FireStrike": {
+    "NAME": "Fire Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "TheAlchemist:WaterDefend": {
+    "NAME": "Water Defend",
+    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
   "TheAlchemist:AirBurst": {
@@ -25,10 +41,6 @@
     "NAME": "CursedStrike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
   },
-  "TheAlchemist:EarthStrike": {
-    "NAME": "Earth Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Earth thealchemist:Element."
-  },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Doubled if you have an thealchemist:Element"
@@ -41,10 +53,6 @@
     "NAME": "Empty Shelf",
     "DESCRIPTION": "Deal damage equal to !M! times the number of empty potion slots you have.",
     "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
-  },
-  "TheAlchemist:FireStrike": {
-    "NAME": "Fire Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
@@ -169,11 +177,6 @@
     "NAME": "Cleansing Light",
     "DESCRIPTION": "Discard your last potion. NL Gain 1 thealchemist:Light thealchemist:Element.",
     "UPGRADE_DESCRIPTION": "Discard your last potion. NL Gain !M! thealchemist:Light thealchemist:Elements."
-  },
-  "TheAlchemist:ElementalBurst": {
-    "NAME": "Elemental Burst",
-    "DESCRIPTION": "Gain 1 random thealchemist:Basic_Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Basic_Element 2 times."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -352,5 +355,11 @@
   "TheAlchemist:WaterElementCard": {
     "NAME": "Water Element",
     "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
+  },
+
+  "TheAlchemist:ElementalBurst": {
+    "NAME": "Elemental Burst",
+    "DESCRIPTION": "Gain 1 random thealchemist:Basic_Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Basic_Element 2 times."
   }
 }

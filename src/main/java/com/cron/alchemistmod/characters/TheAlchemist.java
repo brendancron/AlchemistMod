@@ -5,9 +5,7 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.alchemist.Defend;
-import com.cron.alchemistmod.cards.alchemist.ElementalBurst;
-import com.cron.alchemistmod.cards.alchemist.Strike;
+import com.cron.alchemistmod.cards.alchemist.*;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -113,13 +111,13 @@ public class TheAlchemist extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
+        retVal.add(EarthStrike.ID);
+        retVal.add(FireStrike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(ElementalBurst.ID);
+        retVal.add(AirDefend.ID);
+        retVal.add(WaterDefend.ID);
 
         return retVal;
     }
