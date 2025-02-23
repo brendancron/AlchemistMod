@@ -1,6 +1,7 @@
 package com.cron.alchemistmod.powers;
 
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.relics.PrimaryCollection;
 import com.cron.alchemistmod.util.Element;
 import com.cron.alchemistmod.util.PotionElements;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
@@ -101,7 +102,9 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
                 );
 
                 power.amount -= 1;
-                this.amount -= 1;
+                if (!AbstractDungeon.player.hasRelic(PrimaryCollection.ID)) {
+                    this.amount -= 1;
+                }
 
                 if (power.amount == 0) {
                     AbstractDungeon.actionManager.addToTop(
@@ -116,7 +119,11 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
             AbstractDungeon.actionManager.addToBottom(
                     new ObtainPotionAction(PotionElements.getPotion(this.element, this.element))
             );
-            this.amount -= 2;
+            if (AbstractDungeon.player.hasRelic(PrimaryCollection.ID)) {
+                this.amount -= 1;
+            } else {
+                this.amount -= 2;
+            }
         }
 
         if (this.amount == 0) {
