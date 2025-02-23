@@ -19,9 +19,6 @@ public abstract class AbstractAlchemistRelic extends CustomRelic {
         super(id, imgName, tier, sfx);
     }
 
-    public void onRemove() {
-    }
-
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
     }
 }

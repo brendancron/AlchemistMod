@@ -33,7 +33,7 @@ public class PotionBag extends AbstractAlchemistRelic {
     }
 
     @Override
-    public void onRemove() {
+    public void onUnequip() {
         TrackPotions.removePotionSlot(SLOTS_GIVEN);
     }
 
