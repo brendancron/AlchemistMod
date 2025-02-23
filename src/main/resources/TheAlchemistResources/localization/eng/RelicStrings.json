@@ -27,6 +27,10 @@
     "NAME": "Transmutor",
     "DESCRIPTIONS": ["At the start of your turn, choose any number of cards to transform."]
   },
+  "TheAlchemist:Vapours": {
+    "NAME": "Vapours",
+    "DESCRIPTIONS": ["Gain 1 [E] at the start of each turn. NL Enemies in Elite and Boss combats gain the effect of a positive potion."]
+  },
   "TheAlchemist:VirulentPoison": {
     "NAME": "Virulent Poison",
     "DESCRIPTIONS": ["Poison damages enemies and is reduced twice each turn"]
