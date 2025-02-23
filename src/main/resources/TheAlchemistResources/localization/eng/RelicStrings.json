@@ -1,4 +1,8 @@
 {
+  "TheAlchemist:Autobrewer": {
+    "NAME": "Autobrewer",
+    "DESCRIPTIONS": ["At the start of combat, gain #b1 random potion."]
+  },
   "TheAlchemist:BlindBrew": {
     "NAME": "Blind Brew",
     "DESCRIPTIONS": ["At the start of your turn, gain the effect of a random positive or negative potion."]
