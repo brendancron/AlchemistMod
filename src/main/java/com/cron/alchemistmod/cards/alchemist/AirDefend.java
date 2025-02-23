@@ -3,53 +3,52 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.FireElement;
+import com.cron.alchemistmod.powers.AirElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class FireStrike extends AbstractAlchemistCard {
+public class AirDefend extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
-    private static final int DAMAGE_UPGRADE = 3;
+    private static final int BLOCK = 3;
+    private static final int BLOCK_UPGRADE = 3;
 
-
-    public final static String ID = AlchemistMod.makeID(FireStrike.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(AirDefend.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(FireStrike.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(AirDefend.class.getSimpleName() + ".png");
 
-    public FireStrike() {
+    public AirDefend() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseDamage = DAMAGE;
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
+        this.baseBlock = BLOCK;
+
+        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(DAMAGE_UPGRADE);
+            this.upgradeBlock(BLOCK_UPGRADE);
+
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
+                new GainBlockAction(p, p, block)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new AirElement(p, p, 1), 1)
         );
     }
 }
