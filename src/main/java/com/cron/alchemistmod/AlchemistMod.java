@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
+import com.cron.alchemistmod.actions.UpdatePotionsAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
@@ -297,6 +298,9 @@ public class AlchemistMod implements
                 ((AbstractAlchemistRelic) relic).onApplyPower(powerApplied, target, source);
             }
         }
+
+        TrackPotions.updatePotions();
+        AbstractDungeon.actionManager.addToBottom(new UpdatePotionsAction());
     }
 
     @Override
