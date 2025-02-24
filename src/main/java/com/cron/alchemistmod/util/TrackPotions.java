@@ -17,13 +17,13 @@ public class TrackPotions {
 
     public static void atStartOfTurn() {
         potionsUsedThisTurn = new ArrayList<>();
-        updatePotions();
+        UpdateDescriptions.updatePotions();
     }
 
     public static void atCombatEnd() {
         potionsUsedThisTurn = new ArrayList<>();
         potionsUsedThisCombat = new ArrayList<>();
-        updatePotions();
+        UpdateDescriptions.updatePotions();
     }
 
     public static int getNumPotionsUsedThisTurn() {
@@ -38,17 +38,12 @@ public class TrackPotions {
         }
     }
 
-    public static void updatePotions() {
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            p.initializeData();
-        }
-    }
-
     public static void onPotionUsed(AbstractPotion abstractPotion) {
         potionsUsedThisTurn.add(abstractPotion);
         potionsUsedThisCombat.add(abstractPotion);
 
-        updatePotions();
+        UpdateDescriptions.updatePotions();
+        UpdateDescriptions.updatePowers();
     }
 
     public static int numOfEmptyPotionSlots() {

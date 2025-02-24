@@ -17,6 +17,7 @@ import com.cron.alchemistmod.relics.PotionBag;
 import com.cron.alchemistmod.util.IDCheckDontTouchPls;
 import com.cron.alchemistmod.util.MagicNumber2;
 import com.cron.alchemistmod.util.TrackPotions;
+import com.cron.alchemistmod.util.UpdateDescriptions;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -299,7 +300,7 @@ public class AlchemistMod implements
             }
         }
 
-        TrackPotions.updatePotions();
+        UpdateDescriptions.updatePotions();
         AbstractDungeon.actionManager.addToBottom(new UpdatePotionsAction());
     }
 

@@ -56,11 +56,10 @@ public class DredgesPower extends AbstractAlchemistPower {
 
     @Override
     public void updateDescription() {
-        if (amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
-        } else if (amount > 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
+        AbstractPotion lastPotionUsed = TrackPotions.getLastPotionUsed();
+        description = POWER_STRINGS.DESCRIPTIONS[0] + amount +
+                (amount == 1 ? POWER_STRINGS.DESCRIPTIONS[1] : POWER_STRINGS.DESCRIPTIONS[2]) +
+                (lastPotionUsed != null ? " NL (" + TrackPotions.getLastPotionUsed().name + ")" : "");
     }
 
     @Override

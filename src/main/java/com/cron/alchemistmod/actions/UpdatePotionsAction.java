@@ -1,6 +1,6 @@
 package com.cron.alchemistmod.actions;
 
-import com.cron.alchemistmod.util.TrackPotions;
+import com.cron.alchemistmod.util.UpdateDescriptions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.Settings;
 
@@ -13,7 +13,7 @@ public class UpdatePotionsAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        TrackPotions.updatePotions();
+        UpdateDescriptions.updatePotions();
         this.isDone = true;
     }
 }
