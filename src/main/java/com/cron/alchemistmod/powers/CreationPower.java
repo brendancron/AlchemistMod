@@ -43,7 +43,7 @@ public class CreationPower extends AbstractAlchemistPower {
     @Override
     public void onCreateCard(final AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL)
+                new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL)
         );
     }
 

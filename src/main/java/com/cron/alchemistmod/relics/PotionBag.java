@@ -1,23 +1,27 @@
 package com.cron.alchemistmod.relics;
 
-import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
+import com.cron.alchemistmod.util.TrackPotions;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class PotionBag extends CustomRelic {
+public class PotionBag extends AbstractAlchemistRelic {
+    private static final RelicTier RARITY = RelicTier.STARTER;
+    public static final int SLOTS_GIVEN = 1;
+
     public static final String ID = AlchemistMod.makeID(PotionBag.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
     private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(PotionBag.class.getSimpleName() + ".png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(PotionBag.class.getSimpleName() + ".png"));
+    public static final Logger logger = LogManager.getLogger(PotionBag.class.getSimpleName());
 
     public PotionBag() {
-        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.FLAT);
+        super(ID, IMG, OUTLINE, RARITY, LandingSound.FLAT);
     }
 
     public String getUpdatedDescription() {
@@ -25,10 +29,15 @@ public class PotionBag extends CustomRelic {
     }
 
     public void onEquip() {
-        AbstractDungeon.player.potionSlots += 1;
-        AbstractDungeon.player.potions.add(new PotionSlot(AbstractDungeon.player.potionSlots - 1));
+        TrackPotions.addPotionSlot(SLOTS_GIVEN);
     }
 
+    @Override
+    public void onUnequip() {
+        TrackPotions.removePotionSlot(SLOTS_GIVEN);
+    }
+
+    @Override
     public boolean canSpawn() {
         return false;
     }

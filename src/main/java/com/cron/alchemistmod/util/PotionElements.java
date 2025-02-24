@@ -16,7 +16,7 @@ public enum PotionElements {
     SPEED_POTION (Element.DARK, Element.EARTH, new SpeedPotion()),
     FLEX_POTION (Element.DARK, Element.FIRE, new SteroidPotion()),
     LIQUID_BRONZE (Element.DARK, Element.LIGHT, new LiquidBronze()),
-    DUPLICATION_POTION (Element.DARK, Element.MAGIC, new DuplicationPotion()),
+    DUPLICATION_POTION (Element.MAGIC,Element.WATER, new DuplicationPotion()),
     POISON_POTION (Element.DARK, Element.WATER, new PoisonPotion()),
     BLOCK_POTION (Element.EARTH, Element.EARTH, new BlockPotion()),
     EXPLOSIVE_POTION (Element.EARTH, Element.FIRE, new ExplosivePotion()),
@@ -31,7 +31,7 @@ public enum PotionElements {
     REGEN_POTION (Element.LIGHT, Element.MAGIC, new RegenPotion()),
     POWER_POTION (Element.LIGHT, Element.WATER, new PowerPotion()),
     ENTROPIC_BREW (Element.MAGIC, Element.MAGIC, new EntropicBrew()),
-    ANCIENT_POTION (Element.MAGIC, Element.WATER, new AncientPotion()),
+    ANCIENT_POTION (Element.DARK, Element.MAGIC, new AncientPotion()),
     COLORLESS_POTION (Element.WATER, Element.WATER, new ColorlessPotion());
 
     private final Element elementOne;
@@ -44,22 +44,21 @@ public enum PotionElements {
         this.potion = potion;
     }
 
-    public static AbstractPotion getPotion (String elementOne, String elementTwo) {
+    // broken
+    public static AbstractPotion getPotion(Element elementOne, Element elementTwo) {
         for(PotionElements potion : PotionElements.values()) {
-            if (potion.elementOne.isElement(elementOne)) {
-                if (potion.elementTwo.isElement(elementTwo)) {
-                    return potion.potion;
-                }
-            } else {
-                if (potion.elementTwo.isElement(elementOne)) {
-                    if (potion.elementOne.isElement(elementTwo)) {
-                        return potion.potion;
-                    }
-                }
+            if (potion.elementOne == elementOne && potion.elementTwo == elementTwo) {
+                return potion.potion.makeCopy();
+            } else if (potion.elementTwo == elementOne && potion.elementOne == elementTwo) {
+                return potion.potion.makeCopy();
             }
         }
 
-        return null;
+        return new FairyPotion();
+    }
+
+    public static AbstractPotion getPotion (String elementOne, String elementTwo) {
+        return getPotion(Element.getElement(elementOne), Element.getElement(elementTwo));
     }
 
     public static Element[] getElements(AbstractPotion potion) {

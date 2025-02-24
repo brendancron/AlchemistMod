@@ -26,7 +26,7 @@ public class FireElementCard extends AbstractAlchemistCard {
     public FireElementCard() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.retain = true;
+        this.selfRetain = true;
         this.exhaust = true;
     }
 

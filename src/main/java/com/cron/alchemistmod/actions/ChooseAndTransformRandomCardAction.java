@@ -11,17 +11,26 @@ import org.apache.logging.log4j.Logger;
 public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
 
     private static final Logger logger = LogManager.getLogger(ChooseAndTransformRandomCardAction.class.getName());
-    private final int numOfCards;
+    private int numOfCards;
+    private final boolean wholeHand;
 
-    public ChooseAndTransformRandomCardAction(int numOfCards) {
+    public ChooseAndTransformRandomCardAction(int numOfCards, boolean wholeHand) {
         this.numOfCards = numOfCards;
+        this.wholeHand = wholeHand;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-        AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
+        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         logger.info("ChooseAndTransformRandomCardAction initialized.");
     }
     public ChooseAndTransformRandomCardAction() {
-        this(1);
+        this(1, false);
+    }
+
+    public ChooseAndTransformRandomCardAction(int numOfCards) {
+        this(numOfCards, false);
+    }
+
+    public ChooseAndTransformRandomCardAction(boolean wholeHand) {
+        this(-1, wholeHand);
     }
 
     @Override
@@ -30,15 +39,18 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
         logger.info("wereCardsRetrieved: " + AbstractDungeon.handCardSelectScreen.wereCardsRetrieved);
         logger.info("Selected cards size: " + AbstractDungeon.handCardSelectScreen.selectedCards.size());
 
-        // Check if the player's hand is empty; end the action if true
-        if (AbstractDungeon.player.hand.isEmpty()) {
-            logger.info("Player's hand is empty. Ending action.");
-            this.isDone = true;
-            return;
-        }
+        // Do this only on first update
+        if (this.duration == this.startDuration) {
+            // Check if the player's hand is empty; end the action if true
+            if (AbstractDungeon.player.hand.isEmpty()) {
+                logger.info("Player's hand is empty. Ending action.");
+                this.isDone = true;
+                return;
+            } else if (wholeHand) {
+                numOfCards = AbstractDungeon.player.hand.size();
+            }
 
-        // If selection retrieval hasn't occurred and no card is selected, open selection screen
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved && AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
+            // Open selection screen
             logger.info("Opening selection screen.");
             AbstractDungeon.handCardSelectScreen.open("Transform", numOfCards, false, true, true, false, true);
             this.tickDuration();
@@ -46,28 +58,24 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
         }
 
         // After the player selects a card
-        if (!AbstractDungeon.handCardSelectScreen.selectedCards.isEmpty()) {
+        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard selectedCard : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 logger.info("Card selected: " + selectedCard.name);
 
                 // Generate a random replacement card
-                AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity());
+                AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
                 logger.info("Generated replacement card: " + randomReplacement.name);
 
                 // Add the transformed card to the player's hand with a visual effect
                 AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(randomReplacement));
             }
 
-            // Clear selected cards and reset selection state for future uses
-            AbstractDungeon.handCardSelectScreen.selectedCards.clear();
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = false;
-
-            // Mark the action as complete
-            logger.info("Transformation complete. Setting isDone to true.");
+            // End action after transforming cards
+            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             this.isDone = true;
             return;
         }
 
-        logger.info("End of update method without any action taken.");
+        this.tickDuration();
     }
 }
