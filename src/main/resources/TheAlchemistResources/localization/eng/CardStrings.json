@@ -135,12 +135,12 @@
   },
   "TheAlchemist:AlkalineAir": {
     "NAME": "Alkaline Air",
-    "DESCRIPTION": "Reduce Weak by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Reduce Weak and Frail by 2. NL Gain 1 thealchemist:Air thealchemist:Element."
+    "DESCRIPTION": "Reduce Weak and Frail by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Reduce Weak, Frail, and Vulnerable by 2. NL Gain 1 thealchemist:Air thealchemist:Element."
   },
   "TheAlchemist:AquaVitae": {
     "NAME": "AquaVitae",
-    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element."
+    "DESCRIPTION": "Gain 2 thealchemist:Water thealchemist:Elements."
   },
   "TheAlchemist:Bezoar": {
     "NAME": "Bezoar",
@@ -152,8 +152,8 @@
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
-    "DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
+    "DESCRIPTION": "Retain. NL Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Exhaust 1 card. NL If you exhausted a curse, Gain 1 thealchemist:Magic thealchemist:Elements."
   },
   "TheAlchemist:BloodInfusion": {
     "NAME": "Blood Infusion",
@@ -170,8 +170,8 @@
   },
   "TheAlchemist:Chrysopoeia": {
     "NAME": "Chrysopoeia",
-    "DESCRIPTION": "Gain X Gold for every !M! Block. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain X Gold for every Block. NL Exhaust."
+    "DESCRIPTION": "Remove all Block. NL Gain X Gold for every !M! Block removed. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all Block. NL Gain X Gold for every Block removed. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
@@ -210,8 +210,8 @@
   },
   "TheAlchemist:PackedEarth": {
     "NAME": "Packed Earth",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain 1 thealchemist:Earth thealchemist:Element and gain !M! Block."
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Elements."
   },
   "TheAlchemist:ProtectionTonic": {
     "NAME": "Protection Tonic",
@@ -219,7 +219,8 @@
   },
   "TheAlchemist:Reagent": {
     "NAME": "Reagent",
-    "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust."
+    "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain an thealchemist:Element you already have. NL Exhaust."
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",
@@ -227,8 +228,8 @@
   },
   "TheAlchemist:SpiritOfVitriol": {
     "NAME": "Spirit Of Vitriol",
-    "DESCRIPTION": "Enemy takes poison damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Enemy takes poison damage twice. NL Exhaust."
+    "DESCRIPTION": "Enemy takes poison damage twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Enemy takes poison damage twice."
   },
   "TheAlchemist:Splash": {
     "NAME": "Splash",
