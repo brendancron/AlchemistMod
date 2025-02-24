@@ -272,7 +272,7 @@
   },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
-    "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and !M! thealchemist:Antifact."
+    "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and 1 thealchemist:Antifact."
   },
   "TheAlchemist:Chug": {
     "NAME": "Chug",
@@ -302,12 +302,13 @@
   },
   "TheAlchemist:Growth": {
     "NAME": "Growth",
-    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice."
+    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice.",
+    "UPGRADE_DESCRIPTION": "If you gain 1 of every thealchemist:Element except thealchemist:Magic, gain 1 thealchemist:Fruit_Juice."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
-    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Innate NL Gain 99 NoBlock. NL At the start of your turn, gain 1 thealchemist:Earth thealchemist:Element."
+    "DESCRIPTION": "Gain 99 NoBlock. NL At the start of your turn, gain !M! thealchemist:Earth thealchemist:Elements.",
+    "UPGRADE_DESCRIPTION": "Innate NL Gain 99 NoBlock. NL At the start of your turn, gain !M! thealchemist:Earth thealchemist:Elements."
   },
   "TheAlchemist:PoisonedSheath": {
     "NAME": "Poisoned Sheath",

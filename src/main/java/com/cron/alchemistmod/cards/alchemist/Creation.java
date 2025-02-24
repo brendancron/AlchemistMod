@@ -18,8 +18,8 @@ public class Creation extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 0;
-    private static final int MAGIC = 5;
-    private static final int MAGIC_UPGRADE = 3;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(Creation.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

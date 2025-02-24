@@ -17,8 +17,7 @@ public class Growth extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
-    private static final int COST_UPGRADE = 1;
+    private static final int COST = 1;
 
 
     public final static String ID = AlchemistMod.makeID(Growth.class.getSimpleName());
@@ -34,14 +33,15 @@ public class Growth extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new GrowthPower(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new GrowthPower(p, p, !this.upgraded), 1)
         );
     }
 }

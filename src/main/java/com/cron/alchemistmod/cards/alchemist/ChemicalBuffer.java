@@ -47,7 +47,7 @@ public class ChemicalBuffer extends AbstractAlchemistCard {
                 new ApplyPowerAction(p, p, new BufferPower(p, this.magicNumber), this.magicNumber)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyArtifactAndAntifactAction(p, p, new ArtifactPower(p, this.magicNumber), new AntifactPower(p, p, this.magicNumber), this.magicNumber)
+                new ApplyArtifactAndAntifactAction(p, p, new ArtifactPower(p, this.magicNumber), new AntifactPower(p, p, 1), this.magicNumber)
         );
     }
 }
