@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class AlkalineAir extends AbstractAlchemistCard {
@@ -45,12 +46,9 @@ public class AlkalineAir extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractPower power : AbstractDungeon.player.powers) {
-            if (power instanceof WeakPower) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new ReducePowerAction(p, p, power, this.magicNumber)
-                );
-            }
-            if (power instanceof FrailPower && this.upgraded) {
+            if (power instanceof WeakPower
+            || power instanceof FrailPower
+            || (power instanceof VulnerablePower && this.upgraded)) {
                 AbstractDungeon.actionManager.addToBottom(
                         new ReducePowerAction(p, p, power, this.magicNumber)
                 );

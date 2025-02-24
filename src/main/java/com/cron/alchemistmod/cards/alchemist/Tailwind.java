@@ -18,7 +18,7 @@ public class Tailwind extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int MAGIC_UPGRADE = 2;
 

@@ -19,9 +19,8 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int COST = 1;
+    private static final int MAGIC = 2;
 
     public final static String ID = AlchemistMod.makeID(SpiritOfVitriol.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -37,7 +36,7 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.exhaust = false;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

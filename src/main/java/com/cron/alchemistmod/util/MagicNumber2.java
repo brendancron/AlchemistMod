@@ -30,4 +30,9 @@ public class MagicNumber2 extends DynamicVariable {
     public boolean upgraded(AbstractCard card) {
         return ((AbstractAlchemistCard) card).isMagicNumberTwoUpgraded;
     }
+
+    @Override
+    public void setIsModified(AbstractCard card, boolean v) {
+        ((AbstractAlchemistCard) card).isMagicNumberTwoModified = v;
+    }
 }

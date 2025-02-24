@@ -25,6 +25,7 @@ public class BlackMagic extends AbstractAlchemistCard {
     public BlackMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.selfRetain = true;
         this.tags.add(CardTags.HEALING);
     }
 

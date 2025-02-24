@@ -39,7 +39,7 @@ public class AquaVitae extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
+                new ApplyPowerAction(p, p, new WaterElement(p, p, 2), 2)
         );
     }
 }
