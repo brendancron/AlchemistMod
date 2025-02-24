@@ -5,9 +5,7 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.alchemist.Defend;
-import com.cron.alchemistmod.cards.alchemist.ElementalBurst;
-import com.cron.alchemistmod.cards.alchemist.Strike;
+import com.cron.alchemistmod.cards.alchemist.*;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,12 +14,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TheAlchemist extends CustomPlayer {
     public static class Enums {
@@ -53,21 +53,21 @@ public class TheAlchemist extends CustomPlayer {
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
 
     public static final String[] orbTextures = {
-            AlchemistMod.makeEnergyOrbPath("cover.png"),
-            AlchemistMod.makeEnergyOrbPath("layer1.png"),
-            AlchemistMod.makeEnergyOrbPath("layer2.png"),
-            AlchemistMod.makeEnergyOrbPath("layer3.png"),
-            AlchemistMod.makeEnergyOrbPath("layer4.png"),
-            AlchemistMod.makeEnergyOrbPath("layer5.png"),
-            AlchemistMod.makeEnergyOrbPath("layer1d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer2d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer3d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer4d.png"),
-            AlchemistMod.makeEnergyOrbPath("layer5d.png")
+            AlchemistMod.makeEnergyOrbPath("alchemist/cover.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer1.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer2.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer3.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer4.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer5.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer1d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer2d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer3d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer4d.png"),
+            AlchemistMod.makeEnergyOrbPath("alchemist/layer5d.png")
     };
 
     public TheAlchemist() {
-        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,AlchemistMod.makeEnergyOrbPath("vfx.png"), null,
+        super(NAMES[0], Enums.THE_ALCHEMIST, orbTextures,AlchemistMod.makeEnergyOrbPath("alchemist/vfx.png"), new float[]{0,0,0,0,0,0,0,0,0,0,0},
                 new SpriterAnimation(AlchemistMod.makeAnimationPath("default.scml")));
 
 
@@ -111,13 +111,13 @@ public class TheAlchemist extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
+        retVal.add(EarthStrike.ID);
+        retVal.add(FireStrike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(ElementalBurst.ID);
+        retVal.add(AirDefend.ID);
+        retVal.add(WaterDefend.ID);
 
         return retVal;
     }
@@ -213,5 +213,14 @@ public class TheAlchemist extends CustomPlayer {
     @Override
     public String getVampireText() {
         return TEXT[2];
+    }
+
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist1.png"), "ATTACK_HEAVY"));
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist2.png")));
+        panels.add(new CutscenePanel(AlchemistMod.makeGeneralPath("scenes/alchemist3.png")));
+        return panels;
     }
 }

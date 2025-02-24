@@ -4,9 +4,8 @@ package com.cron.alchemistmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.actions.BreezyAction;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -41,22 +40,8 @@ public class BreezyPower extends AbstractAlchemistPower {
 
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
-        int numCardsDiscarded = 0;
-        for (int i = 0; i < AbstractDungeon.player.hand.group.size(); i++) {
-            AbstractCard discardedCard = AbstractDungeon.player.hand.group.get(i);
-            if (discardedCard != usedCard) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new DiscardSpecificCardAction(AbstractDungeon.player.hand.group.get(i))
-                );
-                numCardsDiscarded++;
-            }
-            if (numCardsDiscarded == this.amount) {
-                break;
-            }
-        }
-
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(numCardsDiscarded)
+                new BreezyAction(this.amount)
         );
     }
 
