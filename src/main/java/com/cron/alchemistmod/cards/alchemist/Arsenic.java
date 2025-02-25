@@ -22,7 +22,8 @@ public class Arsenic extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int DAMAGE = 12;
     private static final int DAMAGE_UPGRADE = 6;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = -1;
 
 
     public final static String ID = AlchemistMod.makeID(Arsenic.class.getSimpleName());
@@ -40,6 +41,7 @@ public class Arsenic extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(DAMAGE_UPGRADE);
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
         }
     }
 

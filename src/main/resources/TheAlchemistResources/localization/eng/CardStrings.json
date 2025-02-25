@@ -34,8 +34,7 @@
   },
   "TheAlchemist:BagOfBricks": {
     "NAME": "Bag Of Bricks",
-    "DESCRIPTION": "Deal damage equal to !M! times the number of potions you have.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    "DESCRIPTION": "Deal !D! damage for each potion you have."
   },
   "TheAlchemist:CursedStrike": {
     "NAME": "CursedStrike",

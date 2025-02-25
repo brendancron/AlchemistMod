@@ -28,7 +28,7 @@ public class ShadowControl extends AbstractAlchemistCard {
 
     private static final int COST = 3;
     private static final int DAMAGE = 5;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 6;
     private static final int MAGIC_UPGRADE = 2;
 
 
