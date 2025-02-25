@@ -301,8 +301,7 @@
   },
   "TheAlchemist:Growth": {
     "NAME": "Growth",
-    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice.",
-    "UPGRADE_DESCRIPTION": "If you gain 1 of every thealchemist:Element except thealchemist:Magic, gain 1 thealchemist:Fruit_Juice."
+    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
@@ -312,7 +311,7 @@
   "TheAlchemist:PoisonedSheath": {
     "NAME": "Poisoned Sheath",
     "DESCRIPTION": "At the start of your turn, add a Poison Shiv into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, add a Poison Shiv+ into your hand."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Poison Shiv into your hand."
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",

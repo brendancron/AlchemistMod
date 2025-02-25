@@ -31,6 +31,7 @@ public class PoisonedSheath extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.isInnate = true;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -39,20 +40,13 @@ public class PoisonedSheath extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new PoisonedSheathPower(p, p, 1, this.upgraded), 1)
+                new ApplyPowerAction(p, p, new PoisonedSheathPower(p, p, 1), 1)
         );
     }
 
     @Override
     public void hover() {
         super.hover();
-        if (this.upgraded) {
-            PoisonShiv shivPreview = new PoisonShiv();
-            shivPreview.upgrade();
-            this.cardsToPreview = shivPreview;
-        } else {
-            this.cardsToPreview = new PoisonShiv();
-        }
-
+        this.cardsToPreview = new PoisonShiv();
     }
 }

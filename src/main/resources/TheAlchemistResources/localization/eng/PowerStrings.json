@@ -74,7 +74,7 @@
   },
   "TheAlchemist:PoisonedSheathPower": {
     "NAME": "Poisoned Sheath",
-    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv", " #yPoison #yShivs", " into your hand.", "+ into your hand."]
+    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv into your hand.", " #yPoison #yShivs into your hand."]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
