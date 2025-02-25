@@ -22,15 +22,13 @@ public class GrowthPower extends AbstractAlchemistPower {
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static int IdOffset = 0;
     private final ArrayList<Element> elementsLeft;
-    private final boolean magicNeeded;
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "32.png"));
 
-    public GrowthPower(final AbstractCreature owner, final AbstractCreature source, final int amount, boolean magicNeeded) {
+    public GrowthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID + IdOffset++;
-        this.magicNeeded = magicNeeded;
 
         this.elementsLeft = new ArrayList<>();
         this.elementsLeft.add(Element.AIR);
@@ -38,9 +36,7 @@ public class GrowthPower extends AbstractAlchemistPower {
         this.elementsLeft.add(Element.EARTH);
         this.elementsLeft.add(Element.FIRE);
         this.elementsLeft.add(Element.LIGHT);
-        if (magicNeeded) {
-            this.elementsLeft.add(Element.MAGIC);
-        }
+        this.elementsLeft.add(Element.MAGIC);
         this.elementsLeft.add(Element.WATER);
 
         this.owner = owner;
@@ -56,8 +52,8 @@ public class GrowthPower extends AbstractAlchemistPower {
         updateDescription();
     }
 
-    public GrowthPower(final AbstractCreature owner, final AbstractCreature source, boolean magicNeeded) {
-        this(owner, source, 1, magicNeeded);
+    public GrowthPower(final AbstractCreature owner, final AbstractCreature source) {
+        this(owner, source, 1);
     }
 
     @Override
@@ -119,15 +115,11 @@ public class GrowthPower extends AbstractAlchemistPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new GrowthPower(owner, source, magicNeeded);
+        return new GrowthPower(owner, source, amount);
     }
 
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new GrowthPower(owner, source, magicNeeded);
-    }
-
-    public GrowthPower makeCopy (boolean magicNeeded) {
-        return new GrowthPower(owner, source, magicNeeded);
+        return new GrowthPower(owner, source, amount);
     }
 }

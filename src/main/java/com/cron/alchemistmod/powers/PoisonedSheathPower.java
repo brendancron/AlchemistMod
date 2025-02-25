@@ -14,21 +14,19 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class PoisonedSheathPower extends AbstractAlchemistPower {
-    private final boolean upgraded;
     public static final String POWER_ID = AlchemistMod.makeID(PoisonedSheathPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PoisonedSheathPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PoisonedSheathPower.class.getSimpleName() + "32.png"));
 
-    public PoisonedSheathPower(final AbstractCreature owner, final AbstractCreature source, final int amount, boolean upgraded) {
+    public PoisonedSheathPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
-        ID = POWER_ID + upgraded;
+        ID = POWER_ID;
 
         this.owner = owner;
         this.amount = amount;
         this.source = source;
-        this.upgraded = upgraded;
 
         type = PowerType.BUFF;
         isTurnBased = false;
@@ -42,9 +40,6 @@ public class PoisonedSheathPower extends AbstractAlchemistPower {
     @Override
     public void atStartOfTurn() {
         PoisonShiv shiv = new PoisonShiv();
-        if (upgraded) {
-            shiv.upgrade();
-        }
         AbstractDungeon.actionManager.addToBottom(
                 new MakeTempCardInHandAction(shiv, this.amount, false)
         );
@@ -57,22 +52,15 @@ public class PoisonedSheathPower extends AbstractAlchemistPower {
         } else {
             description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[2];
         }
-
-        if (this.upgraded) {
-            description = description + POWER_STRINGS.DESCRIPTIONS[4];
-        } else {
-            description = description + POWER_STRINGS.DESCRIPTIONS[3];
-        }
-
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new PoisonedSheathPower(this.owner, this.source, this.amount, this.upgraded);
+        return new PoisonedSheathPower(this.owner, this.source, this.amount);
     }
 
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new PoisonedSheathPower(this.owner, this.source, amount, this.upgraded);
+        return new PoisonedSheathPower(this.owner, this.source, amount);
     }
 }
