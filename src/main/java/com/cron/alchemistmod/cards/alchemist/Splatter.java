@@ -20,8 +20,8 @@ public class Splatter extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 12;
-    private static final int DAMAGE_UPGRADE = 8;
+    private static final int DAMAGE = 15;
+    private static final int DAMAGE_UPGRADE = 5;
     private static final boolean MULTI_DAMAGE = true;
 
     public final static String ID = AlchemistMod.makeID(Splatter.class.getSimpleName());

@@ -21,10 +21,10 @@ public class Injection extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 6;
-    private static final int DAMAGE_UPGRADE = 3;
-    private static final int MAGIC = 6;
-    private static final int MAGIC_UPGRADE = 3;
+    private static final int DAMAGE = 8;
+    private static final int DAMAGE_UPGRADE = 4;
+    private static final int MAGIC = 8;
+    private static final int MAGIC_UPGRADE = 4;
 
 
     public final static String ID = AlchemistMod.makeID(Injection.class.getSimpleName());

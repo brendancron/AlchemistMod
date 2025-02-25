@@ -20,7 +20,7 @@ public class CursedStrike extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE = 15;
     private static final int DAMAGE_UPGRADE = 5;
 
 

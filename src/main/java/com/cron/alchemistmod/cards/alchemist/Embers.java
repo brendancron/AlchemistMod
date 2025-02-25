@@ -20,7 +20,7 @@ public class Embers extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 2;
+    private static final int DAMAGE = 4;
     private static final int DAMAGE_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(Embers.class.getSimpleName());

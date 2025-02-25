@@ -20,7 +20,7 @@ public class HeavyWater extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 15;
+    private static final int DAMAGE = 20;
     private static final int DAMAGE_UPGRADE = 5;
 
 
