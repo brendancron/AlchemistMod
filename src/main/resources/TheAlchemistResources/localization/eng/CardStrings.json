@@ -37,7 +37,7 @@
     "DESCRIPTION": "Deal !D! damage for each potion you have."
   },
   "TheAlchemist:CursedStrike": {
-    "NAME": "CursedStrike",
+    "NAME": "Cursed Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
   },
   "TheAlchemist:ElementalBlast": {
@@ -275,8 +275,7 @@
   },
   "TheAlchemist:Chug": {
     "NAME": "Chug",
-    "DESCRIPTION": "Whenever you use a potion, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Whenever you use a potion, draw !M! cards."
+    "DESCRIPTION": "Whenever you use a potion, draw !M! card."
   },
   "TheAlchemist:Creation": {
     "NAME": "Creation",
