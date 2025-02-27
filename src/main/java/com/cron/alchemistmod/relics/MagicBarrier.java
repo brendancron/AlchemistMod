@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 
 public class MagicBarrier extends AbstractAlchemistRelic {
     private static final RelicTier RARITY = RelicTier.RARE;
-    private static final int AMOUNT = 3;
+    private static final int AMOUNT = 4;
 
     public static final String ID = AlchemistMod.makeID(MagicBarrier.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
@@ -34,7 +34,7 @@ public class MagicBarrier extends AbstractAlchemistRelic {
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (source instanceof AbstractPlayer) {
+        if (power.type == AbstractPower.PowerType.DEBUFF && source instanceof AbstractPlayer) {
             AbstractDungeon.actionManager.addToBottom(
                     new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, AMOUNT)
             );

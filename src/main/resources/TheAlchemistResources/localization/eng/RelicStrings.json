@@ -13,7 +13,7 @@
   },
   "TheAlchemist:MagicBarrier": {
     "NAME": "Magic Barrier",
-    "DESCRIPTIONS": ["Whenever you apply a buff or debuff, gain #b3 Block."]
+    "DESCRIPTIONS": ["Whenever you apply a debuff, gain #b4 Block."]
   },
   "TheAlchemist:PotionBag": {
     "NAME": "Potion Bag",
