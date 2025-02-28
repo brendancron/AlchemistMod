@@ -27,8 +27,8 @@
     "NAME": "Potion Launcher",
     "DESCRIPTIONS": ["Potion damage scales with strength."]
   },
-  "TheAlchemist:PrimaryCollection": {
-    "NAME": "Primary Collection",
+  "TheAlchemist:Distillery": {
+    "NAME": "Distillery",
     "DESCRIPTIONS": ["Do not lose your second element when creating a potion."]
   },
   "TheAlchemist:Transmutor": {

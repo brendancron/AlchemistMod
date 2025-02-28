@@ -9,16 +9,16 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class PrimaryCollection extends AbstractAlchemistRelic {
+public class Distillery extends AbstractAlchemistRelic {
     private static final RelicTier RARITY = RelicTier.RARE;
 
-    public static final String ID = AlchemistMod.makeID(PrimaryCollection.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Distillery.class.getSimpleName());
     public static final RelicStrings RELIC_STRINGS = CardCrawlGame.languagePack.getRelicStrings(ID);
-    private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(PrimaryCollection.class.getSimpleName() + ".png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(PrimaryCollection.class.getSimpleName() + ".png"));
-    public static final Logger logger = LogManager.getLogger(PrimaryCollection.class.getSimpleName());
+    private static final Texture IMG = TextureLoader.getTexture(AlchemistMod.makeRelicTexturePath(Distillery.class.getSimpleName() + ".png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(AlchemistMod.makeRelicOutlinePath(Distillery.class.getSimpleName() + ".png"));
+    public static final Logger logger = LogManager.getLogger(Distillery.class.getSimpleName());
 
-    public PrimaryCollection() {
+    public Distillery() {
         super(ID, IMG, OUTLINE, RARITY, LandingSound.FLAT);
     }
 
@@ -27,7 +27,7 @@ public class PrimaryCollection extends AbstractAlchemistRelic {
     }
 
     public AbstractRelic makeCopy() {
-        return new PrimaryCollection();
+        return new Distillery();
     }
 }
 

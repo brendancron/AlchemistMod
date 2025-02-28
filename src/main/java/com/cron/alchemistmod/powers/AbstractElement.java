@@ -1,7 +1,7 @@
 package com.cron.alchemistmod.powers;
 
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
-import com.cron.alchemistmod.relics.PrimaryCollection;
+import com.cron.alchemistmod.relics.Distillery;
 import com.cron.alchemistmod.util.Element;
 import com.cron.alchemistmod.util.PotionElements;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
@@ -102,7 +102,7 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
                 );
 
                 power.amount -= 1;
-                if (!AbstractDungeon.player.hasRelic(PrimaryCollection.ID)) {
+                if (!AbstractDungeon.player.hasRelic(Distillery.ID)) {
                     this.amount -= 1;
                 }
 
@@ -119,7 +119,7 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
             AbstractDungeon.actionManager.addToBottom(
                     new ObtainPotionAction(PotionElements.getPotion(this.element, this.element))
             );
-            if (AbstractDungeon.player.hasRelic(PrimaryCollection.ID)) {
+            if (AbstractDungeon.player.hasRelic(Distillery.ID)) {
                 this.amount -= 1;
             } else {
                 this.amount -= 2;
