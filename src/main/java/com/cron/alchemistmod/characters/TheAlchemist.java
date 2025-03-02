@@ -19,6 +19,8 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +53,8 @@ public class TheAlchemist extends CustomPlayer {
     public static final String MY_CHARACTER_CORPSE = AlchemistMod.makeCharacterPath("corpse.png"); // dead corpse
 //    public static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
 //    public static final String MY_CHARACTER_SKELETON_JSON = "img/char/skeleton.json"; // spine animation json
+
+    public static final Logger logger = LogManager.getLogger(TheAlchemist.class.getSimpleName());
 
     public static final String[] orbTextures = {
             AlchemistMod.makeEnergyOrbPath("alchemist/cover.png"),
