@@ -1,0 +1,17 @@
+{
+  "TheAlchemist:toyOrnathoperDisabled": {
+    "TEXT": ["Disable Toy Ornathoper (recommended)."]
+  },
+  "TheAlchemist:sacredBarkDisabled": {
+    "TEXT": ["Disable Sacred Bark."]
+  },
+  "TheAlchemist:potionBeltDisabled": {
+    "TEXT": ["Disable Potion Belt (recommended)."]
+  },
+  "TheAlchemist:liquidMemoriesNerfed": {
+    "TEXT": ["Prevent Liquid Memories from being buffed by Sacred Bark and Sacred Bark Form (recommended)."]
+  },
+  "TheAlchemist:toyOrnathoperNerfed": {
+    "TEXT": ["Toy Ornathoper only heals one time per combat."]
+  }
+}
