@@ -38,7 +38,6 @@ public class SettingsPanel {
         panel.addUIElement(createLabel());
 
         panel.addUIElement(createCheckbox("liquidMemoriesNerfed"));
-        panel.addUIElement(createCheckbox("toyOrnathoperNerfed"));
     }
 
     public static ModLabeledToggleButton createCheckbox(String key) {
