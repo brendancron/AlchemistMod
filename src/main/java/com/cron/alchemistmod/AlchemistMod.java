@@ -49,7 +49,8 @@ public class AlchemistMod implements
         OnPlayerTurnStartSubscriber,
         PostPowerApplySubscriber,
         OnStartBattleSubscriber,
-        PostInitializeSubscriber
+        PostInitializeSubscriber,
+        PostDungeonInitializeSubscriber
 {
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
@@ -321,7 +322,12 @@ public class AlchemistMod implements
 
     @Override
     public void receivePostInitialize() {
-        CheckboxHelper.createPanel();
+        SettingsPanel.createPanel();
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        SettingsPanel.disableRelics();
     }
 
     // end subscribers ----------------------
