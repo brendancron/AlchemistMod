@@ -1,8 +1,8 @@
 {
   "TheAlchemist:SettingsPanel": {
     "TEXT": [
-      "Disabling relics only affects new runs with The Alchemist. Must restart run after changing to take effect.",
-      "Changing relics and potions affects all characters."]
+      "Disabling relics only affects new runs. Must restart run after changing to take effect.",
+      "Nerfs will take effect immediately."]
   },
   "TheAlchemist:toyOrnathoperDisabled": {
     "TEXT": ["Disable Toy Ornathoper. (recommended)"]
