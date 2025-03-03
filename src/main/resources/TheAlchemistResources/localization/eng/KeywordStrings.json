@@ -49,13 +49,29 @@
     "DESCRIPTION": "Negates the next buff."
   },
   {
-    "PROPER_NAME": "Basic Element",
+    "PROPER_NAME": "Primary Element",
     "NAMES": [
-      "Basic Element",
-      "basic_element",
-      "basic_elements"
+      "Primary Element",
+      "primary"
     ],
     "DESCRIPTION": "The four most common Elements. NL Air, Earth, Fire, and Water."
+  },
+  {
+    "PROPER_NAME": "Secondary Element",
+    "NAMES": [
+      "Secondary Element",
+      "secondary"
+    ],
+    "DESCRIPTION": "The two uncommon relics. NL Dark and Light."
+  },
+  {
+    "PROPER_NAME": "Element Card",
+    "NAMES": [
+      "Element Card",
+      "element_card",
+      "element_cards"
+    ],
+    "DESCRIPTION": "Element Cards are #b0 cost Skill cards which Exhaust. NL Each provides a different element."
   },
   {
     "NAMES": [
