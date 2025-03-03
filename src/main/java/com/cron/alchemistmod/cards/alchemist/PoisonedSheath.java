@@ -2,6 +2,7 @@ package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.cards.colorless.PoisonShiv;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.PoisonedSheathPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;

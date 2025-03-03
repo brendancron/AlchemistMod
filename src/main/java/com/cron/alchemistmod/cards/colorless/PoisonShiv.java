@@ -1,8 +1,7 @@
-package com.cron.alchemistmod.cards.alchemist;
+package com.cron.alchemistmod.cards.colorless;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
-import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -15,10 +14,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class PoisonShiv extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
+    public static final CardColor COLOR = CardColor.COLORLESS;
 
     private static final int COST = 0;
     private static final int DAMAGE = 4;
