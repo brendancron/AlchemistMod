@@ -9,11 +9,11 @@
   },
   "TheAlchemist:Garden": {
     "NAME": "Garden",
-    "DESCRIPTIONS": ["At the start of your turn, gain a random #yCommon or #yUncommon #yElement #yCard"]
+    "DESCRIPTIONS": ["At the start of your turn, gain a random #ythealchemist:Primary or #ythealchemist:Secondary #ythealchemist:Element_Card"]
   },
   "TheAlchemist:MagicBarrier": {
     "NAME": "Magic Barrier",
-    "DESCRIPTIONS": ["Whenever you apply a debuff, gain #b4 Block."]
+    "DESCRIPTIONS": ["Whenever you apply a debuff, gain #b4 #yBlock."]
   },
   "TheAlchemist:PotionBag": {
     "NAME": "Potion Bag",

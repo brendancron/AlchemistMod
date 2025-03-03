@@ -258,7 +258,7 @@
   },
   "TheAlchemist:UnstableElixir": {
     "NAME": "Unstable Elixir",
-    "DESCRIPTION": "If you play all thealchemist:Basic_Elements this turn, deal !M! damage to ALL enemies."
+    "DESCRIPTION": "If you play all thealchemist:Primary thealchemist:Elements this turn, deal !M! damage to ALL enemies."
   },
   "TheAlchemist:WaterBubble": {
     "NAME": "Water Bubble",
@@ -358,7 +358,7 @@
 
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",
-    "DESCRIPTION": "Gain 1 random thealchemist:Basic_Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Basic_Element 2 times."
+    "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element 2 times."
   }
 }
