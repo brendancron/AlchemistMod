@@ -264,6 +264,11 @@
     "NAME": "Water Bubble",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
+  "TheAlchemist:WideGuard": {
+    "NAME": "Wide Guard",
+    "DESCRIPTION": "Gain !M! Block for each card in your hand.",
+    "EXTENDED_DESCRIPTION": [" NL (Gain !B! Block.)"]
+  },
 
   "TheAlchemist:Caffeine": {
     "NAME": "Caffeine",
