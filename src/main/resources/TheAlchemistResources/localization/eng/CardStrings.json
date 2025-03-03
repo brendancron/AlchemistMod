@@ -36,6 +36,10 @@
     "NAME": "Bag Of Bricks",
     "DESCRIPTION": "Deal !D! damage for each potion you have."
   },
+  "TheAlchemist:CleanCauldron": {
+    "NAME": "Clean Cauldron",
+    "DESCRIPTION": "Deal !D! damage. NL Remove 1 thealchemist:Element to deal !D! damage."
+  },
   "TheAlchemist:CursedStrike": {
     "NAME": "Cursed Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
