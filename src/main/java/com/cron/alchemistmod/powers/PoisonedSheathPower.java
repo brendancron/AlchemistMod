@@ -4,7 +4,7 @@ package com.cron.alchemistmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.alchemist.PoisonShiv;
+import com.cron.alchemistmod.cards.colorless.PoisonShiv;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
