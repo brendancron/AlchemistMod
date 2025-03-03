@@ -42,7 +42,7 @@
   },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Doubled if you have an thealchemist:Element"
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal twice the damage if you have an thealchemist:Element"
   },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
@@ -57,9 +57,17 @@
     "NAME": "Heavy Water",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
+  "TheAlchemist:InfusedStrike": {
+    "NAME": "Infused Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If you have an thealchemist:Element, gain [E] and draw 1 card."
+  },
   "TheAlchemist:Injection": {
     "NAME": "Injection",
     "DESCRIPTION": "Discard your last potion. NL Deal !D! damage. NL Apply !M! Poison."
+  },
+  "TheAlchemist:IronShards": {
+    "NAME": "Iron Shards",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
   },
   "TheAlchemist:Onslaught": {
     "NAME": "Onslaught",
