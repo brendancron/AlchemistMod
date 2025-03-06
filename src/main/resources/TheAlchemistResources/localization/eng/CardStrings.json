@@ -103,11 +103,11 @@
   },
   "TheAlchemist:RocksFall": {
     "NAME": "Rocks Fall",
-    "DESCRIPTION": "Deal !D! damage and gain 1 thealchemist:Earth X times."
+    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Earth X times."
   },
   "TheAlchemist:ShadowControl": {
     "NAME": "Shadow Control",
-    "DESCRIPTION": "Deal !D! damage !M! times. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy powers."
+    "DESCRIPTION": "Enemy deals !D! damage to itself !M! times. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy strength."
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
