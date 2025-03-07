@@ -27,7 +27,6 @@ public class BlackHole extends AbstractAlchemistCard {
 
     public BlackHole() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
     }
 
     @Override
@@ -44,7 +43,7 @@ public class BlackHole extends AbstractAlchemistCard {
                 new ExhaustAction(1, false)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new DarkElement(p, p, 2), 2)
+                new ApplyPowerAction(p, p, new DarkElement(p, p, 1), 2)
         );
     }
 }

@@ -21,8 +21,8 @@ public class EmptyShelf extends AbstractAlchemistCard {
 
     private static final int COST = 2;
     private static final int DAMAGE = 0;
-    private static final int MAGIC = 10;
-    private static final int MAGIC_UPGRADE = 4;
+    private static final int MAGIC = 6;
+    private static final int MAGIC_UPGRADE = 2;
 
 
     public final static String ID = AlchemistMod.makeID(EmptyShelf.class.getSimpleName());

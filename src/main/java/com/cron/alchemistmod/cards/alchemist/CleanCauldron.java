@@ -21,8 +21,8 @@ public class CleanCauldron extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
-    private static final int DAMAGE_UPGRADE = 4;
+    private static final int DAMAGE = 7;
+    private static final int DAMAGE_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(CleanCauldron.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
