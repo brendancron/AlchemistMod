@@ -30,6 +30,7 @@ public class Fog extends AbstractAlchemistCard {
     public Fog() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
@@ -37,7 +38,6 @@ public class Fog extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(MAGIC_UPGRADE);
-
         }
     }
 

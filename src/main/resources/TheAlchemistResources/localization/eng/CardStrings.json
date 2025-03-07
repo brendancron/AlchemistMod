@@ -163,7 +163,7 @@
   },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "Exhaust 1 card. NL Gain 2 thealchemist:Dark thealchemist:Elements. NL Exhaust."
+    "DESCRIPTION": "Exhaust 1 card. NL Gain 2 thealchemist:Dark thealchemist:Elements."
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
@@ -199,7 +199,7 @@
   },
   "TheAlchemist:Fog": {
     "NAME": "Fog",
-    "DESCRIPTION": "Apply !M! Weak. NL Gain 1 thealchemist:Water and 1 thealchemist:Air thealchemist:Element."
+    "DESCRIPTION": "Apply !M! Weak. NL Gain 1 thealchemist:Water and 1 thealchemist:Air thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
