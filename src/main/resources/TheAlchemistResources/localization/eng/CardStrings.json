@@ -107,7 +107,7 @@
   },
   "TheAlchemist:ShadowControl": {
     "NAME": "Shadow Control",
-    "DESCRIPTION": "Enemy deals !D! damage to itself !M! times. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy strength."
+    "DESCRIPTION": "Enemy hits itself !M! times for !D! damage. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy strength."
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
@@ -350,36 +350,35 @@
 
   "TheAlchemist:AirElementCard": {
     "NAME": "Air Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Air thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Air thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:DarkElementCard": {
     "NAME": "Dark Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Dark thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Dark thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:EarthElementCard": {
     "NAME": "Earth Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Earth thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Earth thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:FireElementCard": {
     "NAME": "Fire Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Fire thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Fire thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:LightElementCard": {
     "NAME": "Light Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Light thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Light thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:MagicElementCard": {
     "NAME": "Magic Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Magic thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Magic thealchemist:Element. NL Ethereal."
   },
   "TheAlchemist:WaterElementCard": {
     "NAME": "Water Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Water thealchemist:Element. NL Ethereal."
   },
-
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",
     "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element 2 times."
+    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element as a card."
   }
 }

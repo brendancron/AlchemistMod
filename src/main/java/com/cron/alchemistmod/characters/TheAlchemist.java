@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.alchemist.*;
+import com.cron.alchemistmod.cards.deprecated.WaterDefend;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -36,8 +37,8 @@ public class TheAlchemist extends CustomPlayer {
     }
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 75;
-    public static final int MAX_HP = 75;
+    public static final int STARTING_HP = 65;
+    public static final int MAX_HP = 65;
     public static final int STARTING_GOLD = 99;
     public static final int HAND_SIZE = 5;
     public static final int ORB_SLOTS = 0;
@@ -115,13 +116,17 @@ public class TheAlchemist extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
         retVal.add(EarthStrike.ID);
         retVal.add(FireStrike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         retVal.add(AirDefend.ID);
-        retVal.add(WaterDefend.ID);
+        retVal.add(WaterBubble.ID);
 
         return retVal;
     }

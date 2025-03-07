@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShadowControl extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 3;
     private static final int MAGIC = 6;
     private static final int MAGIC_UPGRADE = 2;
 
