@@ -37,9 +37,11 @@ public class HunkerDownPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void atStartOfTurn() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
-                new EarthElement(owner, owner, amount), amount));
+    public void atEndOfTurn(boolean isPlayer) {
+        if(isPlayer) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner,
+                    new EarthElement(owner, owner, amount), amount));
+        }
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Tailwind extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int MAGIC = 2;
-    private static final int MAGIC_UPGRADE = 2;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Tailwind.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -46,7 +46,7 @@ public class Tailwind extends AbstractAlchemistCard {
                 new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, this.magicNumber), this.magicNumber)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new AirElement(p, p, 2), 2)
+                new ApplyPowerAction(p, p, new AirElement(p, p, 1), 2)
         );
     }
 }

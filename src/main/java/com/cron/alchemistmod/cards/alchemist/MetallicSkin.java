@@ -41,8 +41,10 @@ public class MetallicSkin extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.block))
-        );
+        if (this.block > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.block))
+            );
+        }
     }
 }

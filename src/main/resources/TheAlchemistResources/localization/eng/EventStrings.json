@@ -1,0 +1,17 @@
+{
+  "MasterAlchemistEvent": {
+    "NAME": "Master Alchemist",
+    "DESCRIPTIONS": [
+      "A mysterious figure looms over you. \"I am the true master alchemist! For I can make a potion out of anything\" he boasts. \"Oh you don't believe me? I will show you, all I need is a card.\"",
+      "You leave without a word.",
+      "Admiring the master alchemist's craftsmanship, you go along your way."
+    ],
+    "OPTIONS": [
+      "Donate a Card",
+      "Leave",
+      "Select a card to donate.",
+      "Proceed",
+      "Continue"
+    ]
+  }
+}
