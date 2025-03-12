@@ -39,7 +39,7 @@ public class FumeHoodPower extends AbstractAlchemistPower {
     @Override
     public void onGainElement(AbstractElement element) {
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(this.owner, this.amount)
+                new GainBlockAction(this.owner, this.amount * element.amount)
         );
     }
 

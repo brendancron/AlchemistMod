@@ -1,4 +1,4 @@
-package com.cron.alchemistmod.cards.deprecated;
+package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
@@ -20,8 +20,7 @@ public class Fog extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 3;
-    private static final int MAGIC = 3;
-    private static final int MAGIC_UPGRADE = 3;
+    private static final int COST_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(Fog.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -29,7 +28,6 @@ public class Fog extends AbstractAlchemistCard {
 
     public Fog() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
     }
 
@@ -37,14 +35,14 @@ public class Fog extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.upgradeBaseCost(COST_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber)
+                new ApplyPowerAction(m, p, new WeakPower(m, 2, false), 2)
         );
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)

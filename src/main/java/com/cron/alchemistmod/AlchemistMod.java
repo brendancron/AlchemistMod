@@ -2,14 +2,18 @@ package com.cron.alchemistmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.cron.alchemistmod.actions.UpdatePotionsAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.commands.BottleCommand;
+import com.cron.alchemistmod.events.MasterAlchemistEvent;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.AbstractAlchemistRelic;
@@ -82,6 +86,8 @@ public class AlchemistMod implements
                 ATTACK_ALCHEMIST_PORTRAIT, SKILL_ALCHEMIST_PORTRAIT, POWER_ALCHEMIST_PORTRAIT,
                 ENERGY_ORB_ALCHEMIST_PORTRAIT, CARD_ENERGY_ORB);
         MyModConfig.load();
+
+        BaseMod.addEvent(MasterAlchemistEvent.ID, MasterAlchemistEvent.class);
     }
 
     public static void initialize() {
@@ -202,10 +208,11 @@ public class AlchemistMod implements
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 getModID() + "Resources/localization/eng/RelicStrings.json");
-//
-//        // Event Strings
-//        BaseMod.loadCustomStringsFile(EventStrings.class,
-//                getModID() + "Resources/localization/eng/EventStrings.json");
+
+        // Event Strings
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                getModID() + "Resources/localization/eng/EventStrings.json");
+
 //
 //        // PotionStrings
 //        BaseMod.loadCustomStringsFile(PotionStrings.class,
@@ -323,6 +330,7 @@ public class AlchemistMod implements
     @Override
     public void receivePostInitialize() {
         SettingsPanel.createPanel();
+        ConsoleCommand.addCommand("bottle", BottleCommand.class);
     }
 
     @Override

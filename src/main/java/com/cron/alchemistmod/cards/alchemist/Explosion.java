@@ -17,7 +17,7 @@ public class Explosion extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = -1;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
     private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Explosion.class.getSimpleName());
