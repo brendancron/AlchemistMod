@@ -1,13 +1,23 @@
 package com.cron.alchemistmod.events;
 
+import com.badlogic.gdx.math.MathUtils;
+import com.cron.alchemistmod.cards.alchemist.AirBurst;
 import com.cron.alchemistmod.potions.BottledPotion;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
+import com.megacrit.cardcrawl.events.shrines.Bonfire;
+import com.megacrit.cardcrawl.helpers.PotionHelper;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 
 public class MasterAlchemistEvent extends AbstractImageEvent {
     public static final String ID = "MasterAlchemistEvent";
@@ -16,56 +26,65 @@ public class MasterAlchemistEvent extends AbstractImageEvent {
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
 
-    private int screenNum = 0;
+    private int screen = 0;
+    private boolean cardSelect = false;
 
     public MasterAlchemistEvent() {
         super(NAME, DESCRIPTIONS[0], "img/events/cardDonation.jpg"); // Replace with your event image
         this.imageEventText.setDialogOption(OPTIONS[0]); // "Donate a Card"
         this.imageEventText.setDialogOption(OPTIONS[1]); // "Leave"
+
+        this.noCardsInRewards = true;
     }
 
     @Override
     protected void buttonEffect(int buttonPressed) {
-        switch (screenNum) {
-            case 0: // Initial screen
+        switch (this.screen) {
+            case 0:
                 switch (buttonPressed) {
-                    case 0: // "Donate a Card"
-                        // Open the card selection screen
-                        AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.masterDeck, 1, OPTIONS[2], false, false, false, true);
-                        screenNum = 1; // Move to the next screen
+                    case 0:
+                        if (CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()).size() > 0) {
+                            AbstractDungeon.gridSelectScreen.open(CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards()), 1, OPTIONS[3], false, false, false, true);
+                            this.cardSelect = true;
+                            this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                        } else {
+                            this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                            this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+                            this.screen = 2;
+                        }
                         break;
-                    case 1: // "Leave"
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // "You leave without a word."
-                        this.imageEventText.updateDialogOption(0, OPTIONS[4]); // "Continue"
-                        this.imageEventText.clearRemainingOptions();
-                        screenNum = 2; // Move to the end screen
-                        break;
+                    default:
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
+
+                        if (AbstractDungeon.ascensionLevel >= 15) {
+                            AbstractDungeon.player.damage(new DamageInfo((AbstractCreature)null, MathUtils.ceil((float)AbstractDungeon.player.maxHealth * 0.05F), DamageInfo.DamageType.HP_LOSS));
+                        }
                 }
+
+                this.imageEventText.clearAllDialogs();
+                this.imageEventText.setDialogOption(OPTIONS[4]);
+                this.screen = 1;
                 break;
-            case 1: // Card selection screen
-                if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-                    AbstractCard donatedCard = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-
-                    // Remove the card from the player's deck
-                    AbstractDungeon.player.masterDeck.removeCard(donatedCard);
-
-                    // Show the card being removed
-                    AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(donatedCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
-
-                    // Create and add the bottled version
-                    BottledPotion potion = new BottledPotion(donatedCard);
-                    AbstractDungeon.player.obtainPotion(potion);
-
-                    // Update the event text
-                    this.imageEventText.updateBodyText(DESCRIPTIONS[2]); // "Admiring the master alchemist's craftsmanship..."
-                    this.imageEventText.updateDialogOption(0, OPTIONS[4]); // "Continue"
-                    this.imageEventText.clearRemainingOptions();
-                    screenNum = 2; // Move to the end screen
-                }
-                break;
-            case 2: // End screen
-                openMap(); // End the event
-                break;
+            default:
+                this.openMap();
         }
+    }
+
+    public void update() {
+        super.update();
+        if (this.cardSelect && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+            AbstractCard card = (AbstractCard)AbstractDungeon.gridSelectScreen.selectedCards.remove(0);
+            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(card, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+            AbstractDungeon.player.masterDeck.removeCard(card);
+            this.imageEventText.updateDialogOption(0, OPTIONS[1]);
+            this.screen = 1;
+            this.cardSelect = false;
+            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            AbstractDungeon.getCurrRoom().rewards.clear();
+            AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(new BottledPotion(card)));
+            AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+            AbstractDungeon.combatRewardScreen.open();
+        }
+
     }
 }
