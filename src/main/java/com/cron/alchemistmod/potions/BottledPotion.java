@@ -2,18 +2,16 @@ package com.cron.alchemistmod.potions;
 
 import basemod.abstracts.CustomSavable;
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.cards.alchemist.AirBurst;
-import com.cron.alchemistmod.util.Serialization.CardDeserializer;
-import com.cron.alchemistmod.util.Serialization.CardSerializer;
-import com.cron.alchemistmod.util.Serialization.SkipFieldExclusionStrategy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,20 +20,25 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
 
     private static final Logger LOGGER = LogManager.getLogger(BottledPotion.class);
 
-    private static Gson GSON = new GsonBuilder()
-        .registerTypeAdapter(AbstractCard.class, new CardDeserializer())
-        .registerTypeAdapter(AbstractCard.class, new CardSerializer())
-        .setExclusionStrategies(new SkipFieldExclusionStrategy("scale"))
-        .create();
-
     private AbstractCard bottledCard;
+
+    public BottledPotion() {
+        super("Empty Bottled Potion", POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.BOTTLE, PotionColor.SMOKE);
+        this.potency = getPotency(0);
+    }
 
     public BottledPotion(AbstractCard card) {
         super(getPotionName(card), POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.BOTTLE, PotionColor.SMOKE);
+        this.potency = getPotency(0);
+        initCard(card);
+    }
+
+    public void initCard(AbstractCard card) {
+        this.name = getPotionName(card);
         bottledCard = card.makeStatEquivalentCopy();
 
         this.targetRequired = (bottledCard.target == AbstractCard.CardTarget.ENEMY);
-        this.potency = getPotency();
+
         this.description = "When played, use " + card.name + ".";
         this.tips.add(new PowerTip(getPotionName(card), description));
         String fixedDescription = card.rawDescription
@@ -74,6 +77,10 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
             default:
                 cardCopy.use(AbstractDungeon.player, null);
         }
+        // Add the card back into your deck!
+        AbstractCard cardToAdd = bottledCard.makeStatEquivalentCopy();
+        cardToAdd.resetAttributes();
+        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardToAdd, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
     }
 
     @Override
@@ -93,18 +100,35 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
     @Override
     public Object onSave() {
         LOGGER.info("Saving Bottled Potion");
-        String json = GSON.toJson(bottledCard);
-        LOGGER.info(json);
-        return json;
+        JsonObject obj = new JsonObject();
+        obj.addProperty("cardID", bottledCard.cardID); // Unique card identifier
+        obj.addProperty("upgraded", bottledCard.upgraded); // Whether the card is upgraded
+        obj.addProperty("timesUpgraded", bottledCard.timesUpgraded); // Whether the card is upgraded
+        obj.addProperty("magicNumber", bottledCard.magicNumber); // Miscellaneous data (if needed)
+        return obj;
     }
 
     @Override
     public void onLoad(Object o) {
-        if(o instanceof String) {
+        if(o instanceof JsonObject) {
             LOGGER.info("Loading Bottled Potion");
-            String json = ((String)o);
-            LOGGER.info(json);
-            bottledCard = GSON.fromJson(json, AbstractCard.class);
+            JsonObject obj = ((JsonObject )o);
+            String cardID = obj.get("cardID").getAsString();
+            AbstractCard card = CardLibrary.getCard(cardID).makeCopy();
+            card.upgraded = obj.get("upgraded").getAsBoolean();
+            int timesUpgraded = obj.get("timesUpgraded").getAsInt();
+            for (int i = 0; i < timesUpgraded; i++) {
+                card.upgrade(); // This increments timesUpgraded AND applies stat changes
+            }
+            card.magicNumber = obj.get("magicNumber").getAsInt();
+            LOGGER.info("Card ID: {}, Upgraded {}, Times Upgraded {}, Magic {}", cardID, card.upgraded, card.timesUpgraded, card.magicNumber);
+            initCard(card);
         }
     }
+
+    @Override
+    public Class<?> savedType() {
+        return JsonObject.class;
+    }
+
 }
