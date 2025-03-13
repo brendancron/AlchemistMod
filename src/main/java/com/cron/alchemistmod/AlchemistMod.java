@@ -7,13 +7,13 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.cron.alchemistmod.actions.UpdatePotionsAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.commands.BottleCommand;
 import com.cron.alchemistmod.events.MasterAlchemistEvent;
+import com.cron.alchemistmod.potions.BottledPotion;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.AbstractAlchemistRelic;
@@ -331,6 +331,8 @@ public class AlchemistMod implements
     public void receivePostInitialize() {
         SettingsPanel.createPanel();
         ConsoleCommand.addCommand("bottle", BottleCommand.class);
+
+        BaseMod.addPotion(BottledPotion.class, Color.GRAY, Color.GRAY, null, BottledPotion.POTION_ID);
     }
 
     @Override
