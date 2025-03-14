@@ -101,10 +101,11 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
     public Object onSave() {
         LOGGER.info("Saving Bottled Potion");
         JsonObject obj = new JsonObject();
-        obj.addProperty("cardID", bottledCard.cardID); // Unique card identifier
-        obj.addProperty("upgraded", bottledCard.upgraded); // Whether the card is upgraded
-        obj.addProperty("timesUpgraded", bottledCard.timesUpgraded); // Whether the card is upgraded
-        obj.addProperty("magicNumber", bottledCard.magicNumber); // Miscellaneous data (if needed)
+        obj.addProperty("cardID", bottledCard.cardID);
+        obj.addProperty("upgraded", bottledCard.upgraded);
+        obj.addProperty("timesUpgraded", bottledCard.timesUpgraded);
+        obj.addProperty("magicNumber", bottledCard.magicNumber);
+        obj.addProperty("misc", bottledCard.misc);
         return obj;
     }
 
@@ -121,6 +122,7 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
                 card.upgrade(); // This increments timesUpgraded AND applies stat changes
             }
             card.magicNumber = obj.get("magicNumber").getAsInt();
+            card.misc = obj.get("misc").getAsInt();
             LOGGER.info("Card ID: {}, Upgraded {}, Times Upgraded {}, Magic {}", cardID, card.upgraded, card.timesUpgraded, card.magicNumber);
             initCard(card);
         }

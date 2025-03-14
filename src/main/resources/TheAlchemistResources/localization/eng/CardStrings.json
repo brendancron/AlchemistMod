@@ -113,9 +113,10 @@
     "NAME": "Shifting Sand",
     "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
   },
-  "TheAlchemist:ShiningStrike": {
-    "NAME": "Shining Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Light thealchemist:Element."
+  "TheAlchemist:DivineStrike": {
+    "NAME": "Divine Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element."
   },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
@@ -190,8 +191,11 @@
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
-    "DESCRIPTION": "Discard your last potion. NL Gain 1 thealchemist:Light thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Discard your last potion. NL Gain !M! thealchemist:Light thealchemist:Elements."
+    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Retain !M! Cards at the end of your turn."
+  },
+  "TheAlchemist:Enhance": {
+    "NAME": "Enhance",
+    "DESCRIPTION": "Discard a card. NL It costs one less this combat. NL Exhaust."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -206,6 +210,10 @@
     "NAME": "Gust",
     "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
     "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
+  },
+  "TheAlchemist:Ionization": {
+    "NAME": "Ionization",
+    "DESCRIPTION": "Gain 1 Artifact, and 1 thealchemist:Antifact."
   },
   "TheAlchemist:LeechStrength": {
     "NAME": "Leech Strength",
@@ -336,8 +344,8 @@
   },
   "TheAlchemist:SacredForm": {
     "NAME": "Sacred Form",
-    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions. NL Whenever you use a potion gain 1 Poison.",
-    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions. NL Whenever you use a potion gain 1 Poison."
+    "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions.",
+    "UPGRADE_DESCRIPTION": "Double the effectiveness of potions."
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",

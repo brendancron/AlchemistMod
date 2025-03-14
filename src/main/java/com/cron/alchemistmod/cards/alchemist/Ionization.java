@@ -1,54 +1,46 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.actions.ApplyArtifactAndAntifactAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.LightElement;
-import com.cron.alchemistmod.powers.RetainThisTurnPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.cron.alchemistmod.powers.AntifactPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 
-public class CleansingLight extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+public class Ionization extends AbstractAlchemistCard {
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int COST_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(CleansingLight.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(Ionization.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(CleansingLight.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath("ChemicalBuffer.png");
 
-    public CleansingLight() {
+    public Ionization() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeBaseCost(COST_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
-        );
-
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new RetainThisTurnPower(p, this.magicNumber), this.magicNumber)
+                new ApplyArtifactAndAntifactAction(p, p, new ArtifactPower(p, 1), new AntifactPower(p, p, 1), 1)
         );
     }
 }
