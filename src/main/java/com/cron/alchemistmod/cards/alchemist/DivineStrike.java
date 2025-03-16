@@ -1,6 +1,7 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.actions.DivineStrikeAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.LightElement;
@@ -45,13 +46,15 @@ public class DivineStrike extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.exhaust = false;
             this.upgradeName();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new com.cron.alchemistmod.actions.DivineStrike(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), this.uuid)
+                new DivineStrikeAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL), this.uuid)
         );
 
         AbstractDungeon.actionManager.addToBottom(

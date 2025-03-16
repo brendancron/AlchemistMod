@@ -1,8 +1,12 @@
 package com.cron.alchemistmod.actions;
 
+import com.cron.alchemistmod.cards.colorless.GoldNugget;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
+import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
+import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,13 +14,11 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class ChrysopoeiaAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
-    private final int mult;
     private final AbstractPlayer player;
     private final int energyOnUse;
 
-    public ChrysopoeiaAction(AbstractPlayer player, int mult, boolean freeToPlayOnce, int energyOnUse) {
+    public ChrysopoeiaAction(AbstractPlayer player, boolean freeToPlayOnce, int energyOnUse) {
         this.player = player;
-        this.mult = mult;
         this.freeToPlayOnce = freeToPlayOnce;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
@@ -35,16 +37,10 @@ public class ChrysopoeiaAction extends AbstractGameAction {
             this.player.getRelic("Chemical X").flash();
         }
 
-        int effect  = AbstractDungeon.player.currentBlock / mult * energy;
-
-        if (effect > 0) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new RemoveAllBlockAction(player, player)
+        if (energy > 0) {
+            addToBot(
+                new MakeTempCardInDrawPileAction(new GoldNugget(), energy, true, false)
             );
-            AbstractDungeon.actionManager.addToBottom(
-                    new GainGoldAction(effect)
-            );
-
             if (!this.freeToPlayOnce) {
                 this.player.energy.use(EnergyPanel.totalCount);
             }

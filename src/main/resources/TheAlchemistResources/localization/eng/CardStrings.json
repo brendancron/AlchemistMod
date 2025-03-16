@@ -44,6 +44,11 @@
     "NAME": "Cursed Strike",
     "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Antifact."
   },
+  "TheAlchemist:DivineStrike": {
+    "NAME": "Divine Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element."
+  },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal twice the damage if you have an thealchemist:Element"
@@ -113,11 +118,6 @@
     "NAME": "Shifting Sand",
     "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
   },
-  "TheAlchemist:DivineStrike": {
-    "NAME": "Divine Strike",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element."
-  },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
     "DESCRIPTION": "Deal !D! damage. NL Whenever you gain a thealchemist:Fire thealchemist:Element, return this from your discard pile to your Hand."
@@ -136,7 +136,7 @@
   },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, gain !M! gold and heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain !M! intangable and heal 10."
   },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
@@ -146,8 +146,8 @@
 
   "TheAlchemist:Alkahest": {
     "NAME": "Alkahest",
-    "DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards.",
-    "UPGRADE_DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards twice."
+    "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as exhaustable cards to your draw pie.",
+    "UPGRADE_DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards to your hand."
   },
   "TheAlchemist:AlkalineAir": {
     "NAME": "Alkaline Air",
@@ -186,12 +186,13 @@
   },
   "TheAlchemist:Chrysopoeia": {
     "NAME": "Chrysopoeia",
-    "DESCRIPTION": "Remove all Block. NL Gain X Gold for every !M! Block removed. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remove all Block. NL Gain X Gold for every Block removed. NL Exhaust."
+    "DESCRIPTION": "Add X Gold Nuggets into your deck. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add X+1 Gold Nuggets into your deck. NL Exhaust."
   },
   "TheAlchemist:CleansingLight": {
     "NAME": "Cleansing Light",
-    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Retain !M! Cards at the end of your turn."
+    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Retain !M! Card at the end of your turn.",
+    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Retain !M! Cards at the end of your turn."
   },
   "TheAlchemist:Enhance": {
     "NAME": "Enhance",
@@ -205,6 +206,10 @@
   "TheAlchemist:Fog": {
     "NAME": "Fog",
     "DESCRIPTION": "Apply 2 Weak. NL Gain 1 thealchemist:Water and 1 thealchemist:Air thealchemist:Element. NL Exhaust."
+  },
+  "TheAlchemist:GoldNugget": {
+    "NAME": "Gold Nugget",
+    "DESCRIPTION": "Unplayable. NL When exhausted gain !M! gold."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
@@ -305,7 +310,7 @@
   },
   "TheAlchemist:Chug": {
     "NAME": "Chug",
-    "DESCRIPTION": "Whenever you use a potion, draw !M! card."
+    "DESCRIPTION": "Whenever you use or discard a potion, draw !M! card."
   },
   "TheAlchemist:Creation": {
     "NAME": "Creation",
@@ -330,7 +335,7 @@
   },
   "TheAlchemist:Growth": {
     "NAME": "Growth",
-    "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain 1 thealchemist:Fruit_Juice."
+    "DESCRIPTION": "At the end of !M! Turns, gain 1 thealchemist:Fruit_Juice. NL Exhaust."
   },
   "TheAlchemist:HunkerDown": {
     "NAME": "Hunker Down",
@@ -349,7 +354,7 @@
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",
-    "DESCRIPTION": "Whenever you discard a potion, gain !M! Strength."
+    "DESCRIPTION": "Whenever you discard a potion, randomly add one of its elements a an exhaustable card to your discard pile"
   },
   "TheAlchemist:TheBestDefense": {
     "NAME": "The Best Defense...",
@@ -359,31 +364,31 @@
 
   "TheAlchemist:AirElementCard": {
     "NAME": "Air Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Air thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Air thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:DarkElementCard": {
     "NAME": "Dark Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Dark thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Dark thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:EarthElementCard": {
     "NAME": "Earth Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Earth thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Earth thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:FireElementCard": {
     "NAME": "Fire Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Fire thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Fire thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:LightElementCard": {
     "NAME": "Light Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Light thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Light thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:MagicElementCard": {
     "NAME": "Magic Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Magic thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Magic thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:WaterElementCard": {
     "NAME": "Water Element",
-    "DESCRIPTION": "Retain. NL Gain !M! thealchemist:Water thealchemist:Element. NL Ethereal."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",

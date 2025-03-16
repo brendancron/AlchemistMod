@@ -46,6 +46,13 @@ public class ChugPower extends AbstractAlchemistPower {
     }
 
     @Override
+    public void onDiscardPotion(AbstractPotion potion) {
+        AbstractDungeon.actionManager.addToBottom(
+                new DrawCardAction(this.amount)
+        );
+    }
+
+    @Override
     public void updateDescription() {
         if (this.amount == 1) {
             description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];

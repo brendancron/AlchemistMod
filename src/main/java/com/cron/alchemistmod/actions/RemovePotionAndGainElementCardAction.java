@@ -3,7 +3,10 @@ package com.cron.alchemistmod.actions;
 import com.cron.alchemistmod.util.Element;
 import com.cron.alchemistmod.util.PotionElements;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -23,22 +26,24 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
 
+    private CardLocation cardLocation;
 
-    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, int amount, boolean doubleCards) {
+    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, int amount, boolean doubleCards, CardLocation cardLocation) {
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.first = first;
         this.player = player;
         this.amount = amount;
         this.doubleCards = doubleCards;
+        this.cardLocation = cardLocation;
     }
 
-    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first) {
-        this(player, first, 1, false);
+    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, CardLocation cardLocation) {
+        this(player, first, 1, false, cardLocation);
     }
 
-    public RemovePotionAndGainElementCardAction(AbstractPlayer player) {
-        this(player, false);
+    public RemovePotionAndGainElementCardAction(AbstractPlayer player, CardLocation cardLocation) {
+        this(player, false, cardLocation);
     }
 
     public void update() {
@@ -66,11 +71,11 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
                         for (Element element : elements) {
                             if (doubleCards) {
                                 AbstractDungeon.actionManager.addToBottom(
-                                        new MakeTempCardInHandAction(element.getCard(), 2, false)
+                                    cardLocation.GetAction(element.getCard(), 1, false)
                                 );
                             } else {
                                 AbstractDungeon.actionManager.addToBottom(
-                                        new MakeTempCardInHandAction(element.getCard(), 1, false)
+                                        cardLocation.GetAction(element.getCard(), 2, false)
                                 );
                             }
                         }
@@ -120,6 +125,24 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
             return null;
         } else {
             return list;
+        }
+    }
+
+    public enum CardLocation {
+        HAND,
+        DRAW,
+        DISCARD;
+
+        public AbstractGameAction GetAction(AbstractCard card, int amount, boolean misc) {
+            switch (this) {
+                case HAND:
+                    return new MakeTempCardInHandAction(card, amount, misc);
+                case DRAW:
+                    return new MakeTempCardInDrawPileAction(card, amount, true, false);
+                case DISCARD:
+                    return new MakeTempCardInDiscardAction(card, amount);
+            }
+            return null;
         }
     }
 }

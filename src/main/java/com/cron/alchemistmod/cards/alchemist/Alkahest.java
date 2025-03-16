@@ -38,7 +38,8 @@ public class Alkahest extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new RemovePotionAndGainElementCardAction(AbstractDungeon.player, false, 1, this.upgraded)
+            new RemovePotionAndGainElementCardAction(AbstractDungeon.player, false, 1, false,
+                (this.upgraded ? RemovePotionAndGainElementCardAction.CardLocation.HAND : RemovePotionAndGainElementCardAction.CardLocation.DRAW))
         );
     }
 }

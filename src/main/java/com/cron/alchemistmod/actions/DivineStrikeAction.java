@@ -12,12 +12,12 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import java.util.Iterator;
 import java.util.UUID;
 
-public class DivineStrike extends AbstractGameAction {
+public class DivineStrikeAction extends AbstractGameAction {
 
     private DamageInfo info;
     private UUID cardUUID;
 
-    public DivineStrike(AbstractCreature target, DamageInfo info, UUID cardUUID) {
+    public DivineStrikeAction(AbstractCreature target, DamageInfo info, UUID cardUUID) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;
