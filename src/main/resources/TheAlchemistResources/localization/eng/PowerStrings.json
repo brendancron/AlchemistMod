@@ -52,6 +52,10 @@
     "NAME": "Fume Hood",
     "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
   },
+  "TheAlchemist:GrowthPower": {
+    "NAME": "Growth",
+    "DESCRIPTIONS": ["At the end of #b", " #yTurns gain a Fruit Juice"]
+  },
   "TheAlchemist:HunkerDownPower": {
     "NAME": "Hunker Down",
     "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
@@ -59,10 +63,6 @@
   "TheAlchemist:DredgesPower": {
     "NAME": "Dredges",
     "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
-  },
-  "TheAlchemist:GrowthPower": {
-    "NAME": "Growth",
-    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain #yFruit #yJuice.", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
@@ -91,6 +91,10 @@
   "TheAlchemist:TheBestDefensePower": {
     "NAME": "The Best Defense...",
     "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
+  },
+  "TheAlchemist:TheStonePower": {
+    "NAME": "Growth",
+    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain 10 health and intangible", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
   },
   "TheAlchemist:UnstableElixirPower": {
     "NAME": "Unstable Elixir",
