@@ -93,5 +93,13 @@
       "fruit_juice"
     ],
     "DESCRIPTION": "A potion that raises your Max HP by 5."
+  },
+  {
+    "PROPER_NAME": "Toxic",
+    "NAMES": [
+      "Toxic",
+      "toxic"
+    ],
+    "DESCRIPTION": "Creatures with toxic gain poison at the start of their turn."
   }
 ]

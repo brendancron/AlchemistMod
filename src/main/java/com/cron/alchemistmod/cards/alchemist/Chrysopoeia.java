@@ -43,7 +43,7 @@ public class Chrysopoeia extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ChrysopoeiaAction(p, this.freeToPlayOnce, this.energyOnUse)
+                new ChrysopoeiaAction(p, this.magicNumber, this.freeToPlayOnce, this.energyOnUse)
         );
     }
 }

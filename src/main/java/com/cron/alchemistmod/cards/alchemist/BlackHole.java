@@ -3,6 +3,7 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.BlackHolePower;
 import com.cron.alchemistmod.powers.DarkElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
@@ -15,11 +16,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class BlackHole extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 1;
-    private static final int COST_UPGRADE = 0;
+    private static final int COST = 2;
+    private static final int COST_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(BlackHole.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -40,10 +41,7 @@ public class BlackHole extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ExhaustAction(1, false)
-        );
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new DarkElement(p, p, 1), 2)
+                new ApplyPowerAction(p, p, new BlackHolePower(p, p, 1), 1)
         );
     }
 }

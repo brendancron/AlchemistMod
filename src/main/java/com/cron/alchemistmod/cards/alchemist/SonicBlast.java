@@ -20,8 +20,8 @@ public class SonicBlast extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 20;
-    private static final int DAMAGE_UPGRADE = 5;
+    private static final int DAMAGE = 16;
+    private static final int DAMAGE_UPGRADE = 4;
 
 
     public final static String ID = AlchemistMod.makeID(SonicBlast.class.getSimpleName());

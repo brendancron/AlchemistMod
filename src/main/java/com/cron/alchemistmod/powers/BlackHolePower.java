@@ -1,26 +1,24 @@
 package com.cron.alchemistmod.powers;
 
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class EntropyPower extends AbstractAlchemistPower {
-
-    public static final String POWER_ID = AlchemistMod.makeID(EntropyPower.class.getSimpleName());
+public class BlackHolePower extends AbstractAlchemistPower {
+    public static final String POWER_ID = AlchemistMod.makeID(BlackHolePower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(EntropyPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(EntropyPower.class.getSimpleName() + "32.png"));
 
-    public EntropyPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public BlackHolePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
@@ -38,25 +36,19 @@ public class EntropyPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void onGainElement(AbstractElement element) {
-        if (!(element instanceof DarkElement)) {
-            AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new DarkElement(owner, source, this.amount), this.amount)
-            );
-        }
+    public void atStartOfTurnPostDraw() {
+        this.flash();
+        this.addToBot(new ExhaustAction(this.amount, false));
+        this.addToBot(new ApplyPowerAction(owner, source, new DarkElement(owner, source, this.amount), this.amount));
     }
 
     @Override
-    public void updateDescription() {
-        description = POWER_STRINGS.DESCRIPTIONS[0] + amount + POWER_STRINGS.DESCRIPTIONS[1];
+    public AbstractAlchemistPower makeCopy(int amount) {
+        return null;
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new EntropyPower(this.owner, this.source, this.amount);
-    }
-    @Override
-    public AbstractAlchemistPower makeCopy(int amount) {
-        return new EntropyPower(this.owner, this.source, amount);
+        return null;
     }
 }

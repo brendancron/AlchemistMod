@@ -9,7 +9,7 @@
   },
   "TheAlchemist:Garden": {
     "NAME": "Garden",
-    "DESCRIPTIONS": ["At the start of your turn, gain a random #ythealchemist:Primary or #ythealchemist:Secondary #ythealchemist:Element_Card"]
+    "DESCRIPTIONS": ["At the start of combat, gain a random #ythealchemist:Primary or #ythealchemist:Secondary #ythealchemist:Element_Card"]
   },
   "TheAlchemist:MagicBarrier": {
     "NAME": "Magic Barrier",
@@ -33,7 +33,7 @@
   },
   "TheAlchemist:Transmutor": {
     "NAME": "Transmutor",
-    "DESCRIPTIONS": ["At the start of your turn, choose any number of cards to transform."]
+    "DESCRIPTIONS": ["At the start of combat, choose any number of cards to transform."]
   },
   "TheAlchemist:Vapours": {
     "NAME": "Vapours",
