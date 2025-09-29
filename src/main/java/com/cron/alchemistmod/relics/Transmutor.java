@@ -29,7 +29,7 @@ public class Transmutor extends AbstractAlchemistRelic {
     }
 
     @Override
-    public void atTurnStartPostDraw() {
+    public void atBattleStart() {
         AbstractDungeon.actionManager.addToBottom(
                 new ChooseAndTransformRandomCardAction(true)
         );

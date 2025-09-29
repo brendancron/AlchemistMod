@@ -17,9 +17,9 @@ public class ProtectionTonic extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int BLOCK = 3;
-    private static final int MAGIC = 2;
-    private static final int MAGIC_UPGRADE = 2;
+    private static final int BLOCK = 2;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(ProtectionTonic.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

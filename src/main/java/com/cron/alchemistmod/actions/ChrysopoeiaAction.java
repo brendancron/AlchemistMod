@@ -16,13 +16,15 @@ public class ChrysopoeiaAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
     private final AbstractPlayer player;
     private final int energyOnUse;
+    private final int bonus;
 
-    public ChrysopoeiaAction(AbstractPlayer player, boolean freeToPlayOnce, int energyOnUse) {
+    public ChrysopoeiaAction(AbstractPlayer player, int bonus, boolean freeToPlayOnce, int energyOnUse) {
         this.player = player;
         this.freeToPlayOnce = freeToPlayOnce;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
+        this.bonus = bonus;
     }
 
     @Override
@@ -37,9 +39,9 @@ public class ChrysopoeiaAction extends AbstractGameAction {
             this.player.getRelic("Chemical X").flash();
         }
 
-        if (energy > 0) {
+        if (energy + bonus > 0) {
             addToBot(
-                new MakeTempCardInDrawPileAction(new GoldNugget(), energy, true, false)
+                new MakeTempCardInDrawPileAction(new GoldNugget(), energy + bonus, true, false)
             );
             if (!this.freeToPlayOnce) {
                 this.player.energy.use(EnergyPanel.totalCount);
