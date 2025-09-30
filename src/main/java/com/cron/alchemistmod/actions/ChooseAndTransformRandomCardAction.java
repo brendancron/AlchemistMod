@@ -64,6 +64,10 @@ public class ChooseAndTransformRandomCardAction extends AbstractGameAction {
 
                 // Generate a random replacement card
                 AbstractCard randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
+                // Generate a new one if it has the "healing" tag
+                while(randomReplacement.hasTag(AbstractCard.CardTags.HEALING)) {
+                    randomReplacement = AbstractDungeon.getCard(AbstractDungeon.rollRarity()).makeCopy();
+                }
                 logger.info("Generated replacement card: " + randomReplacement.name);
 
                 // Add the transformed card to the player's hand with a visual effect

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RagePower;
 
 public class PackedEarth extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -19,7 +18,6 @@ public class PackedEarth extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int MAGIC = 2;
 
     public final static String ID = AlchemistMod.makeID(PackedEarth.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,7 +25,7 @@ public class PackedEarth extends AbstractAlchemistCard {
 
     public PackedEarth() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     @Override
@@ -35,6 +33,7 @@ public class PackedEarth extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.exhaust = true;
             this.initializeDescription();
         }
     }
@@ -44,11 +43,5 @@ public class PackedEarth extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new PackedEarthPower(p, p, 1), 1)
         );
-
-        if (this.upgraded) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new RagePower(p, this.magicNumber), this.magicNumber)
-            );
-        }
     }
 }

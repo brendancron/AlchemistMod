@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class CheckCombat {
     public static boolean isCombat() {
+        if (AbstractDungeon.currMapNode == null) {
+            return false;
+        }
         return AbstractDungeon.isPlayerInDungeon() && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
     public static boolean isBossCombat() {

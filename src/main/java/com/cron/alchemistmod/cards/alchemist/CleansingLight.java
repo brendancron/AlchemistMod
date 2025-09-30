@@ -1,10 +1,10 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.actions.RemovePotionAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.LightElement;
+import com.cron.alchemistmod.powers.RetainThisTurnPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,7 +18,7 @@ public class CleansingLight extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
     private static final int MAGIC_UPGRADE = 1;
 
@@ -44,10 +44,11 @@ public class CleansingLight extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new RemovePotionAction(p, false)
+                new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
         );
+
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LightElement(p, p, this.magicNumber), this.magicNumber)
+                new ApplyPowerAction(p, p, new RetainThisTurnPower(p, this.magicNumber), this.magicNumber)
         );
     }
 }

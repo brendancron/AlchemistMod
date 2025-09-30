@@ -2,6 +2,7 @@ package com.cron.alchemistmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -10,13 +11,14 @@ import com.cron.alchemistmod.actions.UpdatePotionsAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.commands.BottleCommand;
+import com.cron.alchemistmod.events.MasterAlchemistEvent;
+import com.cron.alchemistmod.potions.BottledPotion;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
 import com.cron.alchemistmod.relics.AbstractAlchemistRelic;
 import com.cron.alchemistmod.relics.PotionBag;
-import com.cron.alchemistmod.util.IDCheckDontTouchPls;
-import com.cron.alchemistmod.util.MagicNumber2;
-import com.cron.alchemistmod.util.TrackPotions;
+import com.cron.alchemistmod.util.*;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -25,10 +27,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -53,7 +52,9 @@ public class AlchemistMod implements
         PrePotionUseSubscriber,
         OnPlayerTurnStartSubscriber,
         PostPowerApplySubscriber,
-        OnStartBattleSubscriber
+        OnStartBattleSubscriber,
+        PostInitializeSubscriber,
+        PostDungeonInitializeSubscriber
 {
 
     public static final Logger logger = LogManager.getLogger("TheAlchemist");
@@ -76,7 +77,6 @@ public class AlchemistMod implements
     private static final String POWER_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/bg_power_p.png";
     private static final String ENERGY_ORB_ALCHEMIST_PORTRAIT = "TheAlchemistResources/images/cardback/alchemist/energy_orb_p.png";
 
-
     public AlchemistMod() {
         BaseMod.subscribe(this);
         setModID("TheAlchemist");
@@ -85,6 +85,9 @@ public class AlchemistMod implements
                 ATTACK_ALCHEMIST, SKILL_ALCHEMIST, POWER_ALCHEMIST, ENERGY_ORB_ALCHEMIST,
                 ATTACK_ALCHEMIST_PORTRAIT, SKILL_ALCHEMIST_PORTRAIT, POWER_ALCHEMIST_PORTRAIT,
                 ENERGY_ORB_ALCHEMIST_PORTRAIT, CARD_ENERGY_ORB);
+        MyModConfig.load();
+
+        BaseMod.addEvent(MasterAlchemistEvent.ID, MasterAlchemistEvent.class);
     }
 
     public static void initialize() {
@@ -205,10 +208,11 @@ public class AlchemistMod implements
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 getModID() + "Resources/localization/eng/RelicStrings.json");
-//
-//        // Event Strings
-//        BaseMod.loadCustomStringsFile(EventStrings.class,
-//                getModID() + "Resources/localization/eng/EventStrings.json");
+
+        // Event Strings
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                getModID() + "Resources/localization/eng/EventStrings.json");
+
 //
 //        // PotionStrings
 //        BaseMod.loadCustomStringsFile(PotionStrings.class,
@@ -221,6 +225,10 @@ public class AlchemistMod implements
 //        // OrbStrings
 //        BaseMod.loadCustomStringsFile(OrbStrings.class,
 //                getModID() + "Resources/localization/eng/OrbStrings.json");
+
+        //UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/UIStrings.json");
     }
 
     @Override
@@ -299,7 +307,7 @@ public class AlchemistMod implements
             }
         }
 
-        TrackPotions.updatePotions();
+        UpdateDescriptions.updatePotions();
         AbstractDungeon.actionManager.addToBottom(new UpdatePotionsAction());
     }
 
@@ -317,6 +325,19 @@ public class AlchemistMod implements
                 ((AbstractAlchemistCard) card).triggerOnBattleStart();
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        SettingsPanel.createPanel();
+        ConsoleCommand.addCommand("bottle", BottleCommand.class);
+
+        BaseMod.addPotion(BottledPotion.class, Color.GRAY, Color.GRAY, null, BottledPotion.POTION_ID);
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        SettingsPanel.disableRelics();
     }
 
     // end subscribers ----------------------

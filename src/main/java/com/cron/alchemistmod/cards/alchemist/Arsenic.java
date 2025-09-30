@@ -15,14 +15,15 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class Arsenic extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
     private static final int DAMAGE = 12;
     private static final int DAMAGE_UPGRADE = 6;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = -1;
 
 
     public final static String ID = AlchemistMod.makeID(Arsenic.class.getSimpleName());
@@ -40,6 +41,7 @@ public class Arsenic extends AbstractAlchemistCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(DAMAGE_UPGRADE);
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
         }
     }
 

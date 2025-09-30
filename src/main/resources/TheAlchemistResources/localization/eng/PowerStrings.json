@@ -27,7 +27,10 @@
     "NAME": "Water Element",
     "DESCRIPTIONS": ["Air: Liquid Memories NL Dark: Poison Potion NL Earth: Skill Potion NL Fire: Attack Potion NL Light: Power Potion NL Magic: Ancient Potion NL Water: Colorless Potion"]
   },
-
+  "TheAlchemist:BlackHolePower": {
+    "NAME": "Black Hole",
+    "DESCRIPTIONS": ["At the beginning of your turn #yExhaust #b", " cards and gain #b", " #yDark."]
+  },
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
     "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
@@ -52,6 +55,10 @@
     "NAME": "Fume Hood",
     "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
   },
+  "TheAlchemist:GrowthPower": {
+    "NAME": "Growth",
+    "DESCRIPTIONS": ["At the end of #b", " #yTurns gain a Fruit Juice"]
+  },
   "TheAlchemist:HunkerDownPower": {
     "NAME": "Hunker Down",
     "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
@@ -59,10 +66,6 @@
   "TheAlchemist:DredgesPower": {
     "NAME": "Dredges",
     "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
-  },
-  "TheAlchemist:GrowthPower": {
-    "NAME": "Growth",
-    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain #yFruit #yJuice.", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
@@ -74,7 +77,11 @@
   },
   "TheAlchemist:PoisonedSheathPower": {
     "NAME": "Poisoned Sheath",
-    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv", " #yPoison #yShivs", " into your hand.", "+ into your hand."]
+    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv into your hand.", " #yPoison #yShivs into your hand."]
+  },
+  "TheAlchemist:RetainThisTurnPower": {
+    "NAME": "Retain this turn",
+    "DESCRIPTIONS": ["At the end of your turn retain #b", " card.", " cards."]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
@@ -88,11 +95,14 @@
     "NAME": "The Best Defense...",
     "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
   },
+  "TheAlchemist:TheStonePower": {
+    "NAME": "Growth",
+    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain 10 health and intangible", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
+  },
   "TheAlchemist:UnstableElixirPower": {
     "NAME": "Unstable Elixir",
     "DESCRIPTIONS": ["Gain ", ", ", "and ", " this turn to deal ", " damage to ALL enemies.", "#yAir", "#yEarth", "#yFire", "#yWater"]
   },
-
   "TheAlchemist:AntifactPower": {
     "NAME": "Antifact",
     "DESCRIPTIONS": ["Negates #b", " buff", " buffs"]

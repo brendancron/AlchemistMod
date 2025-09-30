@@ -4,8 +4,11 @@ package com.cron.alchemistmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
+import com.cron.alchemistmod.util.Element;
+import com.cron.alchemistmod.util.PotionElements;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -40,9 +43,14 @@ public class SublimationPower extends AbstractAlchemistPower {
 
     @Override
     public void onDiscardPotion(AbstractPotion potion) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(this.owner, this.source, new StrengthPower(this.owner, this.amount), this.amount)
-        );
+        Element[] elements = PotionElements.getElements(potion);
+        for (int i = 0; i < this.amount; i++) {
+            int randomIndex = AbstractDungeon.miscRng.random(elements.length - 1);
+            Element chosenElement = elements[randomIndex];
+            AbstractDungeon.actionManager.addToBottom(
+                    new MakeTempCardInDiscardAction(chosenElement.getCard(), 1)
+            );
+        }
     }
 
     @Override

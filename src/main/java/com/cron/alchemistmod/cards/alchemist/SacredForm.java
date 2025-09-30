@@ -46,8 +46,5 @@ public class SacredForm extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new SacredFormPower(p, p, 1), 1)
         );
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new PoisonedPotionsPower(p, p, 1), 1)
-        );
     }
 }

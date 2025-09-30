@@ -1,0 +1,6 @@
+{
+  "TheAlchemist:PotionBag": {
+    "NAME": "Potion Bag",
+    "DESCRIPTIONS": ["Upon pick up, gain 1 potion slot."]
+  }
+}

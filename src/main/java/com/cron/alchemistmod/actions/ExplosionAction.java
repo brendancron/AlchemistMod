@@ -3,18 +3,16 @@ package com.cron.alchemistmod.actions;
 import com.cron.alchemistmod.powers.FireElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class ExplosionAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
     private final int mult;
-    private final AbstractPlayer player;
     private final int energyOnUse;
 
-    public ExplosionAction(AbstractPlayer player, int mult, boolean freeToPlayOnce, int energyOnUse) {
-        this.player = player;
+    public ExplosionAction(int mult, boolean freeToPlayOnce, int energyOnUse) {
         this.mult = mult;
         this.freeToPlayOnce = freeToPlayOnce;
         this.duration = Settings.ACTION_DUR_XFAST;
@@ -29,17 +27,17 @@ public class ExplosionAction extends AbstractGameAction {
             effect = this.energyOnUse;
         }
 
-        if (this.player.hasRelic("Chemical X")) {
+        if (AbstractDungeon.player.hasRelic("Chemical X")) {
             effect += 2;
-            this.player.getRelic("Chemical X").flash();
+            AbstractDungeon.player.getRelic("Chemical X").flash();
         }
 
         effect *= this.mult;
 
         if (effect > 0) {
-            this.addToBot(new ApplyPowerAction(this.player, this.player, new FireElement(this.player, this.player, effect), effect));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FireElement(AbstractDungeon.player, AbstractDungeon.player, effect), effect));
             if (!this.freeToPlayOnce) {
-                this.player.energy.use(EnergyPanel.totalCount);
+                AbstractDungeon.player.energy.use(EnergyPanel.totalCount);
             }
         }
 
