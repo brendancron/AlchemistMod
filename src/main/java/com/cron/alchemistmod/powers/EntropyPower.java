@@ -41,7 +41,7 @@ public class EntropyPower extends AbstractAlchemistPower {
     public void onGainElement(AbstractElement element) {
         if (!(element instanceof DarkElement)) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(owner, source, new DarkElement(owner, source, this.amount), this.amount)
+                new ApplyPowerAction(owner, source, new DarkElement(owner, source, this.amount), this.amount)
             );
         }
     }

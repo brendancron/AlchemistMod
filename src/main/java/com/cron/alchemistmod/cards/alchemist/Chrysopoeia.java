@@ -17,12 +17,12 @@ public class Chrysopoeia extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = -1;
-    private static final int MAGIC = 2;
-    private static final int MAGIC_UPGRADE = -1;
+    private static final int MAGIC = 0;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Chrysopoeia.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Chrysopoeia.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath("_Undefined.png");
 
     public Chrysopoeia() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

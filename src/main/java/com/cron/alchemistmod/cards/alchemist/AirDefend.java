@@ -18,8 +18,8 @@ public class AirDefend extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 1;
-    private static final int BLOCK = 3;
+    private static final int COST = 2;
+    private static final int BLOCK = 8;
     private static final int BLOCK_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(AirDefend.class.getSimpleName());

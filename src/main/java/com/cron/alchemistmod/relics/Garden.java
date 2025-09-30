@@ -33,7 +33,7 @@ public class Garden extends AbstractAlchemistRelic {
     }
 
     @Override
-    public void atTurnStart() {
+    public void atBattleStartPreDraw() {
         AbstractDungeon.actionManager.addToBottom(
                 new MakeTempCardInHandAction(gardenPool.getRandomCard(true).makeCopy(), 1, false)
         );

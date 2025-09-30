@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
-import com.cron.alchemistmod.util.TrackPotions;
+import com.cron.alchemistmod.util.UpdateDescriptions;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -39,14 +39,14 @@ public class SacredFormPower extends AbstractAlchemistPower {
 
     @Override
     public void onInitialApplication() {
-        TrackPotions.updatePotions();
+        UpdateDescriptions.updatePotions();
     }
 
     @Override
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
-        TrackPotions.updatePotions();
+        UpdateDescriptions.updatePotions();
     }
 
     @Override

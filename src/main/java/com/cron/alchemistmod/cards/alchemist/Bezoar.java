@@ -16,8 +16,8 @@ public class Bezoar extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 3;
-    private static final int COST_UPGRADE = 2;
+    private static final int COST = 2;
+    private static final int COST_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Bezoar.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

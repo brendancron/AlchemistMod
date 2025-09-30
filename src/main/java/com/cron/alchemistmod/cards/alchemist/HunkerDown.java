@@ -18,7 +18,8 @@ public class HunkerDown extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
+    private static final int MAGIC = 1;
 
     public final static String ID = AlchemistMod.makeID(HunkerDown.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -26,6 +27,7 @@ public class HunkerDown extends AbstractAlchemistCard {
 
     public HunkerDown() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override

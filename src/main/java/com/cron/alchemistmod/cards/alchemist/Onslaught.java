@@ -20,8 +20,8 @@ public class Onslaught extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 1;
-    private static final int MAGIC = 4;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int MAGIC = 6;
+    private static final int MAGIC_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

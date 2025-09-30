@@ -26,7 +26,7 @@ public class DarkElementCard extends AbstractAlchemistCard {
     public DarkElementCard() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.selfRetain = true;
+        this.isEthereal = true;
         this.exhaust = true;
     }
 

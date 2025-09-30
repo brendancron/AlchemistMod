@@ -67,8 +67,8 @@ public enum PotionElements {
                 return potionElements.getElements();
             }
         }
-
-        return null;
+        // default return a magic element
+        return new Element[] { Element.MAGIC };
     }
 
     public Element[] getElements() {

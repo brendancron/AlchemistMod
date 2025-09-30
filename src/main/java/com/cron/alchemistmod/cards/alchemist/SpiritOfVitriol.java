@@ -4,7 +4,9 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.actions.PoisonLoseHPWithoutDecreaseAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.ToxicPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,9 +21,8 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int COST = 1;
+    private static final int MAGIC = 4;
 
     public final static String ID = AlchemistMod.makeID(SpiritOfVitriol.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -30,14 +31,13 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
     public SpiritOfVitriol() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.exhaust = false;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -45,15 +45,8 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractPower power : m.powers) {
-            if (power instanceof PoisonPower) {
-                for (int i = 0; i < this.magicNumber; i++) {
-                    power.flashWithoutSound();
-                    AbstractDungeon.actionManager.addToBottom(
-                            new PoisonLoseHPWithoutDecreaseAction(m, p, power.amount, AbstractGameAction.AttackEffect.POISON)
-                    );
-                }
-            }
-        }
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)
+        );
     }
 }

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
+import com.megacrit.cardcrawl.potions.SmokeBomb;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -57,7 +58,7 @@ public class RemovePotionAndApplyToAllAction extends AbstractGameAction {
             // apply to all
             if (list != null) {
                 for (AbstractPotion potion : list) {
-                    if (potion.isThrown) {
+                    if (potion.isThrown && !(potion instanceof SmokeBomb)) {
                         if (potion.targetRequired) {
                             for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
                                 if (!monster.isDeadOrEscaped()) {
