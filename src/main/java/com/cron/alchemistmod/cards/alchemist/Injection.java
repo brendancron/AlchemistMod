@@ -47,10 +47,10 @@ public class Injection extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
+            new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)
+            new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)
         );
     }
 }

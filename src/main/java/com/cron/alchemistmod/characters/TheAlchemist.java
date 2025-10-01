@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.alchemist.*;
-import com.cron.alchemistmod.cards.deprecated.WaterDefend;
 import com.cron.alchemistmod.relics.PotionBag;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

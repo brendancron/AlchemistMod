@@ -101,5 +101,13 @@
       "toxic"
     ],
     "DESCRIPTION": "Creatures with toxic gain poison at the start of their turn."
+  },
+  {
+    "PROPER_NAME": "Combo",
+    "NAMES": [
+      "Combo",
+      "combo"
+    ],
+    "DESCRIPTION": "Effect applies if you currently obtain the given element in your cauldron"
   }
 ]

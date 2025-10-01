@@ -11,12 +11,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Bezoar extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int COST_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Bezoar.class.getSimpleName());

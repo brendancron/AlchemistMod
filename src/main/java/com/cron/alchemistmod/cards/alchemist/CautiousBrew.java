@@ -43,11 +43,11 @@ public class CautiousBrew extends AbstractAlchemistCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (m != null && m.getIntentBaseDmg() >= 0) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new EarthElement(p, p, this.magicNumber), this.magicNumber)
+                new ApplyPowerAction(p, p, new EarthElement(p, p, this.magicNumber), this.magicNumber)
             );
         } else {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, new FireElement(p, p, this.magicNumber), this.magicNumber)
+                new ApplyPowerAction(p, p, new FireElement(p, p, this.magicNumber), this.magicNumber)
             );
         }
     }
