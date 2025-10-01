@@ -3,45 +3,60 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.SublimationPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Sublimation extends AbstractAlchemistCard {
+public class ThickGuard extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
-    private static final int MAGIC = 1;
-    private static final int COST_UPGRADE = 1;
+    private static final int COST = 1;
+    private static final int BLOCK = 8;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Sublimation.class.getSimpleName());
+    public final static String ID = AlchemistMod.makeID(ThickGuard.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Sublimation.class.getSimpleName() + ".png");
+    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(ThickGuard.class.getSimpleName() + ".png");
 
-    public Sublimation() {
+    private int dexScaling;
+
+    public ThickGuard() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new SublimationPower(p, p, this.magicNumber), this.magicNumber)
+                new GainBlockAction(p, p, this.block)
         );
+    }
+
+    public void applyPowers() {
+        int realBaseBlock = this.baseBlock;
+        if (AbstractDungeon.player.hasPower("Dexterity")) {
+            int dex = AbstractDungeon.player.getPower("Dexterity").amount;
+            this.baseBlock += dex * (this.magicNumber - 1);
+        }
+        super.applyPowers();
+        this.baseBlock = realBaseBlock;
+        this.isBlockModified = this.block != this.baseBlock;
     }
 }

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class LeechStrength extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -17,8 +18,9 @@ public class LeechStrength extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
-    private static final int MAGIC = 1;
+    private static final int COST = 1;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(LeechStrength.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,8 +36,7 @@ public class LeechStrength extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.initializeDescription();
         }
     }
@@ -43,7 +44,15 @@ public class LeechStrength extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, p, new LeechStrengthPower(m, p, this.magicNumber), this.magicNumber)
+            new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber)
+        );
+
+        AbstractDungeon.actionManager.addToBottom(
+            new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber)
+        );
+
+        AbstractDungeon.actionManager.addToBottom(
+            new ApplyPowerAction(p, p, new LeechStrengthPower(p, p, this.magicNumber, m), this.magicNumber)
         );
     }
 }

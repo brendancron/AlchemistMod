@@ -69,7 +69,7 @@
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
-    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses #b", " times that amount."]
+    "DESCRIPTIONS": ["At the start of your next turn, return #r", " strength to your target"]
   },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",

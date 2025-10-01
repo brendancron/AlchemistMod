@@ -23,13 +23,16 @@ public class LeechStrengthPower extends AbstractAlchemistPower {
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(LeechStrengthPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(LeechStrengthPower.class.getSimpleName() + "32.png"));
 
-    public LeechStrengthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    private final AbstractCreature target;
+
+    public LeechStrengthPower(final AbstractCreature owner, final AbstractCreature source, final int amount, final AbstractCreature target) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
 
         this.owner = owner;
         this.amount = amount;
         this.source = source;
+        this.target = target;
 
         type = PowerType.DEBUFF;
         isTurnBased = false;
@@ -47,37 +50,31 @@ public class LeechStrengthPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void onAnyPowerApplied(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power instanceof StrengthPower && target == AbstractDungeon.player && power.amount > 0) {
-            int strengthLost = this.amount * power.amount;
+    public void atStartOfTurn() {
+        if (target != null && !target.isDeadOrEscaped()) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(this.owner ,this.source , new StrengthPower(this.owner, -strengthLost), -strengthLost)
+                    new ApplyPowerAction(target, target, new StrengthPower(target, amount), amount)
             );
         }
-    }
 
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
+        if (source != null && !source.isDeadOrEscaped()) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(source, source, new StrengthPower(source, -amount), -amount)
+            );
+        }
+
         AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(this.owner, this.owner, this.ID)
+            new RemoveSpecificPowerAction(this.owner, this.owner, this.ID)
         );
     }
 
-    @Override
-    public void updateDescription() {
-        if (amount == 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[0];
-        } else if (amount > 1) {
-            description = POWER_STRINGS.DESCRIPTIONS[1] + amount + POWER_STRINGS.DESCRIPTIONS[2];
-        }
-    }
 
     @Override
     public AbstractPower makeCopy() {
-        return new LeechStrengthPower(this.owner, this.source, this.amount);
+        return new LeechStrengthPower(this.owner, this.source, this.amount, target);
     }
     @Override
     public AbstractAlchemistPower makeCopy(int amount) {
-        return new LeechStrengthPower(this.owner, this.source, amount);
+        return new LeechStrengthPower(this.owner, this.source, amount, target);
     }
 }

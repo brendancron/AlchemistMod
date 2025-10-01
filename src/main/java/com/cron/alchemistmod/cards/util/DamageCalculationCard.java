@@ -2,7 +2,7 @@ package com.cron.alchemistmod.cards.util;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
-import com.cron.alchemistmod.cards.alchemist.BagOfBricks;
+import com.cron.alchemistmod.cards.deprecated.BagOfBricks;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

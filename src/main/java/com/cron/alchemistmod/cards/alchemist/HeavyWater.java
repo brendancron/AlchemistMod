@@ -3,9 +3,12 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractElement;
+import com.cron.alchemistmod.powers.ToxicPower;
 import com.cron.alchemistmod.powers.WaterElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,9 +23,9 @@ public class HeavyWater extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 20;
-    private static final int DAMAGE_UPGRADE = 5;
-
+    private static final int DAMAGE = 14;
+    private static final int DAMAGE_UPGRADE = 4;
+    private static final int MAGIC = 3;
 
     public final static String ID = AlchemistMod.makeID(HeavyWater.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -31,6 +34,7 @@ public class HeavyWater extends AbstractAlchemistCard {
     public HeavyWater() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
+        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
@@ -44,10 +48,24 @@ public class HeavyWater extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
+            new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
         );
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
+            new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
         );
+        if (AbstractElement.hasElement(WaterElement.class)) {
+            AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)
+            );
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (AbstractElement.hasElement(WaterElement.class)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 }

@@ -29,4 +29,13 @@ sourceSets {
     }
 }
 
+def outputDir = file("C:\\Program Files (x86)\\Steam\\steamapps\\common\\SlayTheSpire\\mods")
+
+tasks.register('buildAndCopy', Copy) {
+    dependsOn clean, jar
+    from("$buildDir/libs") {
+        include("*.jar")
+    }
+    into(outputDir)
+}
 
