@@ -36,7 +36,7 @@ public class Explosion extends AbstractAlchemistCard {
         this.exhaust = true;
 
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.damage = DAMAGE;
+        this.baseDamage = DAMAGE;
     }
 
     @Override

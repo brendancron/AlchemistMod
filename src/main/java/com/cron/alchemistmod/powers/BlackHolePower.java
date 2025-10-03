@@ -39,7 +39,6 @@ public class BlackHolePower extends AbstractAlchemistPower {
     public void atStartOfTurnPostDraw() {
         this.flash();
         this.addToBot(new ExhaustAction(this.amount, false));
-        this.addToBot(new ApplyPowerAction(owner, source, new DarkElement(owner, source, this.amount), this.amount));
     }
 
     @Override
