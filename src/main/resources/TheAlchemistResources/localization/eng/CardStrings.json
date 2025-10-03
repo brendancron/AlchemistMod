@@ -134,7 +134,7 @@
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
-    "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Fire hit a second time. NL thealchemist:Combo thealchemist:Earth Gain !B! Block"
   },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
@@ -183,7 +183,7 @@
   },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "At the beginning of your turn Exhaust 2 cards. NL Gain 1 thealchemist:Dark thealchemist:Element."
+    "DESCRIPTION": "Gain 1 thealchemist:Dark thealchemist:Element. NL At the beginning of your turn Exhaust 2 cards."
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
@@ -227,7 +227,7 @@
   },
   "TheAlchemist:GoldNugget": {
     "NAME": "Gold Nugget",
-    "DESCRIPTION": "Unplayable. NL When exhausted gain !M! gold."
+    "DESCRIPTION": "Unplayable. NL Ethereal. NL When exhausted gain !M! gold."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",

@@ -45,11 +45,6 @@ public class ScryNextTurnPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
-    }
-
-    @Override
     public AbstractAlchemistPower makeCopy(int amount) {
         return new ScryNextTurnPower(owner, source, amount);
     }
