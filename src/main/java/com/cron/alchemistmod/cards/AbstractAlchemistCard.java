@@ -2,6 +2,7 @@ package com.cron.alchemistmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.cron.alchemistmod.powers.AbstractElement;
+import com.cron.alchemistmod.util.ExhaustDecision;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 public abstract class AbstractAlchemistCard extends CustomCard {
@@ -31,5 +32,9 @@ public abstract class AbstractAlchemistCard extends CustomCard {
     }
 
     public void triggerOnBattleStart() {
+    }
+
+    public ExhaustDecision onTryExhaust() {
+        return ExhaustDecision.ALLOW;
     }
 }
