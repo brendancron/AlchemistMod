@@ -69,6 +69,10 @@
     "NAME": "Dredges",
     "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
   },
+  "TheAlchemist:EchoesOfDarkness": {
+    "NAME": "Echoes Of Darkness",
+    "DESCRIPTION": "Choose a card to pay for, exhaust, and play at the start of your next !M! turns. NL thealchemist:Combo thealchemist:Dark echoes for 2 additional turns. NL exhaust."
+  },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal twice the damage if you have an thealchemist:Element"
@@ -89,6 +93,11 @@
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
     "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water to apply !M! thealchemist:Toxic"
+  },
+  "TheAlchemist:Nightmare": {
+    "NAME": "Nightmare",
+    "DESCRIPTION": "Apply 1 Vulnerable to EVERYONE. NL Gain 1 thealchemist:Dark. NL exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply 1 Vulnerable and 1 Weak to EVERYONE. NL Gain 1 thealchemist:Dark. NL exhaust."
   },
   "TheAlchemist:InfusedStrike": {
     "NAME": "Infused Strike",
@@ -161,7 +170,6 @@
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged."
   },
-
   "TheAlchemist:Alkahest": {
     "NAME": "Alkahest",
     "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as exhaustable cards to your draw pie.",

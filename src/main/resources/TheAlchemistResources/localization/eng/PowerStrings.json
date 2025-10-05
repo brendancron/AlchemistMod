@@ -47,6 +47,13 @@
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
   },
+  "TheAlchemist:EchoedCardPower": {
+    "NAME": "Echoed Card",
+    "DESCRIPTIONS": [
+      "The card %s will be played at the start of your next turn.",
+      "The card %s will be played at the start of your turn for #b%s turns."
+    ]
+  },
   "TheAlchemist:EntropyPower": {
     "NAME": "Entropy",
     "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain #b", " #yDark."]
