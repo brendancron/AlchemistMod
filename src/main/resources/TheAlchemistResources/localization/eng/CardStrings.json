@@ -30,7 +30,7 @@
   },
   "TheAlchemist:Arsenic": {
     "NAME": "Arsenic",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Poison."
+    "DESCRIPTION": "Apply !M! thealchemist:Toxic. NL exhaust. NL thealchemist:Combo thealchemist:Water doesn't exhaust."
   },
   "TheAlchemist:BagOfBricks": {
     "NAME": "Bag Of Bricks",
@@ -96,7 +96,7 @@
   },
   "TheAlchemist:Injection": {
     "NAME": "Injection",
-    "DESCRIPTION": "NL Deal !D! damage. NL Apply !M! thealchemist:Toxic."
+    "DESCRIPTION": "NL Deal !D! damage. NL thealchemist:Combo thealchemist:Water Apply !M! Poison."
   },
   "TheAlchemist:IronShards": {
     "NAME": "Iron Shards",
@@ -261,8 +261,7 @@
   },
   "TheAlchemist:SpiritOfVitriol": {
     "NAME": "Spirit Of Vitriol",
-    "DESCRIPTION": "Apply !M! thealchemist:Toxic. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! thealchemist:Toxic."
+    "DESCRIPTION": "thealchemist:Combo thealchemist:Water Apply !M! thealchemist:Toxic. NL Exhaust."
   },
   "TheAlchemist:Streamer": {
     "NAME": "Streamer!",
