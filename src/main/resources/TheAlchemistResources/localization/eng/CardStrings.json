@@ -191,7 +191,7 @@
   },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "Gain 1 thealchemist:Dark thealchemist:Element. NL At the beginning of your turn Exhaust 2 cards."
+    "DESCRIPTION": "Gain 1 thealchemist:Dark thealchemist:Element. NL At the beginning of your turn Draw 1 Card, Exhaust 2 cards."
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
