@@ -84,7 +84,7 @@
   },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
+    "DESCRIPTION": "Deal !D! damage twice. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
   "TheAlchemist:EnergizingLight": {
     "NAME": "Energizing Light",
@@ -167,8 +167,7 @@
   },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Fire damages ALL enemies instead."
   },
   "TheAlchemist:Alkahest": {
     "NAME": "Alkahest",

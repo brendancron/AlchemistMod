@@ -3,10 +3,12 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.FireElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,7 +23,8 @@ public class Wildfire extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 12;
+    private static final int DAMAGE = 18;
+    private static final int DAMAGE_UPGRADE = 4;
     private static final boolean MULTI_DAMAGE = true;
 
 
@@ -33,31 +36,40 @@ public class Wildfire extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = MULTI_DAMAGE;
-        this.exhaust = true;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeDamage(DAMAGE_UPGRADE);
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
+        if (AbstractElement.hasElement(FireElement.class)) {
+            AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(p, this.multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE)
-        );
+            );
+        } else {
+            AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
+            );
+        }
+    }
 
-        for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!monster.isDeadOrEscaped()) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new ApplyPowerAction(p, p, new FireElement(p, p, 1), 1)
-                );
-            }
+    @Override
+    public void triggerOnGlowCheck() {
+        if (AbstractElement.hasElement(FireElement.class)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.target = AbstractCard.CardTarget.ALL_ENEMY;
+            this.isMultiDamage = true;
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            this.target = AbstractCard.CardTarget.ENEMY;
+            this.isMultiDamage = false;
         }
     }
 }
