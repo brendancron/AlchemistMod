@@ -29,7 +29,7 @@
   },
   "TheAlchemist:BlackHolePower": {
     "NAME": "Black Hole",
-    "DESCRIPTIONS": ["At the beginning of your turn #yExhaust #b", " cards and gain #b", " #yDark."]
+    "DESCRIPTIONS": ["At the beginning of your turn #yDraw #b", " cards and #yExhaust #b", " cards."]
   },
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
