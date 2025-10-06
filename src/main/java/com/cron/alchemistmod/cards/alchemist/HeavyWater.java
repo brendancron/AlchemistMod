@@ -50,9 +50,6 @@ public class HeavyWater extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
             new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
         );
-        AbstractDungeon.actionManager.addToBottom(
-            new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
-        );
         if (AbstractElement.hasElement(WaterElement.class)) {
             AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)

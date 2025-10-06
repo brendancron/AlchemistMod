@@ -16,7 +16,7 @@ public class Enhance extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int COST_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Enhance.class.getSimpleName());

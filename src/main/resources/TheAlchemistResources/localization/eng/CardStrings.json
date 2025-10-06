@@ -79,8 +79,8 @@
   },
   "TheAlchemist:ElementalBurst": {
     "NAME": "Elemental Burst",
-    "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element as a card."
+    "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element as a card.",
+    "UPGRADE_DESCRIPTION": "Choose 1 thealchemist:Primary thealchemist:Element as a card."
   },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
