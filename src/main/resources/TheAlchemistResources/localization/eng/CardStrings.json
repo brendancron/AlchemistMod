@@ -92,7 +92,7 @@
   },
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
-    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water to apply !M! thealchemist:Toxic"
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water to apply !M! thealchemist:Toxic. NL exhaust."
   },
   "TheAlchemist:Nightmare": {
     "NAME": "Nightmare",

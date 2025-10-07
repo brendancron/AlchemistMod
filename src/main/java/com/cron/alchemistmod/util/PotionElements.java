@@ -7,7 +7,7 @@ import java.util.Objects;
 public enum PotionElements {
     SWIFT_POTION (Element.AIR, Element.AIR, new SwiftPotion()),
     GAMBLERS_BREW (Element.AIR, Element.DARK, new GamblersBrew()),
-    WEAK_POTION (Element.AIR, Element.EARTH, new WeakenPotion()),
+    ANCIENT_POTION (Element.AIR, Element.EARTH, new AncientPotion()),
     FEAR_POTION (Element.AIR, Element.FIRE, new FearPotion()),
     SNECKO_OIL (Element.AIR, Element.LIGHT, new SneckoOil()),
     DISTILLED_CHAOS (Element.AIR, Element.MAGIC, new DistilledChaosPotion()),
@@ -31,7 +31,7 @@ public enum PotionElements {
     REGEN_POTION (Element.LIGHT, Element.MAGIC, new RegenPotion()),
     POWER_POTION (Element.LIGHT, Element.WATER, new PowerPotion()),
     ENTROPIC_BREW (Element.MAGIC, Element.MAGIC, new EntropicBrew()),
-    ANCIENT_POTION (Element.DARK, Element.MAGIC, new AncientPotion()),
+    WEAKEN_POTION (Element.DARK, Element.MAGIC, new WeakenPotion()),
     COLORLESS_POTION (Element.WATER, Element.WATER, new ColorlessPotion());
 
     private final Element elementOne;
