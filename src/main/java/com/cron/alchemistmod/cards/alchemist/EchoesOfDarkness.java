@@ -5,7 +5,6 @@ import com.cron.alchemistmod.actions.EchoesOfDarknessAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.*;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,7 +18,7 @@ public class EchoesOfDarkness extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int MAGIC = 2;
 
     public final static String ID = AlchemistMod.makeID(EchoesOfDarkness.class.getSimpleName());
