@@ -19,8 +19,8 @@
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "TheAlchemist:WaterDefend": {
-    "NAME": "Water Defend",
+  "TheAlchemist:WaterBubble": {
+    "NAME": "Water Bubble",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
 
@@ -30,15 +30,31 @@
   },
   "TheAlchemist:Arsenic": {
     "NAME": "Arsenic",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Poison."
+    "DESCRIPTION": "Apply !M! thealchemist:Toxic. NL exhaust. NL thealchemist:Combo thealchemist:Water doesn't exhaust."
   },
   "TheAlchemist:BagOfBricks": {
     "NAME": "Bag Of Bricks",
     "DESCRIPTION": "Deal !D! damage for each potion you have."
   },
+  "TheAlchemist:Caffeine": {
+    "NAME": "Caffeine",
+    "DESCRIPTION": "Whenever you draw a card, draw !M! more."
+  },
+  "TheAlchemist:ChemicalBuffer": {
+    "NAME": "Chemical Buffer",
+    "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and 1 thealchemist:Antifact."
+  },
+  "TheAlchemist:Chug": {
+    "NAME": "Chug",
+    "DESCRIPTION": "Whenever you use or discard a potion, draw !M! card."
+  },
   "TheAlchemist:CleanCauldron": {
     "NAME": "Clean Cauldron",
-    "DESCRIPTION": "Deal !D! damage. NL Remove 1 thealchemist:Element to deal !D! damage."
+    "DESCRIPTION": "NL Remove 1 thealchemist:Element to deal !D! damage. Also gain 1 thealchemist:Water thealchemist:Element."
+  },
+  "TheAlchemist:Creation": {
+    "NAME": "Creation",
+    "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
   },
   "TheAlchemist:CursedStrike": {
     "NAME": "Cursed Strike",
@@ -49,22 +65,39 @@
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently reduce cost by 1. NL Gain 1 thealchemist:Light thealchemist:Element."
   },
+  "TheAlchemist:Dredges": {
+    "NAME": "Dredges",
+    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
+  },
+  "TheAlchemist:EchoesOfDarkness": {
+    "NAME": "Echoes Of Darkness",
+    "DESCRIPTION": "Choose a card to pay for, exhaust, and play at the start of your next !M! turns. NL thealchemist:Combo thealchemist:Dark echoes for 2 additional turns. NL exhaust."
+  },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal twice the damage if you have an thealchemist:Element"
   },
+  "TheAlchemist:ElementalBurst": {
+    "NAME": "Elemental Burst",
+    "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element as a card.",
+    "UPGRADE_DESCRIPTION": "Choose 1 thealchemist:Primary thealchemist:Element as a card."
+  },
   "TheAlchemist:Embers": {
     "NAME": "Embers",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Fire thealchemist:Element."
+    "DESCRIPTION": "Deal !D! damage twice. NL Gain 1 thealchemist:Fire thealchemist:Element."
   },
-  "TheAlchemist:EmptyShelf": {
-    "NAME": "Empty Shelf",
-    "DESCRIPTION": "Deal damage equal to !M! times the number of empty potion slots you have.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  "TheAlchemist:EnergizingLight": {
+    "NAME": "Energizing Light",
+    "DESCRIPTION": "Gain !M! energy. NL thealchemist:Combo thealchemist:Light to gain 1 additional energy NL exhaust."
   },
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Water thealchemist:Element."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water to apply !M! thealchemist:Toxic. NL exhaust."
+  },
+  "TheAlchemist:Nightmare": {
+    "NAME": "Nightmare",
+    "DESCRIPTION": "Apply 1 Vulnerable to EVERYONE. NL Gain 1 thealchemist:Dark. NL exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply 1 Vulnerable and 1 Weak to EVERYONE. NL Gain 1 thealchemist:Dark. NL exhaust."
   },
   "TheAlchemist:InfusedStrike": {
     "NAME": "Infused Strike",
@@ -72,7 +105,7 @@
   },
   "TheAlchemist:Injection": {
     "NAME": "Injection",
-    "DESCRIPTION": "NL Deal !D! damage. NL Apply !M! thealchemist:Toxic."
+    "DESCRIPTION": "NL Deal !D! damage. NL thealchemist:Combo thealchemist:Water Apply !M! Poison."
   },
   "TheAlchemist:IronShards": {
     "NAME": "Iron Shards",
@@ -98,17 +131,11 @@
   },
   "TheAlchemist:Recipes": {
     "NAME": "Recipes",
-    "DESCRIPTION": "Deal damage for every !M! cards you have.",
-    "UPGRADE_DESCRIPTION": "Deal damage for every card you have.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    "DESCRIPTION": "Deal !D! damage. NL The next !M! cards you would exhaust this turn, discard instead. NL Exhaust"
   },
   "TheAlchemist:Reverberation": {
     "NAME": "Reverberation",
     "DESCRIPTION": "Deal !D! damage !M! times."
-  },
-  "TheAlchemist:RocksFall": {
-    "NAME": "Rocks Fall",
-    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Earth X times."
   },
   "TheAlchemist:ShadowControl": {
     "NAME": "Shadow Control",
@@ -116,7 +143,7 @@
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
-    "DESCRIPTION": "Deal !D! damage. NL If you deal blocked damage, gain 1 thealchemist:Earth thealchemist:Element. NL If you deal unblocked damage, gain 1 thealchemist:Fire thealchemist:Element."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Fire hit a second time. NL thealchemist:Combo thealchemist:Earth Gain !B! Block"
   },
   "TheAlchemist:Sparks": {
     "NAME": "Sparks",
@@ -128,22 +155,20 @@
   },
   "TheAlchemist:SonicBlast": {
     "NAME": "Sonic Blast",
-    "DESCRIPTION": "Deal !D! damage. NL Gain 1 thealchemist:Air thealchemist:Element."
-  },
-  "TheAlchemist:TargetNecrosis": {
-    "NAME": "Target Necrosis",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Poison, gain [E] and draw 1 card."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Air to remove all artifact from the target."
   },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
     "DESCRIPTION": "If you gain 1 of every thealchemist:Element, gain !M! intangable and heal 10."
   },
+  "TheAlchemist:ThickGuard": {
+    "NAME": "Thick Guard",
+    "DESCRIPTION": "Gain !B! Block. NL Scales with dexterity !M! times."
+  },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain 1 thealchemist:Fire thealchemist:Element for each enemy damaged."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Fire damages ALL enemies instead."
   },
-
   "TheAlchemist:Alkahest": {
     "NAME": "Alkahest",
     "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as exhaustable cards to your draw pie.",
@@ -156,7 +181,8 @@
   },
   "TheAlchemist:AquaVitae": {
     "NAME": "AquaVitae",
-    "DESCRIPTION": "Gain 2 thealchemist:Water thealchemist:Elements."
+    "DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust."
   },
   "TheAlchemist:Bezoar": {
     "NAME": "Bezoar",
@@ -164,7 +190,7 @@
   },
   "TheAlchemist:BlackHole": {
     "NAME": "Black Hole",
-    "DESCRIPTION": "At the beginning of your turn Exhaust 2 cards. NL Gain 1 thealchemist:Dark thealchemist:Element."
+    "DESCRIPTION": "Gain 1 thealchemist:Dark thealchemist:Element. NL At the beginning of your turn Draw 1 Card, Exhaust 2 cards."
   },
   "TheAlchemist:BlackMagic": {
     "NAME": "Black Magic",
@@ -200,8 +226,7 @@
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
-    "DESCRIPTION": "Gain X thealchemist:Fire thealchemist:Elements. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M!X thealchemist:Fire thealchemist:Elements. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to a random enemy X times. NL thealchemist:Combo thealchemist:Fire to double the times hit. NL Exhaust."
   },
   "TheAlchemist:Fog": {
     "NAME": "Fog",
@@ -209,7 +234,7 @@
   },
   "TheAlchemist:GoldNugget": {
     "NAME": "Gold Nugget",
-    "DESCRIPTION": "Unplayable. NL When exhausted gain !M! gold."
+    "DESCRIPTION": "Unplayable. NL Ethereal. NL When exhausted gain !M! gold."
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
@@ -222,12 +247,7 @@
   },
   "TheAlchemist:LeechStrength": {
     "NAME": "Leech Strength",
-    "DESCRIPTION": "Whenever you gain Strength this turn, the enemy loses an equal amount. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Whenever you gain strength this turn, enemy loses an equal amount."
-  },
-  "TheAlchemist:LiquidShield": {
-    "NAME": "Liquid Shield",
-    "DESCRIPTION": "Discard your last potion. NL Gain !B! Block."
+    "DESCRIPTION": "Steal !M! Strength this turn. NL Exhaust."
   },
   "TheAlchemist:MetallicSkin": {
     "NAME": "Metallic Skin",
@@ -236,11 +256,6 @@
   "TheAlchemist:Mutagen": {
     "NAME": "Mutagen",
     "DESCRIPTION": "Gain !M! Strength and !thealchemist:M! Poison."
-  },
-  "TheAlchemist:PackedEarth": {
-    "NAME": "Packed Earth",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Element. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Elements."
   },
   "TheAlchemist:ProtectionTonic": {
     "NAME": "Protection Tonic",
@@ -251,19 +266,9 @@
     "DESCRIPTION": "Gain an thealchemist:Element you already have. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Gain an thealchemist:Element you already have. NL Exhaust."
   },
-  "TheAlchemist:SearingLight": {
-    "NAME": "Searing Light",
-    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Gain !M! thealchemist:Fire thealchemist:Element."
-  },
   "TheAlchemist:SpiritOfVitriol": {
     "NAME": "Spirit Of Vitriol",
-    "DESCRIPTION": "Apply !M! thealchemist:Toxic. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Apply !M! thealchemist:Toxic."
-  },
-  "TheAlchemist:Splash": {
-    "NAME": "Splash",
-    "DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies."
+    "DESCRIPTION": "thealchemist:Combo thealchemist:Water Apply !M! thealchemist:Toxic. NL Exhaust."
   },
   "TheAlchemist:Streamer": {
     "NAME": "Streamer!",
@@ -271,7 +276,7 @@
   },
   "TheAlchemist:Tailwind": {
     "NAME": "Tailwind",
-    "DESCRIPTION": "Next turn, draw !M! cards. NL Gain 1 thealchemist:Air thealchemist:Element."
+    "DESCRIPTION": "Next turn, draw !M! cards. NL thealchemist:Combo thealchemist:Air also Scry 3 next turn."
   },
   "TheAlchemist:ToxicBrew": {
     "NAME": "Toxic Brew",
@@ -289,36 +294,6 @@
   "TheAlchemist:UnstableElixir": {
     "NAME": "Unstable Elixir",
     "DESCRIPTION": "If you play all thealchemist:Primary thealchemist:Elements this turn, deal !M! damage to ALL enemies."
-  },
-  "TheAlchemist:WaterBubble": {
-    "NAME": "Water Bubble",
-    "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
-  },
-  "TheAlchemist:WideGuard": {
-    "NAME": "Wide Guard",
-    "DESCRIPTION": "Gain !M! Block for each card in your hand.",
-    "EXTENDED_DESCRIPTION": [" NL (Gain !B! Block.)"]
-  },
-
-  "TheAlchemist:Caffeine": {
-    "NAME": "Caffeine",
-    "DESCRIPTION": "Whenever you draw a card, draw !M! more."
-  },
-  "TheAlchemist:ChemicalBuffer": {
-    "NAME": "Chemical Buffer",
-    "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and 1 thealchemist:Antifact."
-  },
-  "TheAlchemist:Chug": {
-    "NAME": "Chug",
-    "DESCRIPTION": "Whenever you use or discard a potion, draw !M! card."
-  },
-  "TheAlchemist:Creation": {
-    "NAME": "Creation",
-    "DESCRIPTION": "Whenever a card is created, deal !M! damage to ALL enemies."
-  },
-  "TheAlchemist:Dredges": {
-    "NAME": "Dredges",
-    "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
   },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",
@@ -352,15 +327,8 @@
     "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions.",
     "UPGRADE_DESCRIPTION": "Double the effectiveness of potions."
   },
-  "TheAlchemist:Sublimation": {
-    "NAME": "Sublimation",
-    "DESCRIPTION": "Whenever you discard a potion, randomly add one of its elements a an exhaustable card to your discard pile"
-  },
-  "TheAlchemist:TheBestDefense": {
-    "NAME": "The Best Defense...",
-    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorns. NL Exhaust."
-  },
+
+
 
   "TheAlchemist:AirElementCard": {
     "NAME": "Air Element",
@@ -390,9 +358,52 @@
     "NAME": "Water Element",
     "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
   },
-  "TheAlchemist:ElementalBurst": {
-    "NAME": "Elemental Burst",
-    "DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Gain 1 random thealchemist:Primary thealchemist:Element as a card."
+
+
+
+  "TheAlchemist:EmptyShelf": {
+    "NAME": "Empty Shelf",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of empty potion slots you have.",
+    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+  },
+  "TheAlchemist:LiquidShield": {
+    "NAME": "Liquid Shield",
+    "DESCRIPTION": "Discard your last potion. NL Gain !B! Block."
+  },
+  "TheAlchemist:PackedEarth": {
+    "NAME": "Packed Earth",
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Element. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Earth thealchemist:Elements."
+  },
+  "TheAlchemist:RocksFall": {
+    "NAME": "Rocks Fall",
+    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Earth X times."
+  },
+  "TheAlchemist:SearingLight": {
+    "NAME": "Searing Light",
+    "DESCRIPTION": "Gain 1 thealchemist:Light thealchemist:Element. NL Gain !M! thealchemist:Fire thealchemist:Element."
+  },
+  "TheAlchemist:Splash": {
+    "NAME": "Splash",
+    "DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies."
+  },
+  "TheAlchemist:Sublimation": {
+    "NAME": "Sublimation",
+    "DESCRIPTION": "Whenever you discard a potion, randomly add one of its elements a an exhaustable card to your discard pile"
+  },
+  "TheAlchemist:TargetNecrosis": {
+    "NAME": "Target Necrosis",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has Poison, gain [E] and draw 1 card."
+  },
+  "TheAlchemist:TheBestDefense": {
+    "NAME": "The Best Defense...",
+    "DESCRIPTION": "Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Whenever you gain an thealchemist:Earth thealchemist:Element this turn, gain !M! Thorns. NL Exhaust."
+  },
+  "TheAlchemist:WideGuard": {
+    "NAME": "Wide Guard",
+    "DESCRIPTION": "Gain !M! Block for each card in your hand.",
+    "EXTENDED_DESCRIPTION": [" NL (Gain !B! Block.)"]
   }
 }

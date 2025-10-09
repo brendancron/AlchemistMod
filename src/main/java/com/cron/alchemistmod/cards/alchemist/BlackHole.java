@@ -40,6 +40,8 @@ public class BlackHole extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DarkElement(p, p, 1), 1));
+
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new BlackHolePower(p, p, 1), 1)
         );

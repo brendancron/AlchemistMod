@@ -60,6 +60,20 @@ public abstract class AbstractElement extends AbstractAlchemistPower {
         }
         return false;
     }
+
+    public static boolean hasElement(AbstractElement element) {
+        return hasElement(element.getClass());
+    }
+
+    public static boolean hasElement(Class<?> klass) {
+        for (AbstractPower power : AbstractDungeon.player.powers) {
+            if (power instanceof AbstractElement && power.getClass() == klass) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static AbstractElement getElement() {
         for (AbstractPower power : AbstractDungeon.player.powers) {
             if (power instanceof AbstractElement) {

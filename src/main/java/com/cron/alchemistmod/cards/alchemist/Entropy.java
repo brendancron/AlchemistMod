@@ -40,7 +40,7 @@ public class Entropy extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new EntropyPower(p, p, 1), 1)
+            new ApplyPowerAction(p, p, new EntropyPower(p, p, 1), 1)
         );
     }
 }

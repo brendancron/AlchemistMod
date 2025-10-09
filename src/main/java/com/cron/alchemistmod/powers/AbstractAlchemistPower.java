@@ -1,6 +1,7 @@
 package com.cron.alchemistmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
@@ -32,4 +33,5 @@ public abstract class AbstractAlchemistPower extends AbstractPower implements Cl
     public void onAnyPowerApplied(AbstractPower power, AbstractCreature target, AbstractCreature source) {
 
     }
+
 }

@@ -3,8 +3,11 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.AirElement;
+import com.cron.alchemistmod.powers.ScryNextTurnPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,10 +46,21 @@ public class Tailwind extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, this.magicNumber), this.magicNumber)
+            new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, this.magicNumber), this.magicNumber)
         );
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new AirElement(p, p, 1), 2)
-        );
+        if (AbstractElement.hasElement(AirElement.class)) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(p, p, new ScryNextTurnPower(p, p, 3), 3)
+            );
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (AbstractElement.hasElement(AirElement.class)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 }

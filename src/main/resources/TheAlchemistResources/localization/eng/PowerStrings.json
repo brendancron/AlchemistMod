@@ -29,7 +29,7 @@
   },
   "TheAlchemist:BlackHolePower": {
     "NAME": "Black Hole",
-    "DESCRIPTIONS": ["At the beginning of your turn #yExhaust #b", " cards and gain #b", " #yDark."]
+    "DESCRIPTIONS": ["At the beginning of your turn #yDraw #b", " cards and #yExhaust #b", " cards."]
   },
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
@@ -46,6 +46,13 @@
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
     "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
+  },
+  "TheAlchemist:EchoedCardPower": {
+    "NAME": "Echoed Card",
+    "DESCRIPTIONS": [
+      "The card %s will be played at the start of your next turn.",
+      "The card %s will be played at the start of your turn for #b%s turns."
+    ]
   },
   "TheAlchemist:EntropyPower": {
     "NAME": "Entropy",
@@ -69,7 +76,7 @@
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
-    "DESCRIPTIONS": ["Whenever you gain #yStrength this turn, this enemy loses an equal amount.", "Whenever you gain #yStrength this turn, this enemy loses #b", " times that amount."]
+    "DESCRIPTIONS": ["At the start of your next turn, return #r", " strength to your target"]
   },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
