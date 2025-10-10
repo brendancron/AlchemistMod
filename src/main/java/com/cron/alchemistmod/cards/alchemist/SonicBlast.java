@@ -5,10 +5,8 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.AirElement;
-import com.cron.alchemistmod.powers.WaterElement;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,7 +14,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 
 public class SonicBlast extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
@@ -24,9 +21,9 @@ public class SonicBlast extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 2;
-    private static final int DAMAGE = 16;
-    private static final int DAMAGE_UPGRADE = 4;
+    private static final int COST = 1;
+    private static final int DAMAGE = 11;
+    private static final int DAMAGE_UPGRADE = 3;
 
 
     public final static String ID = AlchemistMod.makeID(SonicBlast.class.getSimpleName());
@@ -53,7 +50,7 @@ public class SonicBlast extends AbstractAlchemistCard {
         );
         if (AbstractElement.hasElement(AirElement.class)) {
             AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(m, p, ArtifactPower.POWER_ID)
+                new DrawCardAction(p, 2)
             );
         }
     }

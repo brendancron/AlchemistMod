@@ -155,7 +155,7 @@
   },
   "TheAlchemist:SonicBlast": {
     "NAME": "Sonic Blast",
-    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Air to remove all artifact from the target."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Air Draw 2 cards."
   },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
