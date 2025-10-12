@@ -6,7 +6,6 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.util.TextureLoader;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -18,8 +17,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class TremorPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(TremorPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "32.png"));
+    private static final Texture tex84 = TextureLoader
+            .getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader
+            .getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "32.png"));
 
     public TremorPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
@@ -44,20 +45,15 @@ public class TremorPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void atEndOfTurn(final boolean isPlayer) {
-        if (owner instanceof AbstractPlayer) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction((AbstractPlayer)owner, this.amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE)
-            );
-        }
-
-        if (this.amount <= 1) {
-            AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(this.owner, this.owner, this.ID)
-            );
-        } else {
-            this.amount--;
-            updateDescription();
+    public void onGainElement(AbstractElement element) {
+        if (element instanceof EarthElement) {
+            if (this.owner instanceof AbstractPlayer) {
+                this.flash();
+                AbstractDungeon.actionManager.addToBottom(
+                        new DamageAllEnemiesAction(AbstractDungeon.player,
+                                DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS,
+                                AbstractGameAction.AttackEffect.SMASH));
+            }
         }
     }
 
