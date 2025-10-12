@@ -108,6 +108,6 @@
       "Combo",
       "combo"
     ],
-    "DESCRIPTION": "Effect applies if you currently obtain the given element in your cauldron"
+    "DESCRIPTION": "Effect applies if you currently have the given element in your cauldron"
   }
 ]

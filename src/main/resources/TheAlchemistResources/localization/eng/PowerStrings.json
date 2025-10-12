@@ -80,7 +80,10 @@
   },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
-    "DESCRIPTIONS": ["Whenever you play an Attack this turn, gain #b", " #yEarth."]
+    "DESCRIPTIONS": [
+      "Whenever you play an Attack this turn, gain #b",
+      " Tremors. NL Removed at the end of your turn."
+    ]
   },
   "TheAlchemist:PoisonedSheathPower": {
     "NAME": "Poisoned Sheath",
@@ -105,6 +108,13 @@
   "TheAlchemist:TheStonePower": {
     "NAME": "Growth",
     "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain 10 health and intangible", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
+  },
+  "TheAlchemist:TremorPower": {
+    "NAME": "Tremor",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to ALL enemies, then lose 1 stack."
+    ]
   },
   "TheAlchemist:UnstableElixirPower": {
     "NAME": "Unstable Elixir",
