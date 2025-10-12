@@ -1,51 +1,83 @@
 {
   "TheAlchemist:AirElement": {
     "NAME": "Air Element",
-    "DESCRIPTIONS": ["Air: Swift Potion NL Dark: Gambler's Brew NL Earth: Weak Potion NL Fire: Fear Potion NL Light: Snecko Oil NL Magic: Distilled Chaos NL Water: Liquid Memories"]
+    "DESCRIPTIONS": [
+      "Air: Swift Potion NL Dark: Gambler's Brew NL Earth: Ancient Potion NL Fire: Fear Potion NL Light: Snecko Oil NL Magic: Distilled Chaos NL Water: Liquid Memories"
+    ]
   },
   "TheAlchemist:DarkElement": {
     "NAME": "Dark Element",
-    "DESCRIPTIONS": ["Air: Gambler's Brew NL Dark: Energy Potion NL Earth: Speed Potion NL Fire: Flex Potion NL Light: Liquid Bronze NL Magic: Duplication Potion NL Water: Poison Potion"]
+    "DESCRIPTIONS": [
+      "Air: Gambler's Brew NL Dark: Energy Potion NL Earth: Speed Potion NL Fire: Flex Potion NL Light: Liquid Bronze NL Magic: Weak Potion NL Water: Poison Potion"
+    ]
   },
   "TheAlchemist:EarthElement": {
     "NAME": "Earth Element",
-    "DESCRIPTIONS": ["Air: Weak Potion NL Dark: Speed Potion NL Earth: Block Potion NL Fire: Explosive Potion NL Light: Dexterity Potion NL Magic: Essence of Steel NL Water: Skill Potion"]
+    "DESCRIPTIONS": [
+      "Air: Ancient Potion NL Dark: Speed Potion NL Earth: Block Potion NL Fire: Explosive Potion NL Light: Dexterity Potion NL Magic: Essence of Steel NL Water: Skill Potion"
+    ]
   },
   "TheAlchemist:FireElement": {
     "NAME": "Fire Element",
-    "DESCRIPTIONS": ["Air: Fear Potion NL Dark: Flex Potion NL Earth: Explosive Potion NL Fire: Fire Potion NL Light: Strength Potion NL Magic: Cultist Potion NL Water: Attack Potion"]
+    "DESCRIPTIONS": [
+      "Air: Fear Potion NL Dark: Flex Potion NL Earth: Explosive Potion NL Fire: Fire Potion NL Light: Strength Potion NL Magic: Cultist Potion NL Water: Attack Potion"
+    ]
   },
   "TheAlchemist:LightElement": {
     "NAME": "Light Element",
-    "DESCRIPTIONS": ["Air: Snecko Oil NL Dark: Liquid Bronze NL Earth: Dexterity Potion NL Fire: Strength Potion NL Light: Blessing of the Forge NL Magic: Regen Potion NL Water: Power Potion"]
+    "DESCRIPTIONS": [
+      "Air: Snecko Oil NL Dark: Liquid Bronze NL Earth: Dexterity Potion NL Fire: Strength Potion NL Light: Blessing of the Forge NL Magic: Regen Potion NL Water: Power Potion"
+    ]
   },
   "TheAlchemist:MagicElement": {
     "NAME": "Magic Element",
-    "DESCRIPTIONS": ["Air: Distilled Chaos NL Dark: Duplication Potion NL Earth: Essence of Steel NL Fire: Cultist Potion NL Light: Regen Potion NL Magic: Entropic Brew NL Water: Ancient Potion"]
+    "DESCRIPTIONS": [
+      "Air: Distilled Chaos NL Dark: Weak Potion NL Earth: Essence of Steel NL Fire: Cultist Potion NL Light: Regen Potion NL Magic: Entropic Brew NL Water: Duplication Potion"
+    ]
   },
   "TheAlchemist:WaterElement": {
     "NAME": "Water Element",
-    "DESCRIPTIONS": ["Air: Liquid Memories NL Dark: Poison Potion NL Earth: Skill Potion NL Fire: Attack Potion NL Light: Power Potion NL Magic: Ancient Potion NL Water: Colorless Potion"]
+    "DESCRIPTIONS": [
+      "Air: Liquid Memories NL Dark: Poison Potion NL Earth: Skill Potion NL Fire: Attack Potion NL Light: Power Potion NL Magic: Duplication Potion NL Water: Colorless Potion"
+    ]
   },
   "TheAlchemist:BlackHolePower": {
     "NAME": "Black Hole",
-    "DESCRIPTIONS": ["At the beginning of your turn #yDraw #b", " cards and #yExhaust #b", " cards."]
+    "DESCRIPTIONS": [
+      "At the beginning of your turn #yDraw #b",
+      " cards and #yExhaust #b",
+      " cards."
+    ]
   },
   "TheAlchemist:BreezyPower": {
     "NAME": "Breezy",
-    "DESCRIPTIONS": ["When you play a card, discard your leftmost card, then draw that many cards.", "When you play a card, discard your #b", " leftmost cards, then draw that many cards"]
+    "DESCRIPTIONS": [
+      "When you play a card, discard your leftmost card, then draw that many cards.",
+      "When you play a card, discard your #b",
+      " leftmost cards, then draw that many cards"
+    ]
   },
   "TheAlchemist:CaffeinePower": {
     "NAME": "Caffeine",
-    "DESCRIPTIONS": ["Whenever you draw a card, draw #b", " more."]
+    "DESCRIPTIONS": [
+      "Whenever you draw a card, draw #b",
+      " more."
+    ]
   },
   "TheAlchemist:ChugPower": {
     "NAME": "Chug",
-    "DESCRIPTIONS": ["Whenever you use a potion, draw #b", " card.", " cards."]
+    "DESCRIPTIONS": [
+      "Whenever you use a potion, draw #b",
+      " card.",
+      " cards."
+    ]
   },
   "TheAlchemist:CreationPower": {
     "NAME": "Creation",
-    "DESCRIPTIONS": ["Whenever a card is created, deal #b", " damage to ALL enemies."]
+    "DESCRIPTIONS": [
+      "Whenever a card is created, deal #b",
+      " damage to ALL enemies."
+    ]
   },
   "TheAlchemist:EchoedCardPower": {
     "NAME": "Echoed Card",
@@ -56,58 +88,108 @@
   },
   "TheAlchemist:EntropyPower": {
     "NAME": "Entropy",
-    "DESCRIPTIONS": ["Whenever you gain an #yElement other than #yDark, gain #b", " #yDark."]
+    "DESCRIPTIONS": [
+      "Whenever you gain an #yElement other than #yDark, gain #b",
+      " #yDark."
+    ]
   },
   "TheAlchemist:FumeHoodPower": {
     "NAME": "Fume Hood",
-    "DESCRIPTIONS": ["Whenever you gain an #yElement, gain #b", " #yBlock."]
+    "DESCRIPTIONS": [
+      "Whenever you gain an #yElement, gain #b",
+      " #yBlock."
+    ]
   },
   "TheAlchemist:GrowthPower": {
     "NAME": "Growth",
-    "DESCRIPTIONS": ["At the end of #b", " #yTurns gain a Fruit Juice"]
+    "DESCRIPTIONS": [
+      "At the end of #b",
+      " #yTurns gain a Fruit Juice"
+    ]
   },
   "TheAlchemist:HunkerDownPower": {
     "NAME": "Hunker Down",
-    "DESCRIPTIONS": ["Gain #b", " #yEarth at the start of your turn."]
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yEarth at the start of your turn."
+    ]
   },
   "TheAlchemist:DredgesPower": {
     "NAME": "Dredges",
-    "DESCRIPTIONS": ["Combat end: gain #b", " copy of the last potion used this combat.", " copies of the last potion used this combat."]
+    "DESCRIPTIONS": [
+      "Combat end: gain #b",
+      " copy of the last potion used this combat.",
+      " copies of the last potion used this combat."
+    ]
   },
   "TheAlchemist:LeechStrengthPower": {
     "NAME": "Leech Strength",
-    "DESCRIPTIONS": ["At the start of your next turn, return #r", " strength to your target"]
+    "DESCRIPTIONS": [
+      "At the start of your next turn, return #r",
+      " strength to your target"
+    ]
   },
   "TheAlchemist:PackedEarthPower": {
     "NAME": "Packed Earth",
     "DESCRIPTIONS": [
       "Whenever you play an Attack this turn, gain #b",
-      " Tremors. NL Removed at the end of your turn."
+      " Tremors."
     ]
   },
   "TheAlchemist:PoisonedSheathPower": {
     "NAME": "Poisoned Sheath",
-    "DESCRIPTIONS": ["At the start of your turn, add #b", " #yPoison #yShiv into your hand.", " #yPoison #yShivs into your hand."]
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " #yPoison #yShiv into your hand.",
+      " #yPoison #yShivs into your hand."
+    ]
   },
   "TheAlchemist:RetainThisTurnPower": {
     "NAME": "Retain this turn",
-    "DESCRIPTIONS": ["At the end of your turn retain #b", " card.", " cards."]
+    "DESCRIPTIONS": [
+      "At the end of your turn retain #b",
+      " card.",
+      " cards."
+    ]
   },
   "TheAlchemist:SacredFormPower": {
     "NAME": "Sacred Form",
-    "DESCRIPTIONS": ["Double the effectiveness of the first potion you play each turn.", "Double the effectiveness of the first #b", " potions you play each turn."]
+    "DESCRIPTIONS": [
+      "Double the effectiveness of the first potion you play each turn.",
+      "Double the effectiveness of the first #b",
+      " potions you play each turn."
+    ]
   },
   "TheAlchemist:SublimationPower": {
     "NAME": "Sublimation",
-    "DESCRIPTIONS": ["When you discard a potion, gain #b", " #yStrength"]
+    "DESCRIPTIONS": [
+      "When you discard a potion, gain #b",
+      " #yStrength"
+    ]
   },
   "TheAlchemist:TheBestDefensePower": {
     "NAME": "The Best Defense...",
-    "DESCRIPTIONS": ["Whenever you gain an #yEarth this turn, gain #b", " #yThorn.", " #yThorns."]
+    "DESCRIPTIONS": [
+      "Whenever you gain an #yEarth this turn, gain #b",
+      " #yThorn.",
+      " #yThorns."
+    ]
   },
   "TheAlchemist:TheStonePower": {
     "NAME": "Growth",
-    "DESCRIPTIONS": ["Gain ", ", ", "and ", " to gain 10 health and intangible", "#yAir", "#yDark", "#yEarth", "#yFire", "#yLight", "#yMagic", "#yWater"]
+    "DESCRIPTIONS": [
+      "Gain ",
+      ", ",
+      "and ",
+      " to gain 10 health and intangible",
+      "#yAir",
+      "#yDark",
+      "#yEarth",
+      "#yFire",
+      "#yLight",
+      "#yMagic",
+      "#yWater"
+    ]
   },
   "TheAlchemist:TremorPower": {
     "NAME": "Tremor",
@@ -118,14 +200,31 @@
   },
   "TheAlchemist:UnstableElixirPower": {
     "NAME": "Unstable Elixir",
-    "DESCRIPTIONS": ["Gain ", ", ", "and ", " this turn to deal ", " damage to ALL enemies.", "#yAir", "#yEarth", "#yFire", "#yWater"]
+    "DESCRIPTIONS": [
+      "Gain ",
+      ", ",
+      "and ",
+      " this turn to deal ",
+      " damage to ALL enemies.",
+      "#yAir",
+      "#yEarth",
+      "#yFire",
+      "#yWater"
+    ]
   },
   "TheAlchemist:AntifactPower": {
     "NAME": "Antifact",
-    "DESCRIPTIONS": ["Negates #b", " buff", " buffs"]
+    "DESCRIPTIONS": [
+      "Negates #b",
+      " buff",
+      " buffs"
+    ]
   },
   "TheAlchemist:PoisonedPotionsPower": {
     "NAME": "Poisoned Potions",
-    "DESCRIPTIONS": ["Whenever you use a potion gain #b", " #yPoison."]
+    "DESCRIPTIONS": [
+      "Whenever you use a potion gain #b",
+      " #yPoison."
+    ]
   }
 }

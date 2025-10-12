@@ -4,7 +4,6 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.GrowthPower;
-import com.cron.alchemistmod.powers.TheStonePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -49,7 +48,6 @@ public class Growth extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-            new ApplyPowerAction(p, p, new GrowthPower(p, p, this.magicNumber), this.magicNumber)
-        );
+                new ApplyPowerAction(p, p, new GrowthPower(p, p, this.magicNumber), this.magicNumber));
     }
 }

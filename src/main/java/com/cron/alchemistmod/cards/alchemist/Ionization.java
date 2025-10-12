@@ -20,6 +20,8 @@ public class Ionization extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int COST_UPGRADE = 1;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(Ionization.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,12 +29,14 @@ public class Ionization extends AbstractAlchemistCard {
 
     public Ionization() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.upgradeBaseCost(COST_UPGRADE);
         }
     }
@@ -40,7 +44,7 @@ public class Ionization extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyArtifactAndAntifactAction(p, p, new ArtifactPower(p, 1), new AntifactPower(p, p, 1), 1)
-        );
+                new ApplyArtifactAndAntifactAction(p, p, new ArtifactPower(p, this.magicNumber),
+                        new AntifactPower(p, p, 1), 1));
     }
 }

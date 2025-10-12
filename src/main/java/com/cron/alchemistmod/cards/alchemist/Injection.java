@@ -1,11 +1,9 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.actions.RemovePotionAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
-import com.cron.alchemistmod.powers.ToxicPower;
 import com.cron.alchemistmod.powers.WaterElement;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -29,7 +27,6 @@ public class Injection extends AbstractAlchemistCard {
     private static final int MAGIC = 3;
     private static final int DAMAGE_UPGRADE = 2;
 
-
     public final static String ID = AlchemistMod.makeID(Injection.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Injection.class.getSimpleName() + ".png");
@@ -51,12 +48,10 @@ public class Injection extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-            new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
-        );
+                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         if (AbstractElement.hasElement(WaterElement.class)) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber)
-            );
+                    new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
         }
     }
 

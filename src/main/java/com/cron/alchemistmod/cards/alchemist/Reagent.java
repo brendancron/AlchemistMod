@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Objects;
 
 public class Reagent extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
@@ -44,8 +44,7 @@ public class Reagent extends AbstractAlchemistCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractElement.hasElement()) {
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(p, p, Objects.requireNonNull(AbstractElement.getElement()).makeCopy(1), 1)
-            );
+                    new ApplyPowerAction(p, p, Objects.requireNonNull(AbstractElement.getElement()).makeCopy(1), 1));
         }
     }
 }
