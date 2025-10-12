@@ -17,15 +17,13 @@ public class ThickGuard extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 11;
     private static final int MAGIC = 3;
     private static final int MAGIC_UPGRADE = 2;
 
     public final static String ID = AlchemistMod.makeID(ThickGuard.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(ThickGuard.class.getSimpleName() + ".png");
-
-    private int dexScaling;
 
     public ThickGuard() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -45,8 +43,7 @@ public class ThickGuard extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, this.block)
-        );
+                new GainBlockAction(p, p, this.block));
     }
 
     public void applyPowers() {

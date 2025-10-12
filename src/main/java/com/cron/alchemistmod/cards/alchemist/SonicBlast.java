@@ -21,10 +21,9 @@ public class SonicBlast extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 11;
+    private static final int COST = 2;
+    private static final int DAMAGE = 18;
     private static final int DAMAGE_UPGRADE = 3;
-
 
     public final static String ID = AlchemistMod.makeID(SonicBlast.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -46,12 +45,10 @@ public class SonicBlast extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
-        );
+                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         if (AbstractElement.hasElement(AirElement.class)) {
             AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(p, 2)
-            );
+                    new DrawCardAction(p, 2));
         }
     }
 

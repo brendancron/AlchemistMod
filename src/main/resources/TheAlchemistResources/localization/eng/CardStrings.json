@@ -23,7 +23,6 @@
     "NAME": "Water Bubble",
     "DESCRIPTION": "Gain !B! Block. NL Gain 1 thealchemist:Water thealchemist:Element."
   },
-
   "TheAlchemist:AirBurst": {
     "NAME": "Air Burst",
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Gain 1 thealchemist:Air thealchemist:Element."
@@ -90,6 +89,10 @@
     "NAME": "Energizing Light",
     "DESCRIPTION": "Gain !M! energy. NL thealchemist:Combo thealchemist:Light to gain 1 additional energy NL exhaust."
   },
+  "TheAlchemist:Gust": {
+    "NAME": "Gust",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Gain !M! thealchemist:Combo thealchemist:Air draw another."
+  },
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
     "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water to apply !M! thealchemist:Toxic. NL exhaust."
@@ -118,7 +121,9 @@
   "TheAlchemist:PainedStrike": {
     "NAME": "Pained Strike",
     "DESCRIPTION": "Deal damage equal to your missing HP. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "TheAlchemist:PoisonShiv": {
     "NAME": "Poison Shiv",
@@ -127,7 +132,9 @@
   "TheAlchemist:Prohibition": {
     "NAME": "Prohibition",
     "DESCRIPTION": "Can only be played if you don't have potions. NL Deal !D! damage to ALL enemies.",
-    "EXTENDED_DESCRIPTION": ["Can only be played if you don't have potions."]
+    "EXTENDED_DESCRIPTION": [
+      "Can only be played if you don't have potions."
+    ]
   },
   "TheAlchemist:Recipes": {
     "NAME": "Recipes",
@@ -174,15 +181,10 @@
     "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as exhaustable cards to your draw pie.",
     "UPGRADE_DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards to your hand."
   },
-  "TheAlchemist:AlkalineAir": {
-    "NAME": "Alkaline Air",
-    "DESCRIPTION": "Reduce Weak and Frail by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
-    "UPGRADE_DESCRIPTION": "Reduce Weak, Frail, and Vulnerable by 2. NL Gain 1 thealchemist:Air thealchemist:Element."
-  },
   "TheAlchemist:AquaVitae": {
     "NAME": "AquaVitae",
     "DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn."
   },
   "TheAlchemist:Bezoar": {
     "NAME": "Bezoar",
@@ -236,14 +238,9 @@
     "NAME": "Gold Nugget",
     "DESCRIPTION": "Unplayable. NL Ethereal. NL When exhausted gain !M! gold."
   },
-  "TheAlchemist:Gust": {
-    "NAME": "Gust",
-    "DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Element. NL Draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Gain !M! thealchemist:Air thealchemist:Elements. NL Draw 1 card."
-  },
   "TheAlchemist:Ionization": {
     "NAME": "Ionization",
-    "DESCRIPTION": "Gain 1 Artifact, and 1 thealchemist:Antifact."
+    "DESCRIPTION": "Gain !M! Artifact, and 1 thealchemist:Antifact."
   },
   "TheAlchemist:LeechStrength": {
     "NAME": "Leech Strength",
@@ -327,9 +324,6 @@
     "DESCRIPTION": "Ethereal. NL Double the effectiveness of potions.",
     "UPGRADE_DESCRIPTION": "Double the effectiveness of potions."
   },
-
-
-
   "TheAlchemist:AirElementCard": {
     "NAME": "Air Element",
     "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Air thealchemist:Element. NL Exhaust."
@@ -358,13 +352,17 @@
     "NAME": "Water Element",
     "DESCRIPTION": "Ethereal. NL Gain !M! thealchemist:Water thealchemist:Element. NL Exhaust."
   },
-
-
-
+  "TheAlchemist:AlkalineAir": {
+    "NAME": "Alkaline Air",
+    "DESCRIPTION": "Reduce Weak and Frail by 2. NL Gain 1 thealchemist:Air thealchemist:Element.",
+    "UPGRADE_DESCRIPTION": "Reduce Weak, Frail, and Vulnerable by 2. NL Gain 1 thealchemist:Air thealchemist:Element."
+  },
   "TheAlchemist:EmptyShelf": {
     "NAME": "Empty Shelf",
     "DESCRIPTION": "Deal damage equal to !M! times the number of empty potion slots you have.",
-    "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "TheAlchemist:LiquidShield": {
     "NAME": "Liquid Shield",
@@ -404,6 +402,8 @@
   "TheAlchemist:WideGuard": {
     "NAME": "Wide Guard",
     "DESCRIPTION": "Gain !M! Block for each card in your hand.",
-    "EXTENDED_DESCRIPTION": [" NL (Gain !B! Block.)"]
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+    ]
   }
 }

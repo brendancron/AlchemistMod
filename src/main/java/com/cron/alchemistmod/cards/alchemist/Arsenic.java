@@ -8,15 +8,12 @@ import com.cron.alchemistmod.powers.ToxicPower;
 import com.cron.alchemistmod.powers.WaterElement;
 import com.cron.alchemistmod.util.ExhaustDecision;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class Arsenic extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -27,7 +24,6 @@ public class Arsenic extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int MAGIC = 1;
     private static final int MAGIC_UPGRADE = 1;
-
 
     public final static String ID = AlchemistMod.makeID(Arsenic.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -50,8 +46,7 @@ public class Arsenic extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-            new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber)
-        );
+                new ApplyPowerAction(m, p, new ToxicPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     @Override

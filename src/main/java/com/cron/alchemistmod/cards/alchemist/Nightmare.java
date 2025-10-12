@@ -3,15 +3,9 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
-import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.DarkElement;
-import com.cron.alchemistmod.powers.ToxicPower;
-import com.cron.alchemistmod.powers.WaterElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -52,12 +46,14 @@ public class Nightmare extends AbstractAlchemistCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Iterator iterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
-        while(iterator.hasNext()) {
-            AbstractMonster mo = (AbstractMonster)iterator.next();
-            this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        while (iterator.hasNext()) {
+            AbstractMonster mo = (AbstractMonster) iterator.next();
+            this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true,
+                    AbstractGameAction.AttackEffect.NONE));
 
             if (this.upgraded)
-                this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true,
+                        AbstractGameAction.AttackEffect.NONE));
         }
 
         this.addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, magicNumber, false), magicNumber));

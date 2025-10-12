@@ -1,12 +1,10 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.actions.TheStoneAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.TheStonePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +19,6 @@ public class TheStone extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int MAGIC_UPGRADE = 1;
-
 
     public final static String ID = AlchemistMod.makeID(TheStone.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -44,7 +41,6 @@ public class TheStone extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-            new ApplyPowerAction(p, p, new TheStonePower(p,p,2), 2)
-        );
+                new ApplyPowerAction(p, p, new TheStonePower(p, p, 2), 2));
     }
 }

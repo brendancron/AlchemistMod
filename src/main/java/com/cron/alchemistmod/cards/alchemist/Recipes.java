@@ -20,9 +20,8 @@ public class Recipes extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 8;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPGRADE = 1;
+    private static final int DAMAGE = 10;
+    private static final int DAMAGE_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(Recipes.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -31,7 +30,6 @@ public class Recipes extends AbstractAlchemistCard {
     public Recipes() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
     }
 
@@ -39,7 +37,7 @@ public class Recipes extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
+            this.upgradeDamage(DAMAGE_UPGRADE);
             this.initializeDescription();
         }
     }
@@ -47,10 +45,9 @@ public class Recipes extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-            new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL))
-        );
+                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         AbstractDungeon.actionManager.addToBottom(
-            new ApplyPowerAction(p, p, new NextExhaustBecomesDiscardPower(p, p, this.magicNumber), this.magicNumber)
-        );
+                new ApplyPowerAction(p, p, new NextExhaustBecomesDiscardPower(p, p, this.magicNumber),
+                        this.magicNumber));
     }
 }

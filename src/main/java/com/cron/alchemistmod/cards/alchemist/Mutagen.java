@@ -19,7 +19,7 @@ public class Mutagen extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 4;
     private static final int MAGIC_UPGRADE = 1;
     private static final int MAGIC_TWO = 3;
     private static final int MAGIC_TWO_UPGRADE = -1;
@@ -55,11 +55,9 @@ public class Mutagen extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber)
-        );
+                new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new PoisonPower(p, p, this.magicNumberTwo), this.magicNumberTwo)
-        );
+                new ApplyPowerAction(p, p, new PoisonPower(p, p, this.magicNumberTwo), this.magicNumberTwo));
     }
 }
