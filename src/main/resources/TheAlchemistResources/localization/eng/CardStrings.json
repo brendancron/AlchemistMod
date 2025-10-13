@@ -160,7 +160,7 @@
   },
   "TheAlchemist:ShadowControl": {
     "NAME": "Shadow Control",
-    "DESCRIPTION": "Enemy hits itself !M! times for !D! damage. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy strength."
+    "DESCRIPTION": "Enemy hits itself !M! times for !D! damage. NL Gain 1 thealchemist:Dark thealchemist:Element. NL Scales with enemy strength. NL exhaust."
   },
   "TheAlchemist:ShiftingSand": {
     "NAME": "Shifting Sand",
