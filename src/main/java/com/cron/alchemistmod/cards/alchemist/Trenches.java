@@ -19,7 +19,7 @@ public class Trenches extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 7;
     private static final int BLOCK_UPGRADE = 3;
 
     public final static String ID = AlchemistMod.makeID(Trenches.class.getSimpleName());
@@ -42,10 +42,8 @@ public class Trenches extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, block)
-        );
+                new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new EarthElement(p, p, 1), 1)
-        );
+                new ApplyPowerAction(p, p, new EarthElement(p, p, 1), 1));
     }
 }

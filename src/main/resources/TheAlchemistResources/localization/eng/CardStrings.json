@@ -370,11 +370,11 @@
   },
   "TheAlchemist:PackedEarth": {
     "NAME": "Packed Earth",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Tremors. NL thealchemist:Combo thealchemist:Earth gain 2 more. NL Exhaust."
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:TremorPower. NL Exhaust."
   },
   "TheAlchemist:RocksFall": {
     "NAME": "Rocks Fall",
-    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Earth X times."
+    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:TremorPower X times."
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",

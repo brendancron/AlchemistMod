@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.powers;
 
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cron.alchemistmod.AlchemistMod;
@@ -18,8 +17,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class PackedEarthPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(PackedEarthPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "32.png"));
+    private static final Texture tex84 = TextureLoader
+            .getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "84.png"));
+    private static final Texture tex32 = TextureLoader
+            .getTexture(AlchemistMod.makePowerPath(PackedEarthPower.class.getSimpleName() + "32.png"));
 
     public PackedEarthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
@@ -42,16 +43,14 @@ public class PackedEarthPower extends AbstractAlchemistPower {
     public void onUseCard(final AbstractCard card, final UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, source,
-                new TremorPower(owner, source, amount), amount)
-            );
+                    new TremorPower(owner, source, amount), amount));
         }
     }
 
     @Override
     public void atEndOfTurn(final boolean isPlayer) {
         AbstractDungeon.actionManager.addToBottom(
-            new RemoveSpecificPowerAction(owner, source, this.ID)
-        );
+                new RemoveSpecificPowerAction(owner, source, this.ID));
     }
 
     @Override

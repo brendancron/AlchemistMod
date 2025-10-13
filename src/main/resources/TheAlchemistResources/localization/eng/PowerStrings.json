@@ -111,7 +111,7 @@
     "NAME": "Hunker Down",
     "DESCRIPTIONS": [
       "Gain #b",
-      " #yEarth at the start of your turn."
+      " #yEarth at the end of your turn."
     ]
   },
   "TheAlchemist:DredgesPower": {
@@ -133,7 +133,7 @@
     "NAME": "Packed Earth",
     "DESCRIPTIONS": [
       "Whenever you play an Attack this turn, gain #b",
-      " Tremors."
+      " thealchemist:TremorPower."
     ]
   },
   "TheAlchemist:PoisonedSheathPower": {
@@ -199,10 +199,10 @@
     ]
   },
   "TheAlchemist:TremorPower": {
-    "NAME": "Tremor",
+    "NAME": "Tremors",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal #b",
-      " damage to ALL enemies, then lose 1 stack."
+      "Whenever you gain an #yTheAlchemist:EarthElement, deal #r",
+      " damage to ALL enemies."
     ]
   },
   "TheAlchemist:UnstableElixirPower": {
