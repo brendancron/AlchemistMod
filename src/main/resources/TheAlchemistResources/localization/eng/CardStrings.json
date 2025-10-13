@@ -70,7 +70,7 @@
   },
   "TheAlchemist:EchoesOfDarkness": {
     "NAME": "Echoes Of Darkness",
-    "DESCRIPTION": "Choose a card to pay for, exhaust, and play at the start of your next !M! turns. NL thealchemist:Combo thealchemist:Dark echoes for 2 additional turns. NL exhaust."
+    "DESCRIPTION": "Choose a card to pay for, exhaust, and play at the start of your next !M! turns. NL thealchemist:Combo thealchemist:Dark echoes for 3 additional turns. NL exhaust."
   },
   "TheAlchemist:ElementalBlast": {
     "NAME": "Elemental Blast",

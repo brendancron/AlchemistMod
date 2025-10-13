@@ -42,7 +42,7 @@ public class EchoesOfDarkness extends AbstractAlchemistCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int stacks = this.magicNumber;
         if (AbstractElement.hasElement(DarkElement.class)) {
-            stacks += 2;
+            stacks += 3;
         }
         AbstractDungeon.actionManager.addToBottom(
             new EchoesOfDarknessAction(p, stacks, true)

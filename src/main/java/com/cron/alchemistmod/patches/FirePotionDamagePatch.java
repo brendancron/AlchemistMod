@@ -1,14 +1,12 @@
 package com.cron.alchemistmod.patches;
 
-import com.cron.alchemistmod.cards.util.DamageCalculationCard;
-import com.cron.alchemistmod.relics.PotionLauncher;
+import com.cron.alchemistmod.powers.PotionPotencyPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.FirePotion;
 
 @SpirePatch(
@@ -18,14 +16,13 @@ import com.megacrit.cardcrawl.potions.FirePotion;
 )
 public class FirePotionDamagePatch {
     public static void Replace(FirePotion __instance, AbstractCreature target) {
-        DamageInfo info;
-        if (AbstractDungeon.player.hasRelic(PotionLauncher.ID) && target instanceof AbstractMonster) {
-            int damage = new DamageCalculationCard().getDamage(__instance.getPotency(), (AbstractMonster) target);
-            info = new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.THORNS);
-        } else {
-            info = new DamageInfo(AbstractDungeon.player, __instance.getPotency(), DamageInfo.DamageType.THORNS);
+        AbstractCreature player = AbstractDungeon.player;
+        int potency = __instance.getPotency();
+        if (player.hasPower(PotionPotencyPower.POWER_ID)) {
+            PotionPotencyPower power = (PotionPotencyPower) player.getPower(PotionPotencyPower.POWER_ID);
+            potency = power.modifyPotionPotency(potency);
         }
-
+        DamageInfo info = new DamageInfo(player, potency, DamageInfo.DamageType.THORNS);
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(target, info, AbstractGameAction.AttackEffect.FIRE)
         );

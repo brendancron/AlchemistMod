@@ -144,6 +144,13 @@
       " #yPoison #yShivs into your hand."
     ]
   },
+  "TheAlchemist:PotionPotencyPower": {
+    "NAME": "Potion Potency",
+    "DESCRIPTIONS": [
+      "Increases the effectiveness of your damage dealing potions by #b",
+      " for the duration of combat."
+    ]
+  },
   "TheAlchemist:RetainThisTurnPower": {
     "NAME": "Retain this turn",
     "DESCRIPTIONS": [

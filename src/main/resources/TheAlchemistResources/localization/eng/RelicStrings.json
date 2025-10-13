@@ -25,7 +25,11 @@
   },
   "TheAlchemist:PotionLauncher": {
     "NAME": "Potion Launcher",
-    "DESCRIPTIONS": ["Potion damage scales with strength."]
+    "FLAVOR": "An ancient contraption that amplifies every drop of alchemy.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain ",
+      " #bPotion Potency."
+    ]
   },
   "TheAlchemist:Distillery": {
     "NAME": "Distillery",

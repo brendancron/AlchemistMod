@@ -22,6 +22,7 @@ public class Recipes extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int DAMAGE = 10;
     private static final int DAMAGE_UPGRADE = 3;
+    private static final int MAGIC = 1;
 
     public final static String ID = AlchemistMod.makeID(Recipes.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -31,6 +32,7 @@ public class Recipes extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override

@@ -22,7 +22,7 @@ public class PackedEarth extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int MAGIC_UPGRADE = 1;
 
     public final static String ID = AlchemistMod.makeID(PackedEarth.class.getSimpleName());
