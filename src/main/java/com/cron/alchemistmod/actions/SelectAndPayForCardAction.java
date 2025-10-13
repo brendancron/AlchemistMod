@@ -60,9 +60,9 @@ public class SelectAndPayForCardAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-
+            AbstractCard chosen = null;
             if (!AbstractDungeon.handCardSelectScreen.selectedCards.group.isEmpty()) {
-                AbstractCard chosen = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
+                chosen = AbstractDungeon.handCardSelectScreen.selectedCards.group.get(0);
 
                 int energySpent = chosen.costForTurn;
                 if (chosen.cost == -1) {
@@ -72,8 +72,6 @@ public class SelectAndPayForCardAction extends AbstractGameAction {
                 if (energySpent > 0) {
                     player.loseEnergy(energySpent);
                 }
-
-                this.callback.accept(chosen);
             }
 
             // 2. Restore the original hand (Crucial step!)
@@ -81,9 +79,13 @@ public class SelectAndPayForCardAction extends AbstractGameAction {
                 player.hand = this.originalHand;
             }
 
-            // 3. Clean up and set done
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+
+            if (chosen != null) {
+                this.callback.accept(chosen);
+            }
+
             this.isDone = true;
             return;
         }

@@ -47,19 +47,19 @@ public class EchoesOfDarkness extends AbstractAlchemistCard {
         }
         int finalStacks = stacks;
         AbstractDungeon.actionManager.addToBottom(
-                new SelectAndPayForCardAction(p, (echoedCard) -> {
-                    AbstractDungeon.actionManager.addToBottom(
-                        new ExhaustSpecificCardAction(echoedCard, AbstractDungeon.player.hand)
-                    );
-                    AbstractDungeon.actionManager.addToBottom(
-                            new ApplyPowerAction(
-                                    p,
-                                    p,
-                                    new EchoedCardPower(p, p, finalStacks, echoedCard),
-                                    finalStacks
-                            )
-                    );
-                })
+            new SelectAndPayForCardAction(p, (echoedCard) -> {
+                AbstractDungeon.actionManager.addToBottom(
+                    new ExhaustSpecificCardAction(echoedCard, AbstractDungeon.player.hand)
+                );
+                AbstractDungeon.actionManager.addToBottom(
+                        new ApplyPowerAction(
+                                p,
+                                p,
+                                new EchoedCardPower(p, p, finalStacks, echoedCard),
+                                finalStacks
+                        )
+                );
+            })
         );
     }
 
