@@ -27,13 +27,11 @@ public class Wildfire extends AbstractAlchemistCard {
     private static final int DAMAGE_UPGRADE = 4;
     private static final boolean MULTI_DAMAGE = true;
 
-
-    public final static String ID = AlchemistMod.makeID(Wildfire.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Wildfire.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Wildfire.class.getSimpleName() + ".png");
 
     public Wildfire() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Wildfire.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = MULTI_DAMAGE;
     }

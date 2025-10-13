@@ -29,7 +29,7 @@ public class ChemicalBuffer extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(ChemicalBuffer.class.getSimpleName() + ".png");
 
     public ChemicalBuffer() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, ChemicalBuffer.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 

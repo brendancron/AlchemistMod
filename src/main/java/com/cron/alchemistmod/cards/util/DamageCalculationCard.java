@@ -29,7 +29,7 @@ public class DamageCalculationCard extends AbstractAlchemistCard {
     public static final Logger logger = LogManager.getLogger(DamageCalculationCard.class.getSimpleName());
 
     public DamageCalculationCard() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, DamageCalculationCard.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = MULTI_DAMAGE;
     }

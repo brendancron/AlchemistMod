@@ -23,7 +23,7 @@ public class Splash extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Splash.class.getSimpleName() + ".png");
 
     public Splash() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Splash.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }
 

@@ -24,7 +24,7 @@ public class DarkElementCard extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeColorlessCardPath(DarkElementCard.class.getSimpleName() + ".png");
 
     public DarkElementCard() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, DarkElementCard.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.isEthereal = true;
         this.exhaust = true;

@@ -23,12 +23,11 @@ public class Embers extends AbstractAlchemistCard {
     private static final int DAMAGE = 4;
     private static final int DAMAGE_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Embers.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Embers.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Embers.class.getSimpleName() + ".png");
 
     public Embers() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Embers.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 

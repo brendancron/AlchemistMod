@@ -20,12 +20,11 @@ public class Enchantment extends AbstractAlchemistCard {
     private static final int COST = 2;
     private static final int COST_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(Enchantment.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Enchantment.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Enchantment.class.getSimpleName() + ".png");
 
     public Enchantment() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Enchantment.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.tags.add(CardTags.HEALING);
     }
 

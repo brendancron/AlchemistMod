@@ -21,12 +21,11 @@ public class HunkerDown extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int MAGIC = 1;
 
-    public final static String ID = AlchemistMod.makeID(HunkerDown.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(HunkerDown.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(HunkerDown.class.getSimpleName() + ".png");
 
     public HunkerDown() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, HunkerDown.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 

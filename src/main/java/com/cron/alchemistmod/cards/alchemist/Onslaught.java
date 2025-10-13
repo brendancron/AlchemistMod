@@ -23,12 +23,11 @@ public class Onslaught extends AbstractAlchemistCard {
     private static final int MAGIC = 6;
     private static final int MAGIC_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Onslaught.class.getSimpleName() + ".png");
 
     public Onslaught() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Onslaught.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;

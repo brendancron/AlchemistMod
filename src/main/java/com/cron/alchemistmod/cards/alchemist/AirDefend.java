@@ -22,12 +22,11 @@ public class AirDefend extends AbstractAlchemistCard {
     private static final int BLOCK = 8;
     private static final int BLOCK_UPGRADE = 3;
 
-    public final static String ID = AlchemistMod.makeID(AirDefend.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(AirDefend.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(AirDefend.class.getSimpleName() + ".png");
 
     public AirDefend() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, AirDefend.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
 
         this.tags.add(CardTags.STARTER_DEFEND);

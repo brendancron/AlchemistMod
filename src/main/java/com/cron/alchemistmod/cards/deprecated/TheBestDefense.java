@@ -25,7 +25,7 @@ public class TheBestDefense extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(TheBestDefense.class.getSimpleName() + ".png");
 
     public TheBestDefense() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, TheBestDefense.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
     }

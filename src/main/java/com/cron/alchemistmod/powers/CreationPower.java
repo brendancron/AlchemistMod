@@ -20,9 +20,6 @@ public class CreationPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(CreationPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(CreationPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(CreationPower.class.getSimpleName() + "32.png"));
-
     public CreationPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
@@ -34,8 +31,7 @@ public class CreationPower extends AbstractAlchemistPower {
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        configureTexture(CreationPower.class);
 
         updateDescription();
     }

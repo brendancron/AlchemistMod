@@ -24,12 +24,8 @@ public class TheStonePower extends AbstractAlchemistPower {
     private static int IdOffset = 0;
     private final ArrayList<Element> elementsLeft;
 
-    private int healAmount;
-    private int intangibleAmount;
-
-
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(TheStonePower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(TheStonePower.class.getSimpleName() + "32.png"));
+    private final int healAmount;
+    private final int intangibleAmount;
 
     public TheStonePower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
@@ -53,8 +49,7 @@ public class TheStonePower extends AbstractAlchemistPower {
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        configureTexture(TheStonePower.class);
 
         updateDescription();
     }

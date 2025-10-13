@@ -30,7 +30,7 @@ public class PoisonShiv extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(PoisonShiv.class.getSimpleName() + ".png");
 
     public PoisonShiv() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, PoisonShiv.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower("Accuracy")) {
             this.baseDamage = DAMAGE + AbstractDungeon.player.getPower("Accuracy").amount;
             this.magicNumber = this.baseMagicNumber = MAGIC + AbstractDungeon.player.getPower("Accuracy").amount;

@@ -26,14 +26,13 @@ public class AquaVitae extends AbstractAlchemistCard {
 
     private static final int COST = 1;
 
-    public final static String ID = AlchemistMod.makeID(AquaVitae.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(AquaVitae.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(AquaVitae.class.getSimpleName() + ".png");
 
     public static final String CHOICE_STRING = "Choose one.";
 
     public AquaVitae() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, AquaVitae.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
     }
 

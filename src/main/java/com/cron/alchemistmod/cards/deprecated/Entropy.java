@@ -1,4 +1,4 @@
-package com.cron.alchemistmod.cards.alchemist;
+package com.cron.alchemistmod.cards.deprecated;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
@@ -19,12 +19,11 @@ public class Entropy extends AbstractAlchemistCard {
 
     private static final int COST = 4;
 
-    public final static String ID = AlchemistMod.makeID(Entropy.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Entropy.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Entropy.class.getSimpleName() + ".png");
 
     public Entropy() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Entropy.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 
     @Override

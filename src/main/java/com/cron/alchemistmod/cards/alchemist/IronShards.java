@@ -24,13 +24,11 @@ public class IronShards extends AbstractAlchemistCard {
     private static final int BLOCK = 3;
     private static final int BLOCK_UPGRADE = 2;
 
-
-    public final static String ID = AlchemistMod.makeID(IronShards.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(IronShards.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(IronShards.class.getSimpleName() + ".png");
 
     public IronShards() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IronShards.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.baseBlock = BLOCK;
     }

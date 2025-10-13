@@ -16,9 +16,6 @@ public class RetainThisTurnPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(RetainThisTurnPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power.psd"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath("placeholder_power.psd"));
-
     public RetainThisTurnPower(final AbstractCreature owner, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
@@ -28,8 +25,7 @@ public class RetainThisTurnPower extends AbstractAlchemistPower {
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        configureTexture(RetainThisTurnPower.class);
 
         updateDescription();
     }

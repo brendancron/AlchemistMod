@@ -109,5 +109,21 @@
       "combo"
     ],
     "DESCRIPTION": "Effect applies if you currently have the given element in your cauldron"
+  },
+  {
+    "PROPER_NAME": "Potency",
+    "NAMES": [
+      "Potency",
+      "potency"
+    ],
+    "DESCRIPTION": "Increases the effectiveness of your damage dealing potions"
+  },
+  {
+    "PROPER_NAME": "Tremors",
+    "NAMES": [
+      "Tremors",
+      "tremors"
+    ],
+    "DESCRIPTION": "Whenever you gain an earth element, deal damage to ALL enemies."
   }
 ]

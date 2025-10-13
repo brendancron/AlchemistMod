@@ -20,16 +20,14 @@ public class EnergizingLight extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int COST_UPGRADE = 1;
+    private static final int UPGRADED_COST = 0;
     private static final int MAGIC = 2;
 
-    public final static String ID = AlchemistMod.makeID(EnergizingLight.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(EnergizingLight.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod
-            .makeAlchemistCardPath(EnergizingLight.class.getSimpleName() + ".png");
 
     public EnergizingLight() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, EnergizingLight.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
     }
@@ -38,7 +36,7 @@ public class EnergizingLight extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 

@@ -27,7 +27,7 @@ public class WaterDefend extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(WaterDefend.class.getSimpleName() + ".png");
 
     public WaterDefend() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, WaterDefend.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
 
         this.tags.add(CardTags.STARTER_DEFEND);

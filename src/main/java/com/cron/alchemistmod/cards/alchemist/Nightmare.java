@@ -25,12 +25,11 @@ public class Nightmare extends AbstractAlchemistCard {
     private static final int COST = 0;
     private static final int MAGIC = 1;
 
-    public final static String ID = AlchemistMod.makeID(Nightmare.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Nightmare.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Entropy.class.getSimpleName() + ".png");
 
     public Nightmare() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Nightmare.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }

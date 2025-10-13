@@ -23,12 +23,11 @@ public class EchoesOfDarkness extends AbstractAlchemistCard {
     private static final int COST = 0;
     private static final int MAGIC = 2;
 
-    public final static String ID = AlchemistMod.makeID(EchoesOfDarkness.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(EchoesOfDarkness.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(EchoesOfDarkness.class.getSimpleName() + ".png");
 
     public EchoesOfDarkness() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, EchoesOfDarkness.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = MAGIC;
     }

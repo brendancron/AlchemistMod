@@ -20,12 +20,11 @@ public class Dredges extends AbstractAlchemistCard {
     private static final int COST = 1;
     private static final int COST_UPGRADE = 0;
 
-    public final static String ID = AlchemistMod.makeID(Dredges.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Dredges.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Dredges.class.getSimpleName() + ".png");
 
     public Dredges() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Dredges.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 
     @Override

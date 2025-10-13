@@ -25,12 +25,11 @@ public class Arsenic extends AbstractAlchemistCard {
     private static final int MAGIC = 1;
     private static final int MAGIC_UPGRADE = 1;
 
-    public final static String ID = AlchemistMod.makeID(Arsenic.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Arsenic.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Arsenic.class.getSimpleName() + ".png");
 
     public Arsenic() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Arsenic.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
     }

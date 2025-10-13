@@ -29,7 +29,7 @@ public class ElementalBlast extends AbstractAlchemistCard {
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(ElementalBlast.class.getSimpleName() + ".png");
 
     public ElementalBlast() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, ElementalBlast.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.isMultiDamage = MULTI_DAMAGE;
     }

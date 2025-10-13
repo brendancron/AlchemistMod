@@ -22,12 +22,11 @@ public class ToxicBrew extends AbstractAlchemistCard {
     private static final int MAGIC = 3;
     private static final int MAGIC_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(ToxicBrew.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(ToxicBrew.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(ToxicBrew.class.getSimpleName() + ".png");
 
     public ToxicBrew() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, ToxicBrew.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 

@@ -20,12 +20,11 @@ public class RocksFall extends AbstractAlchemistCard {
     private static final int DAMAGE = 6;
     private static final int DAMAGE_UPGRADE = 3;
 
-    public final static String ID = AlchemistMod.makeID(RocksFall.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(RocksFall.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(RocksFall.class.getSimpleName() + ".png");
 
     public RocksFall() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, RocksFall.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 

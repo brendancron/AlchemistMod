@@ -17,10 +17,6 @@ public class GrowthPower extends AbstractAlchemistPower {
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static int IdOffset = 0;
 
-
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(GrowthPower.class.getSimpleName() + "32.png"));
-
     public GrowthPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID + IdOffset++;
@@ -32,8 +28,7 @@ public class GrowthPower extends AbstractAlchemistPower {
         type = PowerType.BUFF;
         isTurnBased = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        configureTexture(GrowthPower.class);
 
         updateDescription();
     }

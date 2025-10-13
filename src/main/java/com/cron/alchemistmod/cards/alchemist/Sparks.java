@@ -24,12 +24,11 @@ public class Sparks extends AbstractAlchemistCard {
     private static final int DAMAGE = 4;
     private static final int DAMAGE_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Sparks.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Sparks.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Sparks.class.getSimpleName() + ".png");
 
     public Sparks() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Sparks.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 

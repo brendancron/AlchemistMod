@@ -16,9 +16,6 @@ public class AntifactPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(AntifactPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 
-    private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(AntifactPower.class.getSimpleName() + "84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(AntifactPower.class.getSimpleName() + "32.png"));
-
     public AntifactPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = POWER_STRINGS.NAME;
         ID = POWER_ID;
@@ -30,8 +27,7 @@ public class AntifactPower extends AbstractAlchemistPower {
         type = PowerType.DEBUFF;
         isTurnBased = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        configureTexture(AntifactPower.class);
 
         updateDescription();
     }

@@ -24,12 +24,11 @@ public class Recipes extends AbstractAlchemistCard {
     private static final int DAMAGE_UPGRADE = 3;
     private static final int MAGIC = 1;
 
-    public final static String ID = AlchemistMod.makeID(Recipes.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Recipes.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Recipes.class.getSimpleName() + ".png");
 
     public Recipes() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Recipes.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = MAGIC;

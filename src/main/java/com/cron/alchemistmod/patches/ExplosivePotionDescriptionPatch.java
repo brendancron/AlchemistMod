@@ -1,6 +1,5 @@
 package com.cron.alchemistmod.patches;
 
-import com.cron.alchemistmod.cards.util.DamageCalculationCard;
 import com.cron.alchemistmod.powers.PotionPotencyPower;
 import com.cron.alchemistmod.util.CheckCombat;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -31,9 +30,7 @@ public class ExplosivePotionDescriptionPatch {
         }
 
         PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(__instance.ID);
-        __instance.description = potionStrings.DESCRIPTIONS[0]
-                + new DamageCalculationCard().getLowestMultidamage(potency)
-                + potionStrings.DESCRIPTIONS[1];
+        __instance.description = potionStrings.DESCRIPTIONS[0] + potency + potionStrings.DESCRIPTIONS[1];
 
         __instance.tips.clear();
         __instance.tips.add(new PowerTip(__instance.name, __instance.description));

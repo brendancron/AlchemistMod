@@ -25,12 +25,11 @@ public class AirBurst extends AbstractAlchemistCard {
     private static final int DAMAGE_UPGRADE = 4;
 
 
-    public final static String ID = AlchemistMod.makeID(AirBurst.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(AirBurst.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(AirBurst.class.getSimpleName() + ".png");
 
     public AirBurst() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, AirBurst.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 

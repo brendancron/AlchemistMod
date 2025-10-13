@@ -27,12 +27,11 @@ public class Injection extends AbstractAlchemistCard {
     private static final int MAGIC = 3;
     private static final int DAMAGE_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Injection.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Injection.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Injection.class.getSimpleName() + ".png");
 
     public Injection() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Injection.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }

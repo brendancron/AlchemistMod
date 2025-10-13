@@ -150,6 +150,13 @@ public class AlchemistMod implements
         return getModID() + "Resources/images/animation/" + resourcePath;
     }
 
+    public static String makeCardPath(Class<?> clazz, AbstractCard.CardColor color) {
+        return String.format("%sResources/images/cards/%s/%s.png",
+            getModID(),
+            color.name().toLowerCase(),
+            clazz.getSimpleName());
+    }
+
     public static String makeAlchemistCardPath(String resourcePath) {
         return getModID() + "Resources/images/cards/alchemist/" + resourcePath;
     }

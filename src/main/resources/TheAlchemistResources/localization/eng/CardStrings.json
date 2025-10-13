@@ -41,8 +41,8 @@
   },
   "TheAlchemist:CardBottler": {
     "NAME": "Card Bottler",
-    "DESCRIPTION": "Select and pay for a card. Create a Bottled Potion of that card. NL Cannot be used without an empty potion slot.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Select and pay for a card. Create a Bottled Potion of that card. NL Cannot be used without an empty potion slot."
+    "DESCRIPTION": "Select and pay for a card. Create a Bottled Potion of that card.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Select and pay for a card. Create a Bottled Potion of that card."
   },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
@@ -73,6 +73,11 @@
     "NAME": "Dredges",
     "DESCRIPTION": "Combat end: gain a copy of the last potion used this combat."
   },
+  "TheAlchemist:Earthquake": {
+    "NAME": "Earthquake",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. Apply !M! thealchemist:Tremors.",
+    "EXTENDED_DESCRIPTION": []
+  },
   "TheAlchemist:EchoesOfDarkness": {
     "NAME": "Echoes Of Darkness",
     "DESCRIPTION": "Choose a card to pay for, exhaust, and play at the start of your next !M! turns. NL thealchemist:Combo thealchemist:Dark echoes for 3 additional turns. NL exhaust."
@@ -96,7 +101,11 @@
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL Gain !M! thealchemist:Combo thealchemist:Air draw another."
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL thealchemist:Combo thealchemist:Air to draw another."
+  },
+  "TheAlchemist:HeatingUp": {
+    "NAME": "Heating Up",
+    "DESCRIPTION": "Gain !M! thealchemist:potency. NL Gain 1 thealchemist:Fire thealchemist:Element"
   },
   "TheAlchemist:HeavyWater": {
     "NAME": "Heavy Water",
@@ -375,11 +384,11 @@
   },
   "TheAlchemist:PackedEarth": {
     "NAME": "Packed Earth",
-    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:TremorPower. NL Exhaust."
+    "DESCRIPTION": "Whenever you play an Attack this turn, gain !M! thealchemist:Tremors. NL Exhaust."
   },
   "TheAlchemist:RocksFall": {
     "NAME": "Rocks Fall",
-    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:TremorPower X times."
+    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Tremors X times."
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",

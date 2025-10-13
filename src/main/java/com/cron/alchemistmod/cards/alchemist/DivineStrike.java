@@ -22,12 +22,11 @@ public class DivineStrike extends AbstractAlchemistCard {
     private static final int COST = 3;
     private static final int DAMAGE = 10;
 
-    public final static String ID = AlchemistMod.makeID(DivineStrike.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(DivineStrike.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(DivineStrike.class.getSimpleName() + ".png");
 
     public DivineStrike() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, DivineStrike.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.tags.add(CardTags.STRIKE);
         this.misc = 0;

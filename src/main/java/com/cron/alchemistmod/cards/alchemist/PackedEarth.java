@@ -21,13 +21,11 @@ public class PackedEarth extends AbstractAlchemistCard {
     private static final int UPGRADED_COST = 0;
     private static final int MAGIC = 3;
 
-    public final static String ID = AlchemistMod.makeID(PackedEarth.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(PackedEarth.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod
-            .makeAlchemistCardPath(PackedEarth.class.getSimpleName() + ".png");
 
     public PackedEarth() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, PackedEarth.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
         this.exhaust = true;
     }

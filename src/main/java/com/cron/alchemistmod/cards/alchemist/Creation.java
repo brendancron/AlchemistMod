@@ -21,12 +21,11 @@ public class Creation extends AbstractAlchemistCard {
     private static final int MAGIC = 3;
     private static final int MAGIC_UPGRADE = 2;
 
-    public final static String ID = AlchemistMod.makeID(Creation.class.getSimpleName());
+    public static final String ID = AlchemistMod.makeID(Creation.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(Creation.class.getSimpleName() + ".png");
 
     public Creation() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, Creation.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
