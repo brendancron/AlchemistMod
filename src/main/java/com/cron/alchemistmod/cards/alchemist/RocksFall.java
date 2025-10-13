@@ -1,4 +1,4 @@
-package com.cron.alchemistmod.cards.deprecated;
+package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.actions.RocksFallAction;
@@ -20,7 +20,6 @@ public class RocksFall extends AbstractAlchemistCard {
     private static final int DAMAGE = 6;
     private static final int DAMAGE_UPGRADE = 3;
 
-
     public final static String ID = AlchemistMod.makeID(RocksFall.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG_PATH = AlchemistMod.makeAlchemistCardPath(RocksFall.class.getSimpleName() + ".png");
@@ -41,7 +40,6 @@ public class RocksFall extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new RocksFallAction(this.damage, this.freeToPlayOnce, this.energyOnUse)
-        );
+                new RocksFallAction(this.damage, this.freeToPlayOnce, this.energyOnUse));
     }
 }

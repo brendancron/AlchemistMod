@@ -374,7 +374,7 @@
   },
   "TheAlchemist:RocksFall": {
     "NAME": "Rocks Fall",
-    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:Earth X times."
+    "DESCRIPTION": "Deal !D! damage to a random enemy and gain 1 thealchemist:TremorPower X times."
   },
   "TheAlchemist:SearingLight": {
     "NAME": "Searing Light",

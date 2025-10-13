@@ -1,6 +1,7 @@
 package com.cron.alchemistmod.actions;
 
 import com.cron.alchemistmod.powers.EarthElement;
+import com.cron.alchemistmod.powers.TremorPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -36,13 +37,14 @@ public class RocksFallAction extends AbstractGameAction {
 
         if (effect > 0) {
 
-            for (int i = 0 ; i < effect; i++) {
+            for (int i = 0; i < effect; i++) {
                 AbstractDungeon.actionManager.addToBottom(
-                        new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY)
-                );
+                        new DamageRandomEnemyAction(
+                                new DamageInfo(AbstractDungeon.player, this.damage, DamageInfo.DamageType.NORMAL),
+                                AbstractGameAction.AttackEffect.BLUNT_HEAVY));
                 AbstractDungeon.actionManager.addToBottom(
-                        new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EarthElement(AbstractDungeon.player, AbstractDungeon.player, 1), 1)
-                );
+                        new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                                new TremorPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
             }
 
             if (!this.freeToPlayOnce) {
@@ -53,4 +55,3 @@ public class RocksFallAction extends AbstractGameAction {
         this.isDone = true;
     }
 }
-
