@@ -12,7 +12,6 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.cards.alchemist.Strike;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.commands.BottleCommand;
-import com.cron.alchemistmod.events.MasterAlchemistEvent;
 import com.cron.alchemistmod.potions.BottledPotion;
 import com.cron.alchemistmod.powers.AbstractAlchemistPower;
 import com.cron.alchemistmod.powers.SacredFormPower;
@@ -86,8 +85,6 @@ public class AlchemistMod implements
                 ATTACK_ALCHEMIST_PORTRAIT, SKILL_ALCHEMIST_PORTRAIT, POWER_ALCHEMIST_PORTRAIT,
                 ENERGY_ORB_ALCHEMIST_PORTRAIT, CARD_ENERGY_ORB);
         MyModConfig.load();
-
-        BaseMod.addEvent(MasterAlchemistEvent.ID, MasterAlchemistEvent.class);
     }
 
     public static void initialize() {

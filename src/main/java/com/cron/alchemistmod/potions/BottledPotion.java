@@ -52,9 +52,6 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
     @Override
     public void use(AbstractCreature target) {
         AbstractCard cardCopy = bottledCard.makeStatEquivalentCopy();
-        cardCopy.purgeOnUse = true;
-        cardCopy.freeToPlayOnce = true;
-
         cardCopy.applyPowers();
 
         switch (bottledCard.target) {
@@ -77,6 +74,14 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
             default:
                 cardCopy.use(AbstractDungeon.player, null);
         }
+
+        // discard or exhaust it
+        if (cardCopy.exhaustOnUseOnce || cardCopy.exhaust) {
+            AbstractDungeon.player.exhaustPile.addToTop(cardCopy);
+        } else {
+            AbstractDungeon.player.discardPile.addToTop(cardCopy);
+        }
+
         // Add the card back into your deck!
         AbstractCard cardToAdd = bottledCard.makeStatEquivalentCopy();
         cardToAdd.resetAttributes();

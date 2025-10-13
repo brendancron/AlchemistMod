@@ -39,6 +39,11 @@
     "NAME": "Caffeine",
     "DESCRIPTION": "Whenever you draw a card, draw !M! more."
   },
+  "TheAlchemist:CardBottler": {
+    "NAME": "Card Bottler",
+    "DESCRIPTION": "Select and pay for a card. Create a Bottled Potion of that card. NL Cannot be used without an empty potion slot.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Select and pay for a card. Create a Bottled Potion of that card. NL Cannot be used without an empty potion slot."
+  },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
     "DESCRIPTION": "Gain !M! thealchemist:Buffer, !M! Artifact, and 1 thealchemist:Antifact."

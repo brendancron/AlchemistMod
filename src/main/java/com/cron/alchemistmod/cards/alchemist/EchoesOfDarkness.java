@@ -1,10 +1,12 @@
 package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
-import com.cron.alchemistmod.actions.EchoesOfDarknessAction;
+import com.cron.alchemistmod.actions.SelectAndPayForCardAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,8 +46,21 @@ public class EchoesOfDarkness extends AbstractAlchemistCard {
         if (AbstractElement.hasElement(DarkElement.class)) {
             stacks += 3;
         }
+        int finalStacks = stacks;
         AbstractDungeon.actionManager.addToBottom(
-            new EchoesOfDarknessAction(p, stacks, true)
+                new SelectAndPayForCardAction(p, (echoedCard) -> {
+                    AbstractDungeon.actionManager.addToBottom(
+                        new ExhaustSpecificCardAction(echoedCard, AbstractDungeon.player.hand)
+                    );
+                    AbstractDungeon.actionManager.addToBottom(
+                            new ApplyPowerAction(
+                                    p,
+                                    p,
+                                    new EchoedCardPower(p, p, finalStacks, echoedCard),
+                                    finalStacks
+                            )
+                    );
+                })
         );
     }
 

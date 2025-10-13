@@ -1,30 +1,27 @@
 package com.cron.alchemistmod.actions;
 
-import com.cron.alchemistmod.powers.EchoedCardPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class EchoesOfDarknessAction extends AbstractGameAction {
+import java.util.function.Consumer;
 
-    private final AbstractCreature source;
-    private final int amount;
-    private final boolean exhaustCard;
+public class SelectAndPayForCardAction extends AbstractGameAction {
+
+    private final AbstractPlayer player;
 
     private CardGroup originalHand = null;
 
-    public EchoesOfDarknessAction(AbstractCreature source, int amount, boolean exhaust) {
-        this.source = source;
-        this.amount = amount;
-        this.exhaustCard = exhaust;
+    private final Consumer<AbstractCard> callback;
+
+    public SelectAndPayForCardAction(AbstractPlayer player, Consumer<AbstractCard> callback) {
+        this.player = player;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = 0.5F;
+        this.callback = callback;
     }
 
     @Override
@@ -34,7 +31,7 @@ public class EchoesOfDarknessAction extends AbstractGameAction {
             CardGroup validCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             int currentEnergy = EnergyPanel.totalCount;
 
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            for (AbstractCard c : player.hand.group) {
                 if (c.costForTurn <= currentEnergy || c.cost == -1) {
                     validCards.addToTop(c);
                 }
@@ -45,8 +42,8 @@ public class EchoesOfDarknessAction extends AbstractGameAction {
                 return;
             }
 
-            this.originalHand = AbstractDungeon.player.hand;
-            AbstractDungeon.player.hand = validCards;
+            this.originalHand = player.hand;
+            player.hand = validCards;
 
             AbstractDungeon.handCardSelectScreen.open(
                     "Choose a card to echo (Cost must be paid)", // message
@@ -73,25 +70,15 @@ public class EchoesOfDarknessAction extends AbstractGameAction {
                 }
 
                 if (energySpent > 0) {
-                    AbstractDungeon.player.loseEnergy(energySpent);
+                    player.loseEnergy(energySpent);
                 }
 
-                AbstractCard echoedCopy = chosen.makeStatEquivalentCopy();
-                this.addToBot(
-                    new ApplyPowerAction(AbstractDungeon.player, source,
-                        new EchoedCardPower(AbstractDungeon.player, source, amount, echoedCopy), amount)
-                );
-
-                if (exhaustCard) {
-                    this.addToBot(new ExhaustSpecificCardAction(chosen, this.originalHand));
-                } else {
-                    this.addToBot(new DiscardSpecificCardAction(chosen, this.originalHand));
-                }
+                this.callback.accept(chosen);
             }
 
             // 2. Restore the original hand (Crucial step!)
             if (this.originalHand != null) {
-                AbstractDungeon.player.hand = this.originalHand;
+                player.hand = this.originalHand;
             }
 
             // 3. Clean up and set done
