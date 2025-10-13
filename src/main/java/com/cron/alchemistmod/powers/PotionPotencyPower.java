@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class PotionPotencyPower extends AbstractAlchemistPower {
     public static final String POWER_ID = AlchemistMod.makeID(PotionPotencyPower.class.getSimpleName());
     private static final PowerStrings POWER_STRINGS = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static final String[] DESCRIPTIONS = POWER_STRINGS.DESCRIPTIONS;
 
     private static final Texture tex84 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PoisonedSheathPower.class.getSimpleName() + "84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(AlchemistMod.makePowerPath(PoisonedSheathPower.class.getSimpleName() + "32.png"));
