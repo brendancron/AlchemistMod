@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class Splash extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
@@ -49,18 +49,9 @@ public class Splash extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
             new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
         );
-
-        ArrayList<AbstractPower> debuffs = new ArrayList<>();
-        for (AbstractPower pow : p.powers) {
-            if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Artifact")) {
-                debuffs.add(pow);
-            }
-        }
-
-        if (!debuffs.isEmpty()) {
-            AbstractPower randomDebuff = debuffs.get(AbstractDungeon.cardRandomRng.random(debuffs.size() - 1));
+        if (m != null && m.hasPower("Artifact")) {
             AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(p, p, randomDebuff)
+                    new RemoveSpecificPowerAction(m, p, "Artifact")
             );
         }
     }
