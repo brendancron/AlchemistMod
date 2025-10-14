@@ -101,7 +101,7 @@
   },
   "TheAlchemist:Gust": {
     "NAME": "Gust",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL thealchemist:Combo thealchemist:Air to draw another."
+    "DESCRIPTION": "Draw !M! cards. NL thealchemist:Combo thealchemist:Air costs 1 less."
   },
   "TheAlchemist:HeatingUp": {
     "NAME": "Heating Up",
@@ -172,7 +172,7 @@
   },
   "TheAlchemist:Splatter": {
     "NAME": "Splatter",
-    "DESCRIPTION": "Discard your last potion. NL Deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Water Deal an additional 50% to ALL enemies."
   },
   "TheAlchemist:SonicBlast": {
     "NAME": "Sonic Blast",
@@ -184,7 +184,7 @@
   },
   "TheAlchemist:ThickGuard": {
     "NAME": "Thick Guard",
-    "DESCRIPTION": "Gain !B! Block. NL Scales with dexterity !M! times."
+    "DESCRIPTION": "Gain !B! Block. NL thealchemist:Combo thealchemist:Earth block twice the amount."
   },
   "TheAlchemist:Wildfire": {
     "NAME": "Wildfire",
@@ -250,7 +250,7 @@
   },
   "TheAlchemist:GoldNugget": {
     "NAME": "Gold Nugget",
-    "DESCRIPTION": "Unplayable. NL Ethereal. NL When exhausted gain !M! gold."
+    "DESCRIPTION": "Gain !M! gold. NL exhaust."
   },
   "TheAlchemist:Ionization": {
     "NAME": "Ionization",
@@ -396,8 +396,8 @@
   },
   "TheAlchemist:Splash": {
     "NAME": "Splash",
-    "DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Discard potion. NL If it effects enemies, apply effect to ALL enemies."
+    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove a random debuff. NL exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove a random debuff."
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",

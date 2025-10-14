@@ -20,7 +20,7 @@ public class DivineStrike extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE = 8;
 
     public static final String ID = AlchemistMod.makeID(DivineStrike.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

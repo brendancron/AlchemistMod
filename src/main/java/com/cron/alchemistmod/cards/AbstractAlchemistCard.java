@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.Gdx;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.powers.AbstractElement;
+import com.cron.alchemistmod.util.CardImageRegistry;
 import com.cron.alchemistmod.util.ExhaustDecision;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
@@ -28,6 +29,12 @@ public abstract class AbstractAlchemistCard extends CustomCard {
 
     @Override
     public void loadCardImage(String img) {
+        String cachedSrc = CardImageRegistry.tryGet(getClass());
+        if (!cachedSrc.isEmpty()) {
+            super.loadCardImage(cachedSrc);
+            return;
+        }
+
         String resolvedImg = img;
 
         // Check if the main image exists
@@ -54,7 +61,7 @@ public abstract class AbstractAlchemistCard extends CustomCard {
             // Optional log
             System.out.println("[AlchemistMod] Using fallback image: " + resolvedImg);
         }
-
+        CardImageRegistry.addImgSrc(getClass(), resolvedImg);
         // Delegate back to base implementation (keeps caching + beta handling)
         super.loadCardImage(resolvedImg);
     }

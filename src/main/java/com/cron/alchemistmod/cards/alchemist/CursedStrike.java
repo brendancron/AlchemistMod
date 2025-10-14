@@ -20,8 +20,8 @@ public class CursedStrike extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 15;
-    private static final int DAMAGE_UPGRADE = 5;
+    private static final int DAMAGE = 16;
+    private static final int DAMAGE_UPGRADE = 4;
 
     public static final String ID = AlchemistMod.makeID(CursedStrike.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

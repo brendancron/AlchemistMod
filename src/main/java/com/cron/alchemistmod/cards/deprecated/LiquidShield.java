@@ -17,7 +17,7 @@ public class LiquidShield extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int BLOCK = 12;
     private static final int BLOCK_UPGRADE = 4;
 
@@ -41,10 +41,10 @@ public class LiquidShield extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new RemovePotionAction(p, false)
+            new RemovePotionAction(p, false)
         );
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, this.block)
+            new GainBlockAction(p, p, this.block)
         );
     }
 }

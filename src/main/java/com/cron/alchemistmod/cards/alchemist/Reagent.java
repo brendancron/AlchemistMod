@@ -14,12 +14,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.Objects;
 
 public class Reagent extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
 
     public static final String ID = AlchemistMod.makeID(Reagent.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);

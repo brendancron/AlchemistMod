@@ -1,14 +1,20 @@
-package com.cron.alchemistmod.cards.deprecated;
+package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.actions.RemovePotionAndApplyToAllAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.WaterElement;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.ArrayList;
 
 public class Splash extends AbstractAlchemistCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -41,7 +47,21 @@ public class Splash extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new RemovePotionAndApplyToAllAction(p, false)
+            new ApplyPowerAction(p, p, new WaterElement(p, p, 1), 1)
         );
+
+        ArrayList<AbstractPower> debuffs = new ArrayList<>();
+        for (AbstractPower pow : p.powers) {
+            if (pow.type == AbstractPower.PowerType.DEBUFF && !pow.ID.equals("Artifact")) {
+                debuffs.add(pow);
+            }
+        }
+
+        if (!debuffs.isEmpty()) {
+            AbstractPower randomDebuff = debuffs.get(AbstractDungeon.cardRandomRng.random(debuffs.size() - 1));
+            AbstractDungeon.actionManager.addToBottom(
+                new RemoveSpecificPowerAction(p, p, randomDebuff)
+            );
+        }
     }
 }

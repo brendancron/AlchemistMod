@@ -16,29 +16,28 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Gust extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 9;
-    private static final int DAMAGE_UPGRADE = 3;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPGRADE = 1;
 
     public static final String ID = AlchemistMod.makeID(Gust.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public Gust() {
         super(ID, CARD_STRINGS.NAME, Gust.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseDamage = DAMAGE;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(DAMAGE_UPGRADE);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.initializeDescription();
         }
     }
@@ -48,12 +47,19 @@ public class Gust extends AbstractAlchemistCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(1));
+                new DrawCardAction(this.magicNumber));
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        this.setCostForTurn(this.cost);
         if (AbstractElement.hasElement(AirElement.class)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DrawCardAction(1));
+            this.setCostForTurn(Math.max(0, this.costForTurn - 1));
+            this.isCostModifiedForTurn = true;
         }
     }
+
 
     @Override
     public void triggerOnGlowCheck() {

@@ -3,7 +3,11 @@ package com.cron.alchemistmod.cards.alchemist;
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.powers.AbstractElement;
+import com.cron.alchemistmod.powers.EarthElement;
+import com.cron.alchemistmod.powers.WaterElement;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,15 +15,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ThickGuard extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
-    private static final int BLOCK = 11;
-    private static final int MAGIC = 3;
-    private static final int MAGIC_UPGRADE = 2;
+    private static final int BLOCK = 10;
 
     public static final String ID = AlchemistMod.makeID(ThickGuard.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -27,13 +29,11 @@ public class ThickGuard extends AbstractAlchemistCard {
     public ThickGuard() {
         super(ID, CARD_STRINGS.NAME, ThickGuard.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeMagicNumber(MAGIC_UPGRADE);
             this.upgradeName();
             this.initializeDescription();
         }
@@ -41,18 +41,20 @@ public class ThickGuard extends AbstractAlchemistCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int amount = this.block;
+        if (AbstractElement.hasElement(EarthElement.class)) {
+            amount *= 2;
+        }
         AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(p, p, this.block));
+                new GainBlockAction(p, p, amount));
     }
 
-    public void applyPowers() {
-        int realBaseBlock = this.baseBlock;
-        if (AbstractDungeon.player.hasPower("Dexterity")) {
-            int dex = AbstractDungeon.player.getPower("Dexterity").amount;
-            this.baseBlock += dex * (this.magicNumber - 1);
+    @Override
+    public void triggerOnGlowCheck() {
+        if (AbstractElement.hasElement(EarthElement.class)) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
-        super.applyPowers();
-        this.baseBlock = realBaseBlock;
-        this.isBlockModified = this.block != this.baseBlock;
     }
 }

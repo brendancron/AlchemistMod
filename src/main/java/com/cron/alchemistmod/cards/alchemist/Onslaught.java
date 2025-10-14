@@ -13,14 +13,14 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Onslaught extends AbstractAlchemistCard {
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
     private static final int DAMAGE = 1;
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 5;
     private static final int MAGIC_UPGRADE = 2;
 
     public static final String ID = AlchemistMod.makeID(Onslaught.class.getSimpleName());

@@ -1,4 +1,4 @@
-package com.cron.alchemistmod.cards.deprecated;
+package com.cron.alchemistmod.cards.alchemist;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;

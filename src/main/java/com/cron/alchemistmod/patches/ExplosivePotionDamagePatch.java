@@ -42,7 +42,7 @@ public class ExplosivePotionDamagePatch {
             new DamageAllEnemiesAction(
                 player,
                 DamageInfo.createDamageMatrix(potency, true),
-                DamageInfo.DamageType.NORMAL,
+                DamageInfo.DamageType.THORNS,
                 AbstractGameAction.AttackEffect.NONE
             )
         );
