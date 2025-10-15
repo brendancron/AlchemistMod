@@ -25,6 +25,7 @@ public class AquaVitae extends AbstractAlchemistCard {
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
     private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
 
     public static final String ID = AlchemistMod.makeID(AquaVitae.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -40,7 +41,7 @@ public class AquaVitae extends AbstractAlchemistCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 

@@ -197,8 +197,7 @@
   },
   "TheAlchemist:AquaVitae": {
     "NAME": "AquaVitae",
-    "DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn."
+    "DESCRIPTION": "Choose 1 of 3 random cards to add into your hand. NL thealchemist:Combo thealchemist:Water it costs 0 this turn. NL Exhaust."
   },
   "TheAlchemist:Bezoar": {
     "NAME": "Bezoar",

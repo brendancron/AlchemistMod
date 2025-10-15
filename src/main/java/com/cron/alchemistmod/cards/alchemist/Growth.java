@@ -19,7 +19,7 @@ public class Growth extends AbstractAlchemistCard {
 
     private static final int COST = 1;
 
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 4;
     private static final int MAGIC_UPGRADE = -1;
 
     public static final String ID = AlchemistMod.makeID(Growth.class.getSimpleName());
