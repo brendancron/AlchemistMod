@@ -6,6 +6,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.ToxicPower;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,6 +32,7 @@ public class SpiritOfVitriol extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, SpiritOfVitriol.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
+        this.tags.add(CustomTags.WATER_ELEMENT);
     }
 
     @Override

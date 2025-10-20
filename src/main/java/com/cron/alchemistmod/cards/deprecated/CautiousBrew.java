@@ -5,6 +5,7 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.EarthElement;
 import com.cron.alchemistmod.powers.FireElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,6 +29,8 @@ public class CautiousBrew extends AbstractAlchemistCard {
     public CautiousBrew() {
         super(ID, CARD_STRINGS.NAME, CautiousBrew.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.tags.add(CustomTags.EARTH_ELEMENT);
+        this.tags.add(CustomTags.FIRE_ELEMENT);
     }
 
     @Override

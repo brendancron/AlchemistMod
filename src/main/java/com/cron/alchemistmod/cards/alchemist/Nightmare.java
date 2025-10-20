@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.DarkElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,6 +33,7 @@ public class Nightmare extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, Nightmare.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
         this.baseMagicNumber = this.magicNumber = MAGIC;
+        this.tags.add(CustomTags.DARK_ELEMENT);
     }
 
     @Override

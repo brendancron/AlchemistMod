@@ -5,6 +5,7 @@ import com.cron.alchemistmod.actions.DivineStrikeAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.LightElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,6 +30,7 @@ public class DivineStrike extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, DivineStrike.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.tags.add(CardTags.STRIKE);
+        this.tags.add(CustomTags.LIGHT_ELEMENT);
         this.misc = 0;
         this.exhaust = true;
     }

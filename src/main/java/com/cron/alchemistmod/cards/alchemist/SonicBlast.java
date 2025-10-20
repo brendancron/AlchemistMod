@@ -5,6 +5,7 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.AirElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,6 +32,7 @@ public class SonicBlast extends AbstractAlchemistCard {
     public SonicBlast() {
         super(ID, CARD_STRINGS.NAME, SonicBlast.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
+        this.tags.add(CustomTags.AIR_ELEMENT);
     }
 
     @Override

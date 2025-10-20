@@ -5,6 +5,7 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -34,6 +35,7 @@ public class Injection extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, Injection.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.tags.add(CustomTags.WATER_ELEMENT);
     }
 
     @Override

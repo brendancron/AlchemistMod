@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -28,6 +29,7 @@ public class WaterBubble extends AbstractAlchemistCard {
     public WaterBubble() {
         super(ID, CARD_STRINGS.NAME, WaterBubble.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
+        this.tags.add(CustomTags.WATER_ELEMENT);
     }
 
     @Override

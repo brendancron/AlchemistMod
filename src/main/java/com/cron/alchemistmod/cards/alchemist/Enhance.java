@@ -16,8 +16,9 @@ public class Enhance extends AbstractAlchemistCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheAlchemist.Enums.ALCHEMIST;
 
-    private static final int COST = 1;
-    private static final int COST_UPGRADE = 1;
+    private static final int COST = 0;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_UPGRADE = 1;
 
     public static final String ID = AlchemistMod.makeID(Enhance.class.getSimpleName());
     public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -25,19 +26,20 @@ public class Enhance extends AbstractAlchemistCard {
     public Enhance() {
         super(ID, CARD_STRINGS.NAME, Enhance.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(COST_UPGRADE);
+            this.upgradeMagicNumber(MAGIC_UPGRADE);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DiscardAndReduceAction(p));
+        this.addToBot(new DiscardAndReduceAction(p, this.magicNumber));
     }
 
 }

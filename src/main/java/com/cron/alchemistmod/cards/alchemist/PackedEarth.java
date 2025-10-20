@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.PackedEarthPower;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,6 +29,7 @@ public class PackedEarth extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, PackedEarth.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = MAGIC;
         this.exhaust = true;
+        this.tags.add(CustomTags.EARTH_ELEMENT);
     }
 
     @Override

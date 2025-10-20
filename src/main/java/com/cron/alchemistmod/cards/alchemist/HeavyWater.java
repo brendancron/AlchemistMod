@@ -6,6 +6,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.ToxicPower;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -35,6 +36,7 @@ public class HeavyWater extends AbstractAlchemistCard {
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
+        this.tags.add(CustomTags.WATER_ELEMENT);
     }
 
     @Override

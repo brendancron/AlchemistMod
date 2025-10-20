@@ -7,6 +7,10 @@
     "NAME": "Blind Brew",
     "DESCRIPTIONS": ["At the start of your turn, gain the effect of a random positive or negative potion."]
   },
+  "TheAlchemist:ElementalPurge": {
+    "NAME": "Elemental Purge",
+    "DESCRIPTIONS": ["Choose an element. Remove all instances of that element from your deck and card pool."]
+  },
   "TheAlchemist:Garden": {
     "NAME": "Garden",
     "DESCRIPTIONS": ["At the start of combat, gain a random #ythealchemist:Primary or #ythealchemist:Secondary #ythealchemist:Element_Card"]

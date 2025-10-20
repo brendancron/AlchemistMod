@@ -6,6 +6,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.EarthElement;
 import com.cron.alchemistmod.powers.FireElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -35,6 +36,8 @@ public class ShiftingSand extends AbstractAlchemistCard {
         super(ID, CARD_STRINGS.NAME, ShiftingSand.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.baseBlock = BLOCK;
+        this.tags.add(CustomTags.FIRE_ELEMENT);
+        this.tags.add(CustomTags.EARTH_ELEMENT);
     }
 
     @Override

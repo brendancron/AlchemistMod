@@ -12,14 +12,16 @@ import org.slf4j.LoggerFactory;
 
 public class DiscardAndReduceAction extends AbstractGameAction {
     private final AbstractPlayer p;
+    private final int amount;
     private static final float DURATION = Settings.ACTION_DUR_FAST;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DiscardAndReduceAction.class);
 
-    public DiscardAndReduceAction(AbstractPlayer p) {
+    public DiscardAndReduceAction(AbstractPlayer p, int amount) {
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.p = p;
+        this.amount = amount;
     }
 
     public void update() {
@@ -34,7 +36,7 @@ public class DiscardAndReduceAction extends AbstractGameAction {
                 return;
             }
 
-            AbstractDungeon.handCardSelectScreen.open("Select a card to discard", 1, false, false);
+            AbstractDungeon.handCardSelectScreen.open("Select a card to discard", amount, true, true);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;

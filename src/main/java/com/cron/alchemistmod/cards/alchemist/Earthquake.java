@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.TremorPower;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -35,6 +36,7 @@ public class Earthquake extends AbstractAlchemistCard {
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = this.magicNumber = MAGIC;
         this.isMultiDamage = MULTI_DAMAGE;
+        this.tags.add(CustomTags.EARTH_ELEMENT);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.cron.alchemistmod.cards.colorless;
 
 import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,6 +29,7 @@ public class FireElementCard extends AbstractAlchemistCard {
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.isEthereal = true;
         this.exhaust = true;
+        this.tags.add(CustomTags.FIRE_ELEMENT);
     }
 
     @Override

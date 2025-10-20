@@ -5,6 +5,7 @@ import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.BlackHolePower;
 import com.cron.alchemistmod.powers.DarkElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,6 +27,7 @@ public class BlackHole extends AbstractAlchemistCard {
 
     public BlackHole() {
         super(ID, CARD_STRINGS.NAME, BlackHole.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(CustomTags.DARK_ELEMENT);
     }
 
     @Override

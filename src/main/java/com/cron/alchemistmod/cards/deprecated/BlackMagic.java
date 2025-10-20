@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.actions.BlackMagicAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,6 +27,7 @@ public class BlackMagic extends AbstractAlchemistCard {
         this.exhaust = true;
         this.selfRetain = true;
         this.tags.add(CardTags.HEALING);
+        this.tags.add(CustomTags.MAGIC_ELEMENT);
     }
 
     @Override

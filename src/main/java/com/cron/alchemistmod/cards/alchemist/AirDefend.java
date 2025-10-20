@@ -4,6 +4,7 @@ import com.cron.alchemistmod.AlchemistMod;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AirElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -30,6 +31,7 @@ public class AirDefend extends AbstractAlchemistCard {
         this.baseBlock = BLOCK;
 
         this.tags.add(CardTags.STARTER_DEFEND);
+        this.tags.add(CustomTags.AIR_ELEMENT);
     }
 
     @Override

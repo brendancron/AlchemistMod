@@ -6,6 +6,7 @@ import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.AbstractElement;
 import com.cron.alchemistmod.powers.EarthElement;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,6 +30,7 @@ public class ThickGuard extends AbstractAlchemistCard {
     public ThickGuard() {
         super(ID, CARD_STRINGS.NAME, ThickGuard.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseBlock = BLOCK;
+        this.tags.add(CustomTags.EARTH_ELEMENT);
     }
 
     @Override

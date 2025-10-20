@@ -237,7 +237,7 @@
   },
   "TheAlchemist:Enhance": {
     "NAME": "Enhance",
-    "DESCRIPTION": "Discard a card. NL It costs one less this combat. NL Exhaust."
+    "DESCRIPTION": "Discard !M! cards. NL They cost one less this combat. NL Exhaust."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -395,8 +395,8 @@
   },
   "TheAlchemist:Splash": {
     "NAME": "Splash",
-    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove a random debuff. NL exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove a random debuff."
+    "DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove all artifact. NL exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 thealchemist:Water thealchemist:Element. NL Remove all artifact."
   },
   "TheAlchemist:Sublimation": {
     "NAME": "Sublimation",

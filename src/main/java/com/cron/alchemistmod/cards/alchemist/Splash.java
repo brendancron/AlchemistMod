@@ -5,6 +5,7 @@ import com.cron.alchemistmod.actions.RemovePotionAndApplyToAllAction;
 import com.cron.alchemistmod.cards.AbstractAlchemistCard;
 import com.cron.alchemistmod.characters.TheAlchemist;
 import com.cron.alchemistmod.powers.WaterElement;
+import com.cron.alchemistmod.util.CustomTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,6 +32,7 @@ public class Splash extends AbstractAlchemistCard {
     public Splash() {
         super(ID, CARD_STRINGS.NAME, Splash.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.tags.add(CustomTags.WATER_ELEMENT);
     }
 
     @Override
