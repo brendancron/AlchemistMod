@@ -152,7 +152,7 @@
   },
   "TheAlchemist:Recipes": {
     "NAME": "Recipes",
-    "DESCRIPTION": "Deal !D! damage. NL The next !M! cards you would exhaust this turn, discard instead. NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage. NL The next !M! cards you would exhaust, discard instead. NL Exhaust"
   },
   "TheAlchemist:Reverberation": {
     "NAME": "Reverberation",

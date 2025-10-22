@@ -49,13 +49,6 @@ public class NextExhaustBecomesDiscardPower extends AbstractAlchemistPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        AbstractDungeon.actionManager.addToBottom(
-            new RemoveSpecificPowerAction(this.owner, this.owner, this.ID)
-        );
-    }
-
-    @Override
     public void updateDescription() {
         if (this.amount == 1) {
             this.description = "The next card you Exhaust is instead placed into your Discard Pile.";
