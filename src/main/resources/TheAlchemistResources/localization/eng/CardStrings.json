@@ -41,8 +41,8 @@
   },
   "TheAlchemist:CardBottler": {
     "NAME": "Card Bottler",
-    "DESCRIPTION": "Select and pay for a card. Create a Bottled Potion of that card.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Select and pay for a card. Create a Bottled Potion of that card."
+    "DESCRIPTION": "Select and pay for a card. Create a Bottled Potion of that card. NL exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Select and pay for a card. Create a Bottled Potion of that card. NL exhaust."
   },
   "TheAlchemist:ChemicalBuffer": {
     "NAME": "Chemical Buffer",
@@ -176,7 +176,7 @@
   },
   "TheAlchemist:SonicBlast": {
     "NAME": "Sonic Blast",
-    "DESCRIPTION": "Deal !D! damage. NL thealchemist:Combo thealchemist:Air Draw 2 cards."
+    "DESCRIPTION": "Discard your hand. NL Deal !D! damage for each card discarded."
   },
   "TheAlchemist:TheStone": {
     "NAME": "The Stone",
@@ -218,8 +218,7 @@
   },
   "TheAlchemist:Breezy": {
     "NAME": "Breezy",
-    "DESCRIPTION": "Whenever you play a card this turn, discard your !M! leftmost card, then draw that many cards.",
-    "UPGRADE_DESCRIPTION": "Whenever you play a card this turn, discard your !M! leftmost cards, then draw that many cards."
+    "DESCRIPTION": "Gain 1 thealchemist:Breezy. NL thealchemist:Combo thealchemist:Air Gain 2 thealchemist:Breezy."
   },
   "TheAlchemist:CautiousBrew": {
     "NAME": "Cautious Brew",
@@ -237,7 +236,8 @@
   },
   "TheAlchemist:Enhance": {
     "NAME": "Enhance",
-    "DESCRIPTION": "Discard !M! cards. NL They cost one less this combat. NL Exhaust."
+    "DESCRIPTION": "Discard 1 card. NL It costs one less this combat. NL Gain 1 thealchemist:Air thealchemist:Element. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard 1 card. NL It costs one less this combat. NL Gain 1 thealchemist:Air thealchemist:Element. NL Exhaust."
   },
   "TheAlchemist:Explosion": {
     "NAME": "Explosion",
@@ -304,6 +304,11 @@
   "TheAlchemist:UnstableElixir": {
     "NAME": "Unstable Elixir",
     "DESCRIPTION": "If you play all thealchemist:Primary thealchemist:Elements this turn, deal !M! damage to ALL enemies."
+  },
+  "TheAlchemist:WhisperingGale": {
+    "NAME": "Whispering Gale",
+    "DESCRIPTION": "Unplayable. NL When discarded, gain 1 Air Element and Exhaust.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When discarded, gain 1 Air Element."
   },
   "TheAlchemist:Enchantment": {
     "NAME": "Enchantment",

@@ -74,6 +74,14 @@
     "DESCRIPTION": "Element Cards are #b0 cost Skill cards which Exhaust. NL Each provides a different element."
   },
   {
+    "PROPER_NAME": "Breezy",
+    "NAMES": [
+      "Breezy",
+      "breezy"
+    ],
+    "DESCRIPTION": "Whenever you play a card this turn, discard your leftmost card(s) and draw that many."
+  },
+  {
     "NAMES": [
       "buffer"
     ],

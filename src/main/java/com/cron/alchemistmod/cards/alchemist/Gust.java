@@ -47,9 +47,9 @@ public class Gust extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
+            new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(this.magicNumber));
+            new DrawCardAction(this.magicNumber));
     }
 
     @Override

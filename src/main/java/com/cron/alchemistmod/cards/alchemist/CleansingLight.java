@@ -45,11 +45,11 @@ public class CleansingLight extends AbstractAlchemistCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
+            new ApplyPowerAction(p, p, new LightElement(p, p, 1), 1)
         );
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new RetainThisTurnPower(p, this.magicNumber), this.magicNumber)
+            new ApplyPowerAction(p, p, new RetainThisTurnPower(p, this.magicNumber), this.magicNumber)
         );
     }
 }
