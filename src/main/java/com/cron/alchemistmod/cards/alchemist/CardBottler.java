@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CardBottler extends AbstractAlchemistCard {
     public static final String ID = AlchemistMod.makeID(CardBottler.class.getSimpleName());
@@ -27,6 +29,8 @@ public class CardBottler extends AbstractAlchemistCard {
 
     private static final int COST = 1;
     private static final int MAGIC = 1;
+
+    private static final Logger LOGGER = LogManager.getLogger(CardBottler.class);
 
     public CardBottler() {
         super(ID, CARD_STRINGS.NAME, CardBottler.class, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -64,10 +68,16 @@ public class CardBottler extends AbstractAlchemistCard {
 
         AbstractDungeon.actionManager.addToBottom(
             new SelectAndPayForCardAction(p, (chosenCard) -> {
+
+                boolean isPermanent = AbstractDungeon.player.masterDeck.group
+                    .stream()
+                    .anyMatch(c -> c.uuid.equals(chosenCard.uuid));
+
+                LOGGER.info("IsPermanent {}", isPermanent);
                 AbstractDungeon.actionManager.addToBottom(
                     new PurgeCardAction(p, chosenCard)
                 );
-                AbstractPotion bottledPotion = new BottledPotion(chosenCard);
+                AbstractPotion bottledPotion = new BottledPotion(chosenCard, isPermanent);
                 AbstractDungeon.actionManager.addToBottom(
                     new ObtainPotionAction(bottledPotion)
                 );

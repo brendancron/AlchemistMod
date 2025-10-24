@@ -21,20 +21,23 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
     private static final Logger LOGGER = LogManager.getLogger(BottledPotion.class);
 
     private AbstractCard bottledCard;
+    private boolean addBack;
 
     public BottledPotion() {
         super("Empty Bottled Potion", POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.BOTTLE, PotionColor.SMOKE);
         this.potency = getPotency(0);
     }
 
-    public BottledPotion(AbstractCard card) {
+    public BottledPotion(AbstractCard card, boolean addBack) {
         super(getPotionName(card), POTION_ID, PotionRarity.PLACEHOLDER, PotionSize.BOTTLE, PotionColor.SMOKE);
         this.potency = getPotency(0);
-        initCard(card);
+        initCard(card, addBack);
     }
 
-    public void initCard(AbstractCard card) {
+    public void initCard(AbstractCard card, boolean addBack) {
         this.name = getPotionName(card);
+        this.addBack = addBack;
+
         bottledCard = card.makeStatEquivalentCopy();
 
         this.targetRequired = (bottledCard.target == AbstractCard.CardTarget.ENEMY);
@@ -75,17 +78,19 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
                 cardCopy.use(AbstractDungeon.player, null);
         }
 
-        // discard or exhaust it
-        if (cardCopy.exhaustOnUseOnce || cardCopy.exhaust) {
-            AbstractDungeon.player.exhaustPile.addToTop(cardCopy);
-        } else {
-            AbstractDungeon.player.discardPile.addToTop(cardCopy);
-        }
+        if (addBack) {
+            // discard or exhaust it
+            if (cardCopy.exhaustOnUseOnce || cardCopy.exhaust) {
+                AbstractDungeon.player.exhaustPile.addToTop(cardCopy);
+            } else {
+                AbstractDungeon.player.discardPile.addToTop(cardCopy);
+            }
 
-        // Add the card back into your deck!
-        AbstractCard cardToAdd = bottledCard.makeStatEquivalentCopy();
-        cardToAdd.resetAttributes();
-        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardToAdd, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+            // Add the card back into your deck!
+            AbstractCard cardToAdd = bottledCard.makeStatEquivalentCopy();
+            cardToAdd.resetAttributes();
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(cardToAdd, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+        }
     }
 
     @Override
@@ -95,7 +100,7 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
 
     @Override
     public AbstractPotion makeCopy() {
-        return new BottledPotion(bottledCard);
+        return new BottledPotion(bottledCard, false);
     }
 
     public static String getPotionName(AbstractCard card) {
@@ -106,6 +111,7 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
     public Object onSave() {
         LOGGER.info("Saving Bottled Potion");
         JsonObject obj = new JsonObject();
+        obj.addProperty("addBack", addBack);
         obj.addProperty("cardID", bottledCard.cardID);
         obj.addProperty("upgraded", bottledCard.upgraded);
         obj.addProperty("timesUpgraded", bottledCard.timesUpgraded);
@@ -119,6 +125,7 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
         if(o instanceof JsonObject) {
             LOGGER.info("Loading Bottled Potion");
             JsonObject obj = ((JsonObject )o);
+            boolean addBack = obj.get("addBack").getAsBoolean();
             String cardID = obj.get("cardID").getAsString();
             AbstractCard card = CardLibrary.getCard(cardID).makeCopy();
             card.upgraded = obj.get("upgraded").getAsBoolean();
@@ -128,8 +135,8 @@ public class BottledPotion extends AbstractPotion implements CustomSavable {
             }
             card.magicNumber = obj.get("magicNumber").getAsInt();
             card.misc = obj.get("misc").getAsInt();
-            LOGGER.info("Card ID: {}, Upgraded {}, Times Upgraded {}, Magic {}", cardID, card.upgraded, card.timesUpgraded, card.magicNumber);
-            initCard(card);
+            LOGGER.info("Card ID: {}, Upgraded {}, Times Upgraded {}, Magic {}, AddBack {}", cardID, card.upgraded, card.timesUpgraded, card.magicNumber, addBack);
+            initCard(card, addBack);
         }
     }
 

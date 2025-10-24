@@ -58,7 +58,7 @@ public class BottleCommand extends ConsoleCommand {
         }
 
         // Create and add the potion
-        BottledPotion potion = new BottledPotion(card);
+        BottledPotion potion = new BottledPotion(card, true);
         AbstractDungeon.player.obtainPotion(potion);
         System.out.println("Bottled: " + card.name + (upgradeCount > 0 ? " (+" + upgradeCount + ")" : ""));
     }
