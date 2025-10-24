@@ -192,8 +192,7 @@
   },
   "TheAlchemist:Alkahest": {
     "NAME": "Alkahest",
-    "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as exhaustable cards to your draw pie.",
-    "UPGRADE_DESCRIPTION": "Discard a potion. NL Gain its thealchemist:Elements as exhaustable cards to your hand."
+    "DESCRIPTION": "Discard a potion. NL Add its thealchemist:Elements as cards to your hand."
   },
   "TheAlchemist:AquaVitae": {
     "NAME": "AquaVitae",

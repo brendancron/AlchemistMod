@@ -22,24 +22,24 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
     private final boolean first;
     public final AbstractPlayer player;
     public final int amount;
-    public final boolean doubleCards;
+    public final int elementsGained;
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
 
     private CardLocation cardLocation;
 
-    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, int amount, boolean doubleCards, CardLocation cardLocation) {
+    public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, int amount, int elementsGained, CardLocation cardLocation) {
         this.actionType = ActionType.SPECIAL;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.first = first;
         this.player = player;
         this.amount = amount;
-        this.doubleCards = doubleCards;
+        this.elementsGained = elementsGained;
         this.cardLocation = cardLocation;
     }
 
     public RemovePotionAndGainElementCardAction(AbstractPlayer player, boolean first, CardLocation cardLocation) {
-        this(player, first, 1, false, cardLocation);
+        this(player, first, 1, 1, cardLocation);
     }
 
     public RemovePotionAndGainElementCardAction(AbstractPlayer player, CardLocation cardLocation) {
@@ -69,15 +69,9 @@ public class RemovePotionAndGainElementCardAction extends AbstractGameAction {
                     Element[] elements = PotionElements.getElements(potion);
                     if (elements != null) {
                         for (Element element : elements) {
-                            if (doubleCards) {
-                                AbstractDungeon.actionManager.addToBottom(
-                                    cardLocation.GetAction(element.getCard(), 1, false)
-                                );
-                            } else {
-                                AbstractDungeon.actionManager.addToBottom(
-                                        cardLocation.GetAction(element.getCard(), 2, false)
-                                );
-                            }
+                            AbstractDungeon.actionManager.addToBottom(
+                                cardLocation.GetAction(element.getCard(), this.elementsGained, false)
+                            );
                         }
                     }
                 }
